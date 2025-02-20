@@ -889,8 +889,8 @@ GameObject:
   - component: {fileID: 1626098281}
   - component: {fileID: 1626098280}
   - component: {fileID: 1626098283}
-  - component: {fileID: 1626098284}
   - component: {fileID: 1626098285}
+  - component: {fileID: 1626098286}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1054,19 +1054,6 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &1626098284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626098278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8593db603c07be45b94ca18d58e05dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 4
 --- !u!58 &1626098285
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1103,6 +1090,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.57, y: -0.38}
   m_Radius: 1.25
+--- !u!114 &1626098286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626098278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1989bdf80ef0ed041b5dc310d8c11cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  angleDelta: -60
 --- !u!114 &2107154038
 MonoBehaviour:
   m_ObjectHideFlags: 0
