@@ -214,7 +214,7 @@ Camera:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -223,7 +223,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 39.250233
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -238,7 +238,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 34
+  field of view: 90
   orthographic: 1
   orthographic size: 5
   m_Depth: -1
@@ -286,6 +286,8 @@ MonoBehaviour:
   target: {fileID: 1626098282}
   smoothSpeed: 0.3
   offset: {x: 0, y: 0, z: -10}
+  edgeThreshold: 0.2
+  maxLookAhead: 2
 --- !u!1 &545667254 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5845808778970018528, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
@@ -1099,11 +1101,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1626098278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1989bdf80ef0ed041b5dc310d8c11cdd, type: 3}
+  m_Script: {fileID: 11500000, guid: 13a1ea70e03baea4d8e04bf159fe9617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  angleDelta: -60
 --- !u!114 &2107154038
 MonoBehaviour:
   m_ObjectHideFlags: 0

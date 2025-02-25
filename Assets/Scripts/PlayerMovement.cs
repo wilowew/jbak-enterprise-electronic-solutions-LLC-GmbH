@@ -2,20 +2,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float angleDelta = 1f;
+    public float moveSpeed = 5f; // Переменные
     private Rigidbody2D rb;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>(); // Находим компонент Rigidbody2D
     }
 
     void Update()
     {
-        float moveX = Input.GetAxis("Horizontal");
-        float moveY = Input.GetAxis("Vertical");
-        Vector2 movement = new Vector2(moveX, moveY).normalized;
+        float moveX = Input.GetAxisRaw("Horizontal"); // Перемещение персонажа с резкой остановкой
+        float moveY = Input.GetAxisRaw("Vertical");
+        Vector2 movement = new Vector2(moveX, moveY).normalized; // Создаём нормализованный вектор, по которому происходит перемещение персонажа
         rb.linearVelocity = movement * moveSpeed;
 
         RotateTowardsMouse();
@@ -23,11 +22,11 @@ public class PlayerMovement : MonoBehaviour
 
     void RotateTowardsMouse()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); // Позиция курсора в мировых координатах юнити
         mousePosition.z = 0;
 
-        Vector3 direction = (mousePosition - transform.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + angleDelta;
+        Vector3 direction = (mousePosition - transform.position).normalized; // Вычисление направления от персонажа к курсору
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // Вычисление угла поворота и его применение
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 }
