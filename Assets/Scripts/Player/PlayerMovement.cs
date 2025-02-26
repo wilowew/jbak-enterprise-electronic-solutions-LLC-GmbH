@@ -5,13 +5,22 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f; // Переменные
     private Rigidbody2D rb;
 
+    private PauseManager pauseManager;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Находим компонент Rigidbody2D
+        pauseManager = Object.FindFirstObjectByType<PauseManager>(); // Новый метод Unity по поиску объекта
     }
 
     void Update()
     {
+        if (pauseManager != null && pauseManager.IsPaused)
+        {
+            rb.linearVelocity = Vector2.zero; // Останавливаем движение, если пауза
+            return;
+        }
+
         float moveX = Input.GetAxisRaw("Horizontal"); // Перемещение персонажа с резкой остановкой
         float moveY = Input.GetAxisRaw("Vertical");
         Vector2 movement = new Vector2(moveX, moveY).normalized; // Создаём нормализованный вектор, по которому происходит перемещение персонажа

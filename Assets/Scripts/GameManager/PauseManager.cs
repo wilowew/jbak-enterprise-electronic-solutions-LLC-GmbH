@@ -11,6 +11,11 @@ public class PauseManager : MonoBehaviour
         TogglePause();
     }
 
+    public bool IsPaused
+    {
+        get { return isPaused; }
+    }
+
     private void TogglePause()
     {
         isPaused = !isPaused;
