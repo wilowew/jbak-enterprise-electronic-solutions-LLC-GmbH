@@ -756,7 +756,7 @@ MonoBehaviour:
       sizeOverridden: 0
     - dockPosition: 1
       containerId: overlay-container--right
-      displayed: 0
+      displayed: 1
       id: Scene View/Open Tile Palette
       index: 0
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":-139.2000732421875,"y":-44.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":3,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
@@ -977,9 +977,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 2.382657, y: -0.8457463, z: 0.010131613}
+    m_Target: {x: -1.2904884, y: -2.8663802, z: -0.005564997}
     speed: 2
-    m_Value: {x: 1.7319044, y: -0.63462996, z: 0.013998272}
+    m_Value: {x: -0.80060565, y: -2.77583, z: -0.00223615}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1029,9 +1029,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 8.979302
+    m_Target: 7.7303486
     speed: 2
-    m_Value: 8.592634
+    m_Value: 7.397463
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1211,24 +1211,24 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 55}
-      m_SelectedIDs: 1eaf0000
-      m_LastClickedID: 44830
-      m_ExpandedIDs: 98eaffff0cfbffffb6ae0000
+      scrollPos: {x: 0, y: 7}
+      m_SelectedIDs: 82eaffff
+      m_LastClickedID: -5502
+      m_ExpandedIDs: 7ec9ffffb2f9ffffc8b00000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Soundeffects
-        m_OriginalName: Soundeffects
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 44830
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 9}
@@ -1286,7 +1286,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Sprites/SuburbPack
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1296,16 +1296,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 68
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Sprites/SuburbPack
   m_LastFoldersGridSize: 68
   m_LastProjectPath: D:\GitWorks\jbak-enterprise-electronic-solutions-LLC-GmbH
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 74}
-    m_SelectedIDs: a8b10000
-    m_LastClickedID: 45480
-    m_ExpandedIDs: 00000000c4af0000a8b1000030b3000000ca9a3b
+    scrollPos: {x: 0, y: 122}
+    m_SelectedIDs: 98b10000
+    m_LastClickedID: 45464
+    m_ExpandedIDs: 0000000094b1000096b1000098b100009ab1000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1334,7 +1334,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c4af0000
+    m_ExpandedIDs: 0000000094b1000096b1000098b100009ab10000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1363,7 +1363,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c62300004a460000344e0000164e0000124700007c5b0000ec5b00009a620000a2580000d8580000fe5a0000f87300006a6e00006c6000004a5b000052880000385b0000de2000001e5900001e5d0000be6900004c590000045900007a9400007e94000036590000b8680000c4660000fa660000e2b60000f8b60000feb60000ca6400002c5e000008720000f8710000485b0000f4b2000014770000fe760000761e00000c7d00008a63000042b700005e630000e8eb00008c700000a86400003a6b0000d6610000d2420100dc6100001aa501007e6a0000c2830000028d0000867300008a730000927300008e730000e8650000a6220000a8930000ceac0000d6930000d895000068e602000422000000ee0500042300009c880000a08800008a740000bc6a00001ea90200bca60000c02400004043000042430000946e0000886f0000cc240000b08f0000f07800001c670000147b0000107b00001a7b0000000000008087000070bd00007aaf0000
+    m_ExpandedInstanceIDs: c62300004a460000344e0000164e0000124700007c5b0000ec5b00009a620000a2580000d8580000fe5a0000f87300006a6e00006c6000004a5b000052880000385b0000de2000001e5900001e5d0000be6900004c590000045900007a9400007e94000036590000b8680000c4660000fa660000e2b60000f8b60000feb60000ca6400002c5e000008720000f8710000485b0000f4b2000014770000fe760000761e00000c7d00008a63000042b700005e630000e8eb00008c700000a86400003a6b0000d6610000d2420100dc6100001aa501007e6a0000c2830000028d0000867300008a730000927300008e730000e8650000a6220000a8930000ceac0000d6930000d895000068e602000422000000ee0500042300009c880000a08800008a740000bc6a00001ea90200bca60000c02400004043000042430000946e0000886f0000cc240000b08f0000f07800001c670000147b0000107b00001a7b0000000000008087000070bd00007aaf0000c2b60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
