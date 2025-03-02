@@ -28,10 +28,6 @@ public class PauseManager : MonoBehaviour
         {
             pauseMenu.SetActive(isPaused);
         }
-
-        // Включаем/отключаем курсор
-        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
-        Cursor.visible = isPaused;
     }
 
     private void OnEnable()

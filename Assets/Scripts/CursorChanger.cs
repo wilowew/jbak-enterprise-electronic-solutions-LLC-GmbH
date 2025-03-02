@@ -7,6 +7,11 @@ public class CursorChanger : MonoBehaviour
 
     void Start()
     {
+        ApplyCustomCursor();
+    }
+
+    public void ApplyCustomCursor()
+    {
         Cursor.SetCursor(customCursor, hotspot, CursorMode.Auto);
     }
 }
