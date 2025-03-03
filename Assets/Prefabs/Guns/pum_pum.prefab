@@ -167,7 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91799c62d2d86e4eab52d29dfc1f37a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupKey: 102
   equippedOffset: {x: 0.25, y: -0.1, z: 0}
   angleOffset: 0
   dropDistance: 0.7

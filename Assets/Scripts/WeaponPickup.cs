@@ -1,7 +1,8 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class WeaponPickup : MonoBehaviour {
-    [SerializeField] private KeyCode pickupKey = KeyCode.F;
+public class WeaponPickup : MonoBehaviour 
+{
     [SerializeField] private Vector3 equippedOffset = new Vector3(0.5f, 0.2f, 0);
     [SerializeField] private float angleOffset = -90f;
     [SerializeField] private float dropDistance = 0.7f;
@@ -20,66 +21,111 @@ public class WeaponPickup : MonoBehaviour {
     private float nextFireTime;
     private AudioSource audioSource;
 
-    private void Awake() {
+    private PlayerInput playerInput;
+    private InputAction pickupAction;
+    private InputAction shootAction;
+
+    private void Awake() 
+    {
         weaponRb = GetComponent<Rigidbody2D>();
         weaponCollider = GetComponent<Collider2D>();
         audioSource = GetComponent<AudioSource>();
 
-        if (audioSource == null) {
+        if (audioSource == null) 
+        {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
     }
 
-    private void Update() {
-        HandleWeaponInteraction();
+    private void OnEnable()
+    {
+        playerInput = FindFirstObjectByType<PlayerInput>();
 
-        if (isEquipped) {
+        pickupAction = playerInput.actions["Pickup"];
+        shootAction = playerInput.actions["Shoot"];
+
+        pickupAction.performed += OnPickupPerformed;
+    }
+
+    private void OnDisable()
+    {
+        pickupAction.performed -= OnPickupPerformed;
+    }
+
+    private void Update() 
+    {
+        if (isEquipped)
+        {
             UpdateWeaponPosition();
             HandleShooting();
         }
     }
 
-    private void HandleShooting() {
-        if (Input.GetMouseButton(0) && Time.time >= nextFireTime) {
+    private void HandleShooting() 
+    {
+        if (FindFirstObjectByType<PauseManager>().IsPaused)
+        {
+            return; 
+        }
+
+        if (shootAction.IsPressed() && Time.time >= nextFireTime) 
+        {
             nextFireTime = Time.time + fireRate;
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
-            if (shootSound != null) {
+            if (shootSound != null) 
+            {
                 audioSource.PlayOneShot(shootSound);
             }
         }
     }
 
-    private void HandleWeaponInteraction() {
-        if (isEquipped) {
-            if (Input.GetKeyDown(pickupKey)) DropWeapon();
+    private void OnPickupPerformed(InputAction.CallbackContext context)
+    {
+        if (FindFirstObjectByType<PauseManager>().IsPaused)
+        {
+            return;
         }
-        else if (canPickup && Input.GetKeyDown(pickupKey)) {
-            if (currentEquippedWeapon != null) currentEquippedWeapon.DropWeapon();
+        if (isEquipped)
+        {
+            DropWeapon();
+        }
+        else if (canPickup)
+        {
+            if (currentEquippedWeapon != null)
+            {
+                currentEquippedWeapon.DropWeapon();
+            }
             AttachToPlayer();
         }
     }
 
-    private void UpdateWeaponPosition() {
+    private void UpdateWeaponPosition() 
+    {
         Vector3 rotatedOffset = player.transform.rotation * equippedOffset;
         transform.position = player.transform.position + rotatedOffset;
         transform.rotation = player.transform.rotation * initialRotation;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Player")) {
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (other.CompareTag("Player")) 
+        {
             player = other.gameObject;
             canPickup = true; 
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other) {
-        if (other.CompareTag("Player")) {
+    private void OnTriggerExit2D(Collider2D other) 
+    {
+        if (other.CompareTag("Player")) 
+        {
             canPickup = false; 
         }
     }
 
-    private void AttachToPlayer() {
+    private void AttachToPlayer() 
+    {
         isEquipped = true;
         currentEquippedWeapon = this;
 
@@ -92,7 +138,8 @@ public class WeaponPickup : MonoBehaviour {
         UpdateWeaponPosition();
     }
 
-    public void DropWeapon() {
+    public void DropWeapon() 
+    {
         isEquipped = false;
         currentEquippedWeapon = null;
 

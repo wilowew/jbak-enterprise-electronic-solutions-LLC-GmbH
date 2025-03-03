@@ -100,7 +100,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2349452827456011382}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -213,13 +213,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91799c62d2d86e4eab52d29dfc1f37a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupKey: 102
   equippedOffset: {x: 0.25, y: -0.1, z: 0}
   angleOffset: 0
   dropDistance: 0.7
   bulletPrefab: {fileID: 2050077445914033813, guid: 814725d02d1a8ba40874d03c39969b21, type: 3}
   firePoint: {fileID: 5229155689221568782}
   fireRate: 0.2
+  shootSound: {fileID: 0}
 --- !u!1 &4817910376622833235
 GameObject:
   m_ObjectHideFlags: 0
