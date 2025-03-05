@@ -5,6 +5,11 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f; // Переменные
     private Rigidbody2D rb;
 
+    public Rigidbody2D Rb 
+    {
+        get { return rb; }
+    }
+
     private PauseManager pauseManager;
 
     void Start()
@@ -39,4 +44,3 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 }
-   
