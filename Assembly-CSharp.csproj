@@ -61,13 +61,16 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.38f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\GateController.cs" />
+    <Compile Include="Assets\Scripts\Environment\GateController.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Gun\WeaponPickup.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\CursorChanger.cs" />
+    <Compile Include="Assets\Scripts\Gun\Bullet.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\Audio\PlayerFootsteps.cs" />
+    <Compile Include="Assets\Scripts\Scenes\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\GameManager\CursorChanger.cs" />
     <Compile Include="Assets\Scripts\GameManager\PauseManager.cs" />
-    <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Audio\BoxSound.cs" />
   </ItemGroup>
   <ItemGroup>
