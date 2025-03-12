@@ -1,0 +1,16 @@
+{
+    "terms": [
+        {
+            "key": "&m_pause",
+            "value": "Pause"
+        },
+        {
+            "key": "&m_resume",
+            "value": "Resume"
+        },
+        {
+            "key": "&m_quit",
+            "value": "Quit"
+        }
+    ]
+}
