@@ -9,8 +9,16 @@
             "value": "Resume"
         },
         {
+            "key": "&m_start",
+            "value": "START"
+        },
+        {
+            "key": "&m_settings",
+            "value": "SETTINGS"
+        },
+        {
             "key": "&m_quit",
-            "value": "Quit"
+            "value": "QUIT"
         }
     ]
 }

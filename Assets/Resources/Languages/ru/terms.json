@@ -9,8 +9,16 @@
             "value": "Возобновить"
         },
         {
+            "key": "&m_start",
+            "value": "НАЧАТЬ ИГРУ"
+        },
+        {
+            "key": "&m_settings",
+            "value": "НАСТРОЙКИ"
+        },
+        {
             "key": "&m_quit",
-            "value": "Выход"
+            "value": "ВЫХОД"
         }
     ]
 }

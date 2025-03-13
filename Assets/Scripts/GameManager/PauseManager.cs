@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PauseManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private CursorChanger cursorChanger;
     private bool isPaused = false;
 
     public void OnPause()
@@ -20,22 +21,31 @@ public class PauseManager : MonoBehaviour
     {
         isPaused = !isPaused;
 
-        // Останавливаем или возобновляем время
         Time.timeScale = isPaused ? 0 : 1;
+        pauseMenu.SetActive(isPaused);
 
-        // Включаем или отключаем меню паузы
-        if (pauseMenu != null)
+        // Меняем курсор в зависимости от паузы
+        if (cursorChanger != null)
         {
-            pauseMenu.SetActive(isPaused);
+            if (isPaused)
+            {
+                cursorChanger.SetPauseCursor();
+            }
+            else
+            {
+                cursorChanger.SetGameCursor();
+            }
         }
     }
 
     private void OnEnable()
     {
-        Time.timeScale = 1; // Убедимся, что время работает при старте
-        if (pauseMenu != null)
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+        // При перезапуске возвращаем игровой курсор
+        if (cursorChanger != null)
         {
-            pauseMenu.SetActive(false); // Меню паузы выключено в начале
+            cursorChanger.SetGameCursor();
         }
     }
 }
