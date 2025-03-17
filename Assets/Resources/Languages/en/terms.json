@@ -19,6 +19,14 @@
         {
             "key": "&m_quit",
             "value": "QUIT"
+        },
+        {
+            "key": "dn_Vitaliy",
+            "value": "Vitaliy"
+        },
+        {
+            "key": "dt_VitaliyText",
+            "value": "Hello, how are you?"
         }
     ]
 }

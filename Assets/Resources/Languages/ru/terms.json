@@ -19,6 +19,14 @@
         {
             "key": "&m_quit",
             "value": "ВЫХОД"
+        },
+        {
+            "key": "dn_Vitaliy",
+            "value": "Виталий"
+        },
+        {
+            "key": "dt_VitaliyText",
+            "value": "Привет, как дела?"
         }
     ]
 }

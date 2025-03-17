@@ -36,6 +36,18 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        if (LanguageManager.Instance)
+            LanguageManager.Instance.OnLanguageChanged.AddListener(ReloadCurrentDialogue);
+    }
+
+    private void OnDisable()
+    {
+        if (LanguageManager.Instance)
+            LanguageManager.Instance.OnLanguageChanged.RemoveListener(ReloadCurrentDialogue);
+    }
+
     public void StartDialogue(Dialogue dialogue)
     {
         if (isDialogueActive) return;
@@ -43,6 +55,7 @@ public class DialogueManager : MonoBehaviour
         currentDialogue = dialogue;
         currentLineIndex = 0;
         isDialogueActive = true;
+
         dialoguePanel.SetActive(true);
         Time.timeScale = 0f;
 
@@ -57,13 +70,13 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        if (currentLineIndex >= currentDialogue.lines.Length)
+        if (currentLineIndex >= currentDialogue.Lines.Length)
         {
             EndDialogue();
             return;
         }
 
-        DialogueLine line = currentDialogue.lines[currentLineIndex];
+        DialogueLine line = currentDialogue.Lines[currentLineIndex];
         currentLineIndex++;
 
         characterIcon.sprite = line.characterIcon;
@@ -72,33 +85,34 @@ public class DialogueManager : MonoBehaviour
         typingCoroutine = StartCoroutine(TypeText(line));
     }
 
-
     private IEnumerator TypeText(DialogueLine line)
     {
         isTyping = true;
 
-        nameText.text = line.characterName;
+        string localizedName = LanguageManager.Instance.GetTerm(line.nameTermKey);
+        string localizedText = LanguageManager.Instance.GetTerm(line.textTermKey);
+
+        nameText.text = localizedName;
         nameText.color = line.nameColor;
-        nameText.font = line.nameFont ?? nameText.font; 
-        nameText.gameObject.SetActive(!string.IsNullOrEmpty(line.characterName)); // стандартный шрифт
+        nameText.font = line.nameFont ?? nameText.font;
+        nameText.gameObject.SetActive(!string.IsNullOrEmpty(localizedName));
 
         dialogueText.text = "";
 
-        foreach (char letter in line.text.ToCharArray()) // постепенная печать текста
+        foreach (char letter in localizedText.ToCharArray())
         {
             dialogueText.text += letter;
 
-            // Пауза после знаков препинания
             float delay = typingSpeed;
             if (char.IsPunctuation(letter))
                 delay *= 3;
 
             yield return new WaitForSecondsRealtime(delay);
 
-            if (!isTyping) break; // Проверка прерывания
+            if (!isTyping) break;
         }
 
-        dialogueText.text = line.text;
+        dialogueText.text = localizedText;
         isTyping = false;
         continueIndicator.SetActive(true);
     }
@@ -108,7 +122,8 @@ public class DialogueManager : MonoBehaviour
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
-            dialogueText.text = currentDialogue.lines[currentLineIndex - 1].text;
+            DialogueLine line = currentDialogue.Lines[currentLineIndex - 1];
+            dialogueText.text = LanguageManager.Instance.GetTerm(line.textTermKey);
             isTyping = false;
             continueIndicator.SetActive(true);
         }
@@ -119,6 +134,14 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         Time.timeScale = 1f;
         isDialogueActive = false;
+    }
+
+    private void ReloadCurrentDialogue()
+    {
+        if (!isDialogueActive) return;
+
+        currentLineIndex = Mathf.Max(0, currentLineIndex - 1);
+        DisplayNextLine();
     }
 
     private void Update()
