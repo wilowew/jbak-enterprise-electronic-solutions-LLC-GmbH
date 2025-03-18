@@ -7,6 +7,20 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private CursorChanger cursorChanger;
     private bool isPaused = false;
 
+    public static PauseManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void OnPause()
     {
         TogglePause();
@@ -19,9 +33,23 @@ public class PauseManager : MonoBehaviour
 
     private void TogglePause()
     {
+        bool wasDialogueInterrupted = DialogueManager.Instance.IsDialogueActive || DialogueManager.Instance.IsDialoguePaused;
+
+        if (wasDialogueInterrupted)
+        {
+            if (isPaused)
+            {
+                DialogueManager.Instance.ResumeDialogue();
+            }
+            else
+            {
+                DialogueManager.Instance.PauseDialogue();
+            }
+        }
+
         isPaused = !isPaused;
 
-        Time.timeScale = isPaused ? 0 : 1;
+        UpdateTimeScale();
         pauseMenu.SetActive(isPaused);
 
         // Меняем курсор в зависимости от паузы
@@ -36,6 +64,11 @@ public class PauseManager : MonoBehaviour
                 cursorChanger.SetGameCursor();
             }
         }
+    }
+
+    public void UpdateTimeScale()
+    {
+        Time.timeScale = (isPaused || DialogueManager.Instance.IsDialogueActive) ? 0 : 1;
     }
 
     private void OnEnable()

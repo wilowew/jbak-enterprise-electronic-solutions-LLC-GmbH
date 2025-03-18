@@ -19,9 +19,13 @@ public class DialogueManager : MonoBehaviour
 
     private Dialogue currentDialogue; 
     private int currentLineIndex;   
-    private bool isDialogueActive;   
+    public bool isDialogueActive;   
     private bool isTyping = false;    
     private Coroutine typingCoroutine;
+
+    private bool isDialoguePaused = false;
+    private int pausedLineIndex;
+    private int pausedCharIndex;
 
     private void Awake()
     {
@@ -35,6 +39,9 @@ public class DialogueManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public bool IsDialogueActive => isDialogueActive;
+    public bool IsDialoguePaused => isDialoguePaused;   
 
     private void OnEnable()
     {
@@ -50,19 +57,83 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        if (isDialogueActive) return;
+        if (isDialogueActive || PauseManager.Instance.IsPaused) return;
 
         currentDialogue = dialogue;
         currentLineIndex = 0;
         isDialogueActive = true;
 
         dialoguePanel.SetActive(true);
-        Time.timeScale = 0f;
+        PauseManager.Instance.UpdateTimeScale();
 
         DisplayNextLine();
     }
 
-    public void DisplayNextLine()
+    public void PauseDialogue()
+    {
+        if (!isDialogueActive) return;
+
+        isDialoguePaused = true;
+        isDialogueActive = false;
+        dialoguePanel.SetActive(false);
+
+        if (isTyping)
+        {
+            pausedLineIndex = currentLineIndex;
+            pausedCharIndex = dialogueText.text.Length;
+            StopCoroutine(typingCoroutine);
+            isTyping = false;
+        }
+        else
+        {
+            pausedLineIndex = currentLineIndex;
+            pausedCharIndex = 0;
+        }
+
+        PauseManager.Instance.UpdateTimeScale();
+    }
+
+    public void ResumeDialogue()
+    {
+        if (!isDialoguePaused) return;
+
+        if (pausedLineIndex >= currentDialogue.Lines.Length)
+        {
+            EndDialogue();
+            return;
+        }
+
+        isDialoguePaused = false;
+        isDialogueActive = true;
+        dialoguePanel.SetActive(true);
+
+        currentLineIndex = pausedLineIndex;
+
+        if (pausedCharIndex > 0)
+        {
+            DialogueLine line = currentDialogue.Lines[currentLineIndex];
+            typingCoroutine = StartCoroutine(TypeText(line, pausedCharIndex));
+        }
+        else
+        {
+            if (currentLineIndex < currentDialogue.Lines.Length)
+            {
+                DialogueLine line = currentDialogue.Lines[currentLineIndex];
+                characterIcon.sprite = line.characterIcon;
+                continueIndicator.SetActive(false);
+                typingCoroutine = StartCoroutine(TypeText(line));
+            }
+        }
+
+        PauseManager.Instance.UpdateTimeScale();
+    }
+
+    public void ForceEndDialogue()
+    {
+        EndDialogue();
+    }
+
+    public void DisplayNextLine(int startIndex = 0)
     {
         if (isTyping)
         {
@@ -77,15 +148,13 @@ public class DialogueManager : MonoBehaviour
         }
 
         DialogueLine line = currentDialogue.Lines[currentLineIndex];
-        currentLineIndex++;
-
         characterIcon.sprite = line.characterIcon;
         continueIndicator.SetActive(false);
 
-        typingCoroutine = StartCoroutine(TypeText(line));
+        typingCoroutine = StartCoroutine(TypeText(line, startIndex));
     }
 
-    private IEnumerator TypeText(DialogueLine line)
+    private IEnumerator TypeText(DialogueLine line, int startIndex = 0)
     {
         isTyping = true;
 
@@ -97,17 +166,17 @@ public class DialogueManager : MonoBehaviour
         nameText.font = line.nameFont ?? nameText.font;
         nameText.gameObject.SetActive(!string.IsNullOrEmpty(localizedName));
 
-        dialogueText.text = "";
+        dialogueText.text = localizedText.Substring(0, startIndex);
 
-        foreach (char letter in localizedText.ToCharArray())
+        for (int i = startIndex; i < localizedText.Length; i++)
         {
-            dialogueText.text += letter;
+            dialogueText.text += localizedText[i];
 
             float delay = typingSpeed;
-            if (char.IsPunctuation(letter))
+            if (char.IsPunctuation(localizedText[i]))
                 delay *= 3;
 
-            yield return new WaitForSecondsRealtime(delay);
+            yield return new WaitForSecondsRealtime(typingSpeed);
 
             if (!isTyping) break;
         }
@@ -115,6 +184,8 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = localizedText;
         isTyping = false;
         continueIndicator.SetActive(true);
+
+        currentLineIndex++;
     }
 
     private void FinishTyping()
@@ -132,8 +203,9 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         dialoguePanel.SetActive(false);
-        Time.timeScale = 1f;
         isDialogueActive = false;
+        isDialoguePaused = false;
+        PauseManager.Instance.UpdateTimeScale();
     }
 
     private void ReloadCurrentDialogue()
@@ -146,7 +218,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (!isDialogueActive) return;
+        if (!isDialogueActive || PauseManager.Instance.IsPaused) return;
 
         if (Input.GetMouseButtonDown(0))
         {
