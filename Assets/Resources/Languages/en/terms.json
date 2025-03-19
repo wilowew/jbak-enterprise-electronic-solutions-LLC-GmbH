@@ -27,6 +27,14 @@
         {
             "key": "dt_VitaliyText",
             "value": "Hello, how are you?"
+        },
+        {
+            "key": "dn_Ded",
+            "value": "Grandfather"
+        },
+        {
+            "key": "dt_DedText",
+            "value": "Fine"
         }
     ]
 }

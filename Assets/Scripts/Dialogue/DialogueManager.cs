@@ -17,10 +17,10 @@ public class DialogueManager : MonoBehaviour
     [Header("Text Animation")]
     [SerializeField] private float typingSpeed = 0.05f;
 
-    private Dialogue currentDialogue; 
-    private int currentLineIndex;   
-    public bool isDialogueActive;   
-    private bool isTyping = false;    
+    private Dialogue currentDialogue;
+    private int currentLineIndex;
+    public bool isDialogueActive;
+    private bool isTyping = false;
     private Coroutine typingCoroutine;
 
     private bool isDialoguePaused = false;
@@ -41,7 +41,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public bool IsDialogueActive => isDialogueActive;
-    public bool IsDialoguePaused => isDialoguePaused;   
+    public bool IsDialoguePaused => isDialoguePaused;
 
     private void OnEnable()
     {
@@ -193,10 +193,18 @@ public class DialogueManager : MonoBehaviour
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
-            DialogueLine line = currentDialogue.Lines[currentLineIndex - 1];
-            dialogueText.text = LanguageManager.Instance.GetTerm(line.textTermKey);
+            typingCoroutine = null;
+
+            if (currentLineIndex >= 0 && currentLineIndex < currentDialogue.Lines.Length)
+            {
+                DialogueLine line = currentDialogue.Lines[currentLineIndex];
+                dialogueText.text = LanguageManager.Instance.GetTerm(line.textTermKey);
+            }
+
             isTyping = false;
             continueIndicator.SetActive(true);
+
+            currentLineIndex++;
         }
     }
 

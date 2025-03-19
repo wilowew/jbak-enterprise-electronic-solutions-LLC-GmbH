@@ -16,6 +16,11 @@ MonoBehaviour:
   lines:
   - nameTermKey: dn_Vitaliy
     textTermKey: dt_VitaliyText
-    nameColor: {r: 1, g: 0.058823533, b: 0, a: 1}
+    nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
     characterIcon: {fileID: 1046429694056152943, guid: 61da4e98a4b4d03489b696603846f6d3, type: 3}
+  - nameTermKey: dn_Ded
+    textTermKey: dt_DedText
+    nameColor: {r: 1, g: 1, b: 1, a: 1}
+    nameFont: {fileID: 0}
+    characterIcon: {fileID: -2416505530844861038, guid: e731f7e7cb00b11499dd9c00238684e0, type: 3}

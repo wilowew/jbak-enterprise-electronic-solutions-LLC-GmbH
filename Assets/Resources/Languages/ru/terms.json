@@ -27,6 +27,14 @@
         {
             "key": "dt_VitaliyText",
             "value": "Привет, как дела?"
+        },
+        {
+            "key": "dn_Ded",
+            "value": "Дед"
+        },
+        {
+            "key": "dt_DedText",
+            "value": "Нормально"
         }
     ]
 }
