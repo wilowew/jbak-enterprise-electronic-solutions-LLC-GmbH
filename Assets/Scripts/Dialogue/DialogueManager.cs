@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Text Animation")]
     [SerializeField] private float typingSpeed = 0.05f;
+
+    [Header("Choice System")]
+    [SerializeField] private GameObject choicePanel;
+    [SerializeField] private Button[] choiceButtons;
+    [SerializeField] private TextMeshProUGUI[] choiceTexts;
 
     private Dialogue currentDialogue;
     private int currentLineIndex;
@@ -64,6 +70,7 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = true;
 
         dialoguePanel.SetActive(true);
+        choicePanel.SetActive(false);
         PauseManager.Instance.UpdateTimeScale();
 
         DisplayNextLine();
@@ -148,10 +155,57 @@ public class DialogueManager : MonoBehaviour
         }
 
         DialogueLine line = currentDialogue.Lines[currentLineIndex];
+
         characterIcon.sprite = line.characterIcon;
         continueIndicator.SetActive(false);
+        choicePanel.SetActive(false);
 
         typingCoroutine = StartCoroutine(TypeText(line, startIndex));
+    }
+
+    private IEnumerator WaitAndEndDialogue()
+    {
+        yield return new WaitForSecondsRealtime(typingSpeed * 3);
+        EndDialogue();
+    }
+
+    private void ShowChoices(List<Choice> choices)
+    {
+        continueIndicator.SetActive(false);
+        choicePanel.SetActive(true);
+
+        foreach (Button btn in choiceButtons)
+        {
+            btn.gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < choices.Count; i++)
+        {
+            if (i >= choiceButtons.Length) break;
+
+            Choice choice = choices[i];
+            choiceButtons[i].gameObject.SetActive(true);
+            choiceTexts[i].text = LanguageManager.Instance.GetTerm(choice.choiceTermKey);
+
+            int index = i;
+            choiceButtons[i].onClick.RemoveAllListeners();
+            choiceButtons[i].onClick.AddListener(() => OnChoiceSelected(choice));
+        }
+    }
+
+    private void OnChoiceSelected(Choice selectedChoice)
+    {
+        choicePanel.SetActive(false);
+
+        if (selectedChoice.targetLineIndex < 0 ||
+            selectedChoice.targetLineIndex >= currentDialogue.Lines.Length)
+        {
+            EndDialogue();
+            return;
+        }
+
+        currentLineIndex = selectedChoice.targetLineIndex;
+        DisplayNextLine();
     }
 
     private IEnumerator TypeText(DialogueLine line, int startIndex = 0)
@@ -183,9 +237,24 @@ public class DialogueManager : MonoBehaviour
 
         dialogueText.text = localizedText;
         isTyping = false;
-        continueIndicator.SetActive(true);
 
-        currentLineIndex++;
+        if (line.isExitLine)
+        {
+            continueIndicator.SetActive(false);
+            yield return new WaitForSecondsRealtime(1f);
+            EndDialogue(); 
+            yield break;
+        }
+
+        if (line.isChoicePoint)
+        {
+            ShowChoices(line.choices);
+        }
+        else
+        {
+            continueIndicator.SetActive(true);
+            currentLineIndex++;
+        }
     }
 
     private void FinishTyping()
@@ -226,7 +295,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (!isDialogueActive || PauseManager.Instance.IsPaused) return;
+        if (!isDialogueActive || PauseManager.Instance.IsPaused || choicePanel.activeSelf) return;
 
         if (Input.GetMouseButtonDown(0))
         {

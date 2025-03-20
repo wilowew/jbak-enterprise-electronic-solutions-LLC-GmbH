@@ -33,8 +33,20 @@
             "value": "Дед"
         },
         {
-            "key": "dt_DedText",
+            "key": "dt_DedText1",
+            "value": "Замечательно!"
+        },
+        {
+            "key": "dt_DedText2",
+            "value": "Поправляйся!"
+        },
+        {
+            "key": "dc_1",
             "value": "Нормально"
+        },
+        {
+            "key": "dc_2",
+            "value": "Плохо"
         }
     ]
 }

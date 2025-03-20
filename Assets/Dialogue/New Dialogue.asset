@@ -14,13 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueID: 1
   lines:
-  - nameTermKey: dn_Vitaliy
+  - nameTermKey: dn_Ded
     textTermKey: dt_VitaliyText
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
-    characterIcon: {fileID: 1046429694056152943, guid: 61da4e98a4b4d03489b696603846f6d3, type: 3}
+    characterIcon: {fileID: -2416505530844861038, guid: e731f7e7cb00b11499dd9c00238684e0, type: 3}
+    isChoicePoint: 1
+    choices:
+    - choiceTermKey: dc_1
+      targetLineIndex: 1
+    - choiceTermKey: dc_2
+      targetLineIndex: 2
+    isExitLine: 0
   - nameTermKey: dn_Ded
-    textTermKey: dt_DedText
+    textTermKey: dt_DedText1
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
     characterIcon: {fileID: -2416505530844861038, guid: e731f7e7cb00b11499dd9c00238684e0, type: 3}
+    isChoicePoint: 0
+    choices: []
+    isExitLine: 1
+  - nameTermKey: dn_Ded
+    textTermKey: dt_DedText2
+    nameColor: {r: 1, g: 1, b: 1, a: 1}
+    nameFont: {fileID: 0}
+    characterIcon: {fileID: -2416505530844861038, guid: e731f7e7cb00b11499dd9c00238684e0, type: 3}
+    isChoicePoint: 0
+    choices: []
+    isExitLine: 1

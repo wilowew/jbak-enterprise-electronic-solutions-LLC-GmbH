@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class DialogueLine
@@ -12,6 +13,18 @@ public class DialogueLine
     public Color nameColor = Color.yellow; 
     public TMP_FontAsset nameFont;
     public Sprite characterIcon;
+    public bool isChoicePoint;
+    public List<Choice> choices;
+
+    [Header("Завершение диалога")]
+    public bool isExitLine;
+}
+
+[System.Serializable]
+public class Choice
+{
+    public string choiceTermKey;
+    public int targetLineIndex;
 }
 
 [CreateAssetMenu(
