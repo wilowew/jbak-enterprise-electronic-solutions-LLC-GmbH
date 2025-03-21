@@ -23,6 +23,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Button[] choiceButtons;
     [SerializeField] private TextMeshProUGUI[] choiceTexts;
 
+    [Header("Cursor Settings")]
+    [SerializeField] private CursorChanger cursorChanger;
+
     private Dialogue currentDialogue;
     private int currentLineIndex;
     public bool isDialogueActive;
@@ -71,6 +74,7 @@ public class DialogueManager : MonoBehaviour
 
         dialoguePanel.SetActive(true);
         choicePanel.SetActive(false);
+        cursorChanger.SetPauseCursor();
         PauseManager.Instance.UpdateTimeScale();
 
         DisplayNextLine();
@@ -282,6 +286,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         isDialogueActive = false;
         isDialoguePaused = false;
+        cursorChanger.SetGameCursor();
         PauseManager.Instance.UpdateTimeScale();
     }
 
