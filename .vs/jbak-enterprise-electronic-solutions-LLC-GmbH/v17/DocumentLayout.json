@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|d:\\gitworks\\jbak-enterprise-electronic-solutions-llc-gmbh\\assets\\scripts\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|d:\\gitworks\\jbak-enterprise-electronic-solutions-llc-gmbh\\assets\\scripts\\player\\playerlegs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerlegs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\assets\\scripts\\player\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\CameraFollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\CameraFollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,15 +27,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "PlayerLegs.cs",
+              "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Player\\PlayerLegs.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerLegs.cs",
+              "ToolTip": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Player\\PlayerLegs.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerLegs.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAowE0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T20:47:10.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerMovement.cs",
+              "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Player\\PlayerMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerMovement.cs",
+              "ToolTip": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Player\\PlayerMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerMovement.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAowEAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T20:25:33.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "CameraFollow.cs",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\CameraFollow.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CameraFollow.cs",
               "ToolTip": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\CameraFollow.cs",
               "RelativeToolTip": "Assets\\Scripts\\CameraFollow.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAACUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T12:51:37.022Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-25T12:51:37.022Z"
             }
           ]
         }
