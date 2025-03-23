@@ -245,7 +245,7 @@ public class DialogueManager : MonoBehaviour
         if (line.isExitLine)
         {
             continueIndicator.SetActive(false);
-            yield return new WaitForSecondsRealtime(1f);
+            yield return new WaitForSecondsRealtime(typingSpeed * 3);
             EndDialogue(); 
             yield break;
         }
@@ -263,23 +263,32 @@ public class DialogueManager : MonoBehaviour
 
     private void FinishTyping()
     {
-        if (typingCoroutine != null)
+        StopCoroutine(typingCoroutine);
+        typingCoroutine = null;
+
+        if (currentLineIndex >= 0 && currentLineIndex < currentDialogue.Lines.Length)
         {
-            StopCoroutine(typingCoroutine);
-            typingCoroutine = null;
-
-            if (currentLineIndex >= 0 && currentLineIndex < currentDialogue.Lines.Length)
-            {
-                DialogueLine line = currentDialogue.Lines[currentLineIndex];
-                dialogueText.text = LanguageManager.Instance.GetTerm(line.textTermKey);
-            }
-
+            DialogueLine line = currentDialogue.Lines[currentLineIndex];
+            dialogueText.text = LanguageManager.Instance.GetTerm(line.textTermKey);
             isTyping = false;
-            continueIndicator.SetActive(true);
 
-            currentLineIndex++;
+            if (line.isChoicePoint)
+            {
+                ShowChoices(line.choices);
+            }
+            else if (line.isExitLine)
+            {
+                // ƒл€ exitLine не увеличиваем индекс и скрываем индикатор
+                continueIndicator.SetActive(false);
+            }
+            else
+            {
+                continueIndicator.SetActive(true);
+                currentLineIndex++;
+            }
         }
     }
+
 
     private void EndDialogue()
     {
@@ -305,9 +314,29 @@ public class DialogueManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             if (isTyping)
+            {
                 FinishTyping();
+            }
             else
-                DisplayNextLine();
+            {
+                if (currentLineIndex < currentDialogue.Lines.Length)
+                {
+                    DialogueLine currentLine = currentDialogue.Lines[currentLineIndex];
+
+                    if (currentLine.isExitLine)
+                    {
+                        EndDialogue();
+                    }
+                    else
+                    {
+                        DisplayNextLine();
+                    }
+                }
+                else
+                {
+                    EndDialogue();
+                }
+            }
         }
     }
 }
