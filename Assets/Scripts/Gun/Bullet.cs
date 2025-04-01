@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour 
+public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed = 20f;
     [SerializeField] private float lifetime = 2f;
@@ -9,13 +9,13 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rb;
     private float timer;
 
-    private void Awake() 
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.linearVelocity = transform.up * speed;
     }
 
-    private void Update() 
+    private void Update()
     {
         timer += Time.deltaTime;
         if (timer >= lifetime) Destroy(gameObject);
