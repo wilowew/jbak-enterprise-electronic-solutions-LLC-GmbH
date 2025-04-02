@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField] private int health = 1;
+    [SerializeField] private GameObject redPuddlePrefab;
+
     public float moveSpeed = 3f;
     public float rotationSpeed = 10f;
     public float stoppingDistance = 1f;
@@ -36,5 +39,23 @@ public class EnemyAI : MonoBehaviour
             Quaternion.Euler(0, 0, targetAngle),
             rotationSpeed * Time.deltaTime
         );
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        if (redPuddlePrefab != null)
+        {
+            Instantiate(redPuddlePrefab, transform.position, Quaternion.identity);
+        }
+        Destroy(gameObject);
     }
 }

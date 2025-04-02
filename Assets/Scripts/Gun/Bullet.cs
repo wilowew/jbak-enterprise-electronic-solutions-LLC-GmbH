@@ -31,6 +31,14 @@ public class Bullet : MonoBehaviour
                 scarecrow.PlayDestructionEffect();
             }
         }
+        else if (collision.CompareTag("Enemy"))
+        {
+            EnemyAI enemy = collision.GetComponent<EnemyAI>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(1);
+            }
+        }
         Destroy(gameObject);
     }
 }
