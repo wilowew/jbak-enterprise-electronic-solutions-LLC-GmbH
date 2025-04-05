@@ -150,4 +150,10 @@ public class WeaponPickup : MonoBehaviour
         Vector3 dropDirection = (transform.position - player.transform.position).normalized;
         transform.position = player.transform.position + dropDirection * dropDistance;
     }
+
+    public void ForceEquip(GameObject playerObject)
+    {
+        player = playerObject;
+        AttachToPlayer();
+    }
 }
