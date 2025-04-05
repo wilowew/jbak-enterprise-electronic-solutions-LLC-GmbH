@@ -24974,7 +24974,12 @@ PrefabInstance:
       propertyPath: shootSound
       value: 
       objectReference: {fileID: 8300000, guid: 73d9836c205ee3442a75861fe5bdb2b0, type: 3}
-    m_RemovedComponents: []
+    - target: {fileID: 8834503823948443741, guid: 74f0a56784c88894582f956f78a24853, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 2050077445914033813, guid: d1a1f33f3e88e444aba230003511d649, type: 3}
+    m_RemovedComponents:
+    - {fileID: 2145895927918819231, guid: 74f0a56784c88894582f956f78a24853, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

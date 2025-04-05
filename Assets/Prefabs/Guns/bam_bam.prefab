@@ -217,15 +217,9 @@ MonoBehaviour:
   equippedOffset: {x: 0.25, y: -0.1, z: 0}
   angleOffset: 0
   dropDistance: 0.7
-  fireRate: 0.2
-  laserRange: 50
-  laserDuration: 0.05
-  hitLayers:
-    serializedVersion: 2
-    m_Bits: 0
+  bulletPrefab: {fileID: 2050077445914033813, guid: db23037cb94dfbd439f84e5a26d17654, type: 3}
   firePoint: {fileID: 4487973101898488204}
-  lineRenderer: {fileID: 2145895927918819231}
-  impactEffect: {fileID: 0}
+  fireRate: 0.2
   shootSound: {fileID: 8300000, guid: 3909766ee96ad7d44aa782a89c823bce, type: 3}
 --- !u!120 &2145895927918819231
 LineRenderer:

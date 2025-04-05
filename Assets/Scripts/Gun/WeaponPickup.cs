@@ -144,7 +144,8 @@ public class WeaponPickup : MonoBehaviour
         currentEquippedWeapon = null;
 
         weaponRb.simulated = true;
-        weaponCollider.enabled = false;
+        weaponCollider.enabled = true;
+        weaponCollider.isTrigger = true;
         transform.SetParent(null);
 
         Vector3 dropDirection = (transform.position - player.transform.position).normalized;
