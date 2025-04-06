@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4344594212502450048}
   - component: {fileID: 6926248043942143278}
   - component: {fileID: 3709126103162186110}
-  - component: {fileID: 8651565562821869071}
+  - component: {fileID: 1644290801270678579}
   m_Layer: 0
   m_Name: Legs
   m_TagString: Untagged
@@ -111,7 +111,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8651565562821869071
+--- !u!114 &1644290801270678579
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 500428951356881250}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3103cf76017d673458ccd0cc9e6679eb, type: 3}
+  m_Script: {fileID: 11500000, guid: b0e77797a5439e0428ec68ec2872e802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2665817987603416390
@@ -384,6 +384,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0427140f8b28ef4486a0d298deb1b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  health: 1
+  redPuddlePrefab: {fileID: 3333745628535621099, guid: 5952881131784be43b544afb22192ad2, type: 3}
+  isStatic: 0
+  moveSpeed: 4
   rotationSpeed: 10
   stoppingDistance: 1

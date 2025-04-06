@@ -10,6 +10,8 @@ public class EnemyAI : MonoBehaviour
     public float rotationSpeed = 10f;
     public float stoppingDistance = 1f;
 
+    public bool IsStatic => isStatic;
+
     private Transform player;
     private Rigidbody2D rb;
 
