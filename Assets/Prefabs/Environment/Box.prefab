@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 3293744199930572533, guid: f669ed1854dab9745aa54a5cdbcc8964, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -175,4 +175,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9e7b85a4ec1654a84c98724cf5ce9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxCollisionSound: {fileID: 8300000, guid: a9d0c273c7fbc4340a086477afcafa65, type: 3}
+  boxDraggingSound: {fileID: 0}

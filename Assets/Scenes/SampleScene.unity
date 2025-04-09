@@ -3368,11 +3368,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.52
+      value: 10.59
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.8908906
+      value: 8.88
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3407,12 +3407,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: isHostile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: moveSpeed
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
-      propertyPath: rotationSpeed
+      propertyPath: chaseSpeed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: wanderSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: wanderRadius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: rotationSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: redPuddlePrefab
@@ -3421,6 +3437,10 @@ PrefabInstance:
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: stoppingDistance
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: obstacleLayer.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 698263684947093744, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_Color.b
@@ -20630,8 +20650,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   redPuddlePrefab: {fileID: 0}
+  fieldOfViewAngle: 90
+  viewDistance: 5
+  drawGizmos: 1
   isStatic: 0
-  moveSpeed: 3
+  isHostile: 1
+  wanderRadius: 3
+  wanderDelay: 2
+  chaseSpeed: 5
+  wanderSpeed: 2
   rotationSpeed: 10
   stoppingDistance: 1
 --- !u!1 &1681396668
@@ -24091,6 +24118,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1529072900873291777, guid: 6e74f09b8a545fa4ba63e263bb204496, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5613562338225666166, guid: 6e74f09b8a545fa4ba63e263bb204496, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.12287626
