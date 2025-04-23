@@ -2837,9 +2837,9 @@ GameObject:
   - component: {fileID: 1694269473}
   - component: {fileID: 1694269472}
   - component: {fileID: 1694269471}
-  - component: {fileID: 1694269470}
   - component: {fileID: 1694269469}
   - component: {fileID: 1694269468}
+  - component: {fileID: 1694269475}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2883,26 +2883,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac4d76ddb884ae409cd5899a309795f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameCursor: {fileID: 2800000, guid: 73c984b806d66a14d8bb080b3f691c11, type: 3}
-  pauseCursor: {fileID: 2800000, guid: 4ee6c5433ad88d74490018bbc9bbd2f9, type: 3}
+  gameCursor: {fileID: 2800000, guid: 801e234e95ccd8445a9432d3506babee, type: 3}
+  pauseCursor: {fileID: 0}
   hotspot: {x: 0, y: 0}
---- !u!114 &1694269470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1694269467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f03d65a287cd24a8af1ac463473eae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 282035939}
-  smoothSpeed: 0.3
-  offset: {x: 0, y: 0, z: -10}
-  edgeThreshold: 0.2
-  maxLookAhead: 2
 --- !u!114 &1694269471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3021,6 +3004,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1694269475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694269467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe4c6885e4de21144a7bf4aac929a4b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraZ: -10
+  target: {fileID: 282035939}
 --- !u!1001 &1844767670
 PrefabInstance:
   m_ObjectHideFlags: 0

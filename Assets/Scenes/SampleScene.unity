@@ -20502,8 +20502,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45803f13e0e063c47b688ff1d3428e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialWeaponState: 1
-  startingFirearm: {fileID: 2013126303}
+  initialWeaponState: 0
+  startingFirearm: {fileID: 0}
   startingMelee: {fileID: 0}
 --- !u!1 &1652799807 stripped
 GameObject:
@@ -20955,17 +20955,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 770541835}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2013126303 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6767042876114357953, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
-  m_PrefabInstance: {fileID: 4020832871606446156}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d91799c62d2d86e4eab52d29dfc1f37a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2049952642
 GameObject:
   m_ObjectHideFlags: 0
@@ -24731,7 +24720,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 820810259008413157, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: m_DefaultActionMap
-      value: 
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 820810259008413157, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3368558483572712597, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: m_Name
