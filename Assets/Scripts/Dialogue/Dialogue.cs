@@ -10,7 +10,7 @@ public class DialogueLine
     [TextArea(3, 5)] public string textTermKey;
 
     [Header("Стилизация")]
-    public Color nameColor = Color.yellow; 
+    public Color nameColor = Color.yellow;
     public TMP_FontAsset nameFont;
     public Sprite characterIcon;
     public bool isChoicePoint;
@@ -43,6 +43,20 @@ public class Dialogue : ScriptableObject
 
     public DialogueLine[] Lines => lines;
     public int Length => lines?.Length ?? 0;
+
+    [Header("Задержка после диалога")]
+    [Tooltip("Включите, чтобы добавить задержку после завершения этого диалога")]
+    public bool usePostDialogueDelay = false;
+    [Tooltip("Время задержки в секундах перед началом следующего диалога")]
+    public float postDialogueDelayTime = 1f;
+
+    [Header("Следующий диалог")]
+    [Tooltip("Диалог, который начнется после этого")]
+    public Dialogue nextDialogue;
+
+    [Header("Завершение диалога")]
+    [Tooltip("Требует явного закрытия игроком")]
+    public bool requireManualClose;
 
     [ContextMenu("Проверить ключи локализации")]
     private void ValidateLocalizationKeys()

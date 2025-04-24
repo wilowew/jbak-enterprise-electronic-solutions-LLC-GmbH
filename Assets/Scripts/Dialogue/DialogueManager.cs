@@ -23,6 +23,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Button[] choiceButtons;
     [SerializeField] private TextMeshProUGUI[] choiceTexts;
 
+    [Header("Dialogue Timing")]
+    private bool isInPostDialogueDelay = false;
+
     [Header("Cursor Settings")]
     [SerializeField] private CursorChanger cursorChanger;
 
@@ -35,6 +38,8 @@ public class DialogueManager : MonoBehaviour
     private bool isDialoguePaused = false;
     private int pausedLineIndex;
     private int pausedCharIndex;
+
+    private bool isWaitingForManualClose;
 
     private void Awake()
     {
@@ -66,7 +71,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        if (isDialogueActive || PauseManager.Instance.IsPaused) return;
+        if (isDialogueActive || PauseManager.Instance.IsPaused || isInPostDialogueDelay) return;
 
         currentDialogue = dialogue;
         currentLineIndex = 0;
@@ -154,7 +159,15 @@ public class DialogueManager : MonoBehaviour
 
         if (currentLineIndex >= currentDialogue.Lines.Length)
         {
-            EndDialogue();
+            if (currentDialogue.requireManualClose)
+            {
+                isWaitingForManualClose = true;
+                continueIndicator.SetActive(true);
+            }
+            else
+            {
+                EndDialogue();
+            }
             return;
         }
 
@@ -245,8 +258,17 @@ public class DialogueManager : MonoBehaviour
         if (line.isExitLine)
         {
             continueIndicator.SetActive(false);
-            yield return new WaitForSecondsRealtime(typingSpeed * 3);
-            EndDialogue(); 
+
+            if (currentDialogue.requireManualClose)
+            {
+                isWaitingForManualClose = true;
+                continueIndicator.SetActive(true);
+            }
+            else
+            {
+                yield return new WaitForSecondsRealtime(typingSpeed * 3);
+                EndDialogue();
+            }
             yield break;
         }
 
@@ -258,6 +280,19 @@ public class DialogueManager : MonoBehaviour
         {
             continueIndicator.SetActive(true);
             currentLineIndex++;
+        }
+
+        if (currentLineIndex >= currentDialogue.Lines.Length)
+        {
+            if (currentDialogue.requireManualClose)
+            {
+                isWaitingForManualClose = true;
+                continueIndicator.SetActive(true);
+            }
+            else
+            {
+                EndDialogue();
+            }
         }
     }
 
@@ -278,7 +313,6 @@ public class DialogueManager : MonoBehaviour
             }
             else if (line.isExitLine)
             {
-                // ƒл€ exitLine не увеличиваем индекс и скрываем индикатор
                 continueIndicator.SetActive(false);
             }
             else
@@ -292,11 +326,37 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
+        isWaitingForManualClose = false;
+        Dialogue nextDialogue = currentDialogue?.nextDialogue;
+
         dialoguePanel.SetActive(false);
         isDialogueActive = false;
         isDialoguePaused = false;
         cursorChanger.SetGameCursor();
         PauseManager.Instance.UpdateTimeScale();
+
+        if (currentDialogue != null && currentDialogue.usePostDialogueDelay)
+        {
+            StartCoroutine(PostDialogueDelay(currentDialogue.postDialogueDelayTime, nextDialogue));
+        }
+        else if (nextDialogue != null)
+        {
+            StartDialogue(nextDialogue);
+        }
+
+        currentDialogue = null;
+    }
+
+    private IEnumerator PostDialogueDelay(float delay, Dialogue nextDialogue)
+    {
+        isInPostDialogueDelay = true;
+        yield return new WaitForSecondsRealtime(delay);
+        isInPostDialogueDelay = false;
+
+        if (nextDialogue != null)
+        {
+            StartDialogue(nextDialogue);
+        }
     }
 
     private void ReloadCurrentDialogue()
@@ -313,6 +373,13 @@ public class DialogueManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            if (isWaitingForManualClose)
+            {
+                EndDialogue();
+                isWaitingForManualClose = false;
+                return;
+            }
+
             if (isTyping)
             {
                 FinishTyping();
@@ -325,7 +392,15 @@ public class DialogueManager : MonoBehaviour
 
                     if (currentLine.isExitLine)
                     {
-                        EndDialogue();
+                        if (currentDialogue.requireManualClose)
+                        {
+                            isWaitingForManualClose = true;
+                            continueIndicator.SetActive(true);
+                        }
+                        else
+                        {
+                            EndDialogue();
+                        }
                     }
                     else
                     {

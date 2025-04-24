@@ -24,7 +24,7 @@ MonoBehaviour:
     - choiceTermKey: dc_1
       targetLineIndex: 1
     - choiceTermKey: dc_2
-      targetLineIndex: 1
+      targetLineIndex: 2
     isExitLine: 0
   - nameTermKey: dn_Ded
     textTermKey: dt_DedText1
@@ -42,3 +42,7 @@ MonoBehaviour:
     isChoicePoint: 0
     choices: []
     isExitLine: 1
+  usePostDialogueDelay: 1
+  postDialogueDelayTime: 10
+  nextDialogue: {fileID: 11400000, guid: 17754a87477574d4a900e6e24975c302, type: 2}
+  requireManualClose: 1
