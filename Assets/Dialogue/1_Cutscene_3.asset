@@ -10,22 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26863ff2943f37944af83dafde358442, type: 3}
-  m_Name: New Dialogue 1
+  m_Name: 1_Cutscene_3
   m_EditorClassIdentifier: 
-  dialogueID: 11
+  dialogueID: 1
   lines:
-  - nameTermKey: dn_Ded
-    textTermKey: dt_VitaliyText
+  - nameTermKey: dn_Bucks
+    textTermKey: dt_1_Bucks7
     nameColor: {r: 1, g: 1, b: 1, a: 1}
-    nameFont: {fileID: 0}
-    characterIcon: {fileID: 1046429694056152943, guid: 61da4e98a4b4d03489b696603846f6d3, type: 3}
-    isChoicePoint: 1
-    choices:
-    - choiceTermKey: dc_1
-      targetLineIndex: 1
-    - choiceTermKey: dc_2
-      targetLineIndex: 1
-    isExitLine: 1
+    nameFont: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+    characterIcon: {fileID: -7947079355947064970, guid: c0aa40ece402fc14081f9d67b04a9cbb, type: 3}
+    isChoicePoint: 0
+    choices: []
+    isExitLine: 0
   usePostDialogueDelay: 0
   postDialogueDelayTime: 1
   nextDialogue: {fileID: 0}

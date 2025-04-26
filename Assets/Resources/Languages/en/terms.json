@@ -47,6 +47,138 @@
         {
             "key": "dc_2",
             "value": "Bad"
+        },
+        {
+            "key": "dn_Bucks",
+            "value": "Bucks"
+        },
+        {
+            "key": "dn_Shirt",
+            "value": "Shirt"
+        },
+        {
+            "key": "dn_Bayonet",
+            "value": "Bayonet"
+        },
+        {
+            "key": "dt_1_Bucks1",
+            "value": "Damn... My head is splitting. It's been a while since I felt this bad."
+        },
+        {
+            "key": "dt_1_Shirt2",
+            "value": "Oh, our prince-alcohol has woken up! I thought I'd have to carry you out to the cemetery."
+        },
+        {
+            "key": "dt_1_Bucks3",
+            "value": "Thanks, nanny. Your moonshine is what finished me off."
+        },
+        {
+            "key": "dt_1_Shirt4",
+            "value": "Moonshine? This isn't a restaurant to serve champagne."
+        },
+        {
+            "key": "dt_1_Shirt5",
+            "value": "Well, get out into the fresh air, you need to unwind."
+        },
+        {
+            "key": "dt_1_Bucks6",
+            "value": "*heavy sigh*"
+        },
+        {
+            "key": "dt_1_Bucks7",
+            "value": "Yeah, I could use a pick-me-up."
+        },
+        {
+            "key": "dt_1_Bucks8",
+            "value": "Your left.. My legs are like cotton wool, as if a tram ran over me (I think I should use WASD?)"
+        },
+        {
+            "key": "dt_1_Bucks9",
+            "value": "Heh, it's a little wobbly, but I can get to the meadow."
+        },
+        {
+            "key": "dt_1_Bucks10",
+            "value": "My neck seems a little jammed. (You can look around with the mouse)"
+        },
+        {
+            "key": "dt_1_Bucks11",
+            "value": "Lovely."
+        },
+        {
+            "key": "dt_1_Shirt12",
+            "value": "It hasn't even been a year!"
+        },
+        {
+            "key": "dt_1_Bucks13",
+            "value": "You try it with my hangover..."
+        },
+        {
+            "key": "dt_1_Shirt14",
+            "value": "Start training already. I'll be watching, or you'll kill yourself with a hangover."
+        },
+        {
+            "key": "dt_1_Bucks15",
+            "value": "Hmm, where's my club? (I seem to remember that you can take weapons with F)"
+        },
+        {
+            "key": "dt_1_Shirt16",
+            "value": "There's a scarecrow over there, it's kind of crooked, straighten it out with your club"
+        },
+        {
+            "key": "dt_1_Shirt17",
+            "value": "Well... You remembered how to scare enemies with a club, now let's get down to real business."
+        },
+        {
+            "key": "dt_1_Shirt18",
+            "value": "Play with the gun, there are a couple more scarecrows left."
+        },
+        {
+            "key": "dt_1_Bucks19",
+            "value": "Now-now, I'll shoot them in no time (The shot, however, is on the left mouse button)"
+        },
+        {
+            "key": "dt_1_Shirt20",
+            "value": "Hello, you do shoot. Obviously, better than you drink."
+        },
+        {
+            "key": "dt_1_Bayonet21",
+            "value": "Guys, listen! There's a thread here. In short, I've received information that things are worse for Gr1 than ever. Their chieftain is in debt, half the gang has fled."
+        },
+        {
+            "key": "dt_1_Shirt22",
+            "value": "So what? What's in it for us?"
+        },
+        {
+            "key": "dt_1_Bayonet23",
+            "value": "And that! Remember how fertile their territory is! Contraband is constantly coming in from abroad. And now it's guarded by three pimply teenagers."
+        },
+        {
+            "key": "dt_1_Bucks24",
+            "value": "What are you babbling about? Blind Yashka used to have people with machine guns terrorizing everyone and everything."
+        },
+        {
+            "key": "dt_1_Bayonet25",
+            "value": "Well, that was before! But now everything has turned upside down. Now it's high time we showed up for this party of life, we'll hit them now - and the profits will flow like a river."
+        },
+        {
+            "key": "dt_1_Shirt26",
+            "value": "Hah, you're a sucker for money. What if it's a trap? I can't believe it's all that simple."
+        },
+        {
+            "key": "dt_1_Bucks27",
+            "value": "Really, Bayonet, you guarantee there's no ambush there?"
+        },
+        {
+            "key": "dt_1_Bayonet28",
+            "value": "No deal, guys, here's Yashka's receipt to the local moneylender."
+        },
+        {
+            "key": "dt_1_Shirt29",
+            "value": "He even pawned his hat, damn it. It looks like everything is too sad for him."
+        },
+        {
+            "key": "dt_1_Bayonet30",
+            "value": "Okay, guys, stop wagging your tongues. Let's gather the lads."
         }
     ]
 }

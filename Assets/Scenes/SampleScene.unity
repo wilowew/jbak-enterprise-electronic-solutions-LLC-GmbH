@@ -3486,7 +3486,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d587a5c180a5b40a0a6744ea0e1ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: 27b1caf076231e74c8ee06e254b546b5, type: 2}
+  dialogue: {fileID: 11400000, guid: 88c78e2ed3b6a3043b47259b89f520de, type: 2}
+  startAutomatically: 1
 --- !u!61 &1425238410
 BoxCollider2D:
   m_ObjectHideFlags: 0
