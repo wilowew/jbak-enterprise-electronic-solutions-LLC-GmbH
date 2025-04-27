@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -327,6 +328,7 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         isWaitingForManualClose = false;
+        string nextScene = currentDialogue != null ? currentDialogue.nextSceneName : "";
         Dialogue nextDialogue = currentDialogue?.nextDialogue;
 
         dialoguePanel.SetActive(false);
@@ -337,23 +339,34 @@ public class DialogueManager : MonoBehaviour
 
         if (currentDialogue != null && currentDialogue.usePostDialogueDelay)
         {
-            StartCoroutine(PostDialogueDelay(currentDialogue.postDialogueDelayTime, nextDialogue));
+            StartCoroutine(PostDialogueDelay(currentDialogue.postDialogueDelayTime, nextDialogue, nextScene));
         }
-        else if (nextDialogue != null)
+        else
         {
-            StartDialogue(nextDialogue);
+            if (!string.IsNullOrEmpty(nextScene))
+            {
+                SceneManager.LoadScene(nextScene);
+            }
+            else if (nextDialogue != null)
+            {
+                StartDialogue(nextDialogue);
+            }
         }
 
         currentDialogue = null;
     }
 
-    private IEnumerator PostDialogueDelay(float delay, Dialogue nextDialogue)
+    private IEnumerator PostDialogueDelay(float delay, Dialogue nextDialogue, string nextScene)
     {
         isInPostDialogueDelay = true;
         yield return new WaitForSecondsRealtime(delay);
         isInPostDialogueDelay = false;
 
-        if (nextDialogue != null)
+        if (!string.IsNullOrEmpty(nextScene))
+        {
+            SceneManager.LoadScene(nextScene);
+        }
+        else if (nextDialogue != null)
         {
             StartDialogue(nextDialogue);
         }

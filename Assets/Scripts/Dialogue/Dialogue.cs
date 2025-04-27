@@ -58,6 +58,10 @@ public class Dialogue : ScriptableObject
     [Tooltip("Требует явного закрытия игроком")]
     public bool requireManualClose;
 
+    [Header("Переход на сцену")]
+    [Tooltip("Имя сцены для загрузки после этого диалога")]
+    public string nextSceneName;
+
     [ContextMenu("Проверить ключи локализации")]
     private void ValidateLocalizationKeys()
     {

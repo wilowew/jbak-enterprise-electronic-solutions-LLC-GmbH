@@ -5,6 +5,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] private Dialogue dialogue;
     [SerializeField] private bool startAutomatically = false;
+    [SerializeField][Min(0)] private float delaySeconds = 3f;
 
     private bool hasTriggered = false;
 
@@ -18,7 +19,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private IEnumerator StartDialogueAfterDelay()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(delaySeconds);
         TriggerDialogue();
     }
 
