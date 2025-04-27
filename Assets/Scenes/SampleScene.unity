@@ -3486,8 +3486,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d587a5c180a5b40a0a6744ea0e1ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: 88c78e2ed3b6a3043b47259b89f520de, type: 2}
-  startAutomatically: 1
+  dialogue: {fileID: 11400000, guid: 27b1caf076231e74c8ee06e254b546b5, type: 2}
+  startAutomatically: 0
+  delaySeconds: 3
 --- !u!61 &1425238410
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23494,7 +23495,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5324827322705055999, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
       propertyPath: isCyclic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5324827322705055999, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
       propertyPath: movementSpeed
@@ -23505,13 +23506,17 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5324827322705055999, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
+      propertyPath: waypoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324827322705055999, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
       propertyPath: 'waypoints.Array.data[0]'
       value: 
-      objectReference: {fileID: 867917956}
+      objectReference: {fileID: 1914870802}
     - target: {fileID: 5324827322705055999, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
       propertyPath: 'waypoints.Array.data[1]'
       value: 
-      objectReference: {fileID: 1918829084}
+      objectReference: {fileID: 1914870802}
     - target: {fileID: 5324827322705055999, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
       propertyPath: 'waypoints.Array.data[2]'
       value: 
@@ -23526,11 +23531,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9077404966932934530, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.43
+      value: -3.458
       objectReference: {fileID: 0}
     - target: {fileID: 9077404966932934530, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.26
+      value: 9.202
       objectReference: {fileID: 0}
     - target: {fileID: 9077404966932934530, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
       propertyPath: m_LocalPosition.z

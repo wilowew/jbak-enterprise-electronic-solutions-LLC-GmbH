@@ -13,7 +13,7 @@ public class PathPatrol : MonoBehaviour
     [SerializeField] private float rotationSpeed = 5f; // Скорость поворота
 
     private int currentWaypointIndex = 0;
-    private bool isMovingForward = true;
+    private bool isStopped = false;
     private Rigidbody2D rb;
 
     void Start()
@@ -24,7 +24,7 @@ public class PathPatrol : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (waypoints.Length == 0) return;
+        if (waypoints.Length == 0 || isStopped) return;
 
         MoveTowardsWaypoint();
         UpdateRotation();
@@ -33,25 +33,33 @@ public class PathPatrol : MonoBehaviour
 
     private void MoveTowardsWaypoint()
     {
+        // Останавливаемся, если достигли конца нециклического пути
+        if (!isCyclic && currentWaypointIndex >= waypoints.Length - 1)
+        {
+            if (Vector2.Distance(transform.position, waypoints[currentWaypointIndex].position) <= waypointThreshold)
+            {
+                rb.linearVelocity = Vector2.zero;
+                isStopped = true;
+                return;
+            }
+        }
+
         Vector2 direction = (waypoints[currentWaypointIndex].position - transform.position).normalized;
         rb.linearVelocity = direction * movementSpeed;
     }
 
     private void UpdateRotation()
     {
-        if (!rotateTowardsMovement) return;
+        if (!rotateTowardsMovement || rb.linearVelocity == Vector2.zero) return;
 
         Vector2 moveDirection = rb.linearVelocity.normalized;
-        if (moveDirection != Vector2.zero)
-        {
-            float targetAngle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-            Quaternion rotation = Quaternion.AngleAxis(targetAngle, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(
-                transform.rotation,
-                rotation,
-                rotationSpeed * Time.deltaTime
-            );
-        }
+        float targetAngle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.AngleAxis(targetAngle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(
+            transform.rotation,
+            rotation,
+            rotationSpeed * Time.deltaTime
+        );
     }
 
     private void CheckWaypointProximity()
@@ -75,29 +83,9 @@ public class PathPatrol : MonoBehaviour
         }
         else
         {
-            if (isMovingForward)
+            if (currentWaypointIndex < waypoints.Length - 1)
             {
-                if (currentWaypointIndex >= waypoints.Length - 1)
-                {
-                    isMovingForward = false;
-                    currentWaypointIndex--;
-                }
-                else
-                {
-                    currentWaypointIndex++;
-                }
-            }
-            else
-            {
-                if (currentWaypointIndex <= 0)
-                {
-                    isMovingForward = true;
-                    currentWaypointIndex++;
-                }
-                else
-                {
-                    currentWaypointIndex--;
-                }
+                currentWaypointIndex++;
             }
         }
     }

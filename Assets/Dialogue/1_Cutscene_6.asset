@@ -21,7 +21,7 @@ MonoBehaviour:
     characterIcon: {fileID: 21300000, guid: 9a02ad6e3730d6040989f8d56e18a340, type: 3}
     isChoicePoint: 0
     choices: []
-    isExitLine: 1
+    isExitLine: 0
   usePostDialogueDelay: 0
   postDialogueDelayTime: 5
   nextDialogue: {fileID: 0}

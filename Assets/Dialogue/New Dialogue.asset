@@ -46,3 +46,4 @@ MonoBehaviour:
   postDialogueDelayTime: 10
   nextDialogue: {fileID: 11400000, guid: 17754a87477574d4a900e6e24975c302, type: 2}
   requireManualClose: 1
+  nextSceneName: 
