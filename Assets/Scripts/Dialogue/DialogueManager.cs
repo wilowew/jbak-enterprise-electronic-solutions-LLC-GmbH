@@ -4,6 +4,7 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -41,6 +42,8 @@ public class DialogueManager : MonoBehaviour
     private int pausedCharIndex;
 
     private bool isWaitingForManualClose;
+
+    public event Action<Dialogue> OnDialogueEnd;
 
     private void Awake()
     {
@@ -179,12 +182,6 @@ public class DialogueManager : MonoBehaviour
         choicePanel.SetActive(false);
 
         typingCoroutine = StartCoroutine(TypeText(line, startIndex));
-    }
-
-    private IEnumerator WaitAndEndDialogue()
-    {
-        yield return new WaitForSecondsRealtime(typingSpeed * 3);
-        EndDialogue();
     }
 
     private void ShowChoices(List<Choice> choices)
@@ -327,7 +324,7 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
-        isWaitingForManualClose = false;
+        Dialogue endedDialogue = currentDialogue; 
         string nextScene = currentDialogue != null ? currentDialogue.nextSceneName : "";
         Dialogue nextDialogue = currentDialogue?.nextDialogue;
 
@@ -353,6 +350,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
+        OnDialogueEnd?.Invoke(endedDialogue);
         currentDialogue = null;
     }
 
