@@ -24063,7 +24063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 392742640963704589, guid: 97a25879bc9f76a47a70727e5188287b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.005365344
+      value: 1.58
       objectReference: {fileID: 0}
     - target: {fileID: 392742640963704589, guid: 97a25879bc9f76a47a70727e5188287b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -24117,23 +24117,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 4798828880429822035, guid: 97a25879bc9f76a47a70727e5188287b, type: 3}
-      propertyPath: fireRate
-      value: 0.1
+    - target: {fileID: 5135049359274430862, guid: 97a25879bc9f76a47a70727e5188287b, type: 3}
+      propertyPath: _pickupRadius
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4798828880429822035, guid: 97a25879bc9f76a47a70727e5188287b, type: 3}
-      propertyPath: shootSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 5946aa75e2f6d024c9a489b9dee333b1, type: 3}
-    - target: {fileID: 4798828880429822035, guid: 97a25879bc9f76a47a70727e5188287b, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 2050077445914033813, guid: 8f28f7128cf61164ab576b8a48e94034, type: 3}
+    - target: {fileID: 5135049359274430862, guid: 97a25879bc9f76a47a70727e5188287b, type: 3}
+      propertyPath: _playerLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8198109459730913812, guid: 97a25879bc9f76a47a70727e5188287b, type: 3}
       propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -24287,18 +24284,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6722343298117742692, guid: 3c1ef5e844d5dbf41bf693a6bde1e85c, type: 3}
-      propertyPath: fireRate
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6722343298117742692, guid: 3c1ef5e844d5dbf41bf693a6bde1e85c, type: 3}
-      propertyPath: shootSound
-      value: 
-      objectReference: {fileID: 8300000, guid: cd6233fefc06e78469c4f6da36b0caf9, type: 3}
-    - target: {fileID: 6722343298117742692, guid: 3c1ef5e844d5dbf41bf693a6bde1e85c, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 2050077445914033813, guid: a9cbfcf96bd856d4a882dde9a8d30436, type: 3}
     - target: {fileID: 8249861394981515756, guid: 3c1ef5e844d5dbf41bf693a6bde1e85c, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -24446,6 +24431,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9050429}
     m_Modifications:
+    - target: {fileID: 1571919417170581799, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2807025817933822455, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -24470,29 +24459,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: pum_pum
       objectReference: {fileID: 0}
-    - target: {fileID: 6767042876114357953, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
-      propertyPath: fireRate
-      value: 0.1
+    - target: {fileID: 3649830892081256101, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
+      propertyPath: _angleOffset
+      value: 30
       objectReference: {fileID: 0}
-    - target: {fileID: 6767042876114357953, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
-      propertyPath: shootSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 3909766ee96ad7d44aa782a89c823bce, type: 3}
-    - target: {fileID: 6767042876114357953, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 2050077445914033813, guid: c220775a1367378428ffded0cd94f1b2, type: 3}
+    - target: {fileID: 3649830892081256101, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
+      propertyPath: _equippedOffset.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649830892081256101, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
+      propertyPath: _equippedOffset.y
+      value: -0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6973758651161449644, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
       propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8898646986323840482, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.02000016
+      value: -0.53
       objectReference: {fileID: 0}
     - target: {fileID: 8898646986323840482, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.8300004
+      value: -2.72
       objectReference: {fileID: 0}
     - target: {fileID: 8898646986323840482, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -24725,6 +24714,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 820810259008413157, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 820810259008413157, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: m_UIInputModule
+      value: 
+      objectReference: {fileID: 1327949821}
+    - target: {fileID: 820810259008413157, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: m_DefaultActionMap
       value: Player
       objectReference: {fileID: 0}
@@ -24756,18 +24753,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9050429}
     m_Modifications:
-    - target: {fileID: 1514360972559610236, guid: f19063377c3bcaa459f6eee8bac2f8d3, type: 3}
-      propertyPath: fireRate
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1514360972559610236, guid: f19063377c3bcaa459f6eee8bac2f8d3, type: 3}
-      propertyPath: shootSound
-      value: 
-      objectReference: {fileID: 8300000, guid: d02cf831466c23c438d32ed9e7dbdb88, type: 3}
-    - target: {fileID: 1514360972559610236, guid: f19063377c3bcaa459f6eee8bac2f8d3, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 2050077445914033813, guid: bfb8865627a31274dab018b9f98bd946, type: 3}
     - target: {fileID: 2349452827456011382, guid: f19063377c3bcaa459f6eee8bac2f8d3, type: 3}
       propertyPath: m_Name
       value: pom_pom
@@ -24991,18 +24976,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8475091030728611623, guid: c8153d245e113fb40b1bbe60c2f94045, type: 3}
-      propertyPath: fireRate
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8475091030728611623, guid: c8153d245e113fb40b1bbe60c2f94045, type: 3}
-      propertyPath: shootSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 231faa90c543f5b4c81439d3b09e7282, type: 3}
-    - target: {fileID: 8475091030728611623, guid: c8153d245e113fb40b1bbe60c2f94045, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 2050077445914033813, guid: d1a1f33f3e88e444aba230003511d649, type: 3}
     - target: {fileID: 8923433567364625139, guid: c8153d245e113fb40b1bbe60c2f94045, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -25042,11 +25015,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1701392697015842140, guid: f1f4b47276eacec4591b1e1c856a13c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.109999
+      value: 5.4
       objectReference: {fileID: 0}
     - target: {fileID: 1701392697015842140, guid: f1f4b47276eacec4591b1e1c856a13c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3200004
+      value: -0.45
       objectReference: {fileID: 0}
     - target: {fileID: 1701392697015842140, guid: f1f4b47276eacec4591b1e1c856a13c0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25080,18 +25053,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4649501150328484267, guid: f1f4b47276eacec4591b1e1c856a13c0, type: 3}
-      propertyPath: fireRate
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4649501150328484267, guid: f1f4b47276eacec4591b1e1c856a13c0, type: 3}
-      propertyPath: shootSound
-      value: 
-      objectReference: {fileID: 8300000, guid: f8d84eddf6290ce4ca50840fbd2cac30, type: 3}
-    - target: {fileID: 4649501150328484267, guid: f1f4b47276eacec4591b1e1c856a13c0, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 2050077445914033813, guid: 571d436437e03034c9e13512f2a8e464, type: 3}
     - target: {fileID: 7170321578576423918, guid: f1f4b47276eacec4591b1e1c856a13c0, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068

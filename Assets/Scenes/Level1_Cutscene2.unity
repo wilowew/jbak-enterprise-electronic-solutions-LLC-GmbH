@@ -4787,6 +4787,10 @@ PrefabInstance:
       propertyPath: m_NeverAutoSwitchControlSchemes
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2517337248772922572, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: moveSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3368558483572712597, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5936,8 +5940,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: Level1
-  transitionDuration: 1
-  cameraMoveHeight: 10
+  transitionDuration: 0.5
+  cameraMoveHeight: 5
   fadeAnimator: {fileID: 1062284260}
   player: {fileID: 210230917}
   requiredDialogueID: 6

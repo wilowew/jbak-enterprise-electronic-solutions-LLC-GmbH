@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -138,6 +139,26 @@ public class EnemyAI : MonoBehaviour
     {
         health -= damage;
         if (health <= 0) Die();
+        StartCoroutine(DamageFeedback());
+    }
+
+    public void ApplyPush(Vector2 force)
+    {
+        if (rb != null)
+        {
+            rb.AddForce(force, ForceMode2D.Impulse);
+        }
+    }
+
+    private IEnumerator DamageFeedback()
+    {
+        var sprite = GetComponent<SpriteRenderer>();
+        if (sprite != null)
+        {
+            sprite.color = Color.red;
+            yield return new WaitForSeconds(0.1f);
+            sprite.color = Color.white;
+        }
     }
 
     private void Die()

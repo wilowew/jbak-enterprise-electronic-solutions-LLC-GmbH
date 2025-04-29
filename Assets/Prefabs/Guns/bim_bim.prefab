@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 8764883706275734523}
   - component: {fileID: 2230727145269454152}
   - component: {fileID: 7900284473073678314}
-  - component: {fileID: 6719864494579212002}
+  - component: {fileID: 3678056932562208716}
   m_Layer: 6
   m_Name: bim_bim
   m_TagString: Untagged
@@ -232,7 +232,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.32442093}
   m_Radius: 4.7639685
---- !u!114 &6719864494579212002
+--- !u!114 &3678056932562208716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -244,10 +244,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91799c62d2d86e4eab52d29dfc1f37a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equippedOffset: {x: 0.25, y: -0.1, z: 0}
+  equippedOffset: {x: 0.5, y: -0.2, z: 0}
   angleOffset: 0
   dropDistance: 0.7
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 2050077445914033813, guid: 8f28f7128cf61164ab576b8a48e94034, type: 3}
   firePoint: {fileID: 8921147924128527277}
   fireRate: 0.2
-  shootSound: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: cd6233fefc06e78469c4f6da36b0caf9, type: 3}

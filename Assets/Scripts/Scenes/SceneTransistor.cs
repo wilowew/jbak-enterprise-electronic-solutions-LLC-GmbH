@@ -59,7 +59,7 @@ public class DoorTransition : MonoBehaviour
         Vector3 startCameraPos = mainCamera.transform.position;
         Vector3 targetCameraPos = startCameraPos + Vector3.up * cameraMoveHeight;
 
-        fadeAnimator.SetTrigger("Fade");
+        fadeAnimator.SetTrigger("FadeOut");
         float timer = 0;
 
         while (timer < transitionDuration)
@@ -78,10 +78,10 @@ public class DoorTransition : MonoBehaviour
 
         if (mainCamera != null && player != null)
         {
-            mainCamera.transform.position = player.position + new Vector3(0, 0, -10); 
+            mainCamera.transform.position = player.position + new Vector3(0, 0, -10);
         }
 
-        fadeAnimator.SetTrigger("Fade");
+        fadeAnimator.SetTrigger("FadeOut");
 
         isTransitioning = false;
     }

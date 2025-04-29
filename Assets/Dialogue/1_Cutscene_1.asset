@@ -23,6 +23,7 @@ MonoBehaviour:
     choices: []
     isExitLine: 0
   usePostDialogueDelay: 1
-  postDialogueDelayTime: 5
+  postDialogueDelayTime: 2
   nextDialogue: {fileID: 11400000, guid: efe58824c57034348b9fd7fbc8727a64, type: 2}
   requireManualClose: 1
+  nextSceneName: 

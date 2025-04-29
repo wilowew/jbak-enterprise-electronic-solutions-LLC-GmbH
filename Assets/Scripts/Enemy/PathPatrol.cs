@@ -12,6 +12,9 @@ public class PathPatrol : MonoBehaviour
     [SerializeField] private bool rotateTowardsMovement = true; // Поворот в сторону движения
     [SerializeField] private float rotationSpeed = 5f; // Скорость поворота
 
+    [Header("Dialogue Trigger")]
+    [SerializeField] private Dialogue triggerDialogue;
+
     private int currentWaypointIndex = 0;
     private bool isStopped = false;
     private Rigidbody2D rb;
@@ -20,6 +23,12 @@ public class PathPatrol : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         if (waypoints.Length == 0) Debug.LogError("No waypoints assigned!");
+
+        if (triggerDialogue != null)
+        {
+            isStopped = true;
+            DialogueManager.Instance.OnDialogueEnd += OnDialogueEnd;
+        }
     }
 
     void FixedUpdate()
@@ -29,6 +38,21 @@ public class PathPatrol : MonoBehaviour
         MoveTowardsWaypoint();
         UpdateRotation();
         CheckWaypointProximity();
+    }
+
+    private void OnDialogueEnd(Dialogue endedDialogue)
+    {
+        if (endedDialogue == triggerDialogue)
+        {
+            isStopped = false;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // Отписка при уничтожении объекта
+        if (DialogueManager.Instance != null)
+            DialogueManager.Instance.OnDialogueEnd -= OnDialogueEnd;
     }
 
     private void MoveTowardsWaypoint()

@@ -5,9 +5,9 @@ public class SceneEntrance : MonoBehaviour
 {
     [SerializeField] private float cameraDropHeight = 10f; 
     [SerializeField] private float cameraDropDuration = 2f; 
-    [SerializeField] private float fadeDuration = 1.5f; 
     [SerializeField] private Transform player;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private Animator fadeAnimator;
 
     private Camera mainCamera;
     private Vector3 targetCameraPosition;
@@ -16,10 +16,6 @@ public class SceneEntrance : MonoBehaviour
     {
         mainCamera = Camera.main;
         InitializeCameraPosition();
-
-        if (playerMovement != null)
-            playerMovement.SetMovement(false);
-
         StartCoroutine(EntranceSequence());
     }
 
@@ -40,6 +36,8 @@ public class SceneEntrance : MonoBehaviour
             playerMovement.SetMovement(false);
             Debug.Log("Движение заблокировано");
         }
+
+        fadeAnimator.SetTrigger("FadeIn");
 
         float timer = 0;
         Vector3 startPosition = mainCamera.transform.position;
@@ -63,6 +61,9 @@ public class SceneEntrance : MonoBehaviour
             playerMovement.SetMovement(true);
             Debug.Log("Движение разблокировано");
         }
+
+        yield return new WaitForSeconds(0.1f);
+        fadeAnimator.ResetTrigger("FadeIn");
         enabled = false;
     }
 }
