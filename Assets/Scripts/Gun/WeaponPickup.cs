@@ -1,5 +1,6 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
+using System;
 
 public class WeaponPickup : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class WeaponPickup : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction pickupAction;
     private InputAction shootAction;
+
+    public static event Action<WeaponPickup> OnWeaponEquipped;
 
     private void Awake()
     {
@@ -126,6 +129,7 @@ public class WeaponPickup : MonoBehaviour
 
     private void AttachToPlayer()
     {
+        OnWeaponEquipped?.Invoke(this);
         isEquipped = true;
         currentEquippedWeapon = this;
 

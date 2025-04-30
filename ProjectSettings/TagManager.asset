@@ -9,6 +9,7 @@ TagManager:
   - Scarecrow
   - Enemy
   - Gun
+  - DoorTrigger
   layers:
   - Default
   - TransparentFX

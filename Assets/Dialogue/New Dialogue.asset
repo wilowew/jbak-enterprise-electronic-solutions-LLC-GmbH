@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26863ff2943f37944af83dafde358442, type: 3}
   m_Name: New Dialogue
   m_EditorClassIdentifier: 
-  dialogueID: 10
+  dialogueID: 100
   lines:
   - nameTermKey: dn_Ded
     textTermKey: dt_VitaliyText

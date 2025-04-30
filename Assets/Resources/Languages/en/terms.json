@@ -133,12 +133,20 @@
             "value": "Play with the gun, there are a couple more scarecrows left."
         },
         {
+            "key": "dt_1_Bucks19dop",
+            "value": "I've finished shooting... I'll go to Shirt"
+        },
+        {
             "key": "dt_1_Bucks19",
             "value": "Now-now, I'll shoot them in no time (The shot, however, is on the left mouse button)"
         },
         {
             "key": "dt_1_Shirt20",
-            "value": "Hello, you do shoot. Obviously, better than you drink."
+            "value": "Good, you do shoot. Obviously, better than you drink."
+        },
+        {
+            "key": "dt_1_Shirt20dop",
+            "value": "Oh, look at these people!"
         },
         {
             "key": "dt_1_Bayonet21",

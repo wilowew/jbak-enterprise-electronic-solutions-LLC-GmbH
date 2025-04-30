@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26863ff2943f37944af83dafde358442, type: 3}
   m_Name: New Dialogue 1
   m_EditorClassIdentifier: 
-  dialogueID: 11
+  dialogueID: 101
   lines:
   - nameTermKey: dn_Ded
     textTermKey: dt_VitaliyText
@@ -30,3 +30,4 @@ MonoBehaviour:
   postDialogueDelayTime: 1
   nextDialogue: {fileID: 0}
   requireManualClose: 1
+  nextSceneName: 

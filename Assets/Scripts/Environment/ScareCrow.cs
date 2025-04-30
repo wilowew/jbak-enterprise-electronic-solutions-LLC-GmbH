@@ -1,13 +1,18 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Scarecrow : MonoBehaviour
 {
     [SerializeField] private ParticleSystem destructionParticles;
     [SerializeField] private float destroyDelay = 1f;
 
+    public UnityEvent OnDestroyed = new UnityEvent();
+
     private SpriteRenderer sprite;
     private Collider2D col;
     private bool isDestroyed;
+
+    public bool IsDestroyed => isDestroyed;
 
     private void Start()
     {
@@ -19,6 +24,8 @@ public class Scarecrow : MonoBehaviour
     {
         if (isDestroyed) return;
         isDestroyed = true;
+
+        OnDestroyed.Invoke();
 
         sprite.enabled = false;
         col.enabled = false;
@@ -32,4 +39,5 @@ public class Scarecrow : MonoBehaviour
 
         Destroy(gameObject, destroyDelay);
     }
+
 }

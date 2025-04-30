@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26863ff2943f37944af83dafde358442, type: 3}
   m_Name: 1_level_3
   m_EditorClassIdentifier: 
-  dialogueID: 9
+  dialogueID: 11
   lines:
   - nameTermKey: dn_Shirt
     textTermKey: dt_1_Shirt20
@@ -22,80 +22,16 @@ MonoBehaviour:
     isChoicePoint: 0
     choices: []
     isExitLine: 0
-  - nameTermKey: dn_Bayonet
-    textTermKey: dt_1_Bayonet21
-    nameColor: {r: 1, g: 1, b: 1, a: 1}
-    nameFont: {fileID: 0}
-    characterIcon: {fileID: -2453305891492352482, guid: dc20cb92f0b2bbd44899af91c7d33ad7, type: 3}
-    isChoicePoint: 0
-    choices: []
-    isExitLine: 0
   - nameTermKey: dn_Shirt
-    textTermKey: dt_1_Shirt22
+    textTermKey: dt_1_Shirt20dop
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
     characterIcon: {fileID: 1949822048628804724, guid: d8021ed20a3064c48a04edf1d263a6d3, type: 3}
     isChoicePoint: 0
     choices: []
     isExitLine: 0
-  - nameTermKey: dn_Bayonet
-    textTermKey: dt_1_Bayonet23
-    nameColor: {r: 1, g: 1, b: 1, a: 1}
-    nameFont: {fileID: 0}
-    characterIcon: {fileID: -2453305891492352482, guid: dc20cb92f0b2bbd44899af91c7d33ad7, type: 3}
-    isChoicePoint: 0
-    choices: []
-    isExitLine: 0
-  - nameTermKey: dn_Bucks
-    textTermKey: dt_1_Bucks24
-    nameColor: {r: 1, g: 1, b: 1, a: 1}
-    nameFont: {fileID: 0}
-    characterIcon: {fileID: 21300000, guid: 9a02ad6e3730d6040989f8d56e18a340, type: 3}
-    isChoicePoint: 0
-    choices: []
-    isExitLine: 0
-  - nameTermKey: dn_Bayonet
-    textTermKey: dt_1_Bayonet25
-    nameColor: {r: 1, g: 1, b: 1, a: 1}
-    nameFont: {fileID: 0}
-    characterIcon: {fileID: -2453305891492352482, guid: dc20cb92f0b2bbd44899af91c7d33ad7, type: 3}
-    isChoicePoint: 0
-    choices: []
-    isExitLine: 0
-  - nameTermKey: dn_Bucks
-    textTermKey: dt_1_Bucks27
-    nameColor: {r: 1, g: 1, b: 1, a: 1}
-    nameFont: {fileID: 0}
-    characterIcon: {fileID: 21300000, guid: 9a02ad6e3730d6040989f8d56e18a340, type: 3}
-    isChoicePoint: 0
-    choices: []
-    isExitLine: 0
-  - nameTermKey: dn_Shirt
-    textTermKey: dt_1_Bayonet28
-    nameColor: {r: 1, g: 1, b: 1, a: 1}
-    nameFont: {fileID: 0}
-    characterIcon: {fileID: 1949822048628804724, guid: d8021ed20a3064c48a04edf1d263a6d3, type: 3}
-    isChoicePoint: 0
-    choices: []
-    isExitLine: 0
-  - nameTermKey: dn_Shirt
-    textTermKey: dt_1_Shirt29
-    nameColor: {r: 1, g: 1, b: 1, a: 1}
-    nameFont: {fileID: 0}
-    characterIcon: {fileID: 1949822048628804724, guid: d8021ed20a3064c48a04edf1d263a6d3, type: 3}
-    isChoicePoint: 0
-    choices: []
-    isExitLine: 0
-  - nameTermKey: dn_Shirt
-    textTermKey: dt_1_Bayonet30
-    nameColor: {r: 1, g: 1, b: 1, a: 1}
-    nameFont: {fileID: 0}
-    characterIcon: {fileID: 1949822048628804724, guid: d8021ed20a3064c48a04edf1d263a6d3, type: 3}
-    isChoicePoint: 0
-    choices: []
-    isExitLine: 0
-  usePostDialogueDelay: 0
-  postDialogueDelayTime: 1
-  nextDialogue: {fileID: 0}
+  usePostDialogueDelay: 1
+  postDialogueDelayTime: 5
+  nextDialogue: {fileID: 11400000, guid: 6769b9a9999b51f4092cf11d8fbe37a3, type: 2}
   requireManualClose: 1
   nextSceneName: 
