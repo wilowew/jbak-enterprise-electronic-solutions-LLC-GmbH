@@ -55,6 +55,7 @@ MonoBehaviour:
     choices: []
     isExitLine: 1
   usePostDialogueDelay: 1
+  blockMovementDuringDelay: 0
   postDialogueDelayTime: 5.5
   nextDialogue: {fileID: 11400000, guid: 6db3a0d74ecd894428851334943ba431, type: 2}
   requireManualClose: 1

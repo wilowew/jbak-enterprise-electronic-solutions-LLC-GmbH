@@ -43,6 +43,7 @@ public class DialogueManager : MonoBehaviour
 
     private bool isWaitingForManualClose;
 
+    public bool IsInPostDialogueDelay { get; private set; } 
     public event Action<Dialogue> OnDialogueEnd;
 
     private void Awake()
@@ -336,7 +337,7 @@ public class DialogueManager : MonoBehaviour
 
         if (currentDialogue != null && currentDialogue.usePostDialogueDelay)
         {
-            StartCoroutine(PostDialogueDelay(currentDialogue.postDialogueDelayTime, nextDialogue, nextScene));
+            StartCoroutine(PostDialogueDelay(currentDialogue.postDialogueDelayTime, currentDialogue.blockMovementDuringDelay, nextDialogue, nextScene));
         }
         else
         {
@@ -354,11 +355,11 @@ public class DialogueManager : MonoBehaviour
         currentDialogue = null;
     }
 
-    private IEnumerator PostDialogueDelay(float delay, Dialogue nextDialogue, string nextScene)
+    private IEnumerator PostDialogueDelay(float delay, bool blockMovement, Dialogue nextDialogue, string nextScene)
     {
-        isInPostDialogueDelay = true;
+        IsInPostDialogueDelay = blockMovement;
         yield return new WaitForSecondsRealtime(delay);
-        isInPostDialogueDelay = false;
+        IsInPostDialogueDelay = false;
 
         if (!string.IsNullOrEmpty(nextScene))
         {

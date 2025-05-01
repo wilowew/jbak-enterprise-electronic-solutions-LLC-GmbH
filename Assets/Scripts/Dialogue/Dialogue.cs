@@ -47,6 +47,8 @@ public class Dialogue : ScriptableObject
     [Header("Задержка после диалога")]
     [Tooltip("Включите, чтобы добавить задержку после завершения этого диалога")]
     public bool usePostDialogueDelay = false;
+    [Tooltip("Блокировать движение персонажа во время задержки")]
+    public bool blockMovementDuringDelay = true;
     [Tooltip("Время задержки в секундах перед началом следующего диалога")]
     public float postDialogueDelayTime = 1f;
 

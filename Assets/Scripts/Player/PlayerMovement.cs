@@ -35,9 +35,13 @@ public class PlayerMovement : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal"); // Перемещение персонажа с резкой остановкой
         float moveY = Input.GetAxisRaw("Vertical");
 
-        if (pauseManager != null && pauseManager.IsPaused)
+        bool isDialogueBlocking = DialogueManager.Instance != null &&
+        (DialogueManager.Instance.IsDialogueActive ||
+         DialogueManager.Instance.IsInPostDialogueDelay);
+
+        if (!canMove || isDialogueBlocking || (pauseManager != null && pauseManager.IsPaused))
         {
-            rb.linearVelocity = Vector2.zero; // Останавливаем движение, если пауза
+            rb.linearVelocity = Vector2.zero;
             isMoving = false;
             return;
         }
@@ -75,7 +79,10 @@ public class PlayerMovement : MonoBehaviour
     public void SetMovement(bool state)
     {
         canMove = state;
-        if (!state) rb.linearVelocity = Vector2.zero;
+        if (!state && rb != null) 
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
     }
 
     void RotateTowardsMouse()

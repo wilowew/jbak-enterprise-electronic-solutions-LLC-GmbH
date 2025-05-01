@@ -23,6 +23,7 @@ MonoBehaviour:
     choices: []
     isExitLine: 1
   usePostDialogueDelay: 0
+  blockMovementDuringDelay: 0
   postDialogueDelayTime: 1
   nextDialogue: {fileID: 0}
   requireManualClose: 1

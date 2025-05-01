@@ -669,7 +669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: d58b6a54b96cc5142bf410ccf93617ae, type: 3}
   m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 466988342}
+  m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -681,7 +681,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultControlScheme: 
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -698,7 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 170233186}
-  cursorChanger: {fileID: 0}
+  cursorChanger: {fileID: 852073504}
 --- !u!1 &320376834
 GameObject:
   m_ObjectHideFlags: 0
@@ -4778,7 +4778,7 @@ PrefabInstance:
     - target: {fileID: 820810259008413157, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: m_UIInputModule
       value: 
-      objectReference: {fileID: 466988342}
+      objectReference: {fileID: 0}
     - target: {fileID: 820810259008413157, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: m_DefaultActionMap
       value: Player
