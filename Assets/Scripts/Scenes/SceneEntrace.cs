@@ -37,7 +37,7 @@ public class SceneEntrance : MonoBehaviour
             Debug.Log("Движение заблокировано");
         }
 
-        fadeAnimator.SetTrigger("FadeIn");
+        fadeAnimator.SetTrigger("FadeOut");
 
         float timer = 0;
         Vector3 startPosition = mainCamera.transform.position;

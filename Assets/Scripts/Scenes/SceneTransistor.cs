@@ -14,17 +14,12 @@ public class DoorTransition : MonoBehaviour
     [SerializeField] private string requiredDialogueID;
 
     private bool isTransitioning = false;
-    private Vector3 cameraStartPosition;
     private Camera mainCamera;
     private bool isRequiredDialogueCompleted = false;
 
     private void Start()
     {
         mainCamera = Camera.main;
-        if (mainCamera != null)
-        {
-            cameraStartPosition = mainCamera.transform.position;
-        }
         DialogueManager.Instance.OnDialogueEnd += HandleDialogueEnd;
     }
 
@@ -75,14 +70,5 @@ public class DoorTransition : MonoBehaviour
         }
 
         SceneManager.LoadScene(nextSceneName);
-
-        if (mainCamera != null && player != null)
-        {
-            mainCamera.transform.position = player.position + new Vector3(0, 0, -10);
-        }
-
-        fadeAnimator.SetTrigger("FadeOut");
-
-        isTransitioning = false;
     }
 }
