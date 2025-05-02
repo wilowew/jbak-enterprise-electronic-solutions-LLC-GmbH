@@ -7,6 +7,7 @@ public class DoorTransition : MonoBehaviour
     [SerializeField] private string nextSceneName;
     [SerializeField] private float transitionDuration = 1.5f;
     [SerializeField] private float cameraMoveHeight = 5f;
+    [SerializeField] private float cameraMoveHorizontal = 0f;
 
     [SerializeField] private Animator fadeAnimator;
     [SerializeField] private Transform player;
@@ -52,7 +53,7 @@ public class DoorTransition : MonoBehaviour
         isTransitioning = true;
 
         Vector3 startCameraPos = mainCamera.transform.position;
-        Vector3 targetCameraPos = startCameraPos + Vector3.up * cameraMoveHeight;
+        Vector3 targetCameraPos = startCameraPos + new Vector3(cameraMoveHorizontal, cameraMoveHeight, 0f);
 
         fadeAnimator.SetTrigger("FadeOut");
         float timer = 0;

@@ -3,7 +3,8 @@ using System.Collections;
 
 public class SceneEntrance : MonoBehaviour
 {
-    [SerializeField] private float cameraDropHeight = 10f; 
+    [SerializeField] private float cameraDropHeight = 10f;
+    [SerializeField] private float cameraDropHorizontal = 0f;
     [SerializeField] private float cameraDropDuration = 2f; 
     [SerializeField] private Transform player;
     [SerializeField] private PlayerMovement playerMovement;
@@ -24,7 +25,8 @@ public class SceneEntrance : MonoBehaviour
         if (player != null && mainCamera != null)
         {
             targetCameraPosition = player.position + new Vector3(0, 0, -10);
-            Vector3 startPosition = targetCameraPosition + Vector3.up * cameraDropHeight;
+            Vector3 startPosition = targetCameraPosition
+                + new Vector3(cameraDropHorizontal, cameraDropHeight, 0);
             mainCamera.transform.position = startPosition;
         }
     }
@@ -63,7 +65,7 @@ public class SceneEntrance : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.1f);
-        fadeAnimator.ResetTrigger("FadeIn");
+        fadeAnimator.ResetTrigger("FadeOut");
         enabled = false;
     }
 }

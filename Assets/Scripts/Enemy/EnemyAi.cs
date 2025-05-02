@@ -46,6 +46,11 @@ public class EnemyAI : MonoBehaviour
             rb.bodyType = RigidbodyType2D.Kinematic;
             GetComponent<Collider2D>().isTrigger = true;
         }
+
+        if (player == null)
+        {
+            Debug.LogError("Игрок не найден! Убедитесь, что у игрока есть тег 'Player'.");
+        }
     }
 
     void FixedUpdate()
@@ -63,18 +68,7 @@ public class EnemyAI : MonoBehaviour
 
     private void CheckPlayerVisibility()
     {
-        if (player == null)
-        {
-            PlayerVisible = false;
-            return;
-        }
-
-        Vector2 directionToPlayer = player.position - transform.position;
-        float distanceToPlayer = directionToPlayer.magnitude;
-        float angleToPlayer = Vector2.Angle(transform.right, directionToPlayer);
-
-        PlayerVisible = distanceToPlayer <= viewDistance &&
-                      angleToPlayer < fieldOfViewAngle * 0.5f;
+        PlayerVisible = true;
     }
 
     private void UpdateHostileBehavior()
