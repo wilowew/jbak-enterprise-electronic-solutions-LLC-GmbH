@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 4737056120614130697}
   - component: {fileID: 7477218352249336744}
   - component: {fileID: 1978782337614686390}
-  - component: {fileID: 7591951336193932433}
+  - component: {fileID: -7444717484733810854}
+  - component: {fileID: -4005462266161472684}
   m_Layer: 6
   m_Name: pom_pom
   m_TagString: Untagged
@@ -201,7 +202,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.108140305}
   m_Radius: 5.916518
---- !u!114 &7591951336193932433
+--- !u!114 &-7444717484733810854
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,16 +211,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 2349452827456011382}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d91799c62d2d86e4eab52d29dfc1f37a, type: 3}
+  m_Script: {fileID: 11500000, guid: feb8027f85c14e7448dbef5c70b6af93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equippedOffset: {x: 0.5, y: -0.2, z: 0}
-  angleOffset: 0
-  dropDistance: 0.7
-  bulletPrefab: {fileID: 2050077445914033813, guid: bfb8865627a31274dab018b9f98bd946, type: 3}
-  firePoint: {fileID: 8403454812291686917}
-  fireRate: 0.2
-  shootSound: {fileID: 8300000, guid: 5946aa75e2f6d024c9a489b9dee333b1, type: 3}
+  holdOffset: {x: 0.5, y: -0.2, z: 0}
+  rotationOffset: 0
+  throwDistance: 0.7
+--- !u!114 &-4005462266161472684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2349452827456011382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5b7fd6db663e64ea19ab6128a4dd93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 2050077445914033813, guid: d1a1f33f3e88e444aba230003511d649, type: 3}
+  shootPoint: {fileID: 5229155689221568782}
+  shotsPerSecond: 5
+  shotSound: {fileID: 8300000, guid: 5946aa75e2f6d024c9a489b9dee333b1, type: 3}
+  playerHoldingSprite: {fileID: 3542127132570728493, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
 --- !u!1 &4817910376622833235
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,10 +258,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4817910376622833235}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 4.08, y: -0.06, z: 0.2435075}
   m_LocalScale: {x: 6.6666656, y: 6.6666656, z: 6.6666656}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8403454812291686917}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}

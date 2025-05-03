@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 8065875228864450448}
   - component: {fileID: 5551366659159381611}
   - component: {fileID: 8912540582402510490}
-  - component: {fileID: 6739254957814789089}
+  - component: {fileID: 194831129526350965}
+  - component: {fileID: -6843214574165353483}
   m_Layer: 6
   m_Name: bam_bam
   m_TagString: Untagged
@@ -201,7 +202,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.000003973643, y: -0.10813991}
   m_Radius: 5.590862
---- !u!114 &6739254957814789089
+--- !u!114 &194831129526350965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,16 +211,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 138797573996228728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d91799c62d2d86e4eab52d29dfc1f37a, type: 3}
+  m_Script: {fileID: 11500000, guid: feb8027f85c14e7448dbef5c70b6af93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equippedOffset: {x: 0.5, y: -0.2, z: 0}
-  angleOffset: 0
-  dropDistance: 0.7
-  bulletPrefab: {fileID: 2050077445914033813, guid: 814725d02d1a8ba40874d03c39969b21, type: 3}
-  firePoint: {fileID: 4487973101898488204}
-  fireRate: 0.2
-  shootSound: {fileID: 8300000, guid: 3909766ee96ad7d44aa782a89c823bce, type: 3}
+  holdOffset: {x: 0.5, y: -0.2, z: 0}
+  rotationOffset: 0
+  throwDistance: 0.7
+--- !u!114 &-6843214574165353483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138797573996228728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5b7fd6db663e64ea19ab6128a4dd93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 2050077445914033813, guid: d1a1f33f3e88e444aba230003511d649, type: 3}
+  shootPoint: {fileID: 4487973101898488204}
+  shotsPerSecond: 5
+  shotSound: {fileID: 8300000, guid: f8d84eddf6290ce4ca50840fbd2cac30, type: 3}
+  playerHoldingSprite: {fileID: 3542127132570728493, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
 --- !u!1 &3435290469894494280
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,10 +258,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3435290469894494280}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.010003, y: 0, z: 0.2435075}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 4, y: 0, z: 0}
   m_LocalScale: {x: 6.6666656, y: 6.6666656, z: 6.6666656}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4716493301844326837}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}

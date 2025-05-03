@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6803667552170044531}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 2.79, y: -0.32, z: 0.24350752}
   m_LocalScale: {x: 6.666666, y: 6.666666, z: 6.666666}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1701392697015842140}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &8972451209669774826
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +44,8 @@ GameObject:
   - component: {fileID: 458776399217494902}
   - component: {fileID: 603313467669614332}
   - component: {fileID: 7577623149221080307}
-  - component: {fileID: 4009853838861130252}
+  - component: {fileID: -4170197626841108561}
+  - component: {fileID: 8442795798033817543}
   m_Layer: 6
   m_Name: pam_pam
   m_TagString: Untagged
@@ -232,7 +233,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.43256322}
   m_Radius: 4.464626
---- !u!114 &4009853838861130252
+--- !u!114 &-4170197626841108561
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,13 +242,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 8972451209669774826}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d91799c62d2d86e4eab52d29dfc1f37a, type: 3}
+  m_Script: {fileID: 11500000, guid: feb8027f85c14e7448dbef5c70b6af93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equippedOffset: {x: 0.5, y: -0.2, z: 0}
-  angleOffset: 0
-  dropDistance: 0.7
-  bulletPrefab: {fileID: 2050077445914033813, guid: c220775a1367378428ffded0cd94f1b2, type: 3}
-  firePoint: {fileID: 7170321578576423918}
-  fireRate: 0.2
-  shootSound: {fileID: 8300000, guid: 231faa90c543f5b4c81439d3b09e7282, type: 3}
+  holdOffset: {x: 0.5, y: -0.2, z: 0}
+  rotationOffset: 0
+  throwDistance: 0.7
+--- !u!114 &8442795798033817543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8972451209669774826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5b7fd6db663e64ea19ab6128a4dd93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 2050077445914033813, guid: d1a1f33f3e88e444aba230003511d649, type: 3}
+  shootPoint: {fileID: 7170321578576423918}
+  shotsPerSecond: 5
+  shotSound: {fileID: 8300000, guid: 74bd21ac6324135498bd223f2d45b4b6, type: 3}
+  playerHoldingSprite: {fileID: 3542127132570728493, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
