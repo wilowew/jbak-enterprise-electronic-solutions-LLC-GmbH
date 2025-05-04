@@ -34,6 +34,12 @@ public class MeleeAttack : MonoBehaviour
                     enemy.TakeDamage(attackDamage);
                 }
             }
+
+            Scarecrow scarecrow = hitCollider.GetComponent<Scarecrow>();
+            if (scarecrow != null && !scarecrow.IsDestroyed)
+            {
+                scarecrow.PlayDestructionEffect(); 
+            }
         }
 
         // ¬оспроизводим звук атаки, если он есть

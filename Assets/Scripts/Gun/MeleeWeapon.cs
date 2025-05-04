@@ -86,6 +86,13 @@ public class MeleeWeapon : MonoBehaviour
                     hitSuccess = true;
                 }
             }
+
+            Scarecrow scarecrow = hit.GetComponent<Scarecrow>();
+            if (scarecrow != null && !scarecrow.IsDestroyed)
+            {
+                scarecrow.PlayDestructionEffect();
+                hitSuccess = true;
+            }
         }
 
         if (hitSuccess)

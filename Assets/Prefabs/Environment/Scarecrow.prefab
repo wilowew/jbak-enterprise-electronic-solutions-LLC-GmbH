@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5532405345959484369}
   - component: {fileID: 7056087922861080505}
-  - component: {fileID: 3915756062985529324}
   - component: {fileID: 8072008031474557770}
   - component: {fileID: 5893466768483183161}
   m_Layer: 0
@@ -72,7 +71,7 @@ BoxCollider2D:
   m_Offset: {x: -0.025388718, y: 0.057205915}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.50000024, y: 0.55765724}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -81,20 +80,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.7937403, y: 0.4023242}
   m_EdgeRadius: 0
---- !u!114 &3915756062985529324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119605069028188272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa7fa37902e4ca4b9599d658e25b76f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destructionParticles: {fileID: 9085121509501972007, guid: 032908322f571e644ac69f24fcb8ad3d, type: 3}
-  destroyDelay: 1.5
 --- !u!212 &8072008031474557770
 SpriteRenderer:
   m_ObjectHideFlags: 0

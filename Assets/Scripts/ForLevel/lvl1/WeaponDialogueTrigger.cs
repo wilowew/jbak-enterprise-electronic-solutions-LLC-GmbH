@@ -4,25 +4,32 @@ public class WeaponDialogueTrigger : MonoBehaviour
 {
     [SerializeField] private Dialogue pickupDialogue;
     private bool hasTriggered = false;
+    private WeaponPickupBase weaponPickup;
 
-    private void OnEnable()
+    private void Awake()
     {
-        WeaponPickup.OnWeaponEquipped += HandleWeaponPickup;
-    }
-
-    private void OnDisable()
-    {
-        WeaponPickup.OnWeaponEquipped -= HandleWeaponPickup;
-    }
-
-    private void HandleWeaponPickup(WeaponPickup weapon)
-    {
-        if (weapon == GetComponent<WeaponPickup>())
+        weaponPickup = GetComponent<WeaponPickupBase>();
+        if (weaponPickup != null)
         {
-            hasTriggered = true;
-            DialogueManager.Instance.StartDialogue(pickupDialogue);
-
-            WeaponPickup.OnWeaponEquipped -= HandleWeaponPickup;
+            weaponPickup.OnEquipped += HandleWeaponPickup;
         }
+    }
+
+    private void OnDestroy()
+    {
+        if (weaponPickup != null)
+        {
+            weaponPickup.OnEquipped -= HandleWeaponPickup;
+        }
+    }
+
+    private void HandleWeaponPickup(SpriteRenderer sr)
+    {
+        if (hasTriggered) return;
+
+        hasTriggered = true;
+        DialogueManager.Instance.StartDialogue(pickupDialogue);
+
+        weaponPickup.OnEquipped -= HandleWeaponPickup;
     }
 }
