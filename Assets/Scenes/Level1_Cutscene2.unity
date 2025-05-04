@@ -5069,7 +5069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85cab1fb5e2c2d741b64a354909ca050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 94.5
+  startTime: 157.5
 --- !u!82 &1214457787
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5080,8 +5080,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 612f1ff76fa26854385c7cb42fad37a3, type: 3}
-  m_Resource: {fileID: 8300000, guid: 612f1ff76fa26854385c7cb42fad37a3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d2cf106a541b9e0439e697992f9b27b2, type: 3}
+  m_Resource: {fileID: 8300000, guid: d2cf106a541b9e0439e697992f9b27b2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -6492,6 +6492,7 @@ MonoBehaviour:
   nextSceneName: Level1
   transitionDuration: 2
   cameraMoveHeight: 10
+  cameraMoveHorizontal: 0
   fadeAnimator: {fileID: 1062284260}
   player: {fileID: 210230917}
   requiredDialogueID: 6

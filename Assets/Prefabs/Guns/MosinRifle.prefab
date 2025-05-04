@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3195045782673077632}
   - component: {fileID: -5382620598677276397}
   m_Layer: 6
-  m_Name: bem_bem
+  m_Name: MosinRifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
