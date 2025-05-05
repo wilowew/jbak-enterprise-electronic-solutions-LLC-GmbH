@@ -112,6 +112,7 @@ public class WeaponPickupBase : MonoBehaviour
 
         itemBody.simulated = true;
         itemCollider.enabled = true;
+        itemCollider.isTrigger = true;
         transform.SetParent(null);
 
         Vector3 throwDir = (transform.position - owner.transform.position).normalized;

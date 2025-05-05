@@ -76,24 +76,14 @@ public class PathPatrol : MonoBehaviour
     {
         if (!rotateTowardsMovement || rb.linearVelocity == Vector2.zero) return;
 
-        Vector2 moveDirection = rb.linearVelocity.normalized;
-        float targetAngle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-        Quaternion rotation = Quaternion.AngleAxis(targetAngle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(
-            transform.rotation,
-            rotation,
-            rotationSpeed * Time.deltaTime
-        );
+        float targetAngle = Mathf.Atan2(rb.linearVelocity.y, rb.linearVelocity.x) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.AngleAxis(targetAngle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     private void CheckWaypointProximity()
     {
-        float distance = Vector2.Distance(
-            transform.position,
-            waypoints[currentWaypointIndex].position
-        );
-
-        if (distance <= waypointThreshold)
+        if (Vector2.Distance(transform.position, waypoints[currentWaypointIndex].position) <= waypointThreshold)
         {
             GetNextWaypoint();
         }
@@ -107,10 +97,7 @@ public class PathPatrol : MonoBehaviour
         }
         else
         {
-            if (currentWaypointIndex < waypoints.Length - 1)
-            {
-                currentWaypointIndex++;
-            }
+            currentWaypointIndex = Mathf.Min(currentWaypointIndex + 1, waypoints.Length - 1);
         }
     }
 

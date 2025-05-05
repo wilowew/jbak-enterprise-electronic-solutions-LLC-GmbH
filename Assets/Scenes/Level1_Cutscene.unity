@@ -2013,9 +2013,9 @@ MonoBehaviour:
   - {fileID: 892633751}
   - {fileID: 1439249569}
   - {fileID: 1170460922}
-  movementSpeed: 2.5
+  movementSpeed: 3.5
   isCyclic: 0
-  waypointThreshold: 0.2
+  waypointThreshold: 0.3
   rotateTowardsMovement: 1
   rotationSpeed: 5
   triggerDialogue: {fileID: 11400000, guid: efe58824c57034348b9fd7fbc8727a64, type: 2}
