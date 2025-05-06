@@ -812,14 +812,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.7709688, b: 0, a: 0.8862745}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8862745}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6319092017142883332, guid: 4005046f98f73fc46906a355264b911f, type: 3}
+  m_Sprite: {fileID: -3294880113493616763, guid: 1e52571446e14ae45be0a6daa66c3e92, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1096,8 +1096,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0422\u0415\u041A\u0421\u0422"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 12ac07e7f533fb646b46a3f362c11a7a, type: 2}
+  m_sharedMaterial: {fileID: 1646591340200121467, guid: 12ac07e7f533fb646b46a3f362c11a7a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1121,8 +1121,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 52
+  m_fontSizeBase: 52
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2109,8 +2109,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0422\u0415\u041A\u0421\u0422 \u0422\u0415\u041A\u0421\u0422 \u0422\u0415\u041A\u0421\u0422"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 12ac07e7f533fb646b46a3f362c11a7a, type: 2}
+  m_sharedMaterial: {fileID: 1646591340200121467, guid: 12ac07e7f533fb646b46a3f362c11a7a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2134,8 +2134,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6620,19 +6620,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 76675991216029205, guid: 24884273aca478f4699f0f4b3fce51d5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.28605568
+      value: 1.6244214
       objectReference: {fileID: 0}
     - target: {fileID: 76675991216029205, guid: 24884273aca478f4699f0f4b3fce51d5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.44912833
+      value: 1.0476354
       objectReference: {fileID: 0}
     - target: {fileID: 76675991216029205, guid: 24884273aca478f4699f0f4b3fce51d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.03
+      value: 17.0019
       objectReference: {fileID: 0}
     - target: {fileID: 76675991216029205, guid: 24884273aca478f4699f0f4b3fce51d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.4968
+      value: 9.4962
       objectReference: {fileID: 0}
     - target: {fileID: 76675991216029205, guid: 24884273aca478f4699f0f4b3fce51d5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6676,19 +6676,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3774816280768939204, guid: 24884273aca478f4699f0f4b3fce51d5, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 7.53
+      value: 1.23
       objectReference: {fileID: 0}
     - target: {fileID: 3774816280768939204, guid: 24884273aca478f4699f0f4b3fce51d5, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.69
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 4465167974184029924, guid: 24884273aca478f4699f0f4b3fce51d5, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 15.73757
+      value: 16.870075
       objectReference: {fileID: 0}
     - target: {fileID: 4465167974184029924, guid: 24884273aca478f4699f0f4b3fce51d5, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 9.4968
+      value: 9.518
       objectReference: {fileID: 0}
     - target: {fileID: 5623825680328475300, guid: 24884273aca478f4699f0f4b3fce51d5, type: 3}
       propertyPath: m_Name

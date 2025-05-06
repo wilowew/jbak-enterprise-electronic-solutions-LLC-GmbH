@@ -233,7 +233,6 @@ public class DialogueManager : MonoBehaviour
 
         nameText.text = localizedName;
         nameText.color = line.nameColor;
-        nameText.font = line.nameFont ?? nameText.font;
         nameText.gameObject.SetActive(!string.IsNullOrEmpty(localizedName));
 
         dialogueText.text = localizedText.Substring(0, startIndex);
