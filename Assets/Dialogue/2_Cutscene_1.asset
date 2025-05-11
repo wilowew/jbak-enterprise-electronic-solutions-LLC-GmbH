@@ -10,28 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26863ff2943f37944af83dafde358442, type: 3}
-  m_Name: 1_level_3 1
+  m_Name: 2_Cutscene_1
   m_EditorClassIdentifier: 
-  dialogueID: 12
+  dialogueID: 13
   lines:
   - nameTermKey: dn_Bayonet
-    textTermKey: dt_1_Bayonet21
-    nameColor: {r: 1, g: 1, b: 1, a: 1}
-    nameFont: {fileID: 0}
-    characterIcon: {fileID: -2453305891492352482, guid: dc20cb92f0b2bbd44899af91c7d33ad7, type: 3}
-    isChoicePoint: 0
-    choices: []
-    isExitLine: 0
-  - nameTermKey: dn_Shirt
-    textTermKey: dt_1_Shirt22
-    nameColor: {r: 1, g: 1, b: 1, a: 1}
-    nameFont: {fileID: 0}
-    characterIcon: {fileID: 21300000, guid: 45b6165b77ab05c49b1a28b6beaa2387, type: 3}
-    isChoicePoint: 0
-    choices: []
-    isExitLine: 0
-  - nameTermKey: dn_Bayonet
-    textTermKey: dt_1_Bayonet23
+    textTermKey: dt_2_Bayonet1
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
     characterIcon: {fileID: -2453305891492352482, guid: dc20cb92f0b2bbd44899af91c7d33ad7, type: 3}
@@ -39,23 +23,39 @@ MonoBehaviour:
     choices: []
     isExitLine: 0
   - nameTermKey: dn_Bucks
-    textTermKey: dt_1_Bucks24
+    textTermKey: dt_2_Bucks2
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
     characterIcon: {fileID: 21300000, guid: 9a02ad6e3730d6040989f8d56e18a340, type: 3}
     isChoicePoint: 0
     choices: []
     isExitLine: 0
+  - nameTermKey: dn_Shirt
+    textTermKey: dt_2_Shirt3
+    nameColor: {r: 1, g: 1, b: 1, a: 1}
+    nameFont: {fileID: 0}
+    characterIcon: {fileID: 21300000, guid: 45b6165b77ab05c49b1a28b6beaa2387, type: 3}
+    isChoicePoint: 0
+    choices: []
+    isExitLine: 0
   - nameTermKey: dn_Bayonet
-    textTermKey: dt_1_Bayonet25
+    textTermKey: dt_2_Bayonet4
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
     characterIcon: {fileID: -2453305891492352482, guid: dc20cb92f0b2bbd44899af91c7d33ad7, type: 3}
     isChoicePoint: 0
     choices: []
     isExitLine: 0
-  - nameTermKey: dn_Bayonet
-    textTermKey: dt_1_Shirt26
+  - nameTermKey: dn_Violinist
+    textTermKey: dt_2_Violinist5
+    nameColor: {r: 1, g: 1, b: 1, a: 1}
+    nameFont: {fileID: 0}
+    characterIcon: {fileID: -7947079355947064970, guid: c0aa40ece402fc14081f9d67b04a9cbb, type: 3}
+    isChoicePoint: 0
+    choices: []
+    isExitLine: 0
+  - nameTermKey: dn_Shirt
+    textTermKey: dt_2_Shirt6
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
     characterIcon: {fileID: 21300000, guid: 45b6165b77ab05c49b1a28b6beaa2387, type: 3}
@@ -63,34 +63,18 @@ MonoBehaviour:
     choices: []
     isExitLine: 0
   - nameTermKey: dn_Bucks
-    textTermKey: dt_1_Bucks27
-    nameColor: {r: 1, g: 1, b: 1, a: 1}
-    nameFont: {fileID: 0}
-    characterIcon: {fileID: 21300000, guid: 9a02ad6e3730d6040989f8d56e18a340, type: 3}
-    isChoicePoint: 0
-    choices: []
-    isExitLine: 0
-  - nameTermKey: dn_Bayonet
-    textTermKey: dt_1_Bayonet28
-    nameColor: {r: 1, g: 1, b: 1, a: 1}
-    nameFont: {fileID: 0}
-    characterIcon: {fileID: -2453305891492352482, guid: dc20cb92f0b2bbd44899af91c7d33ad7, type: 3}
-    isChoicePoint: 0
-    choices: []
-    isExitLine: 0
-  - nameTermKey: dn_Shirt
-    textTermKey: dt_1_Shirt29
+    textTermKey: dt_2_Bucks7
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
     characterIcon: {fileID: 21300000, guid: 45b6165b77ab05c49b1a28b6beaa2387, type: 3}
     isChoicePoint: 0
     choices: []
     isExitLine: 0
-  - nameTermKey: dn_Bayonet
-    textTermKey: dt_1_Bayonet30
+  - nameTermKey: dn_Violinist
+    textTermKey: dt_2_Violinist8
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
-    characterIcon: {fileID: -2453305891492352482, guid: dc20cb92f0b2bbd44899af91c7d33ad7, type: 3}
+    characterIcon: {fileID: -7947079355947064970, guid: c0aa40ece402fc14081f9d67b04a9cbb, type: 3}
     isChoicePoint: 0
     choices: []
     isExitLine: 0
@@ -99,4 +83,4 @@ MonoBehaviour:
   postDialogueDelayTime: 1
   nextDialogue: {fileID: 0}
   requireManualClose: 1
-  nextSceneName: 2_Cutscene_1
+  nextSceneName: Level2_Cutscene_2

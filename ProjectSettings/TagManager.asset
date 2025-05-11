@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Gun
   - DoorTrigger
+  - wood
   layers:
   - Default
   - TransparentFX

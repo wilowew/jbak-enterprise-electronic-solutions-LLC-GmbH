@@ -11,6 +11,7 @@ public class DoorTransition : MonoBehaviour
 
     [SerializeField] private Animator fadeAnimator;
     [SerializeField] private Transform player;
+    [SerializeField] private CutsceneCamera cutsceneCamera;
 
     [SerializeField] private string requiredDialogueID;
 
@@ -51,6 +52,11 @@ public class DoorTransition : MonoBehaviour
     private IEnumerator TransitionSequence()
     {
         isTransitioning = true;
+
+        if (cutsceneCamera != null)
+        {
+            cutsceneCamera.Deactivate(); 
+        }
 
         Vector3 startCameraPos = mainCamera.transform.position;
         Vector3 targetCameraPos = startCameraPos + new Vector3(cameraMoveHorizontal, cameraMoveHeight, 0f);

@@ -61,6 +61,10 @@
             "value": "Bayonet"
         },
         {
+            "key": "dn_Violinist",
+            "value": "Violinist"
+        },
+        {
             "key": "dt_1_Bucks1",
             "value": "Damn... My head is splitting. It's been a while since I felt this bad."
         },
@@ -187,6 +191,54 @@
         {
             "key": "dt_1_Bayonet30",
             "value": "Okay, guys, stop wagging your tongues. Let's gather the lads."
+        },
+        {
+            "key": "dt_2_Bayonet1",
+            "value": "Basically, the situation is this: their base has two entrances - the front door and the yard. The windows are boarded up with bars, but there's a hatch in the kitchen."
+        },
+        {
+            "key": "dt_2_Bucks2",
+            "value": "I'll take the main entrance. It's going to be quite a mess there."
+        },
+        {
+            "key": "dt_2_Shirt3",
+            "value": "The only thing missing for you is a sign that says 'Welcome, shoot here.'"
+        },
+        {
+            "key": "dt_2_Bayonet4",
+            "value": "Well, then let Shirt and Violinist come in through the back door, and I'll go in through that little window. While Bucks is making noise at the front door and the onlookers are staring at him, we'll take them from behind."
+        },
+        {
+            "key": "dt_2_Violinist5",
+            "value": "*silently nods head*"
+        },
+        {
+            "key": "dt_2_Shirt6",
+            "value": "He probably decided to grab some sandwiches on the way..."
+        },
+        {
+            "key": "dt_2_Bucks7",
+            "value": "We had a good chat, and Yashka got pretty drunk from such a surprise."
+        },
+        {
+            "key": "dt_2_Violinist8",
+            "value": "*Muffled* The cry of a crow will wake the sleeping... but not those I put to bed."
+        },
+        {
+            "key": "dt_2_Bayonet9",
+            "value": "Okay, let's sum it up. Bucks is the center, we're in the back. We'll meet at Yashka's."
+        },
+        {
+            "key": "dt_2_Bucks10",
+            "value": "Well, let's go, guys. The sooner we finish, the better."
+        },
+        {
+            "key": "dt_2_Shirt11",
+            "value": "Bucks, if you screw up, my moonshine awaits you... in the form of a warming compress on your face."
+        },
+        {
+            "key": "dt_2_Bucks12",
+            "value": "A heating compress? I'll definitely stay alive for that, that's the end for the local poor guys."
         }
     ]
 }
