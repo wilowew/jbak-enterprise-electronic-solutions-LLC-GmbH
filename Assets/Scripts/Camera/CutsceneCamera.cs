@@ -14,8 +14,18 @@ public class CutsceneCamera : MonoBehaviour
     private void Awake()
     {
         camComponent = GetComponent<Camera>();
-        mainCamera = Camera.main;
-        Deactivate();
+        camComponent.enabled = false;
+
+        GameObject mainCamObj = GameObject.FindGameObjectWithTag("MainCamera");
+        if (mainCamObj != null)
+        {
+            mainCamera = mainCamObj.GetComponent<Camera>();
+            mainCamera.enabled = true;
+        }
+        else
+        {
+            Debug.LogError("Main Camera not found!");
+        }
     }
 
     private void LateUpdate()
@@ -35,13 +45,20 @@ public class CutsceneCamera : MonoBehaviour
 
     public void Activate()
     {
-        mainCamera.enabled = false;
+        if (mainCamera != null)
+        {
+            mainCamera.enabled = false;
+        }
         camComponent.enabled = true;
     }
 
     public void Deactivate()
     {
         camComponent.enabled = false;
-        mainCamera.enabled = true;
+        if (mainCamera != null)
+        {
+            mainCamera.enabled = true;
+        }
+        target = null;
     }
 }

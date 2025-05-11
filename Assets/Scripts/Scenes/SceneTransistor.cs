@@ -49,14 +49,28 @@ public class DoorTransition : MonoBehaviour
         }
     }
 
+    private void UpdateMainCamera()
+    {
+        mainCamera = Camera.main;
+    }
+
     private IEnumerator TransitionSequence()
     {
         isTransitioning = true;
 
         if (cutsceneCamera != null)
         {
-            cutsceneCamera.Deactivate(); 
+            cutsceneCamera.Deactivate();
         }
+
+        mainCamera = Camera.main;
+        if (mainCamera == null)
+        {
+            Debug.LogError("Main camera not found!");
+            yield break;
+        }
+
+        yield return null;
 
         Vector3 startCameraPos = mainCamera.transform.position;
         Vector3 targetCameraPos = startCameraPos + new Vector3(cameraMoveHorizontal, cameraMoveHeight, 0f);
