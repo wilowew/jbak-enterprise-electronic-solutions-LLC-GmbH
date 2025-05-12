@@ -15,12 +15,12 @@ public class EnemyAI : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private bool isStatic = false;
     [SerializeField] private bool isHostile = true;
-    [SerializeField] private float wanderRadius = 3f;   
+    [SerializeField] private float wanderRadius = 3f;
     [SerializeField] private float wanderDelay = 2f;
 
     [Header("Speed Settings")]
-    public float chaseSpeed = 3f;   
-    public float wanderSpeed = 1f;    
+    public float chaseSpeed = 3f;
+    public float wanderSpeed = 1f;
     public float rotationSpeed = 10f;
     public float stoppingDistance = 1f;
 
@@ -30,9 +30,9 @@ public class EnemyAI : MonoBehaviour
 
     private Transform player;
     private Rigidbody2D rb;
-    private Vector2 initialPosition;    
-    private Vector2 currentWanderTarget; 
-    private float wanderTimer;           
+    private Vector2 initialPosition;
+    private Vector2 currentWanderTarget;
+    private float wanderTimer;
 
     void Start()
     {
@@ -60,7 +60,7 @@ public class EnemyAI : MonoBehaviour
             CheckPlayerVisibility();
             UpdateHostileBehavior();
         }
-        else if (!isStatic) 
+        else if (!isStatic)
         {
             WanderAround();
         }
