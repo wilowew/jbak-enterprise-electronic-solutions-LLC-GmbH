@@ -3,8 +3,20 @@ using System.Collections;
 
 public class EnemyAI : MonoBehaviour
 {
+    public enum WeaponType { Melee, Ranged }
+
+    [Header("Weapon Settings")]
+    [SerializeField] private WeaponType weaponType;
+    [SerializeField] private float attackRange = 3f;
+    [SerializeField] private float attackRate = 1f;
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Transform shootPoint;
+    [SerializeField] private float projectileSpeed = 10f;
+    [SerializeField][Range(0f, 1f)] private float missChance = 0.3f;
+
     [Header("Combat Settings")]
     [SerializeField] private int health = 1;
+    [SerializeField] private int meleeDamage = 1;
     [SerializeField] private GameObject redPuddlePrefab;
 
     [Header("Vision Settings")]
@@ -34,6 +46,8 @@ public class EnemyAI : MonoBehaviour
     private Vector2 currentWanderTarget;
     private float wanderTimer;
 
+    private float nextAttackTime;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -51,6 +65,8 @@ public class EnemyAI : MonoBehaviour
         {
             Debug.LogError("Игрок не найден! Убедитесь, что у игрока есть тег 'Player'.");
         }
+
+        nextAttackTime = Time.time;
     }
 
     void FixedUpdate()
@@ -75,27 +91,93 @@ public class EnemyAI : MonoBehaviour
     {
         if (player == null) return;
 
-        if (PlayerVisible)
-        {
-            Vector2 direction = (player.position - transform.position).normalized;
-            RotateTowards(direction);
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-            if (!isStatic)
+        if (weaponType == WeaponType.Ranged)
+        {
+            stoppingDistance = attackRange * 0.8f;
+            if (distanceToPlayer < attackRange) MaintainDistance();
+            else ApproachPlayer();
+        }
+        else
+        {
+            stoppingDistance = 1f;
+            ApproachPlayer();
+        }
+
+        if (distanceToPlayer <= attackRange && Time.time >= nextAttackTime)
+        {
+            Attack();
+            nextAttackTime = Time.time + attackRate;
+        }
+    }
+
+    private void ApproachPlayer()
+    {
+        Vector2 direction = (player.position - transform.position).normalized;
+        RotateTowards(direction);
+
+        if (!isStatic && Vector2.Distance(transform.position, player.position) > stoppingDistance)
+        {
+            rb.linearVelocity = direction * chaseSpeed;
+        }
+    }
+
+    private void MaintainDistance()
+    {
+        Vector2 retreatDirection = (transform.position - player.position).normalized;
+        rb.linearVelocity = retreatDirection * chaseSpeed * 0.5f;
+    }
+
+    private void Attack()
+    {
+        switch (weaponType)
+        {
+            case WeaponType.Melee:
+                MeleeAttack();
+                break;
+            case WeaponType.Ranged:
+                RangedAttack();
+                break;
+        }
+    }
+
+    private void MeleeAttack()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1.5f);
+        foreach (Collider2D hit in hits)
+        {
+            if (hit.CompareTag("Player"))
             {
-                float distance = Vector2.Distance(transform.position, player.position);
-                if (distance < stoppingDistance)
-                {
-                    rb.linearVelocity = Vector2.zero;
-                }
-                else
-                {
-                    rb.linearVelocity = direction * chaseSpeed;
-                }
+                // Нанесение урона игроку
+                hit.GetComponent<PlayerHealth>()?.TakeDamage(meleeDamage);
             }
         }
-        else if (!isStatic)
+    }
+
+    private void RangedAttack()
+    {
+        if (projectilePrefab == null || shootPoint == null) return;
+
+        Vector2 targetDirection = (player.position - shootPoint.position).normalized;
+
+        // Добавляем случайное отклонение для промаха
+        if (Random.value < missChance)
         {
-            WanderAround();
+            float spreadAngle = Random.Range(-15f, 15f);
+            targetDirection = Quaternion.Euler(0, 0, spreadAngle) * targetDirection;
+        }
+
+        GameObject projectile = Instantiate(
+            projectilePrefab,
+            shootPoint.position,
+            Quaternion.LookRotation(Vector3.forward, targetDirection)
+        );
+
+        Rigidbody2D rbProjectile = projectile.GetComponent<Rigidbody2D>();
+        if (rbProjectile != null)
+        {
+            rbProjectile.linearVelocity = targetDirection * projectileSpeed;
         }
     }
 
@@ -166,6 +248,9 @@ public class EnemyAI : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+
         if (!drawGizmos || !Application.isPlaying) return;
 
         Gizmos.color = PlayerVisible ? Color.red : Color.yellow;
