@@ -43,7 +43,7 @@ public class DialogueManager : MonoBehaviour
 
     private bool isWaitingForManualClose;
 
-    public bool IsInPostDialogueDelay { get; private set; } 
+    public bool IsInPostDialogueDelay { get; private set; }
     public event Action<Dialogue> OnDialogueEnd;
 
     private void Awake()
@@ -87,6 +87,11 @@ public class DialogueManager : MonoBehaviour
         cursorChanger.SetPauseCursor();
         PauseManager.Instance.UpdateTimeScale();
 
+        if (HintSystem.Instance != null)
+        {
+            HintSystem.Instance.HideHint();
+        }
+     
         DisplayNextLine();
     }
 
@@ -324,7 +329,7 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
-        Dialogue endedDialogue = currentDialogue; 
+        Dialogue endedDialogue = currentDialogue;
         string nextScene = currentDialogue != null ? currentDialogue.nextSceneName : "";
         Dialogue nextDialogue = currentDialogue?.nextDialogue;
 
