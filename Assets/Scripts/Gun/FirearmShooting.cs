@@ -1,3 +1,4 @@
+// FirearmShooting.cs
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -9,44 +10,63 @@ public class FirearmShooting : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform shootPoint;
     [SerializeField] private float shotsPerSecond = 5f;
-    [SerializeField] private AudioClip shotSound;
 
     [Header("Visuals")]
     [SerializeField] private Sprite playerHoldingSprite;
     private Sprite originalPlayerSprite;
 
     [Header("Ammo Settings")]
-    [Tooltip("Сколько патронов в одном магазине")]
     [SerializeField] private int bulletsPerMagazine = 30;
-    [Tooltip("Сколько магазинов максимум можно иметь в запасе")]
-    [SerializeField] private int maxMagazines = 5;
-    [Tooltip("UI Text для отображения боезапаса (например, '12/90')")]
+    [SerializeField] private int maxReserveMagazines = 5;
     [SerializeField] private Text ammoUIText;
 
-    // Текущий боезапас (в патронах)
-    private int currentBullets = 0;
+    [Header("Audio")]
+    [SerializeField] private AudioClip shotSound;
+    [SerializeField] private AudioClip emptyMagSound;
+    [SerializeField] private AudioClip reloadSound;
+
+    // --- состояние ---
+    private int currentBulletsInMag = 0;
+    private int reserveMagazineCount = 0;
     private float nextShotTime;
     private InputAction fireAction;
     private AudioSource soundSource;
     private WeaponPickupBase pickupLogic;
     private SpriteRenderer playerSpriteRenderer;
-    public WeaponPickupBase PickupLogic => pickupLogic;
 
-    // Кроме того, для надёжного сравнения типа оружия:
+    // для инвентаря
     [Header("Type ID")]
-    [Tooltip("Уникальный идентификатор (например, имя префаба) этого оружия")]
     [SerializeField] private string weaponID;
     public string WeaponID => weaponID;
+    public WeaponPickupBase PickupLogic => pickupLogic;
+    private InputAction reloadAction;
+
+    private void OnDisable()
+    {
+        reloadAction.performed -= OnReloadPressed;
+        pickupLogic.OnEquipped -= HandleWeaponEquipped;
+        pickupLogic.OnDropped -= HandleWeaponDropped;
+    }
+
+    private void OnReloadPressed(InputAction.CallbackContext ctx)
+    {
+        if (pickupLogic.IsHeld) // Только если это оружие в руках
+        {
+            ManualReload();
+        }
+    }
+
     private void Awake()
     {
         pickupLogic = GetComponent<WeaponPickupBase>();
+
         soundSource = GetComponent<AudioSource>();
         if (soundSource == null)
         {
-            // если не нашли — создаём автоматически
             soundSource = gameObject.AddComponent<AudioSource>();
             soundSource.playOnAwake = false;
         }
+
         pickupLogic.OnEquipped += HandleWeaponEquipped;
         pickupLogic.OnDropped += HandleWeaponDropped;
     }
@@ -55,18 +75,14 @@ public class FirearmShooting : MonoBehaviour
     {
         var input = FindFirstObjectByType<PlayerInput>();
         fireAction = input.actions["Shoot"];
+        reloadAction = input.actions["Drop"];
+        reloadAction.performed += OnReloadPressed;
     }
 
-    private void OnDisable()
-    {
-        pickupLogic.OnEquipped -= HandleWeaponEquipped;
-        pickupLogic.OnDropped -= HandleWeaponDropped;
-    }
 
     private void Update()
     {
         if (!pickupLogic.IsHeld) return;
-
         HandleFiring();
     }
 
@@ -74,15 +90,23 @@ public class FirearmShooting : MonoBehaviour
     {
         if (FindFirstObjectByType<PauseManager>().IsPaused) return;
         if (!fireAction.IsPressed() || Time.time < nextShotTime) return;
-        if (currentBullets <= 0) return; // нет патронов
 
         nextShotTime = Time.time + 1f / shotsPerSecond;
-        Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation);
-        currentBullets--;
-        UpdateUI();
 
-        if (shotSound != null)
-            soundSource.PlayOneShot(shotSound);
+        if (currentBulletsInMag > 0)
+        {
+            // стреляем
+            Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation);
+            currentBulletsInMag--;
+            PlaySound(shotSound);
+        }
+        else
+        {
+            // щёлкаем пустым
+            PlaySound(emptyMagSound);
+        }
+
+        UpdateUI();
     }
 
     private void HandleWeaponEquipped(SpriteRenderer playerRenderer)
@@ -102,33 +126,58 @@ public class FirearmShooting : MonoBehaviour
             playerSpriteRenderer.sprite = originalPlayerSprite;
     }
 
-    /// <summary>
-    /// Добавить один магазин (bulletsPerMagazine патронов), 
-    /// если не превышен лимит maxMagazines.
-    /// Возвращает true, если взяли, false — если запас полный.
-    /// </summary>
-    public bool TryAddMagazine(int bullets)
+    private void PlaySound(AudioClip clip)
     {
-        int currentMags = currentBullets / bulletsPerMagazine;
-        if (currentMags >= maxMagazines)
-            return false;
-
-        currentBullets = Mathf.Min(
-            currentBullets + bullets,
-            maxMagazines * bulletsPerMagazine
-        );
-        UpdateUI();
-        return true;
+        if (clip != null && soundSource != null)
+            soundSource.PlayOneShot(clip);
     }
 
     private void UpdateUI()
     {
-        if (ammoUIText != null)
+        if (ammoUIText == null) return;
+        int reserveBullets = reserveMagazineCount * bulletsPerMagazine;
+        ammoUIText.text = $"{currentBulletsInMag}/{reserveBullets}";
+    }
+
+    /// <summary>
+    /// Попытаться «подобрать» одну обойму в запас или сразу перезарядить, если клип пуст.
+    /// Возвращает true, если обойма была принята (в запас или в текущую) и объект-пикап уничтожается.
+    /// </summary>
+    public bool TryAddMagazine()
+    {
+        // если в текущем клипе пусто — сразу заправляем его
+        if (currentBulletsInMag == 0)
         {
-            int magsInReserve = currentBullets / bulletsPerMagazine;
-            int bulletsInCurrent = currentBullets % bulletsPerMagazine;
-            // Формат "текущие патроны / общий запас"
-            ammoUIText.text = $"{bulletsInCurrent}/{currentBullets}";
+            currentBulletsInMag = bulletsPerMagazine;
+            PlaySound(reloadSound);
+            UpdateUI();
+            return true;
+        }
+
+        // иначе — пытаемся добавить в запас
+        if (reserveMagazineCount < maxReserveMagazines)
+        {
+            reserveMagazineCount++;
+            UpdateUI();
+            return true;
+        }
+
+        // полный запас
+        return false;
+    }
+
+    /// <summary>
+    /// Ручная перезарядка (Q): если клип не полный и есть обоймы в запасе,
+    /// переносим одну из запаса в текущий клип и играем звук.
+    /// </summary>
+    public void ManualReload()
+    {
+        if (reserveMagazineCount > 0 && currentBulletsInMag < bulletsPerMagazine)
+        {
+            reserveMagazineCount--;
+            currentBulletsInMag = bulletsPerMagazine;
+            PlaySound(reloadSound);
+            UpdateUI();
         }
     }
 }
