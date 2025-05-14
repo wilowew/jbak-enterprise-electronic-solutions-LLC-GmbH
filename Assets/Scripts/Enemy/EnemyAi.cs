@@ -36,6 +36,24 @@ public class EnemyAI : MonoBehaviour
     public float rotationSpeed = 10f;
     public float stoppingDistance = 1f;
 
+    [Header("Chase Settings")]
+    [SerializeField] private float chaseDuration = 5f; 
+    [SerializeField] private float searchRadius = 3f;  
+
+    private Vector2 lastKnownPlayerPosition;
+    private bool isChasing;
+    private float chaseTimer;
+
+    [Header("Melee Attack Settings")]
+    [SerializeField] private float meleeAttackRadius = 1.5f;
+    [SerializeField] private AudioClip meleeSwingSound;
+    [SerializeField] private AudioClip meleeHitSound;
+    [SerializeField] private Transform weaponTransform;
+    [SerializeField] private float weaponSwingAngle = -45f; 
+
+    private AudioSource audioSource;
+    private float defaultWeaponRotation; 
+
     public bool IsStatic => isStatic;
     public bool IsHostile => isHostile;
     public bool PlayerVisible { get; private set; }
@@ -67,6 +85,19 @@ public class EnemyAI : MonoBehaviour
         }
 
         nextAttackTime = Time.time;
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        if (weaponTransform != null)
+        {
+            defaultWeaponRotation = weaponTransform.localEulerAngles.z;
+        }
+
+        chaseTimer = chaseDuration;
     }
 
     void FixedUpdate()
@@ -84,40 +115,108 @@ public class EnemyAI : MonoBehaviour
 
     private void CheckPlayerVisibility()
     {
-        PlayerVisible = true;
+        if (player == null)
+        {
+            PlayerVisible = false;
+            return;
+        }
+
+        Vector2 directionToPlayer = (Vector2)player.position - (Vector2)transform.position;
+        float distanceToPlayer = directionToPlayer.magnitude;
+
+        if (distanceToPlayer > viewDistance)
+        {
+            PlayerVisible = false;
+            return;
+        }
+
+        float angleToPlayer = Vector2.Angle(transform.right, directionToPlayer.normalized);
+        if (angleToPlayer > fieldOfViewAngle / 2f)
+        {
+            PlayerVisible = false;
+            return;
+        }
+
+        int obstacleLayer = LayerMask.NameToLayer("Obstacles");
+        int playerLayer = LayerMask.NameToLayer("Player");
+        int layerMask = (1 << obstacleLayer) | (1 << playerLayer);
+
+        RaycastHit2D hit = Physics2D.Raycast(
+            transform.position,
+            directionToPlayer.normalized,
+            distanceToPlayer,
+            layerMask
+        );
+
+        PlayerVisible = (hit.collider != null && hit.collider.CompareTag("Player"));
+
+        if (PlayerVisible)
+        {
+            lastKnownPlayerPosition = player.position; 
+            chaseTimer = chaseDuration; 
+            isChasing = true;
+        }
     }
 
     private void UpdateHostileBehavior()
     {
         if (player == null) return;
 
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        CheckPlayerVisibility();
+
+        if (PlayerVisible || isChasing)
+        {
+            if (PlayerVisible)
+            {
+                HandlePlayerChase(player.position);
+            }
+            else
+            {
+                HandlePlayerChase(lastKnownPlayerPosition);
+                chaseTimer -= Time.fixedDeltaTime;
+
+                if (chaseTimer <= 0)
+                {
+                    isChasing = false;
+                    if (!isStatic) WanderAround();
+                }
+            }
+        }
+        else
+        {
+            if (!isStatic) WanderAround();
+        }
+    }
+
+    private void HandlePlayerChase(Vector2 targetPosition)
+    {
+        float distanceToTarget = Vector2.Distance(transform.position, targetPosition);
 
         if (weaponType == WeaponType.Ranged)
         {
             stoppingDistance = attackRange * 0.8f;
-            if (distanceToPlayer < attackRange) MaintainDistance();
-            else ApproachPlayer();
+            if (distanceToTarget < attackRange) MaintainDistance();
+            else ApproachTarget(targetPosition);
         }
         else
         {
             stoppingDistance = 1f;
-            ApproachPlayer();
+            ApproachTarget(targetPosition);
         }
 
-        if (distanceToPlayer <= attackRange && Time.time >= nextAttackTime)
+        if (distanceToTarget <= attackRange && Time.time >= nextAttackTime)
         {
             Attack();
             nextAttackTime = Time.time + attackRate;
         }
     }
 
-    private void ApproachPlayer()
+    private void ApproachTarget(Vector2 targetPosition)
     {
-        Vector2 direction = (player.position - transform.position).normalized;
+        Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
         RotateTowards(direction);
 
-        if (!isStatic && Vector2.Distance(transform.position, player.position) > stoppingDistance)
+        if (!isStatic && Vector2.Distance(transform.position, targetPosition) > stoppingDistance)
         {
             rb.linearVelocity = direction * chaseSpeed;
         }
@@ -144,14 +243,40 @@ public class EnemyAI : MonoBehaviour
 
     private void MeleeAttack()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1.5f);
+        if (meleeSwingSound != null)
+        {
+            audioSource.PlayOneShot(meleeSwingSound);
+        }
+
+        if (weaponTransform != null)
+        {
+            weaponTransform.localRotation = Quaternion.Euler(0, 0, weaponSwingAngle);
+            Invoke(nameof(ResetWeaponRotation), attackRate * 0.5f); 
+        }
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, meleeAttackRadius);
+        bool hitConnected = false;
+
         foreach (Collider2D hit in hits)
         {
             if (hit.CompareTag("Player"))
             {
-                // Нанесение урона игроку
                 hit.GetComponent<PlayerHealth>()?.TakeDamage(meleeDamage);
+                hitConnected = true;
             }
+        }
+
+        if (hitConnected && meleeHitSound != null)
+        {
+            audioSource.PlayOneShot(meleeHitSound);
+        }
+    }
+
+    private void ResetWeaponRotation()
+    {
+        if (weaponTransform != null)
+        {
+            weaponTransform.localRotation = Quaternion.Euler(0, 0, defaultWeaponRotation);
         }
     }
 
