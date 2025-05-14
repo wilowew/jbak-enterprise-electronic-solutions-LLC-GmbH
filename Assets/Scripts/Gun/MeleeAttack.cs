@@ -38,7 +38,7 @@ public class MeleeAttack : MonoBehaviour
             Scarecrow scarecrow = hitCollider.GetComponent<Scarecrow>();
             if (scarecrow != null && !scarecrow.IsDestroyed)
             {
-                scarecrow.PlayDestructionEffect(); 
+                scarecrow.PlayDestructionEffect();
             }
         }
 

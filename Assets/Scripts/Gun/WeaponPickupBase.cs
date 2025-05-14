@@ -49,7 +49,7 @@ public class WeaponPickupBase : MonoBehaviour
 
     private void Update()
     {
-        if (IsHeld) 
+        if (IsHeld)
             UpdateHoldPosition();
     }
 
@@ -122,7 +122,7 @@ public class WeaponPickupBase : MonoBehaviour
     {
         if (IsHeld)
             ReleaseItem();
-        
+
         gameObject.SetActive(false);
     }
 

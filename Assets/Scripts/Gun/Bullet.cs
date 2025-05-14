@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed = 20f;
     [SerializeField] private float lifetime = 2f;
     [SerializeField] private float pushForce = 5f;
+    [SerializeField] private int damage = 5;
 
     private Rigidbody2D rb;
     private float timer;
@@ -31,14 +32,13 @@ public class Bullet : MonoBehaviour
                 scarecrow.PlayDestructionEffect();
             }
         }
-        else if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy"))
         {
             EnemyAI enemy = collision.GetComponent<EnemyAI>();
             if (enemy != null)
             {
-                enemy.TakeDamage(1);
+                enemy.TakeDamage(damage);
             }
         }
-        Destroy(gameObject);
     }
 }

@@ -109,7 +109,7 @@ public class FirearmShooting : MonoBehaviour
         UpdateUI();
     }
 
-    private void HandleWeaponEquipped(SpriteRenderer playerRenderer)
+    public void HandleWeaponEquipped(SpriteRenderer playerRenderer)
     {
         playerSpriteRenderer = playerRenderer;
         if (playerHoldingSprite != null)
@@ -123,7 +123,11 @@ public class FirearmShooting : MonoBehaviour
     private void HandleWeaponDropped()
     {
         if (playerSpriteRenderer != null && originalPlayerSprite != null)
+        {
             playerSpriteRenderer.sprite = originalPlayerSprite;
+            // —брос ссылки на спрайт игрока
+            playerSpriteRenderer = null;
+        }
     }
 
     private void PlaySound(AudioClip clip)

@@ -149,6 +149,10 @@ public class WeaponInventory : MonoBehaviour
         slots[currentIndex].EquipFromInventory(gameObject);
 
         Debug.Log($"Equipped slot {currentIndex}");
+        if (slots[currentIndex].TryGetComponent<FirearmShooting>(out var firearm))
+        {
+            firearm.HandleWeaponEquipped(GetComponent<SpriteRenderer>());
+        }
     }
 
     private void DropCurrent()
@@ -159,8 +163,9 @@ public class WeaponInventory : MonoBehaviour
         WeaponPickupBase currentWeapon = slots[currentIndex];
         slots[currentIndex] = null;
 
-        Vector3 throwDirection = transform.right;
-        currentWeapon.DropToWorld(transform.position, throwDirection);
+        // Явно вызываем ReleaseItem для триггера OnDropped
+        currentWeapon.ReleaseItem();
+        currentWeapon.DropToWorld(transform.position, transform.right);
 
         FindNextValidSlot();
     }

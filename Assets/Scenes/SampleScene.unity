@@ -31866,6 +31866,14 @@ PrefabInstance:
       propertyPath: emptyMagSound
       value: 
       objectReference: {fileID: 8300000, guid: 2300dd3e5aa683a419a953764171f831, type: 3}
+    - target: {fileID: -6843214574165353483, guid: 74f0a56784c88894582f956f78a24853, type: 3}
+      propertyPath: shotsPerSecond
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6843214574165353483, guid: 74f0a56784c88894582f956f78a24853, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 2050077445914033813, guid: 814725d02d1a8ba40874d03c39969b21, type: 3}
     - target: {fileID: 138797573996228728, guid: 74f0a56784c88894582f956f78a24853, type: 3}
       propertyPath: m_Name
       value: bam_bam
@@ -31908,6 +31916,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4716493301844326837, guid: 74f0a56784c88894582f956f78a24853, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5551366659159381611, guid: 74f0a56784c88894582f956f78a24853, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -32021,6 +32033,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9050429}
     m_Modifications:
+    - target: {fileID: 2230727145269454152, guid: 73ba66b39f0e0d146ad1b92c63bf3ac6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7357811924123564550, guid: 73ba66b39f0e0d146ad1b92c63bf3ac6, type: 3}
       propertyPath: m_Name
       value: bim_bim
@@ -32041,6 +32057,14 @@ PrefabInstance:
       propertyPath: emptyMagSound
       value: 
       objectReference: {fileID: 8300000, guid: 2300dd3e5aa683a419a953764171f831, type: 3}
+    - target: {fileID: 7503144343876024420, guid: 73ba66b39f0e0d146ad1b92c63bf3ac6, type: 3}
+      propertyPath: shotsPerSecond
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7503144343876024420, guid: 73ba66b39f0e0d146ad1b92c63bf3ac6, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 2050077445914033813, guid: 814725d02d1a8ba40874d03c39969b21, type: 3}
     - target: {fileID: 7903182313489282850, guid: 73ba66b39f0e0d146ad1b92c63bf3ac6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.53866
@@ -32333,6 +32357,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1122172126374595370, guid: 97a25879bc9f76a47a70727e5188287b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3308116269333765378, guid: 97a25879bc9f76a47a70727e5188287b, type: 3}
       propertyPath: m_Name
       value: bum_bum
@@ -32353,6 +32381,14 @@ PrefabInstance:
       propertyPath: emptyMagSound
       value: 
       objectReference: {fileID: 8300000, guid: 2300dd3e5aa683a419a953764171f831, type: 3}
+    - target: {fileID: 3454574114282158225, guid: 97a25879bc9f76a47a70727e5188287b, type: 3}
+      propertyPath: shotsPerSecond
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454574114282158225, guid: 97a25879bc9f76a47a70727e5188287b, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 2050077445914033813, guid: 814725d02d1a8ba40874d03c39969b21, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32387,6 +32423,18 @@ PrefabInstance:
       propertyPath: emptyMagSound
       value: 
       objectReference: {fileID: 8300000, guid: 2300dd3e5aa683a419a953764171f831, type: 3}
+    - target: {fileID: -5382620598677276397, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
+      propertyPath: shotsPerSecond
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -5382620598677276397, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 2050077445914033813, guid: 814725d02d1a8ba40874d03c39969b21, type: 3}
+    - target: {fileID: 3765289858590601037, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4417200160477959926, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
       propertyPath: m_Name
       value: bem_bem
@@ -32453,6 +32501,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pum_pum
       objectReference: {fileID: 0}
+    - target: {fileID: 3266593609244512690, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7922987375871453667, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
       propertyPath: weaponID
       value: 1
@@ -32469,6 +32521,14 @@ PrefabInstance:
       propertyPath: emptyMagSound
       value: 
       objectReference: {fileID: 8300000, guid: 2300dd3e5aa683a419a953764171f831, type: 3}
+    - target: {fileID: 7922987375871453667, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
+      propertyPath: shotsPerSecond
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922987375871453667, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 2050077445914033813, guid: 814725d02d1a8ba40874d03c39969b21, type: 3}
     - target: {fileID: 8898646986323840482, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.53
@@ -32541,9 +32601,21 @@ PrefabInstance:
       propertyPath: emptyMagSound
       value: 
       objectReference: {fileID: 8300000, guid: 2300dd3e5aa683a419a953764171f831, type: 3}
+    - target: {fileID: -5021921191786403808, guid: 3c1ef5e844d5dbf41bf693a6bde1e85c, type: 3}
+      propertyPath: shotsPerSecond
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -5021921191786403808, guid: 3c1ef5e844d5dbf41bf693a6bde1e85c, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 2050077445914033813, guid: 814725d02d1a8ba40874d03c39969b21, type: 3}
     - target: {fileID: 3073555998258548275, guid: 3c1ef5e844d5dbf41bf693a6bde1e85c, type: 3}
       propertyPath: m_Name
       value: pim_pim
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438540630176347277, guid: 3c1ef5e844d5dbf41bf693a6bde1e85c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4958244110654900918, guid: 3c1ef5e844d5dbf41bf693a6bde1e85c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32603,6 +32675,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9050429}
     m_Modifications:
+    - target: {fileID: 3586795316267748252, guid: c8153d245e113fb40b1bbe60c2f94045, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4615789028412032703, guid: c8153d245e113fb40b1bbe60c2f94045, type: 3}
       propertyPath: weaponID
       value: 7
@@ -32619,6 +32695,14 @@ PrefabInstance:
       propertyPath: emptyMagSound
       value: 
       objectReference: {fileID: 8300000, guid: 2300dd3e5aa683a419a953764171f831, type: 3}
+    - target: {fileID: 4615789028412032703, guid: c8153d245e113fb40b1bbe60c2f94045, type: 3}
+      propertyPath: shotsPerSecond
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615789028412032703, guid: c8153d245e113fb40b1bbe60c2f94045, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 2050077445914033813, guid: 814725d02d1a8ba40874d03c39969b21, type: 3}
     - target: {fileID: 4791178267967667460, guid: c8153d245e113fb40b1bbe60c2f94045, type: 3}
       propertyPath: m_Name
       value: pem_pem
@@ -32681,6 +32765,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9050429}
     m_Modifications:
+    - target: {fileID: 603313467669614332, guid: f1f4b47276eacec4591b1e1c856a13c0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1701392697015842140, guid: f1f4b47276eacec4591b1e1c856a13c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.588659
@@ -32737,6 +32825,14 @@ PrefabInstance:
       propertyPath: emptyMagSound
       value: 
       objectReference: {fileID: 8300000, guid: 2300dd3e5aa683a419a953764171f831, type: 3}
+    - target: {fileID: 8442795798033817543, guid: f1f4b47276eacec4591b1e1c856a13c0, type: 3}
+      propertyPath: shotsPerSecond
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442795798033817543, guid: f1f4b47276eacec4591b1e1c856a13c0, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 2050077445914033813, guid: 814725d02d1a8ba40874d03c39969b21, type: 3}
     - target: {fileID: 8972451209669774826, guid: f1f4b47276eacec4591b1e1c856a13c0, type: 3}
       propertyPath: m_Name
       value: pam_pam
@@ -32951,7 +33047,7 @@ PrefabInstance:
     - target: {fileID: 698263684947093744, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 3542127132570728493, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+      objectReference: {fileID: -1960546628078278901, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
     - target: {fileID: 820810259008413157, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: m_Camera
       value: 
@@ -33016,9 +33112,21 @@ PrefabInstance:
       propertyPath: emptyMagSound
       value: 
       objectReference: {fileID: 8300000, guid: 2300dd3e5aa683a419a953764171f831, type: 3}
+    - target: {fileID: -4005462266161472684, guid: f19063377c3bcaa459f6eee8bac2f8d3, type: 3}
+      propertyPath: shotsPerSecond
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4005462266161472684, guid: f19063377c3bcaa459f6eee8bac2f8d3, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 2050077445914033813, guid: 814725d02d1a8ba40874d03c39969b21, type: 3}
     - target: {fileID: 2349452827456011382, guid: f19063377c3bcaa459f6eee8bac2f8d3, type: 3}
       propertyPath: m_Name
       value: pom_pom
+      objectReference: {fileID: 0}
+    - target: {fileID: 7477218352249336744, guid: f19063377c3bcaa459f6eee8bac2f8d3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8403454812291686917, guid: f19063377c3bcaa459f6eee8bac2f8d3, type: 3}
       propertyPath: m_LocalPosition.x
