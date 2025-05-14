@@ -5,162 +5,200 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class WeaponInventory : MonoBehaviour
 {
-    [Header("Inventory Settings")]
-    [Tooltip("Максимальное число слотов")]
+    [Header("Settings")]
     [SerializeField] private int maxSlots = 3;
+    [SerializeField] private float pickupRadius = 2f;
 
     private WeaponPickupBase[] slots;
     private int currentIndex = -1;
-
-    private InputAction pickupAction;
+    private List<WeaponPickupBase> nearbyWeapons = new List<WeaponPickupBase>();
+    private PlayerInput playerInput;
+    private Collider2D detectionCollider;
 
     private void Awake()
     {
         slots = new WeaponPickupBase[maxSlots];
+        playerInput = GetComponent<PlayerInput>();
+
+        // Настройка триггера для обнаружения оружия
+        GameObject detectionArea = new GameObject("PickupDetection");
+        detectionArea.transform.SetParent(transform);
+        detectionArea.transform.localPosition = Vector3.zero;
+        detectionCollider = detectionArea.AddComponent<CircleCollider2D>();
+        ((CircleCollider2D)detectionCollider).radius = pickupRadius;
+        detectionCollider.isTrigger = true;
     }
 
     private void OnEnable()
     {
-        var inp = GetComponent<PlayerInput>();
-        pickupAction = inp.actions["Pickup"];   // F
-        pickupAction.performed += _ => OnPickupOrDrop();
+        InputAction grabAction = playerInput.actions["Pickup"];
+        grabAction.performed += _ => HandlePickupDrop();
     }
 
     private void OnDisable()
     {
-        pickupAction.performed -= _ => OnPickupOrDrop();
+        InputAction grabAction = playerInput.actions["Pickup"];
+        grabAction.performed -= _ => HandlePickupDrop();
     }
 
     private void Update()
     {
-        // колёсико мыши для переключения
-        float d = Mouse.current.scroll.ReadValue().y;
-        if (Mathf.Abs(d) > 0.1f && slots.Length > 1)
-            Cycle(d > 0 ? -1 : 1);
+        float scroll = Mouse.current.scroll.ReadValue().y;
+        if (Mathf.Abs(scroll) > 0.1f)
+            CycleSlots(scroll > 0 ? 1 : -1);
     }
 
-    private void OnPickupOrDrop()
+    private void HandlePickupDrop()
     {
-        var candidate = FindNearestInRange();
-        if (candidate != null)
-        {
-            PickUp(candidate);
-            return;
-        }
-
-        if (currentIndex >= 0 && slots[currentIndex] != null && !slots[currentIndex].IsHeld)
-        {
-            EquipSlot(currentIndex);
-            return;
-        }
-        DropCurrent();
-    }
-
-
-    private WeaponPickupBase FindNearestInRange()
-    {
-        var all = Object.FindObjectsOfType<WeaponPickupBase>(true);
-        WeaponPickupBase best = null;
-        float bestSqr = float.MaxValue;
-        Vector3 me = transform.position;
-
-        foreach (var w in all)
-        {
-            if (!w.IsHeld && w.InPickupRange)
-            {
-                float sq = ((Vector2)w.transform.position - (Vector2)me).sqrMagnitude;
-                if (sq < bestSqr)
-                {
-                    bestSqr = sq;
-                    best = w;
-                }
-            }
-        }
-        return best;
-    }
-
-    private void PickUp(WeaponPickupBase w)
-    {
-        // если уже есть в инвентаре — ничего не делаем
-        if (System.Array.IndexOf(slots, w) >= 0)
+        if (TryPickupNearest())
             return;
 
-        // если инвентарь полон — выбрасываем текущее
-        if (CountFilled() >= slots.Length)
-        {
+        if (currentIndex >= 0 && slots[currentIndex] != null)
             DropCurrent();
+    }
+
+    private bool TryPickupNearest()
+    {
+        if (nearbyWeapons.Count == 0)
+            return false;
+
+        WeaponPickupBase closest = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (WeaponPickupBase weapon in nearbyWeapons)
+        {
+            if (weapon.IsHeld || !weapon.InPickupRange)
+                continue;
+
+            float distance = Vector2.Distance(transform.position, weapon.transform.position);
+            if (distance < closestDistance)
+            {
+                closest = weapon;
+                closestDistance = distance;
+            }
         }
 
-        // ищем первый пустой слот
-        for (int i = 0; i < slots.Length; i++)
+        if (closest != null)
         {
-            if (slots[i] == null)
-            {
-                slots[i] = w;
-                // прячем только что подобранное, но не меняем текущее в руках
-                w.StoreInInventory();
-                return;
-            }
+            AddToInventory(closest);
+            return true;
+        }
+
+        return false;
+    }
+
+    private void AddToInventory(WeaponPickupBase weapon)
+    {
+        if (System.Array.IndexOf(slots, weapon) != -1)
+            return;
+
+        int emptySlot = FindEmptySlot();
+        if (emptySlot == -1)
+            DropCurrent();
+
+        emptySlot = FindEmptySlot();
+        if (emptySlot != -1)
+        {
+            slots[emptySlot] = weapon;
+            weapon.StoreInInventory();
+            EquipSlot(emptySlot);
         }
     }
 
-
-    private int CountFilled()
+    private int FindEmptySlot()
     {
-        int c = 0;
-        foreach (var s in slots) if (s != null) c++;
-        return c;
+        for (int i = 0; i < slots.Length; i++)
+            if (slots[i] == null)
+                return i;
+        return -1;
+    }
+
+    private void CycleSlots(int direction)
+    {
+        if (CountActiveSlots() < 2) return;
+
+        int startIndex = currentIndex;
+        int newIndex = currentIndex;
+        int attempts = 0;
+
+        do
+        {
+            newIndex = (newIndex + direction + slots.Length) % slots.Length;
+            attempts++;
+        } while (slots[newIndex] == null && attempts < slots.Length);
+
+        if (slots[newIndex] != null && newIndex != currentIndex)
+        {
+            EquipSlot(newIndex);
+        }
+    }
+
+    private void EquipSlot(int index)
+    {
+        if (index < 0 || index >= slots.Length || slots[index] == null) return;
+
+        // Деактивируем предыдущее оружие
+        if (currentIndex >= 0 && currentIndex != index && slots[currentIndex] != null)
+        {
+            slots[currentIndex].StoreInInventory();
+        }
+
+        currentIndex = index;
+
+        // Активируем новое
+        slots[currentIndex].EquipFromInventory(gameObject);
+
+        Debug.Log($"Equipped slot {currentIndex}");
     }
 
     private void DropCurrent()
     {
-        if (currentIndex < 0 || currentIndex >= slots.Length) return;
-        var w = slots[currentIndex];
-        if (w == null) return;
+        if (currentIndex < 0 || slots[currentIndex] == null)
+            return;
 
-        // бросаем в мир вдоль взгляда игрока (transform.right)
-        w.DropToWorld(transform.position, transform.right);
+        WeaponPickupBase currentWeapon = slots[currentIndex];
         slots[currentIndex] = null;
 
-        // найдём следующий непустой слот
-        int next = -1;
-        for (int i = 1; i <= slots.Length; i++)
+        Vector3 throwDirection = transform.right;
+        currentWeapon.DropToWorld(transform.position, throwDirection);
+
+        FindNextValidSlot();
+    }
+
+    private void FindNextValidSlot()
+    {
+        for (int i = 0; i < slots.Length; i++)
         {
-            int idx = (currentIndex + i) % slots.Length;
-            if (slots[idx] != null) { next = idx; break; }
+            int checkIndex = (currentIndex + i) % slots.Length;
+            if (slots[checkIndex] != null)
+            {
+                EquipSlot(checkIndex);
+                return;
+            }
         }
-        if (next >= 0) EquipSlot(next);
-        else currentIndex = -1;
+        currentIndex = -1;
     }
 
-    private void Cycle(int dir)
+    private int CountActiveSlots()
     {
-        if (CountFilled() < 2) return;
-        int start = currentIndex;
-        int i = currentIndex;
-        do
-        {
-            i = (i + dir + slots.Length) % slots.Length;
-        } while (slots[i] == null && i != start);
-
-        if (slots[i] != null)
-            EquipSlot(i);
+        int count = 0;
+        foreach (WeaponPickupBase slot in slots)
+            if (slot != null)
+                count++;
+        return count;
     }
 
-    private void EquipSlot(int idx)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (idx == currentIndex) return;
-
-        // 1) спрячем текущее
-        if (currentIndex >= 0 && slots[currentIndex] != null)
-            slots[currentIndex].StoreInInventory();
-
-        // 2) обновим индекс
-        currentIndex = idx;
-
-        // 3) достанем новое
-        slots[currentIndex].EquipFromInventory(gameObject);
+        WeaponPickupBase weapon = other.GetComponent<WeaponPickupBase>();
+        if (weapon != null && !nearbyWeapons.Contains(weapon))
+            nearbyWeapons.Add(weapon);
     }
 
-
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        WeaponPickupBase weapon = other.GetComponent<WeaponPickupBase>();
+        if (weapon != null)
+            nearbyWeapons.Remove(weapon);
+    }
 }

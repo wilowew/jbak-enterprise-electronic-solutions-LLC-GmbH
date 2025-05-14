@@ -61,7 +61,7 @@ public class MeleeWeapon : MonoBehaviour
         audioSource.PlayOneShot(swingSound);
 
         // Сразу меняем угол удержания
-        pickupBase.SetRotationOffset(swingRotationOffset);
+        pickupBase.RotationOffset = swingRotationOffset;
         // Обновляем позицию/ротацию тут же, чтобы увидеть «срезанный» угол
         pickupBase.UpdateHoldPosition();
 
@@ -101,7 +101,7 @@ public class MeleeWeapon : MonoBehaviour
 
     private void ResetRotation()
     {
-        pickupBase.SetRotationOffset(defaultRotationOffset);
+        pickupBase.RotationOffset = defaultRotationOffset;
         pickupBase.UpdateHoldPosition();
     }
 
@@ -122,7 +122,7 @@ public class MeleeWeapon : MonoBehaviour
             playerSprite.sprite = originalPlayerSprite;
         }
         // При сбросе тоже вернём дефолтный угол
-        pickupBase.SetRotationOffset(defaultRotationOffset);
+        pickupBase.RotationOffset = defaultRotationOffset;
     }
 
     private void OnDestroy()

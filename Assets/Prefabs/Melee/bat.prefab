@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 8912540582402510490}
   - component: {fileID: -1908870325812640079}
   - component: {fileID: 8752999198724997024}
+  - component: {fileID: 252823035611817194}
+  - component: {fileID: 1817146796993345285}
   m_Layer: 6
   m_Name: bat
   m_TagString: Untagged
@@ -313,3 +315,39 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &252823035611817194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138797573996228728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99108a3c2b855de4db56058aadd56fde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRadius: 1.5
+  damage: 1
+  attackCooldown: 0.5
+  defaultRotationOffset: 180
+  swingRotationOffset: 45
+  playerHoldingSprite: {fileID: 290040158, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+  originalPlayerSprite: {fileID: -1960546628078278901, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+  swingSound: {fileID: 8300000, guid: 0b2eb819295475b49a364d71a6bff2dd, type: 3}
+  hitSound: {fileID: 8300000, guid: d0a4a306729894b428699eb8818c93f9, type: 3}
+--- !u!114 &1817146796993345285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138797573996228728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb855eb8b8f6f724a8d673cfb8dd69f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 1
+  attackRange: 0.5
+  attackSound: {fileID: 8300000, guid: d0a4a306729894b428699eb8818c93f9, type: 3}

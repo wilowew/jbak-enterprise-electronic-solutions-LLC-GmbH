@@ -1918,8 +1918,8 @@ MonoBehaviour:
   attackRadius: 1.5
   damage: 1
   attackCooldown: 0.5
-  defaultRotationOffset: -90
-  swingRotationOffset: -45
+  defaultRotationOffset: -45
+  swingRotationOffset: -135
   playerHoldingSprite: {fileID: 290040158, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
   originalPlayerSprite: {fileID: -1960546628078278901, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
   swingSound: {fileID: 8300000, guid: 0b2eb819295475b49a364d71a6bff2dd, type: 3}
@@ -28250,27 +28250,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 572205789866688859, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
   m_PrefabInstance: {fileID: 5982992541275920949}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1626098290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 133721806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca9c3b9f71771e945811f510475ce3a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  playerSpriteRenderer: {fileID: 1626098297}
-  deadSprite: {fileID: -3666167208366437020, guid: 9292a5c1f05a77849ab1984243b100cd, type: 3}
-  deathScale: {x: 0.2, y: 0.2, z: 0.1}
---- !u!212 &1626098297 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 698263684947093744, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
-  m_PrefabInstance: {fileID: 5982992541275920949}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1626098306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28283,7 +28262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2eb59c779ae554eb1a1c8655c2e654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSlots: 3
+  maxSlots: 2
+  pickupRadius: 2
 --- !u!1 &1628083613
 GameObject:
   m_ObjectHideFlags: 0
@@ -32924,6 +32904,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 500428951356881250, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.63
@@ -32967,7 +32951,7 @@ PrefabInstance:
     - target: {fileID: 698263684947093744, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1960546628078278901, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+      objectReference: {fileID: 3542127132570728493, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
     - target: {fileID: 820810259008413157, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: m_Camera
       value: 
@@ -32984,9 +32968,17 @@ PrefabInstance:
       propertyPath: m_NeverAutoSwitchControlSchemes
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2665817987603416390, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3368558483572712597, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368558483572712597, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4079592033955247761, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: footstepSource
@@ -32996,9 +32988,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3368558483572712597, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1626098290}
     - targetCorrespondingSourceObject: {fileID: 3368558483572712597, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1626098306}

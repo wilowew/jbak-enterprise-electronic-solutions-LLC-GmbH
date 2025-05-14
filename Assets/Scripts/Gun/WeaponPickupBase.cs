@@ -8,137 +8,147 @@ public class WeaponPickupBase : MonoBehaviour
     [SerializeField] protected float rotationOffset = -90f;
     [SerializeField] protected float throwDistance = 0.7f;
 
-    // для хранения состояния
     protected Rigidbody2D itemBody;
     protected Collider2D itemCollider;
     protected Quaternion baseRotation;
-    protected bool inPickupRange;
-    protected bool isHeld;
     protected GameObject owner;
     protected static WeaponPickupBase currentHeldItem;
 
-    public bool IsHeld => isHeld;
-    public bool InPickupRange => inPickupRange;
-    public float RotationOffset => rotationOffset;
+    // Изменено: Используем свойство для автоматического обновления baseRotation
+    public float RotationOffset
+    {
+        get => rotationOffset;
+        set
+        {
+            rotationOffset = value;
+            baseRotation = Quaternion.Euler(0f, 0f, rotationOffset);
+        }
+    }
+
+    public bool IsHeld { get; private set; }
+    public bool InPickupRange { get; private set; }
+
     public event System.Action<SpriteRenderer> OnEquipped;
     public event System.Action OnDropped;
 
-    private PlayerInput inputSys;
-    private InputAction grabAction;
-   
-    public void SetRotationOffset(float newOffset)
-    {
-        rotationOffset = newOffset;
-        baseRotation = Quaternion.Euler(0f, 0f, rotationOffset);
-    }
+    private PlayerInput playerInput;
 
     private void Awake()
     {
         itemBody = GetComponent<Rigidbody2D>();
         itemCollider = GetComponent<Collider2D>();
+        baseRotation = Quaternion.Euler(0f, 0f, rotationOffset);
     }
 
     private void OnEnable()
     {
-        inputSys = FindFirstObjectByType<PlayerInput>();
-        grabAction = inputSys.actions["Pickup"];
-        grabAction.performed += OnGrab;
+        // Ищем PlayerInput только если не установлен
+        if (playerInput == null)
+            playerInput = FindObjectOfType<PlayerInput>();
     }
-
-    private void OnDisable() => grabAction.performed -= OnGrab;
 
     private void Update()
     {
-        if (isHeld) UpdateHoldPosition();
+        if (IsHeld) 
+            UpdateHoldPosition();
     }
 
-    private void OnTriggerEnter2D(Collider2D c)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (c.CompareTag("Player")) inPickupRange = true;
+        if (other.CompareTag("Player"))
+            InPickupRange = true;
     }
 
-    private void OnTriggerExit2D(Collider2D c)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (c.CompareTag("Player")) inPickupRange = false;
+        if (other.CompareTag("Player"))
+            InPickupRange = false;
     }
 
-    // original pickup/drop — оставляем, но НЕ используем его из инвентаря
-    protected virtual void OnGrab(InputAction.CallbackContext ctx)
+    public void TryPickup(PlayerInput newOwnerInput)
     {
-        if (isHeld) ReleaseItem();
-        else if (inPickupRange) TakeItem();
+        if (!IsHeld && InPickupRange)
+            TakeItem(newOwnerInput);
     }
 
-    protected virtual void TakeItem()
+    protected virtual void TakeItem(PlayerInput newOwnerInput)
     {
-        if (currentHeldItem != null) currentHeldItem.ReleaseItem();
+        if (currentHeldItem != null)
+            currentHeldItem.ReleaseItem();
+
         currentHeldItem = this;
-        isHeld = true;
+        IsHeld = true;
+        owner = newOwnerInput.gameObject;
+        playerInput = newOwnerInput;
 
         itemBody.simulated = false;
         itemCollider.enabled = false;
-        baseRotation = Quaternion.Euler(0, 0, rotationOffset);
-        UpdateHoldPosition();
 
-        owner = inputSys.gameObject;
+        UpdateHoldPosition();
         OnEquipped?.Invoke(owner.GetComponent<SpriteRenderer>());
     }
 
     public virtual void ReleaseItem()
     {
-        isHeld = false;
+        IsHeld = false;
         currentHeldItem = null;
 
         itemBody.simulated = true;
         itemCollider.enabled = true;
         transform.SetParent(null);
 
-        var dir = (transform.position - owner.transform.position).normalized;
-        transform.position = owner.transform.position + dir * throwDistance;
+        if (owner != null)
+        {
+            Vector3 dir = (transform.position - owner.transform.position).normalized;
+            transform.position = owner.transform.position + dir * throwDistance;
+        }
+
         OnDropped?.Invoke();
+        owner = null;
+        playerInput = null;
     }
 
     public virtual void UpdateHoldPosition()
     {
-        transform.position = owner.transform.position + (owner.transform.rotation * holdOffset);
-        transform.rotation = owner.transform.rotation * baseRotation;
+        if (owner != null)
+        {
+            transform.position = owner.transform.position + (owner.transform.rotation * holdOffset);
+            transform.rotation = owner.transform.rotation * baseRotation;
+        }
     }
 
-    // === Новое API для инвентаря ===
-
-    /// <summary>Спрятать в инвентарь (отключить рендер/физику)</summary>
+    // === Inventory API ===
     public void StoreInInventory()
     {
-        if (isHeld) ReleaseItem();
+        if (IsHeld)
+            ReleaseItem();
+        
         gameObject.SetActive(false);
     }
 
-    /// <summary>Достать из инвентаря прямо в руки</summary>
     public void EquipFromInventory(GameObject newOwner)
     {
         owner = newOwner;
-        isHeld = true;
+        IsHeld = true;
         currentHeldItem = this;
 
         gameObject.SetActive(true);
         itemBody.simulated = false;
         itemCollider.enabled = false;
 
-        baseRotation = Quaternion.Euler(0, 0, rotationOffset);
         UpdateHoldPosition();
         OnEquipped?.Invoke(owner.GetComponent<SpriteRenderer>());
     }
 
-    /// <summary>Выбросить из инвентаря/рук в мир</summary>
     public void DropToWorld(Vector3 dropPos, Vector3 throwDir)
     {
-        if (isHeld) ReleaseItem();
+        if (IsHeld)
+            ReleaseItem();
         else
         {
             gameObject.SetActive(true);
             itemBody.simulated = true;
             itemCollider.enabled = true;
-            transform.SetParent(null);
         }
 
         transform.position = dropPos + throwDir.normalized * throwDistance;
