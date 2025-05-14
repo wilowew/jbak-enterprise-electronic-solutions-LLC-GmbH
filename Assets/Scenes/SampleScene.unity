@@ -28271,6 +28271,19 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 698263684947093744, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
   m_PrefabInstance: {fileID: 5982992541275920949}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1626098306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133721806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2eb59c779ae554eb1a1c8655c2e654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSlots: 3
 --- !u!1 &1628083613
 GameObject:
   m_ObjectHideFlags: 0
@@ -32986,6 +32999,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3368558483572712597, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1626098290}
+    - targetCorrespondingSourceObject: {fileID: 3368558483572712597, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1626098306}
   m_SourcePrefab: {fileID: 100100000, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
 --- !u!1001 &8229010414909628666
 PrefabInstance:

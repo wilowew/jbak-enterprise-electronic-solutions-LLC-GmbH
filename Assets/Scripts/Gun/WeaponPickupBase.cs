@@ -1,6 +1,5 @@
-// WeaponPickupBase.cs
+Ôªøusing UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine;
 
 public class WeaponPickupBase : MonoBehaviour
 {
@@ -9,31 +8,29 @@ public class WeaponPickupBase : MonoBehaviour
     [SerializeField] protected float rotationOffset = -90f;
     [SerializeField] protected float throwDistance = 0.7f;
 
-    // ÕÓ‚˚È ÔÓÔÂÚˇ ‰Îˇ ‰ÓÒÚÛÔ‡ Í ÚÂÍÛ˘ÂÏÛ rotationOffset ËÁ ‚ÌÂ¯ÌËı ÍÎ‡ÒÒÓ‚
-    public float RotationOffset => rotationOffset;
+    // –¥–ª—è —Ö—Ä–∞–Ω–µ–Ω–∏—è —Å–æ—Å—Ç–æ—è–Ω–∏—è
+    protected Rigidbody2D itemBody;
+    protected Collider2D itemCollider;
+    protected Quaternion baseRotation;
+    protected bool inPickupRange;
+    protected bool isHeld;
+    protected GameObject owner;
+    protected static WeaponPickupBase currentHeldItem;
 
-    // ÕÓ‚˚È ÏÂÚÓ‰ ‰Îˇ Ï„ÌÓ‚ÂÌÌÓ„Ó ÒÏÂÌ˚ Û„Î‡ Û‰ÂÊ‡ÌËˇ
+    public bool IsHeld => isHeld;
+    public bool InPickupRange => inPickupRange;
+    public float RotationOffset => rotationOffset;
+    public event System.Action<SpriteRenderer> OnEquipped;
+    public event System.Action OnDropped;
+
+    private PlayerInput inputSys;
+    private InputAction grabAction;
+   
     public void SetRotationOffset(float newOffset)
     {
         rotationOffset = newOffset;
-        // Œ·ÌÓ‚ÎˇÂÏ ‚ÌÛÚÂÌÌËÈ ·‡ÁÓ‚˚È Quaternion, ˜ÚÓ·˚ UpdateHoldPosition Ò‡ÁÛ ËÒÓ‚‡Î Ò ÌÓ‚˚Ï Û„ÎÓÏ
         baseRotation = Quaternion.Euler(0f, 0f, rotationOffset);
     }
-
-    public bool IsHeld => isHeld;
-    protected GameObject owner;
-    protected bool inPickupRange;
-    protected bool isHeld;
-    protected Quaternion baseRotation;
-    protected Rigidbody2D itemBody;
-    protected Collider2D itemCollider;
-    protected static WeaponPickupBase currentHeldItem;
-
-    protected PlayerInput inputSystem;
-    protected InputAction grabAction;
-
-    public event System.Action<SpriteRenderer> OnEquipped;
-    public event System.Action OnDropped;
 
     private void Awake()
     {
@@ -43,46 +40,31 @@ public class WeaponPickupBase : MonoBehaviour
 
     private void OnEnable()
     {
-        inputSystem = FindFirstObjectByType<PlayerInput>();
-        grabAction = inputSystem.actions["Pickup"];
-        grabAction.performed += OnGrabAction;
+        inputSys = FindFirstObjectByType<PlayerInput>();
+        grabAction = inputSys.actions["Pickup"];
+        grabAction.performed += OnGrab;
     }
 
-    private void OnDisable()
-    {
-        grabAction.performed -= OnGrabAction;
-    }
+    private void OnDisable() => grabAction.performed -= OnGrab;
 
     private void Update()
     {
         if (isHeld) UpdateHoldPosition();
     }
 
-    public virtual void UpdateHoldPosition()
+    private void OnTriggerEnter2D(Collider2D c)
     {
-        Vector3 adjustedOffset = owner.transform.rotation * holdOffset;
-        transform.position = owner.transform.position + adjustedOffset;
-        transform.rotation = owner.transform.rotation * baseRotation;
+        if (c.CompareTag("Player")) inPickupRange = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D c)
     {
-        if (other.CompareTag("Player"))
-        {
-            owner = other.gameObject;
-            inPickupRange = true;
-        }
+        if (c.CompareTag("Player")) inPickupRange = false;
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    // original pickup/drop ‚Äî –æ—Å—Ç–∞–≤–ª—è–µ–º, –Ω–æ –ù–ï –∏—Å–ø–æ–ª—å–∑—É–µ–º –µ–≥–æ –∏–∑ –∏–Ω–≤–µ–Ω—Ç–∞—Ä—è
+    protected virtual void OnGrab(InputAction.CallbackContext ctx)
     {
-        if (other.CompareTag("Player")) inPickupRange = false;
-    }
-
-    protected virtual void OnGrabAction(InputAction.CallbackContext ctx)
-    {
-        if (FindFirstObjectByType<PauseManager>().IsPaused) return;
-
         if (isHeld) ReleaseItem();
         else if (inPickupRange) TakeItem();
     }
@@ -90,18 +72,15 @@ public class WeaponPickupBase : MonoBehaviour
     protected virtual void TakeItem()
     {
         if (currentHeldItem != null) currentHeldItem.ReleaseItem();
-
         currentHeldItem = this;
         isHeld = true;
 
-        itemBody.linearVelocity = Vector2.zero;
-        itemBody.angularVelocity = 0f;
         itemBody.simulated = false;
         itemCollider.enabled = false;
-
-        baseRotation = Quaternion.Euler(0, 0, rotationOffset); // Á‡‰‡∏Ï Quaternion ÔÓ rotationOffset
+        baseRotation = Quaternion.Euler(0, 0, rotationOffset);
         UpdateHoldPosition();
 
+        owner = inputSys.gameObject;
         OnEquipped?.Invoke(owner.GetComponent<SpriteRenderer>());
     }
 
@@ -112,12 +91,57 @@ public class WeaponPickupBase : MonoBehaviour
 
         itemBody.simulated = true;
         itemCollider.enabled = true;
-        itemCollider.isTrigger = true;
         transform.SetParent(null);
 
-        Vector3 throwDir = (transform.position - owner.transform.position).normalized;
-        transform.position = owner.transform.position + throwDir * throwDistance;
+        var dir = (transform.position - owner.transform.position).normalized;
+        transform.position = owner.transform.position + dir * throwDistance;
+        OnDropped?.Invoke();
+    }
 
+    public virtual void UpdateHoldPosition()
+    {
+        transform.position = owner.transform.position + (owner.transform.rotation * holdOffset);
+        transform.rotation = owner.transform.rotation * baseRotation;
+    }
+
+    // === –ù–æ–≤–æ–µ API –¥–ª—è –∏–Ω–≤–µ–Ω—Ç–∞—Ä—è ===
+
+    /// <summary>–°–ø—Ä—è—Ç–∞—Ç—å –≤ –∏–Ω–≤–µ–Ω—Ç–∞—Ä—å (–æ—Ç–∫–ª—é—á–∏—Ç—å —Ä–µ–Ω–¥–µ—Ä/—Ñ–∏–∑–∏–∫—É)</summary>
+    public void StoreInInventory()
+    {
+        if (isHeld) ReleaseItem();
+        gameObject.SetActive(false);
+    }
+
+    /// <summary>–î–æ—Å—Ç–∞—Ç—å –∏–∑ –∏–Ω–≤–µ–Ω—Ç–∞—Ä—è –ø—Ä—è–º–æ –≤ —Ä—É–∫–∏</summary>
+    public void EquipFromInventory(GameObject newOwner)
+    {
+        owner = newOwner;
+        isHeld = true;
+        currentHeldItem = this;
+
+        gameObject.SetActive(true);
+        itemBody.simulated = false;
+        itemCollider.enabled = false;
+
+        baseRotation = Quaternion.Euler(0, 0, rotationOffset);
+        UpdateHoldPosition();
+        OnEquipped?.Invoke(owner.GetComponent<SpriteRenderer>());
+    }
+
+    /// <summary>–í—ã–±—Ä–æ—Å–∏—Ç—å –∏–∑ –∏–Ω–≤–µ–Ω—Ç–∞—Ä—è/—Ä—É–∫ –≤ –º–∏—Ä</summary>
+    public void DropToWorld(Vector3 dropPos, Vector3 throwDir)
+    {
+        if (isHeld) ReleaseItem();
+        else
+        {
+            gameObject.SetActive(true);
+            itemBody.simulated = true;
+            itemCollider.enabled = true;
+            transform.SetParent(null);
+        }
+
+        transform.position = dropPos + throwDir.normalized * throwDistance;
         OnDropped?.Invoke();
     }
 }
