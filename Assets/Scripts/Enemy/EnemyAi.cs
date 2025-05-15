@@ -38,7 +38,7 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Chase Settings")]
     [SerializeField] private float chaseDuration = 5f; 
-    [SerializeField] private float searchRadius = 3f;  
+    //[SerializeField] private float searchRadius = 3f;  
 
     private Vector2 lastKnownPlayerPosition;
     private bool isChasing;

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 
 public class DoorTransition : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class DoorTransition : MonoBehaviour
     [SerializeField] private CutsceneCamera cutsceneCamera;
 
     [SerializeField] private string requiredDialogueID;
+    [SerializeField] private List<GameObject> npcs;
 
     private bool isTransitioning = false;
     private Camera mainCamera;
@@ -37,16 +39,36 @@ public class DoorTransition : MonoBehaviour
     {
         if (endedDialogue != null && endedDialogue.dialogueID == requiredDialogueID)
         {
+            Debug.Log("Диалог завершен, условие выполнено.");
             isRequiredDialogueCompleted = true;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !isTransitioning && isRequiredDialogueCompleted)
+        if (other.CompareTag("Player") && !isTransitioning && (isRequiredDialogueCompleted || AreAllNPCsDead()))
         {
+            Debug.Log("Условие выполнено: либо диалог завершен, либо все NPC мертвы.");
             StartCoroutine(TransitionSequence());
         }
+        else
+        {
+            Debug.Log($"Условия не выполнены: isTransitioning={isTransitioning}, isRequiredDialogueCompleted={isRequiredDialogueCompleted}, AreAllNPCsDead={AreAllNPCsDead()}");
+        }
+    }
+
+    private bool AreAllNPCsDead()
+    {
+        foreach (GameObject npc in npcs)
+        {
+            if (npc != null && npc.activeInHierarchy)
+            {
+                Debug.Log($"NPC {npc.name} еще жив!");
+                return false;
+            }
+        }
+        Debug.Log("Все NPC мертвы.");
+        return true;
     }
 
     private void UpdateMainCamera()

@@ -14,6 +14,10 @@ public class WeaponPickupBase : MonoBehaviour
     protected GameObject owner;
     protected static WeaponPickupBase currentHeldItem;
 
+    [Header("Visuals")]
+    [SerializeField] private Sprite equippedPlayerSprite;
+    public Sprite EquippedPlayerSprite => equippedPlayerSprite;
+
     // Изменено: Используем свойство для автоматического обновления baseRotation
     public float RotationOffset
     {
@@ -44,7 +48,7 @@ public class WeaponPickupBase : MonoBehaviour
     {
         // Ищем PlayerInput только если не установлен
         if (playerInput == null)
-            playerInput = FindObjectOfType<PlayerInput>();
+            playerInput = FindFirstObjectByType<PlayerInput>();
     }
 
     private void Update()
@@ -148,7 +152,7 @@ public class WeaponPickupBase : MonoBehaviour
         {
             gameObject.SetActive(true);
             itemBody.simulated = true;
-            itemCollider.enabled = true;
+            itemCollider.enabled = false;
         }
 
         transform.position = dropPos + throwDir.normalized * throwDistance;

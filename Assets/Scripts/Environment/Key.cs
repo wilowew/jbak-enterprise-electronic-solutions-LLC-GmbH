@@ -1,40 +1,41 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Key : MonoBehaviour
 {
     [SerializeField] private Door targetDoor;
     [SerializeField] private float pickupRadius = 1.5f;
 
-    private Transform player;
     private bool isInRange;
+    private Collider2D triggerCollider;
 
-    private void Start()
+    private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        triggerCollider = gameObject.AddComponent<CircleCollider2D>();
+        ((CircleCollider2D)triggerCollider).radius = pickupRadius;
+        triggerCollider.isTrigger = true;
     }
 
-    private void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (player == null) return;
-
-        float distance = Vector2.Distance(transform.position, player.position);
-        isInRange = distance <= pickupRadius;
-
-        Debug.DrawLine(transform.position, player.position, isInRange ? Color.green : Color.red);
-
-        if (isInRange && Input.GetKeyDown(KeyCode.F))
-        {
-            PickUp();
-        }
+        if (other.CompareTag("Player"))
+            isInRange = true;
     }
 
-    private void PickUp()
+    private void OnTriggerExit2D(Collider2D other)
     {
+        if (other.CompareTag("Player"))
+            isInRange = false;
+    }
+
+    public void PickUp()
+    {
+        if (!isInRange) return;
+
         if (targetDoor != null)
         {
             targetDoor.AddKey();
             Destroy(gameObject);
-            Debug.Log("Key picked up!");
         }
     }
 

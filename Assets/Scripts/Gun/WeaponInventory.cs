@@ -5,8 +5,13 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class WeaponInventory : MonoBehaviour
 {
+    [Header("Starting Weapons")]
+    [SerializeField] private WeaponPickupBase[] startingWeapons;
+
+    [SerializeField] private PlayerWeaponSpriteHandler spriteHandler;
+
     [Header("Settings")]
-    [SerializeField] private int maxSlots = 3;
+    [SerializeField] private int maxSlots = 2;
     [SerializeField] private float pickupRadius = 2f;
 
     private WeaponPickupBase[] slots;
@@ -15,12 +20,26 @@ public class WeaponInventory : MonoBehaviour
     private PlayerInput playerInput;
     private Collider2D detectionCollider;
 
+    private List<Key> nearbyKeys = new List<Key>();
+
     private void Awake()
     {
         slots = new WeaponPickupBase[maxSlots];
         playerInput = GetComponent<PlayerInput>();
 
-        // Настройка триггера для обнаружения оружия
+        InitializeDetectionCollider();
+
+        if (spriteHandler == null)
+            spriteHandler = GetComponent<PlayerWeaponSpriteHandler>();
+    }
+
+    private void Start()
+    {
+        InitializeStartingWeapons();
+    }
+
+    private void InitializeDetectionCollider()
+    {
         GameObject detectionArea = new GameObject("PickupDetection");
         detectionArea.transform.SetParent(transform);
         detectionArea.transform.localPosition = Vector3.zero;
@@ -48,14 +67,93 @@ public class WeaponInventory : MonoBehaviour
             CycleSlots(scroll > 0 ? 1 : -1);
     }
 
+    private void InitializeStartingWeapons()
+    {
+        if (startingWeapons != null && startingWeapons.Length > 0)
+        {
+            foreach (WeaponPickupBase weaponPrefab in startingWeapons)
+            {
+                WeaponPickupBase weaponInstance = Instantiate(
+                    weaponPrefab,
+                    transform.position,
+                    Quaternion.identity
+                );
+                weaponInstance.gameObject.SetActive(false);
+                AddStartingWeapon(weaponInstance);
+            }
+
+            if (currentIndex != -1 && spriteHandler != null)
+            {
+                spriteHandler.UpdateWeaponSprite(slots[currentIndex]);
+            }
+        }
+    }
+
+    private void AddStartingWeapon(WeaponPickupBase weapon)
+    {
+        int emptySlot = FindEmptySlot();
+        if (emptySlot == -1)
+        {
+            Debug.LogWarning("No empty slot for starting weapon.");
+            return;
+        }
+
+        slots[emptySlot] = weapon;
+        weapon.StoreInInventory();
+
+        if (currentIndex == -1)
+        {
+            EquipSlot(emptySlot);
+        }
+        else
+        {
+            if (spriteHandler != null)
+                spriteHandler.UpdateWeaponSprite(slots[currentIndex]);
+        }
+    }
+
     private void HandlePickupDrop()
     {
+        if (TryPickupKey())
+            return;
+
         if (TryPickupNearest())
             return;
 
         if (currentIndex >= 0 && slots[currentIndex] != null)
             DropCurrent();
     }
+
+    private bool TryPickupKey()
+    {
+        if (nearbyKeys.Count == 0)
+            return false;
+
+        Key closestKey = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (Key key in nearbyKeys)
+        {
+            if (key == null) continue;
+
+            float distance = Vector2.Distance(transform.position, key.transform.position);
+            if (distance < closestDistance)
+            {
+                closestKey = key;
+                closestDistance = distance;
+            }
+        }
+
+        if (closestKey != null)
+        {
+            closestKey.PickUp();
+            nearbyKeys.Remove(closestKey);
+            return true;
+        }
+
+        return false;
+    }
+
 
     private bool TryPickupNearest()
     {
@@ -89,8 +187,12 @@ public class WeaponInventory : MonoBehaviour
 
     private void AddToInventory(WeaponPickupBase weapon)
     {
+
         if (System.Array.IndexOf(slots, weapon) != -1)
+        {
+            Debug.Log("Weapon already in inventory");
             return;
+        }
 
         int emptySlot = FindEmptySlot();
         if (emptySlot == -1)
@@ -153,6 +255,9 @@ public class WeaponInventory : MonoBehaviour
         {
             firearm.HandleWeaponEquipped(GetComponent<SpriteRenderer>());
         }
+
+        if (spriteHandler != null)
+            spriteHandler.UpdateWeaponSprite(slots[currentIndex]);
     }
 
     private void DropCurrent()
@@ -168,6 +273,9 @@ public class WeaponInventory : MonoBehaviour
         currentWeapon.DropToWorld(transform.position, transform.right);
 
         FindNextValidSlot();
+
+        if (spriteHandler != null)
+            spriteHandler.SetUnarmed();
     }
 
     private void FindNextValidSlot()
@@ -198,6 +306,10 @@ public class WeaponInventory : MonoBehaviour
         WeaponPickupBase weapon = other.GetComponent<WeaponPickupBase>();
         if (weapon != null && !nearbyWeapons.Contains(weapon))
             nearbyWeapons.Add(weapon);
+
+        Key key = other.GetComponent<Key>();
+        if (key != null && !nearbyKeys.Contains(key))
+            nearbyKeys.Add(key);
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -205,5 +317,9 @@ public class WeaponInventory : MonoBehaviour
         WeaponPickupBase weapon = other.GetComponent<WeaponPickupBase>();
         if (weapon != null)
             nearbyWeapons.Remove(weapon);
+
+        Key key = other.GetComponent<Key>();
+        if (key != null)
+            nearbyKeys.Remove(key);
     }
 }

@@ -11,10 +11,6 @@ public class FirearmShooting : MonoBehaviour
     [SerializeField] private Transform shootPoint;
     [SerializeField] private float shotsPerSecond = 5f;
 
-    [Header("Visuals")]
-    [SerializeField] private Sprite playerHoldingSprite;
-    private Sprite originalPlayerSprite;
-
     [Header("Ammo Settings")]
     [SerializeField] private int bulletsPerMagazine = 30;
     [SerializeField] private int maxReserveMagazines = 5;
@@ -32,7 +28,6 @@ public class FirearmShooting : MonoBehaviour
     private InputAction fireAction;
     private AudioSource soundSource;
     private WeaponPickupBase pickupLogic;
-    private SpriteRenderer playerSpriteRenderer;
 
     // дл€ инвентар€
     [Header("Type ID")]
@@ -43,6 +38,9 @@ public class FirearmShooting : MonoBehaviour
 
     private void OnDisable()
     {
+        if (ammoUIText != null)
+            ammoUIText.text = "";
+
         reloadAction.performed -= OnReloadPressed;
         pickupLogic.OnEquipped -= HandleWeaponEquipped;
         pickupLogic.OnDropped -= HandleWeaponDropped;
@@ -69,6 +67,9 @@ public class FirearmShooting : MonoBehaviour
 
         pickupLogic.OnEquipped += HandleWeaponEquipped;
         pickupLogic.OnDropped += HandleWeaponDropped;
+
+        if (ammoUIText != null)
+            ammoUIText.text = "";
     }
 
     private void OnEnable()
@@ -77,8 +78,8 @@ public class FirearmShooting : MonoBehaviour
         fireAction = input.actions["Shoot"];
         reloadAction = input.actions["Drop"];
         reloadAction.performed += OnReloadPressed;
+        UpdateUI();
     }
-
 
     private void Update()
     {
@@ -111,23 +112,16 @@ public class FirearmShooting : MonoBehaviour
 
     public void HandleWeaponEquipped(SpriteRenderer playerRenderer)
     {
-        playerSpriteRenderer = playerRenderer;
-        if (playerHoldingSprite != null)
-        {
-            originalPlayerSprite = playerSpriteRenderer.sprite;
-            playerSpriteRenderer.sprite = playerHoldingSprite;
-        }
+        if (ammoUIText != null)
+            ammoUIText.text = "";
+
         UpdateUI();
     }
 
     private void HandleWeaponDropped()
     {
-        if (playerSpriteRenderer != null && originalPlayerSprite != null)
-        {
-            playerSpriteRenderer.sprite = originalPlayerSprite;
-            // —брос ссылки на спрайт игрока
-            playerSpriteRenderer = null;
-        }
+        if (ammoUIText != null)
+            ammoUIText.text = "";
     }
 
     private void PlaySound(AudioClip clip)
@@ -138,7 +132,13 @@ public class FirearmShooting : MonoBehaviour
 
     private void UpdateUI()
     {
-        if (ammoUIText == null) return;
+        if (ammoUIText == null || !pickupLogic.IsHeld)
+        {
+            if (ammoUIText != null)
+                ammoUIText.text = "";
+            return;
+        }
+
         int reserveBullets = reserveMagazineCount * bulletsPerMagazine;
         ammoUIText.text = $"{currentBulletsInMag}/{reserveBullets}";
     }
@@ -181,7 +181,7 @@ public class FirearmShooting : MonoBehaviour
             reserveMagazineCount--;
             currentBulletsInMag = bulletsPerMagazine;
             PlaySound(reloadSound);
-            UpdateUI();
+            UpdateUI(); 
         }
     }
 }

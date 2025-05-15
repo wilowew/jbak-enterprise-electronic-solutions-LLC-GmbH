@@ -248,6 +248,7 @@ MonoBehaviour:
   holdOffset: {x: 0.5, y: -0.2, z: 0}
   rotationOffset: 0
   throwDistance: 0.7
+  equippedPlayerSprite: {fileID: 3542127132570728493, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
 --- !u!114 &4615789028412032703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,5 +264,10 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2050077445914033813, guid: d1a1f33f3e88e444aba230003511d649, type: 3}
   shootPoint: {fileID: 8923433567364625139}
   shotsPerSecond: 5
+  bulletsPerMagazine: 30
+  maxReserveMagazines: 5
+  ammoUIText: {fileID: 0}
   shotSound: {fileID: 8300000, guid: 73d9836c205ee3442a75861fe5bdb2b0, type: 3}
-  playerHoldingSprite: {fileID: 3542127132570728493, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+  emptyMagSound: {fileID: 0}
+  reloadSound: {fileID: 0}
+  weaponID: 

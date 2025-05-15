@@ -16,10 +16,6 @@ public class MeleeWeapon : MonoBehaviour
     [Tooltip("Угол, на который повернётся бита при ударе")]
     [SerializeField] private float swingRotationOffset = -45f;
 
-    [Header("Visuals")]
-    [SerializeField] private Sprite playerHoldingSprite;
-    [SerializeField] private Sprite originalPlayerSprite;
-
     [Header("Audio")]
     [SerializeField] private AudioClip swingSound;
     [SerializeField] private AudioClip hitSound;
@@ -27,7 +23,6 @@ public class MeleeWeapon : MonoBehaviour
     private AudioSource audioSource;
     private WeaponPickupBase pickupBase;
     private float lastAttackTime;
-    private SpriteRenderer playerSprite;
 
     private void Awake()
     {
@@ -107,22 +102,12 @@ public class MeleeWeapon : MonoBehaviour
 
     private void HandleWeaponEquipped(SpriteRenderer playerSpriteRenderer)
     {
-        playerSprite = playerSpriteRenderer;
-        if (playerHoldingSprite != null)
-        {
-            originalPlayerSprite = playerSprite.sprite;
-            playerSprite.sprite = playerHoldingSprite;
-        }
+
     }
 
     private void HandleWeaponDropped()
     {
-        if (playerSprite != null && originalPlayerSprite != null)
-        {
-            playerSprite.sprite = originalPlayerSprite;
-        }
-        // При сбросе тоже вернём дефолтный угол
-        pickupBase.RotationOffset = defaultRotationOffset;
+
     }
 
     private void OnDestroy()

@@ -10,7 +10,7 @@ public class AmmoMagazinePickup : MonoBehaviour
     [Tooltip("ID оружи€ (из FirearmShooting.WeaponID), дл€ которого этот магазин")]
     [SerializeField] private string targetWeaponID;
     [Tooltip("Ќастройка: сколько патронов в этом магазине (должно совпадать с bulletsPerMagazine)")]
-    [SerializeField] private int bulletsInMagazine = 30;
+    //[SerializeField] private int bulletsInMagazine = 30;
 
     private bool inRange;
     private GameObject player;
@@ -35,7 +35,7 @@ public class AmmoMagazinePickup : MonoBehaviour
         if (!Keyboard.current.eKey.wasPressedThisFrame) return;
 
         // »щем в руках текущее оружие нужного типа
-        var held = FindObjectsOfType<FirearmShooting>()
+        var held = FindObjectsByType<FirearmShooting>(FindObjectsInactive.Exclude, FindObjectsSortMode.InstanceID)
             .FirstOrDefault(fs =>
                 fs.PickupLogic.IsHeld &&
                 fs.WeaponID == targetWeaponID

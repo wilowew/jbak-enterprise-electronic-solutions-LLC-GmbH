@@ -64,6 +64,8 @@ public class WeaponPickup : MonoBehaviour
         }
     }
 
+
+
     private void HandleShooting()
     {
         if (FindFirstObjectByType<PauseManager>().IsPaused)
@@ -149,7 +151,7 @@ public class WeaponPickup : MonoBehaviour
 
         weaponRb.simulated = true;
         weaponCollider.enabled = true;
-        weaponCollider.isTrigger = true;
+        weaponCollider.isTrigger = false;
         transform.SetParent(null);
 
         Vector3 dropDirection = (transform.position - player.transform.position).normalized;

@@ -1788,7 +1788,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetWeaponID: 3
-  bulletsInMagazine: 30
 --- !u!58 &247253395
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1920,8 +1919,6 @@ MonoBehaviour:
   attackCooldown: 0.5
   defaultRotationOffset: -45
   swingRotationOffset: -135
-  playerHoldingSprite: {fileID: 290040158, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
-  originalPlayerSprite: {fileID: -1960546628078278901, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
   swingSound: {fileID: 8300000, guid: 0b2eb819295475b49a364d71a6bff2dd, type: 3}
   hitSound: {fileID: 8300000, guid: d0a4a306729894b428699eb8818c93f9, type: 3}
 --- !u!1 &375842494
@@ -2005,7 +2002,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetWeaponID: 1
-  bulletsInMagazine: 30
 --- !u!58 &485064738
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2420,7 +2416,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetWeaponID: 1
-  bulletsInMagazine: 30
 --- !u!58 &613907067
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2698,7 +2693,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetWeaponID: 9
-  bulletsInMagazine: 30
 --- !u!58 &750367693
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3033,6 +3027,14 @@ PrefabInstance:
     - target: {fileID: 119605069028188272, guid: 9a16572816a41054f8c11c427ed5c644, type: 3}
       propertyPath: m_Name
       value: Scarecrow (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 119605069028188272, guid: 9a16572816a41054f8c11c427ed5c644, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 119605069028188272, guid: 9a16572816a41054f8c11c427ed5c644, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5532405345959484369, guid: 9a16572816a41054f8c11c427ed5c644, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3402,11 +3404,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.636
+      value: 17.523
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.649
+      value: -1.155
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalPosition.z
@@ -28197,7 +28199,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetWeaponID: 6
-  bulletsInMagazine: 30
 --- !u!58 &1607425334
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -28250,7 +28251,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 572205789866688859, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
   m_PrefabInstance: {fileID: 5982992541275920949}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1626098306
+--- !u!212 &1626098314 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 698263684947093744, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+  m_PrefabInstance: {fileID: 5982992541275920949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1626098316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133721806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9eef35703310348a203aa912067ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpriteRenderer: {fileID: 1626098314}
+  meleeSprite: {fileID: 290040158, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+  rangedSprite: {fileID: 3542127132570728493, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+--- !u!114 &1626098317
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28262,6 +28283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2eb59c779ae554eb1a1c8655c2e654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingWeapons: []
+  spriteHandler: {fileID: 1626098316}
   maxSlots: 2
   pickupRadius: 2
 --- !u!1 &1628083613
@@ -28366,7 +28389,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetWeaponID: 1
-  bulletsInMagazine: 30
 --- !u!58 &1628083617
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -28442,7 +28464,6 @@ MonoBehaviour:
   rotationSpeed: 10
   stoppingDistance: 1
   chaseDuration: 5
-  searchRadius: 3
   meleeAttackRadius: 1.5
   meleeSwingSound: {fileID: 0}
   meleeHitSound: {fileID: 0}
@@ -28550,7 +28571,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetWeaponID: 5
-  bulletsInMagazine: 30
 --- !u!58 &1668133502
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -28865,7 +28885,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetWeaponID: 2
-  bulletsInMagazine: 30
 --- !u!58 &1870271598
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -33086,7 +33105,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3368558483572712597, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1626098306}
+      addedObject: {fileID: 1626098316}
+    - targetCorrespondingSourceObject: {fileID: 3368558483572712597, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1626098317}
   m_SourcePrefab: {fileID: 100100000, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
 --- !u!1001 &8229010414909628666
 PrefabInstance:
