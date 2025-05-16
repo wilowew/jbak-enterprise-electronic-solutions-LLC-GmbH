@@ -108,35 +108,5 @@ PrefabInstance:
     - {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3368558483572712597, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5324827322705055999}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
---- !u!1 &6104083441491413580 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3368558483572712597, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
-  m_PrefabInstance: {fileID: 8793711048160603865}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5324827322705055999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6104083441491413580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7998d31cbb7703042ad9eda76d5e1635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  movementSpeed: 3
-  isCyclic: 0
-  waypointThreshold: 0.1
-  rotateTowardsMovement: 1
-  rotationSpeed: 5

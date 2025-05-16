@@ -2,21 +2,24 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
-    [SerializeField] private int damage = 1;
-    [SerializeField] private float speed = 10f;
-    [SerializeField] private float lifetime = 3f;
+    [SerializeField] private float speed = 20f;
+    [SerializeField] private float lifetime = 2f;
+    //[SerializeField] private float pushForce = 5f;
+    [SerializeField] private int damage = 5;
 
     private Rigidbody2D rb;
+    private float timer;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        Destroy(gameObject, lifetime);
+        rb.linearVelocity = transform.up * speed;
     }
 
-    public void SetDirection(Vector2 direction)
+    private void Update()
     {
-        rb.linearVelocity = direction * speed;
+        timer += Time.deltaTime;
+        if (timer >= lifetime) Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,10 +27,6 @@ public class EnemyProjectile : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             collision.GetComponent<PlayerHealth>()?.TakeDamage(damage);
-            Destroy(gameObject);
-        }
-        else if (!collision.CompareTag("Enemy"))
-        {
             Destroy(gameObject);
         }
     }

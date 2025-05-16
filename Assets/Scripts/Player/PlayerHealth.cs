@@ -10,6 +10,9 @@ public class PlayerHealth : MonoBehaviour
     private int currentHealth;
     private Vector3 originalScale;
 
+    private bool isDead = false;
+    public bool IsDead => isDead;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -24,7 +27,13 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        isDead = true;
         Debug.Log("Player Died!");
+
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
 
         PlayerMovement movement = GetComponent<PlayerMovement>();
         if (movement != null) movement.SetMovement(false);

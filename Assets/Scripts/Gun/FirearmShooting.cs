@@ -89,7 +89,7 @@ public class FirearmShooting : MonoBehaviour
 
     private void HandleFiring()
     {
-        if (FindFirstObjectByType<PauseManager>().IsPaused) return;
+        if(IsPlayerDead() || FindFirstObjectByType<PauseManager>().IsPaused) return;
         if (!fireAction.IsPressed() || Time.time < nextShotTime) return;
 
         nextShotTime = Time.time + 1f / shotsPerSecond;
@@ -116,6 +116,13 @@ public class FirearmShooting : MonoBehaviour
             ammoUIText.text = "";
 
         UpdateUI();
+    }
+
+    private bool IsPlayerDead()
+    {
+        if (pickupLogic == null || pickupLogic.Owner == null) return false;
+        PlayerHealth health = pickupLogic.Owner.GetComponent<PlayerHealth>();
+        return health != null && health.IsDead;
     }
 
     private void HandleWeaponDropped()

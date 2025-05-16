@@ -11,12 +11,14 @@ public class WeaponPickupBase : MonoBehaviour
     protected Rigidbody2D itemBody;
     protected Collider2D itemCollider;
     protected Quaternion baseRotation;
-    protected GameObject owner;
+    [SerializeField] protected GameObject owner;
     protected static WeaponPickupBase currentHeldItem;
 
     [Header("Visuals")]
     [SerializeField] private Sprite equippedPlayerSprite;
     public Sprite EquippedPlayerSprite => equippedPlayerSprite;
+
+    public GameObject Owner => owner;
 
     // Изменено: Используем свойство для автоматического обновления baseRotation
     public float RotationOffset

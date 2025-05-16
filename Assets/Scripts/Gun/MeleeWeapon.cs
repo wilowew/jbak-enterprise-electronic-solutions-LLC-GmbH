@@ -50,6 +50,7 @@ public class MeleeWeapon : MonoBehaviour
 
     private void TryAttack()
     {
+        if (IsOwnerDead() || Time.time - lastAttackTime < attackCooldown) return;
         if (Time.time - lastAttackTime < attackCooldown) return;
 
         lastAttackTime = Time.time;
@@ -92,6 +93,13 @@ public class MeleeWeapon : MonoBehaviour
 
         if (hitSuccess)
             audioSource.PlayOneShot(hitSound);
+    }
+
+    private bool IsOwnerDead()
+    {
+        if (pickupBase == null || pickupBase.Owner == null) return false;
+        PlayerHealth health = pickupBase.Owner.GetComponent<PlayerHealth>();
+        return health != null && health.IsDead;
     }
 
     private void ResetRotation()

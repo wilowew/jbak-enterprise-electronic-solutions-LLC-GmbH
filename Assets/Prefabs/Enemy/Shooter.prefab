@@ -97,9 +97,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3333745628535621099, guid: 5952881131784be43b544afb22192ad2, type: 3}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: weaponTransform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: projectilePrefab
       value: 
-      objectReference: {fileID: 2050077445914033813, guid: 6ae33b9c9854bfa488cc7e236e27a4e3, type: 3}
+      objectReference: {fileID: 2050077445914033813, guid: 079018df9ffd9e84d912cbe01b19028b, type: 3}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: stoppingDistance
       value: 0
