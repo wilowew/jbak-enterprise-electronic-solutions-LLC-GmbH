@@ -99,4 +99,4 @@ MonoBehaviour:
   postDialogueDelayTime: 1
   nextDialogue: {fileID: 0}
   requireManualClose: 1
-  nextSceneName: 2_Cutscene_1
+  nextSceneName: Level2_Cutscene_1

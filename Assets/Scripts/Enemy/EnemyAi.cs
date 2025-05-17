@@ -36,6 +36,11 @@ public class EnemyAI : MonoBehaviour
     public float rotationSpeed = 10f;
     public float stoppingDistance = 1f;
 
+    [Header("Obstacle Avoidance")]
+    [SerializeField] private float avoidanceCheckRadius = 1f;
+    [SerializeField] private float avoidanceForce = 1f;
+    [SerializeField] private LayerMask obstacleLayerMask;
+
     [Header("Chase Settings")]
     [SerializeField] private float chaseDuration = 5f; 
     //[SerializeField] private float searchRadius = 3f;  
@@ -66,6 +71,8 @@ public class EnemyAI : MonoBehaviour
 
     private float nextAttackTime;
 
+    private PlayerHealth playerHealth;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -81,7 +88,7 @@ public class EnemyAI : MonoBehaviour
 
         if (player == null)
         {
-            Debug.LogError("Игрок не найден! Убедитесь, что у игрока есть тег 'Player'.");
+            playerHealth = player.GetComponent<PlayerHealth>();
         }
 
         nextAttackTime = Time.time;
@@ -148,7 +155,15 @@ public class EnemyAI : MonoBehaviour
             layerMask
         );
 
-        PlayerVisible = (hit.collider != null && hit.collider.CompareTag("Player"));
+        if (hit.collider != null && hit.collider.CompareTag("Player"))
+        {
+            PlayerHealth ph = hit.collider.GetComponent<PlayerHealth>();
+            PlayerVisible = (ph != null && !ph.IsDead);
+        }
+        else
+        {
+            PlayerVisible = false;
+        }
 
         if (PlayerVisible)
         {
@@ -161,6 +176,14 @@ public class EnemyAI : MonoBehaviour
     private void UpdateHostileBehavior()
     {
         if (player == null) return;
+
+        if (playerHealth != null && playerHealth.IsDead)
+        {
+            isChasing = false;
+            PlayerVisible = false;
+            if (!isStatic) WanderAround();
+            return;
+        }
 
         CheckPlayerVisibility();
 
@@ -192,6 +215,12 @@ public class EnemyAI : MonoBehaviour
     {
         float distanceToTarget = Vector2.Distance(transform.position, targetPosition);
 
+        if (distanceToTarget <= attackRange && Time.time >= nextAttackTime && PlayerVisible) 
+        {
+            Attack();
+            nextAttackTime = Time.time + attackRate;
+        }
+
         if (weaponType == WeaponType.Ranged)
         {
             stoppingDistance = attackRange * 0.8f;
@@ -214,6 +243,9 @@ public class EnemyAI : MonoBehaviour
     private void ApproachTarget(Vector2 targetPosition)
     {
         Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
+        Vector2 avoidance = CalculateObstacleAvoidance();
+        direction = (direction + avoidance).normalized;
+
         RotateTowards(direction);
 
         if (!isStatic && Vector2.Distance(transform.position, targetPosition) > stoppingDistance)
@@ -222,14 +254,44 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    private Vector2 CalculateObstacleAvoidance()
+    {
+        Vector2 avoidance = Vector2.zero;
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, avoidanceCheckRadius, obstacleLayerMask);
+
+        foreach (var hit in hits)
+        {
+            Vector2 closestPoint = hit.ClosestPoint(transform.position);
+            Vector2 dirToObstacle = (Vector2)transform.position - closestPoint;
+            float distance = dirToObstacle.magnitude;
+
+            if (distance > 0)
+            {
+                avoidance += dirToObstacle.normalized * (avoidanceForce / distance);
+            }
+        }
+
+        return avoidance;
+    }
+
     private void MaintainDistance()
     {
-        Vector2 retreatDirection = (transform.position - player.position).normalized;
-        rb.linearVelocity = retreatDirection * chaseSpeed * 0.5f;
+        Vector2 desiredDirection = (transform.position - player.position).normalized;
+        Vector2 avoidance = CalculateObstacleAvoidance();
+        Vector2 combinedDirection = (desiredDirection + avoidance).normalized;
+
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        float speedMultiplier = Mathf.Clamp01((distanceToPlayer - stoppingDistance) / (attackRange - stoppingDistance));
+
+        RotateTowards(combinedDirection);
+        rb.linearVelocity = combinedDirection * chaseSpeed * 0.5f * speedMultiplier;
     }
 
     private void Attack()
     {
+        if (!PlayerVisible) return;
+        if (playerHealth != null && playerHealth.IsDead) return;
+
         switch (weaponType)
         {
             case WeaponType.Melee:
@@ -243,6 +305,11 @@ public class EnemyAI : MonoBehaviour
 
     private void MeleeAttack()
     {
+        if (!HasClearPathToPlayer(meleeAttackRadius))
+        {
+            return;
+        }
+
         if (meleeSwingSound != null)
         {
             audioSource.PlayOneShot(meleeSwingSound);
@@ -261,8 +328,12 @@ public class EnemyAI : MonoBehaviour
         {
             if (hit.CompareTag("Player"))
             {
-                hit.GetComponent<PlayerHealth>()?.TakeDamage(meleeDamage);
-                hitConnected = true;
+                PlayerHealth health = hit.GetComponent<PlayerHealth>();
+                if (health != null && !health.IsDead)
+                {
+                    health.TakeDamage(meleeDamage);
+                    hitConnected = true;
+                }
             }
         }
 
@@ -284,6 +355,11 @@ public class EnemyAI : MonoBehaviour
     {
         if (projectilePrefab == null || shootPoint == null) return;
 
+        if (!HasClearPathToPlayer(meleeAttackRadius))
+        {
+            return;
+        }
+
         Vector2 targetDirection = (player.position - shootPoint.position).normalized;
 
         // Добавляем случайное отклонение для промаха
@@ -304,6 +380,26 @@ public class EnemyAI : MonoBehaviour
         {
             rbProjectile.linearVelocity = targetDirection * projectileSpeed;
         }
+    }
+
+    private bool HasClearPathToPlayer(float maxDistance)
+    {
+        if (player == null) return false;
+
+        Vector2 directionToPlayer = (Vector2)player.position - (Vector2)transform.position;
+        RaycastHit2D hit = Physics2D.Raycast(
+            transform.position,
+            directionToPlayer.normalized,
+            maxDistance,
+            LayerMask.GetMask("Obstacles")
+        );
+
+        if (hit.collider != null && hit.collider.CompareTag("Wall"))
+        {
+            return false;
+        }
+
+        return true;
     }
 
     private void WanderAround()

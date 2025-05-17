@@ -53,6 +53,10 @@
             "value": "Bucks"
         },
         {
+            "key": "dn_Yashka",
+            "value": "Yashka"
+        },
+        {
             "key": "dn_Shirt",
             "value": "Shirt"
         },
@@ -239,6 +243,34 @@
         {
             "key": "dt_2_Bucks12",
             "value": "A heating compress? I'll definitely stay alive for that, that's the end for the local poor guys."
+        },
+        {
+            "key": "dt_2_Yashka13",
+            "value": "Wow, you showed up. Did you seriously cut up half the house?"
+        },
+        {
+            "key": "dt_2_Bucks14",
+            "value": "Don't worry, you're next."
+        },
+        {
+            "key": "dt_2_Yashka15",
+            "value": "Finish off this idiot."
+        },
+        {
+            "key": "dt_2_Yashka16",
+            "value": "Okay, I'll deal with you myself."
+        },
+        {
+            "key": "dt_2_Yashka17",
+            "value": "*breathing heavily* You guys are totally nuts."
+        },
+        {
+            "key": "dt_2_Shirt18",
+            "value": "Bucks, you're really crazy, so many corpses without us..."
+        },
+        {
+            "key": "dt_2_Bayonet19",
+            "value": "Closer to our business"
         }
     ]
 }

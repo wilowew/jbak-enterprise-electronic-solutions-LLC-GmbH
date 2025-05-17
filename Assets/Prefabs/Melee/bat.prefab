@@ -218,6 +218,8 @@ MonoBehaviour:
   holdOffset: {x: 0.25, y: -0.3, z: 0}
   rotationOffset: 180
   throwDistance: 0.7
+  owner: {fileID: 0}
+  equippedPlayerSprite: {fileID: 0}
 --- !u!82 &8752999198724997024
 AudioSource:
   m_ObjectHideFlags: 0
@@ -332,10 +334,11 @@ MonoBehaviour:
   attackCooldown: 0.5
   defaultRotationOffset: 180
   swingRotationOffset: 45
-  playerHoldingSprite: {fileID: 290040158, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
-  originalPlayerSprite: {fileID: -1960546628078278901, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
   swingSound: {fileID: 8300000, guid: 0b2eb819295475b49a364d71a6bff2dd, type: 3}
   hitSound: {fileID: 8300000, guid: d0a4a306729894b428699eb8818c93f9, type: 3}
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &1817146796993345285
 MonoBehaviour:
   m_ObjectHideFlags: 0

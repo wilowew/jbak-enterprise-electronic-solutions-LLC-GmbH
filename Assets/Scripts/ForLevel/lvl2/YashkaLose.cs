@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class YashkaLose : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class YashkaLose : MonoBehaviour
 
     [Tooltip("Объекты для активации при исчезновении цели")]
     public GameObject[] objectsToActivate;
+
+    [Header("Dialogue Settings")]
+    [Tooltip("Диалог для запуска через 3 секунды")]
+    public Dialogue selectedDialogue;
 
     private bool hasProcessed = false;
 
@@ -50,6 +55,23 @@ public class YashkaLose : MonoBehaviour
         {
             if (obj != null)
                 obj.SetActive(true);
+        }
+
+        if (selectedDialogue != null)
+        {
+            StartCoroutine(StartDialogueAfterDelay());
+        }
+    }
+
+    private IEnumerator StartDialogueAfterDelay()
+    {
+        yield return new WaitForSeconds(3f);
+
+        if (DialogueManager.Instance != null &&
+            !DialogueManager.Instance.IsDialogueActive &&
+            !PauseManager.Instance.IsPaused)
+        {
+            DialogueManager.Instance.StartDialogue(selectedDialogue);
         }
     }
 }

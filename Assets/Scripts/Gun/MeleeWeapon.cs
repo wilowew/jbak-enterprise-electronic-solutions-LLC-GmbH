@@ -1,4 +1,3 @@
-// MeleeWeapon.cs
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +18,9 @@ public class MeleeWeapon : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioClip swingSound;
     [SerializeField] private AudioClip hitSound;
+
+    [Header("Obstacle Detection")]
+    [SerializeField] private LayerMask obstacleMask;
 
     private AudioSource audioSource;
     private WeaponPickupBase pickupBase;
@@ -51,28 +53,36 @@ public class MeleeWeapon : MonoBehaviour
     private void TryAttack()
     {
         if (IsOwnerDead() || Time.time - lastAttackTime < attackCooldown) return;
-        if (Time.time - lastAttackTime < attackCooldown) return;
 
         lastAttackTime = Time.time;
         audioSource.PlayOneShot(swingSound);
 
-        // Сразу меняем угол удержания
         pickupBase.RotationOffset = swingRotationOffset;
-        // Обновляем позицию/ротацию тут же, чтобы увидеть «срезанный» угол
         pickupBase.UpdateHoldPosition();
-
-        // Вернём исходный угол после завершения кд
         Invoke(nameof(ResetRotation), attackCooldown);
 
-        // Ищем все коллайдеры в радиусе атаки
-        Collider2D[] hits = Physics2D.OverlapCircleAll(
-            transform.position,
-            attackRadius
-        );
-
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRadius);
         bool hitSuccess = false;
+
         foreach (Collider2D hit in hits)
         {
+            Vector2 origin = transform.position;
+            Vector2 targetPos = hit.transform.position;
+            Vector2 direction = targetPos - origin;
+            float distance = direction.magnitude;
+
+            RaycastHit2D obstacleHit = Physics2D.Raycast(
+                origin,
+                direction.normalized,
+                distance,
+                obstacleMask
+            );
+
+            if (obstacleHit.collider != null)
+            {
+                continue;
+            }
+
             if (hit.CompareTag("Enemy"))
             {
                 var enemy = hit.GetComponent<EnemyAI>();
