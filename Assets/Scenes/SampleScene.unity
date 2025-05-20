@@ -1921,6 +1921,9 @@ MonoBehaviour:
   swingRotationOffset: -135
   swingSound: {fileID: 8300000, guid: 0b2eb819295475b49a364d71a6bff2dd, type: 3}
   hitSound: {fileID: 8300000, guid: d0a4a306729894b428699eb8818c93f9, type: 3}
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &375842494
 GameObject:
   m_ObjectHideFlags: 0
@@ -28271,6 +28274,7 @@ MonoBehaviour:
   playerSpriteRenderer: {fileID: 1626098314}
   meleeSprite: {fileID: 290040158, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
   rangedSprite: {fileID: 3542127132570728493, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+  unarmedSprite: {fileID: -1960546628078278901, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
 --- !u!114 &1626098317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28463,6 +28467,11 @@ MonoBehaviour:
   wanderSpeed: 2
   rotationSpeed: 10
   stoppingDistance: 1
+  avoidanceCheckRadius: 1
+  avoidanceForce: 1
+  obstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   chaseDuration: 5
   meleeAttackRadius: 1.5
   meleeSwingSound: {fileID: 0}

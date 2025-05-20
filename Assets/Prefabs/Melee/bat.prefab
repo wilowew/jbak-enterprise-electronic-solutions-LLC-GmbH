@@ -339,6 +339,8 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 256
+  originalSprite: {fileID: 290040158, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+  attackSprite: {fileID: 1187470075, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
 --- !u!114 &1817146796993345285
 MonoBehaviour:
   m_ObjectHideFlags: 0

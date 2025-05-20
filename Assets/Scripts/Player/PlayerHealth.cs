@@ -1,14 +1,20 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 3;
+    [SerializeField] private int maxHealth = 2;
     [SerializeField] private SpriteRenderer playerSpriteRenderer;
     [SerializeField] private Sprite deadSprite;
     [SerializeField] private Vector3 deathScale = new Vector3(0.5f, 0.5f, 1f);
+    [SerializeField] private float regenInterval = 10f;
+    [SerializeField] private Image healthOverlay;
+    [SerializeField] private float maxOverlayAlpha = 0.7f;
+
     private int currentHealth;
     private Vector3 originalScale;
+    private float regenTimer = 0f;
 
     private bool isDead = false;
     public bool IsDead => isDead;
@@ -17,11 +23,58 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         originalScale = transform.localScale;
+        if (healthOverlay != null)
+            healthOverlay.color = new Color(healthOverlay.color.r, healthOverlay.color.g, healthOverlay.color.b, 0);
+    }
+
+    private void Update()
+    {
+        UpdateHealthRegeneration();
+        UpdateHealthOverlay();
+    }
+
+    private void UpdateHealthRegeneration()
+    {
+        if (!isDead && currentHealth < maxHealth)
+        {
+            regenTimer += Time.deltaTime;
+            if (regenTimer >= regenInterval)
+            {
+                currentHealth = Mathf.Min(currentHealth + 1, maxHealth);
+                regenTimer = 0f;
+            }
+        }
+        else
+        {
+            regenTimer = 0f;
+        }
+    }
+
+    private void UpdateHealthOverlay()
+    {
+        if (healthOverlay == null || isDead) return;
+
+        if (currentHealth < maxHealth)
+        {
+            float healthPercentage = (float)currentHealth / maxHealth;
+            float targetAlpha = (1 - healthPercentage) * maxOverlayAlpha;
+
+            Color newColor = healthOverlay.color;
+            newColor.a = Mathf.Lerp(healthOverlay.color.a, targetAlpha, Time.deltaTime * 5f);
+            healthOverlay.color = newColor;
+        }
+        else
+        {
+            Color newColor = healthOverlay.color;
+            newColor.a = Mathf.Lerp(healthOverlay.color.a, 0f, Time.deltaTime * 5f);
+            healthOverlay.color = newColor;
+        }
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        regenTimer = 0f; 
         if (currentHealth <= 0) Die();
     }
 
@@ -43,14 +96,14 @@ public class PlayerHealth : MonoBehaviour
         if (playerSpriteRenderer != null && deadSprite != null)
         {
             playerSpriteRenderer.sprite = deadSprite;
-            transform.localScale = deathScale; 
+            transform.localScale = deathScale;
         }
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
             rb.linearVelocity = Vector2.zero;
-            rb.simulated = false; 
+            rb.simulated = false;
         }
 
         StartCoroutine(RestartSceneAfterDelay(3f));
