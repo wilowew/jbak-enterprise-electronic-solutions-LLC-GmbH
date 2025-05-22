@@ -69,6 +69,14 @@
             "value": "Violinist"
         },
         {
+            "key": "dn_Dmitriy",
+            "value": "Dmitriy"
+        },
+        {
+            "key": "dn_Alexander",
+            "value": "Alexander"
+        },
+        {
             "key": "dt_1_Bucks1",
             "value": "Damn... My head is splitting. It's been a while since I felt this bad."
         },
@@ -271,6 +279,38 @@
         {
             "key": "dt_2_Bayonet19",
             "value": "Closer to our business..."
+        },
+        {
+            "key": "dt_3_Alexander1",
+            "value": "Dmitriy... At it again?"
+        },
+        {
+            "key": "dt_3_Dmitriy2",
+            "value": "Just thinking. What's going on?"
+        },
+        {
+            "key": "dt_3_Alexander3",
+            "value": "A murder on the outskirts. We can't handle it without you."
+        },
+        {
+            "key": "dt_3_Dmitriy4",
+            "value": "Have you collected the documents? Come here."
+        },
+        {
+            "key": "dt_3_Alexander5",
+            "value": "Are you in a hurry? The Cheka is already here. If we don't, they'll clean it up."
+        },
+        {
+            "key": "dt_3_Dmitriy6",
+            "value": "Then let's not delay, there's no time."
+        },
+        {
+            "key": "dt_3_Alexander7",
+            "value": "And I wanted to ask about Maria..."
+        },
+        {
+            "key": "dt_3_Dmitriy8",
+            "value": "*interrupts* Do you have work? Then we'll chat later."
         }
     ]
 }
