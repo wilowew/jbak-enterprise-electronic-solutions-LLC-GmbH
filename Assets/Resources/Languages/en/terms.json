@@ -5,12 +5,16 @@
             "value": "Pause"
         },
         {
+            "key": "&m_nsv",
+            "value": "No Saves Text"
+        },
+        {
             "key": "&m_resume",
-            "value": "Resume"
+            "value": "RESUME GAME"
         },
         {
             "key": "&m_start",
-            "value": "START"
+            "value": "START GAME"
         },
         {
             "key": "&m_settings",
