@@ -54,7 +54,16 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private AudioClip meleeSwingSound;
     [SerializeField] private AudioClip meleeHitSound;
     [SerializeField] private Transform weaponTransform;
-    [SerializeField] private float weaponSwingAngle = -45f; 
+    [SerializeField] private float weaponSwingAngle = -45f;
+
+    [Header("Slowdown Settings")]
+    [SerializeField] private float slowdownFactor = 0.7f;
+    [SerializeField] private float slowdownDuration = 10f;
+
+    private float originalChaseSpeed;
+    private float originalWanderSpeed;
+    private int originalHealth;
+    private Coroutine recoverCoroutine;
 
     private AudioSource audioSource;
     private float defaultWeaponRotation; 
@@ -79,6 +88,10 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         initialPosition = transform.position;
         SetNewWanderTarget();
+
+        originalChaseSpeed = chaseSpeed;
+        originalWanderSpeed = wanderSpeed;
+        originalHealth = health;
 
         if (isStatic)
         {
@@ -435,8 +448,31 @@ public class EnemyAI : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        if (health <= 0) Die();
-        StartCoroutine(DamageFeedback());
+        if (health <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            if (recoverCoroutine != null)
+            {
+                StopCoroutine(recoverCoroutine);
+            }
+            recoverCoroutine = StartCoroutine(SlowDownAndRecover());
+            StartCoroutine(DamageFeedback());
+        }
+    }
+
+    private IEnumerator SlowDownAndRecover()
+    {
+        chaseSpeed = originalChaseSpeed * slowdownFactor;
+        wanderSpeed = originalWanderSpeed * slowdownFactor;
+
+        yield return new WaitForSeconds(slowdownDuration);
+
+        chaseSpeed = originalChaseSpeed;
+        wanderSpeed = originalWanderSpeed;
+        health = originalHealth;
     }
 
     public void ApplyPush(Vector2 force)

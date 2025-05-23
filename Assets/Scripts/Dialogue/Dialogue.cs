@@ -64,6 +64,10 @@ public class Dialogue : ScriptableObject
     [Tooltip("Имя сцены для загрузки после этого диалога")]
     public string nextSceneName;
 
+    [Header("Камера перехода")]
+    public float cameraMoveHeight = 5f;
+    public float cameraMoveHorizontal = 0f;
+
     [ContextMenu("Проверить ключи локализации")]
     private void ValidateLocalizationKeys()
     {

@@ -541,9 +541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45803f13e0e063c47b688ff1d3428e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialWeaponState: 0
-  startingFirearm: {fileID: 0}
-  startingMelee: {fileID: 0}
 --- !u!4 &210230917 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 572205789866688859, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}

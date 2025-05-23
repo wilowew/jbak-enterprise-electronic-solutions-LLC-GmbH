@@ -326,7 +326,6 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-
     private void EndDialogue()
     {
         Dialogue endedDialogue = currentDialogue;
@@ -341,22 +340,51 @@ public class DialogueManager : MonoBehaviour
 
         if (currentDialogue != null && currentDialogue.usePostDialogueDelay)
         {
-            StartCoroutine(PostDialogueDelay(currentDialogue.postDialogueDelayTime, currentDialogue.blockMovementDuringDelay, nextDialogue, nextScene));
+            StartCoroutine(PostDialogueDelay(
+                currentDialogue.postDialogueDelayTime,
+                currentDialogue.blockMovementDuringDelay,
+                nextDialogue,
+                nextScene
+            ));
         }
         else
         {
-            if (!string.IsNullOrEmpty(nextScene))
-            {
-                SceneManager.LoadScene(nextScene);
-            }
-            else if (nextDialogue != null)
-            {
-                StartDialogue(nextDialogue);
-            }
+            HandleSceneTransition(nextScene, nextDialogue);
         }
 
         OnDialogueEnd?.Invoke(endedDialogue);
         currentDialogue = null;
+    }
+
+    private void HandleSceneTransition(string nextScene, Dialogue nextDialogue)
+    {
+        if (!string.IsNullOrEmpty(nextScene))
+        {
+            SceneTransistor transistor = FindAnyObjectByType<SceneTransistor>();
+            SceneTransistor2_cutscene transistor1 = FindAnyObjectByType<SceneTransistor2_cutscene>();
+            if (transistor != null && currentDialogue != null)
+            {
+                transistor.SetSceneParameters(
+                    nextScene,
+                    currentDialogue.cameraMoveHeight, 
+                    currentDialogue.cameraMoveHorizontal
+                );
+                transistor.StartTransition();
+            }
+            if (transistor1 != null && currentDialogue != null)
+                {
+                    transistor1.SetSceneParameters(
+                        nextScene,
+                        currentDialogue.cameraMoveHeight,
+                        currentDialogue.cameraMoveHorizontal
+                    );
+                    transistor1.StartTransition();
+                }
+        }
+        else if (nextDialogue != null)
+        {
+            StartDialogue(nextDialogue);
+        }
     }
 
     private IEnumerator PostDialogueDelay(float delay, bool blockMovement, Dialogue nextDialogue, string nextScene)
@@ -365,14 +393,7 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(delay);
         IsInPostDialogueDelay = false;
 
-        if (!string.IsNullOrEmpty(nextScene))
-        {
-            SceneManager.LoadScene(nextScene);
-        }
-        else if (nextDialogue != null)
-        {
-            StartDialogue(nextDialogue);
-        }
+        HandleSceneTransition(nextScene, nextDialogue);
     }
 
     private void ReloadCurrentDialogue()

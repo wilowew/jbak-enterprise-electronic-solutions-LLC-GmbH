@@ -18,7 +18,7 @@ public class TimedImage : MonoBehaviour
         if (playerMovement != null)
             playerMovement.SetMovement(false);
 
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(1.3f);
 
         targetImage.SetActive(true);
 

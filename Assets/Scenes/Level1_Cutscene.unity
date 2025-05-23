@@ -1625,6 +1625,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   cursorChanger: {fileID: 1694269469}
+  fadeAnimator: {fileID: 0}
   isDialogueActive: 0
 --- !u!4 &569416342
 Transform:
@@ -3037,8 +3038,8 @@ Transform:
   m_GameObject: {fileID: 924804022}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.0004882635, w: 0.9999999}
-  m_LocalPosition: {x: 0.112, y: 0.102, z: 0}
-  m_LocalScale: {x: 2.6686301, y: 2.6739929, z: 0.18588404}
+  m_LocalPosition: {x: 1.03, y: 0.25, z: 0}
+  m_LocalScale: {x: 16.000893, y: 15.901423, z: 0.18588404}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1262816101}

@@ -44,3 +44,5 @@ MonoBehaviour:
   nextDialogue: {fileID: 0}
   requireManualClose: 1
   nextSceneName: 
+  cameraMoveHeight: 5
+  cameraMoveHorizontal: 0
