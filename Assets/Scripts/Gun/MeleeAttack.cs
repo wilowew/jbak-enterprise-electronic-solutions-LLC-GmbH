@@ -3,9 +3,10 @@ using UnityEngine;
 public class MeleeAttack : MonoBehaviour
 {
     [Header("Настройки атаки")]
-    [SerializeField] private int attackDamage = 1; // Сила удара
-    [SerializeField] private float attackRange = 0.5f; // Дальность действия атаки
-    [SerializeField] private AudioClip attackSound; // Звук при атаке
+    [SerializeField] private int attackDamage = 1;
+    [SerializeField] private float attackRange = 0.5f;
+    [SerializeField] private Vector2 attackOffset = Vector2.right;
+    [SerializeField] private AudioClip attackSound;
 
     private AudioSource audioSource;
 
@@ -18,41 +19,50 @@ public class MeleeAttack : MonoBehaviour
         }
     }
 
-    // Метод для выполнения атаки
     public void Attack()
     {
-        // Получаем всех врагов в радиусе атаки
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, attackRange);
+        Vector2 attackPosition = (Vector2)transform.position + attackOffset;
+
+        // Получаем все коллайдеры в радиусе атаки
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(attackPosition, attackRange);
+
+        bool hitDetected = false;
 
         foreach (Collider2D hitCollider in hitColliders)
         {
-            if (hitCollider.CompareTag("Enemy"))
+            if (hitCollider.CompareTag("Boss") && hitCollider.TryGetComponent<Yashka>(out var yashka))
             {
-                EnemyAI enemy = hitCollider.GetComponent<EnemyAI>();
-                if (enemy != null)
-                {
-                    enemy.TakeDamage(attackDamage);
-                }
+                yashka.TakeDamage(attackDamage);
+                hitDetected = true;
+                Debug.Log("Попал по Яшке!");
+                continue;
             }
 
-            Scarecrow scarecrow = hitCollider.GetComponent<Scarecrow>();
-            if (scarecrow != null && !scarecrow.IsDestroyed)
+            if (hitCollider.CompareTag("Enemy") && hitCollider.TryGetComponent<EnemyAI>(out var enemy))
             {
-                scarecrow.PlayDestructionEffect();
+                enemy.TakeDamage(attackDamage);
+                hitDetected = true;
+                continue;
+            }
+            if (hitCollider.CompareTag("Scarecrow") && hitCollider.TryGetComponent<Scarecrow>(out var scarecrow))
+            {
+                if (!scarecrow.IsDestroyed)
+                {
+                    scarecrow.PlayDestructionEffect();
+                    hitDetected = true;
+                }
             }
         }
 
-        // Воспроизводим звук атаки, если он есть
-        if (attackSound != null)
+        if (attackSound != null && hitDetected)
         {
             audioSource.PlayOneShot(attackSound);
         }
     }
 
-    // Для визуализации радиуса атаки в редакторе
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere((Vector2)transform.position + attackOffset, attackRange);
     }
 }

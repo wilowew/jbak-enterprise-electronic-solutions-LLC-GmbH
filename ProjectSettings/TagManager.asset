@@ -12,6 +12,7 @@ TagManager:
   - DoorTrigger
   - wood
   - Item
+  - Boss
   layers:
   - Default
   - TransparentFX

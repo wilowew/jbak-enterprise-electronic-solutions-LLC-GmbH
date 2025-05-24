@@ -93,6 +93,16 @@ public class MeleeWeapon : MonoBehaviour
                 }
             }
 
+            if (hit.CompareTag("Boss"))
+            {
+                var yashka = hit.GetComponent<Yashka>();
+                if (yashka != null)
+                {
+                    yashka.TakeDamage(damage);
+                    hitSuccess = true;
+                }
+            }
+
             Scarecrow scarecrow = hit.GetComponent<Scarecrow>();
             if (scarecrow != null && !scarecrow.IsDestroyed)
             {
