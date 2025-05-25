@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26863ff2943f37944af83dafde358442, type: 3}
   m_Name: 3_Cutscene_1
   m_EditorClassIdentifier: 
-  dialogueID: 19
+  dialogueID: 20
   lines:
   - nameTermKey: dn_Alexander
     textTermKey: dt_3_Alexander1
@@ -83,4 +83,6 @@ MonoBehaviour:
   postDialogueDelayTime: 0
   nextDialogue: {fileID: 0}
   requireManualClose: 1
-  nextSceneName: 
+  nextSceneName: Level3_Cutscene_2
+  cameraMoveHeight: 0
+  cameraMoveHorizontal: 5
