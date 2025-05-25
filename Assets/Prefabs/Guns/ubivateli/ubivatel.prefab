@@ -152,7 +152,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.00000008940697, y: -0.005180169}
+  m_Offset: {x: 0.0019064695, y: -0.000000029802322}
   m_SpriteTilingProperty:
     border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
     pivot: {x: 0.5, y: 0.5}
@@ -162,7 +162,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.13065529, y: 0.12391781}
+  m_Size: {x: 0.78913045, y: 0.6862115}
   m_EdgeRadius: 0
 --- !u!114 &5959936148025872191
 MonoBehaviour:
@@ -178,7 +178,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   lifetime: 2
-  pushForce: 5
   damage: 1
 --- !u!96 &-8259152583976618250
 TrailRenderer:

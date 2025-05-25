@@ -15258,6 +15258,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1521646497}
     m_Modifications:
+    - target: {fileID: 1114724800134182729, guid: 2ed628824486d5c4bbd49fecc23cae5e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1260216192301960232, guid: 2ed628824486d5c4bbd49fecc23cae5e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.3015842
@@ -15358,6 +15362,10 @@ PrefabInstance:
     - target: {fileID: 2983428049701304497, guid: fc7c9ff752f9ef54ca3789881aa24485, type: 3}
       propertyPath: m_Name
       value: Cup
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327686955922224129, guid: fc7c9ff752f9ef54ca3789881aa24485, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

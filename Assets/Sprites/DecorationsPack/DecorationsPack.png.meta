@@ -150,10 +150,10 @@ TextureImporter:
       name: Tree1
       rect:
         serializedVersion: 2
-        x: 33
-        y: 40
-        width: 86
-        height: 85
+        x: 28
+        y: 28
+        width: 101
+        height: 105
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -613,7 +613,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -635,7 +635,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -644,6 +644,28 @@ TextureImporter:
       bones: []
       spriteID: 8b88f7393b5ca7f469b053426ed283f4
       internalID: 692098903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DecorationsPack_3
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 146
+        width: 63
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d869aa0c10cebfd409d0a482370cdcef
+      internalID: 868827056
       vertices: []
       indices: 
       edges: []
