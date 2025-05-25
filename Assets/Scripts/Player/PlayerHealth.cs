@@ -11,6 +11,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float regenInterval = 10f;
     [SerializeField] private Image healthOverlay;
     [SerializeField] private float maxOverlayAlpha = 0.7f;
+    [SerializeField] private CanvasGroup deathScreenGroup;
+    [SerializeField] private CursorChanger cursorChanger;
 
     private int currentHealth;
     private Vector3 originalScale;
@@ -83,6 +85,20 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
         Debug.Log("Player Died!");
 
+        if (cursorChanger != null)
+        {
+            cursorChanger.SetPauseCursor();
+        }
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        if (deathScreenGroup != null)
+        {
+            deathScreenGroup.gameObject.SetActive(true);
+            StartCoroutine(FadeInDeathScreen());
+        }
+
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
@@ -107,6 +123,20 @@ public class PlayerHealth : MonoBehaviour
         }
 
         StartCoroutine(RestartSceneAfterDelay(3f));
+    }
+
+    private System.Collections.IEnumerator FadeInDeathScreen()
+    {
+        float duration = 1f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            deathScreenGroup.alpha = Mathf.Lerp(0f, 1f, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        deathScreenGroup.alpha = 1f;
     }
 
     private System.Collections.IEnumerator RestartSceneAfterDelay(float delay)

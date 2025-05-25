@@ -8,6 +8,8 @@ public class Yashka : MonoBehaviour
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float desiredDistance = 4f;
     [SerializeField] private float rotationSpeed = 5f;
+    [SerializeField] private float distanceDeadZone = 0.5f; 
+    [SerializeField] private float movementSmoothFactor = 5f; 
 
     [Header("Attack Settings")]
     [SerializeField] private float lungeSpeed = 10f;
@@ -15,6 +17,7 @@ public class Yashka : MonoBehaviour
     [SerializeField] private float attackCooldown = 2f;
     [SerializeField] private float attackRadius = 2f;
     [SerializeField] private int attackDamage = 2;
+    [SerializeField][Range(0f, 1f)] private float attackProbability = 0.3f;
 
     [Header("Dodge Settings")]
     [SerializeField][Range(0f, 1f)] private float dodgeChance = 0.5f;
@@ -80,7 +83,7 @@ public class Yashka : MonoBehaviour
         HandleDistanceManagement();
         RotateTowardsPlayer();
 
-        if (CanAttack())
+        if (CanAttack() && Random.value <= attackProbability)
         {
             StartCoroutine(LungeAttackSequence());
         }
@@ -166,15 +169,22 @@ public class Yashka : MonoBehaviour
         if (isDodging || isAttacking || player == null) return;
 
         Vector2 avoidance = CalculateObstacleAvoidance();
-        rb.linearVelocity = (movementDirection + avoidance).normalized * moveSpeed;
+        Vector2 targetVelocity = (movementDirection + avoidance).normalized * moveSpeed;
+
+        rb.linearVelocity = Vector2.Lerp(
+            rb.linearVelocity,
+            targetVelocity,
+            Time.fixedDeltaTime * movementSmoothFactor
+        );
+
         UpdateWeaponPosition();
     }
 
     private bool CanAttack()
     {
         return Time.time >= nextAttackTime &&
-               Vector2.Distance(transform.position, player.position) <= attackRadius &&
-               HasLineOfSight();
+                Vector2.Distance(transform.position, player.position) <= attackRadius &&
+                HasLineOfSight();
     }
 
     private void HandleDistanceManagement()
@@ -182,7 +192,11 @@ public class Yashka : MonoBehaviour
         Vector2 toPlayer = player.position - transform.position;
         float distance = toPlayer.magnitude;
 
-        if (distance > desiredDistance)
+        if (Mathf.Abs(distance - desiredDistance) < distanceDeadZone)
+        {
+            movementDirection = Vector2.zero;
+        }
+        else if (distance > desiredDistance)
         {
             movementDirection = toPlayer.normalized;
         }

@@ -794,7 +794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a66adc2f5b02b914e96d0023c493fb72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraDropHeight: 10
+  cameraDropHeight: 0
   cameraDropHorizontal: 0
   cameraDropDuration: 2
   player: {fileID: 282035939}
