@@ -305,6 +305,7 @@ public class Yashka : MonoBehaviour
         {
             Instantiate(deathPrefab, transform.position, Quaternion.identity);
         }
+        FindObjectOfType<BackgroundMusic>()?.AddKillPoint();
         Destroy(gameObject);
     }
 

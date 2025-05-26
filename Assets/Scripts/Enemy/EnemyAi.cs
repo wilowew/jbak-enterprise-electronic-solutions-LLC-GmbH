@@ -500,6 +500,7 @@ public class EnemyAI : MonoBehaviour
         {
             Instantiate(redPuddlePrefab, transform.position, Quaternion.identity);
         }
+        FindObjectOfType<BackgroundMusic>()?.AddKillPoint();
         Destroy(gameObject);
     }
 

@@ -5367,6 +5367,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTime: 157.5
+  IsTrackingEnemy: 0
+  enemyKillThreshold: 5
+  newMusicClip: {fileID: 0}
+  newTrackStartTime: 0
+  fadeDuration: 2
 --- !u!82 &1214457787
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5377,8 +5382,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d2cf106a541b9e0439e697992f9b27b2, type: 3}
-  m_Resource: {fileID: 8300000, guid: d2cf106a541b9e0439e697992f9b27b2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: aba1d60c92f7ff94391882724175b6e9, type: 3}
+  m_Resource: {fileID: 8300000, guid: aba1d60c92f7ff94391882724175b6e9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1

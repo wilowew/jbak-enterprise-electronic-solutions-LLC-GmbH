@@ -61,6 +61,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.38f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Player\Evidence\InventoryManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Gun\PlayerWeaponSpriteHandler.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Assets\Scripts\Audio\MusicManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl1\DialogueTriggerActivator.cs" />
+    <Compile Include="Assets\Scripts\Player\Evidence\EvidenceItem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
@@ -122,11 +124,12 @@
     <Compile Include="Assets\Scripts\Player\PlayerLegs.cs" />
     <Compile Include="Assets\Scripts\Environment\Key.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Player\Evidence\Evidence.cs" />
     <Compile Include="Assets\Scripts\Gun\MeleeAttack.cs" />
+    <Compile Include="Assets\Scripts\Enemy\NPCFollower.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueTrigger.cs" />
-    <Compile Include="Assets\Scripts\ForLevel\lvl3\PhoneCall.cs" />
     <Compile Include="Assets\Scripts\Audio\PlayerFootsteps.cs" />
     <Compile Include="Assets\Scripts\Scenes\MainMenu.cs" />
     <Compile Include="Assets\Scripts\GameManager\CursorChanger.cs" />
@@ -144,6 +147,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\GameManager\PauseManager.cs" />
     <Compile Include="Assets\PlayerControls.cs" />
+    <Compile Include="Assets\Scripts\ForLevel\lvl3\TimedScene.cs" />
     <Compile Include="Assets\Scripts\GameManager\HintSystem.cs" />
     <Compile Include="Assets\Scripts\Scenes\SceneEntrace.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />

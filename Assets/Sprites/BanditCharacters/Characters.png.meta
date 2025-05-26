@@ -107,7 +107,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 224
+        y: 480
         width: 32
         height: 32
       alignment: 9
@@ -129,7 +129,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 224
+        y: 480
         width: 32
         height: 32
       alignment: 9
@@ -151,7 +151,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 224
+        y: 480
         width: 32
         height: 32
       alignment: 9
@@ -173,7 +173,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 224
+        y: 480
         width: 32
         height: 32
       alignment: 9
@@ -195,7 +195,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 224
+        y: 480
         width: 32
         height: 32
       alignment: 9
@@ -217,7 +217,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 224
+        y: 480
         width: 32
         height: 32
       alignment: 9
@@ -239,7 +239,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 224
+        y: 480
         width: 32
         height: 32
       alignment: 9
@@ -261,7 +261,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 192
+        y: 448
         width: 32
         height: 32
       alignment: 9
@@ -283,7 +283,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 192
+        y: 448
         width: 32
         height: 32
       alignment: 9
@@ -305,7 +305,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 192
+        y: 448
         width: 32
         height: 32
       alignment: 9
@@ -327,7 +327,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 192
+        y: 448
         width: 32
         height: 32
       alignment: 9
@@ -349,7 +349,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 224
-        y: 224
+        y: 480
         width: 32
         height: 32
       alignment: 0
@@ -371,7 +371,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 448
         width: 32
         height: 32
       alignment: 9
@@ -393,7 +393,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 224
-        y: 192
+        y: 448
         width: 32
         height: 32
       alignment: 0
@@ -415,7 +415,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 128
+        y: 384
         width: 32
         height: 32
       alignment: 9
@@ -437,7 +437,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 128
+        y: 384
         width: 32
         height: 32
       alignment: 9
@@ -459,7 +459,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 128
+        y: 384
         width: 32
         height: 32
       alignment: 9
@@ -481,7 +481,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 128
+        y: 384
         width: 32
         height: 32
       alignment: 9
@@ -503,7 +503,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 128
+        y: 384
         width: 32
         height: 32
       alignment: 9
@@ -525,7 +525,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 128
+        y: 384
         width: 32
         height: 32
       alignment: 9
@@ -547,7 +547,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 224
-        y: 128
+        y: 384
         width: 32
         height: 32
       alignment: 9
@@ -569,7 +569,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 96
+        y: 352
         width: 32
         height: 32
       alignment: 9
@@ -591,7 +591,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 96
+        y: 352
         width: 32
         height: 32
       alignment: 9
@@ -613,7 +613,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 96
+        y: 352
         width: 32
         height: 32
       alignment: 9
@@ -635,7 +635,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 96
+        y: 352
         width: 32
         height: 32
       alignment: 9
@@ -657,7 +657,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 224
-        y: 96
+        y: 352
         width: 32
         height: 32
       alignment: 9
@@ -679,7 +679,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 32
+        y: 288
         width: 32
         height: 32
       alignment: 9
@@ -701,8 +701,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 192
-        width: 31
+        y: 448
+        width: 32
         height: 32
       alignment: 9
       pivot: {x: 0.30409893, y: 0.5459137}
@@ -723,7 +723,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 256
         width: 32
         height: 32
       alignment: 9
@@ -745,7 +745,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 0
+        y: 256
         width: 32
         height: 32
       alignment: 9
@@ -767,7 +767,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 32
+        y: 288
         width: 32
         height: 32
       alignment: 9
@@ -789,7 +789,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 32
+        y: 288
         width: 32
         height: 32
       alignment: 9
@@ -811,7 +811,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 32
+        y: 288
         width: 32
         height: 32
       alignment: 9
@@ -833,7 +833,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 32
+        y: 288
         width: 32
         height: 32
       alignment: 9
@@ -855,7 +855,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 32
+        y: 288
         width: 32
         height: 32
       alignment: 9
@@ -877,7 +877,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 224
-        y: 32
+        y: 288
         width: 32
         height: 32
       alignment: 9
@@ -899,7 +899,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 0
+        y: 256
         width: 32
         height: 32
       alignment: 9
@@ -921,7 +921,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 0
+        y: 256
         width: 32
         height: 32
       alignment: 9
@@ -943,7 +943,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 0
+        y: 256
         width: 32
         height: 32
       alignment: 9
@@ -965,7 +965,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 0
+        y: 256
         width: 32
         height: 32
       alignment: 9
@@ -987,7 +987,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 224
-        y: 0
+        y: 256
         width: 32
         height: 32
       alignment: 9
@@ -1000,6 +1000,116 @@ TextureImporter:
       bones: []
       spriteID: 187825c650568d148888b2a7edb7bf09
       internalID: -1493745986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Violinist
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c94beba83e2e5394188a9c8eeed8837f
+      internalID: 625648436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yashka
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f84e83589c7ffb44fadd83d149685dee
+      internalID: -1579302051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YashkaWithWeapon
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.26866293, y: 0.5172639}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf970eb9caec8e24ba681750ddfac7f0
+      internalID: 1003234450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YashkaAttack
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.2721157, y: 0.5138111}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a35d77f366c69a047acae07ae7384531
+      internalID: 1384385081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dmitry
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5172734, y: 0.48547125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 029df7b0543e69e48b2f4bf17195b699
+      internalID: 1313251922
       vertices: []
       indices: 
       edges: []
@@ -1052,13 +1162,19 @@ TextureImporter:
       Characters_37: 1805565164
       Characters_38: -1493745986
       Characters_4: 144590889
+      Characters_43: -1821493703
       Characters_5: -505246243
       Characters_6: -1737766273
       Characters_7: -1280756922
       Characters_8: -549432089
       Characters_9: 1225348681
+      Dmitry: 1313251922
       Enemy1: -1915985175
       Enemy1Hit: -1600977119
+      Violinist: 625648436
+      Yashka: -1579302051
+      YashkaAttack: 1384385081
+      YashkaWithWeapon: 1003234450
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -10541,6 +10541,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTime: 18
+  IsTrackingEnemy: 1
+  enemyKillThreshold: 9
+  newMusicClip: {fileID: 8300000, guid: fb8e38b5dc1912a41b4f11cb6f4764be, type: 3}
+  newTrackStartTime: 0
+  fadeDuration: 2
 --- !u!82 &1026769792
 AudioSource:
   m_ObjectHideFlags: 0

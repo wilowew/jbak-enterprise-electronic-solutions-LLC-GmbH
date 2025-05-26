@@ -3,7 +3,19 @@
   "WorkspaceRootPath": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|d:\\gitworks\\jbak-enterprise-electronic-solutions-llc-gmbh\\assets\\scripts\\player\\playerlegs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\assets\\scripts\\audio\\musicmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\audio\\musicmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|d:\\gitworks\\jbak-enterprise-electronic-solutions-llc-gmbh\\assets\\scripts\\enemy\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\assets\\scripts\\gamemanager\\cursorchanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager\\cursorchanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\assets\\scripts\\player\\playerlegs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerlegs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -22,11 +34,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EnemyAi.cs",
+              "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Enemy\\EnemyAi.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemyAi.cs",
+              "ToolTip": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Enemy\\EnemyAi.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy\\EnemyAi.cs",
+              "ViewState": "AgIAAOABAAAAAAAAAAApwO8BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T22:10:16.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MusicManager.cs",
+              "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Audio\\MusicManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Audio\\MusicManager.cs",
+              "ToolTip": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Audio\\MusicManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Audio\\MusicManager.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAApwHMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T22:09:40.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CursorChanger.cs",
+              "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\GameManager\\CursorChanger.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager\\CursorChanger.cs",
+              "ToolTip": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\GameManager\\CursorChanger.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameManager\\CursorChanger.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAtwBQAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T18:35:53.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "PlayerLegs.cs",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Player\\PlayerLegs.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerLegs.cs",
@@ -34,12 +84,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerLegs.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAowE0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-22T20:47:10.444Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-22T20:47:10.444Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "PlayerMovement.cs",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Player\\PlayerMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerMovement.cs",
@@ -47,12 +96,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerMovement.cs",
               "ViewState": "AgIAACUAAAAAAAAAAAAowEAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-22T20:25:33.562Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-22T20:25:33.562Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "CameraFollow.cs",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\CameraFollow.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CameraFollow.cs",

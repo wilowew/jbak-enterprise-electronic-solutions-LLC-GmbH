@@ -5039,12 +5039,16 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2654482616775816326, guid: 7fd4404eb04ac274bab0b50d73c6a154, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1579302051, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+    - target: {fileID: 2654482616775816326, guid: 7fd4404eb04ac274bab0b50d73c6a154, type: 3}
       propertyPath: m_Color.b
-      value: 0.73381615
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2654482616775816326, guid: 7fd4404eb04ac274bab0b50d73c6a154, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2654482616775816326, guid: 7fd4404eb04ac274bab0b50d73c6a154, type: 3}
       propertyPath: m_Color.r
@@ -5569,6 +5573,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTime: 90
+  IsTrackingEnemy: 1
+  enemyKillThreshold: 3
+  newMusicClip: {fileID: 8300000, guid: fb8e38b5dc1912a41b4f11cb6f4764be, type: 3}
+  newTrackStartTime: 0
+  fadeDuration: 2
 --- !u!82 &1214457787
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8292,6 +8301,22 @@ PrefabInstance:
     - target: {fileID: 1904725670351911728, guid: c10313a7949f81148917ca5adafcb672, type: 3}
       propertyPath: obstacleLayer.m_Bits
       value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 2629867875370388083, guid: c10313a7949f81148917ca5adafcb672, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1003234450, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+    - target: {fileID: 2629867875370388083, guid: c10313a7949f81148917ca5adafcb672, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2629867875370388083, guid: c10313a7949f81148917ca5adafcb672, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2629867875370388083, guid: c10313a7949f81148917ca5adafcb672, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3044279258803823576, guid: c10313a7949f81148917ca5adafcb672, type: 3}
       propertyPath: m_LocalPosition.x
