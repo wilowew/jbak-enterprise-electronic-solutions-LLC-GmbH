@@ -35,6 +35,8 @@ public class FirearmShooting : MonoBehaviour
     public WeaponPickupBase PickupLogic => pickupLogic;
     private InputAction reloadAction;
 
+    public static FirearmShooting CurrentEquipped;
+
     private void OnDisable()
     {
         if (ammoUIText != null)
@@ -110,9 +112,7 @@ public class FirearmShooting : MonoBehaviour
 
     public void HandleWeaponEquipped(SpriteRenderer playerRenderer)
     {
-        if (ammoUIText != null)
-            ammoUIText.text = "";
-
+        CurrentEquipped = this;
         UpdateUI();
     }
 
@@ -125,8 +125,13 @@ public class FirearmShooting : MonoBehaviour
 
     private void HandleWeaponDropped()
     {
-        if (ammoUIText != null)
+        if (CurrentEquipped == this && ammoUIText != null)
+        {
             ammoUIText.text = "";
+            Debug.Log("Оружие выброшено, UI очищен!");
+        }
+        if (CurrentEquipped == this)
+            CurrentEquipped = null;
     }
 
     private void PlaySound(AudioClip clip)
@@ -137,12 +142,8 @@ public class FirearmShooting : MonoBehaviour
 
     private void UpdateUI()
     {
-        if (ammoUIText == null || !pickupLogic.IsHeld)
-        {
-            if (ammoUIText != null)
-                ammoUIText.text = "";
-            return;
-        }
+        if (ammoUIText == null) return;
+        if (CurrentEquipped != this) return; 
 
         int reserveBullets = reserveMagazineCount * bulletsPerMagazine;
         ammoUIText.text = $"{currentBulletsInMag}/{reserveBullets}";

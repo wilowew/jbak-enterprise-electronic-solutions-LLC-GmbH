@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class TopDownFollower : MonoBehaviour
 {
-    public Transform player;          
-    public float moveSpeed = 3f;      
-    public float rotationSpeed = 5f;  
+    public Transform player;
+    public float moveSpeed = 3f;
+    public float rotationSpeed = 5f;
     public float stoppingDistance = 1f;
 
     private Rigidbody2D rb;

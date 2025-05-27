@@ -26,8 +26,8 @@ public class PlayerWeaponSpriteHandler : MonoBehaviour
             return;
         }
 
-        bool isMelee = weapon.GetComponent<MeleeWeapon>() != null;
-        bool isRanged = weapon.GetComponent<FirearmShooting>() != null;
+        bool isMelee = weapon.GetComponentInChildren<MeleeWeapon>(includeInactive: true) != null;
+        bool isRanged = weapon.GetComponentInChildren<FirearmShooting>(includeInactive: true) != null;
 
         playerSpriteRenderer.sprite = isMelee ? meleeSprite :
                                      isRanged ? rangedSprite :

@@ -1,30 +1,51 @@
-using UnityEngine;
+using System.Collections.Generic;
 using System.Collections;
+using UnityEngine;
 
 public class TimedSceneTransition : MonoBehaviour
 {
     [Header("Transition Settings")]
-    [SerializeField] private float delayTime = 5f; 
-    [SerializeField] private string targetSceneName; 
-    [SerializeField] private float cameraMoveHeight; 
+    [SerializeField] private float delayTime = 5f;
+    [SerializeField] private List<string> requiredDialogueIDs;
+    [SerializeField] private string targetSceneName;
+    [SerializeField] private float cameraMoveHeight;
     [SerializeField] private float cameraMoveHorizontal;
 
     [Header("Dependencies")]
-    [SerializeField] private SceneTransistor sceneTransistor; 
+    [SerializeField] private SceneTransistor sceneTransistor;
 
-    private void Start()
+    private bool _shouldCheckDialogues = true;
+
+    private IEnumerator Start()
     {
         if (sceneTransistor == null)
-        {
             sceneTransistor = GetComponent<SceneTransistor>();
+
+        float timer = 0;
+
+        while (timer < delayTime)
+        {
+            if (_shouldCheckDialogues && CheckAllDialoguesPlayed())
+            {
+                ExecuteTransition();
+                yield break;
+            }
+
+            timer += Time.deltaTime;
+            yield return null;
         }
 
-        StartCoroutine(StartTimedTransition());
+        ExecuteTransition();
     }
 
-    private IEnumerator StartTimedTransition()
+    private bool CheckAllDialoguesPlayed()
     {
-        yield return new WaitForSeconds(delayTime);
+        return DialogueTracker.Instance.HaveAllDialoguePlayed(requiredDialogueIDs);
+    }
+
+    private void ExecuteTransition()
+    {
+        _shouldCheckDialogues = false;
 
         if (sceneTransistor != null)
         {
@@ -33,12 +54,7 @@ public class TimedSceneTransition : MonoBehaviour
                 cameraMoveHeight,
                 cameraMoveHorizontal
             );
-
             sceneTransistor.StartTransition();
-        }
-        else
-        {
-            Debug.LogError("SceneTransistor component not found!");
         }
     }
 }

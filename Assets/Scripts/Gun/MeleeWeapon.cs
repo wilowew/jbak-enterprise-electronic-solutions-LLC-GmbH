@@ -129,7 +129,7 @@ public class MeleeWeapon : MonoBehaviour
         return obstacleHit.collider != null;
     }
 
-    private void HandleWeaponEquipped(SpriteRenderer playerSpriteRenderer)
+    public void HandleWeaponEquipped(SpriteRenderer playerSpriteRenderer)
     {
         playerSprite = playerSpriteRenderer;
         originalPlayerSprite = pickupBase.EquippedPlayerSprite; // Используем спрайт из WeaponPickupBase

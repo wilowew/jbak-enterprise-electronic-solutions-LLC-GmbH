@@ -3279,6 +3279,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3661244264722359360, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
   m_PrefabInstance: {fileID: 5858002711133707940}
   m_PrefabAsset: {fileID: 0}
+--- !u!225 &1336484734 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 3930184824008516887, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
+  m_PrefabInstance: {fileID: 5858002711133707940}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1342389014
 GameObject:
   m_ObjectHideFlags: 0
@@ -31926,6 +31931,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bat
       objectReference: {fileID: 0}
+    - target: {fileID: 2894084444706375669, guid: 226ba81616f300640a8575c9d07b1224, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4716493301844326837, guid: 226ba81616f300640a8575c9d07b1224, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.01
@@ -32660,11 +32669,11 @@ PrefabInstance:
       objectReference: {fileID: 2050077445914033813, guid: 814725d02d1a8ba40874d03c39969b21, type: 3}
     - target: {fileID: 8898646986323840482, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.53
+      value: -12.63
       objectReference: {fileID: 0}
     - target: {fileID: 8898646986323840482, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.72
+      value: -3.57
       objectReference: {fileID: 0}
     - target: {fileID: 8898646986323840482, guid: 4bdbbf6bef878b9408572703c234c3c6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -33193,6 +33202,10 @@ PrefabInstance:
       propertyPath: m_NeverAutoSwitchControlSchemes
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1728296075413392659, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: deathScreenGroup
+      value: 
+      objectReference: {fileID: 1336484734}
     - target: {fileID: 2665817987603416390, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: m_Layer
       value: 9

@@ -329,23 +329,37 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         Dialogue endedDialogue = currentDialogue;
-        string nextScene = currentDialogue != null ? currentDialogue.nextSceneName : "";
-        Dialogue nextDialogue = currentDialogue?.nextDialogue;
+
+        if (endedDialogue != null && !string.IsNullOrEmpty(endedDialogue.dialogueID))
+        {
+            DialogueTracker.Instance?.MarkDialogueAsPlayed(endedDialogue.dialogueID);
+        }
+
+        string nextScene = endedDialogue?.nextSceneName ?? "";
+        Dialogue nextDialogue = endedDialogue?.nextDialogue;
 
         dialoguePanel.SetActive(false);
         isDialogueActive = false;
         isDialoguePaused = false;
-        cursorChanger.SetGameCursor();
-        PauseManager.Instance.UpdateTimeScale();
 
-        if (currentDialogue != null && currentDialogue.usePostDialogueDelay)
+        cursorChanger?.SetGameCursor();
+        PauseManager.Instance?.UpdateTimeScale();
+
+        if (endedDialogue != null)
         {
-            StartCoroutine(PostDialogueDelay(
-                currentDialogue.postDialogueDelayTime,
-                currentDialogue.blockMovementDuringDelay,
-                nextDialogue,
-                nextScene
-            ));
+            if (endedDialogue.usePostDialogueDelay)
+            {
+                StartCoroutine(PostDialogueDelay(
+                    endedDialogue.postDialogueDelayTime,
+                    endedDialogue.blockMovementDuringDelay,
+                    nextDialogue,
+                    nextScene
+                ));
+            }
+            else
+            {
+                HandleSceneTransition(nextScene, nextDialogue);
+            }
         }
         else
         {
@@ -353,6 +367,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         OnDialogueEnd?.Invoke(endedDialogue);
+
         currentDialogue = null;
     }
 

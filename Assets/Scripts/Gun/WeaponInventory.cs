@@ -256,6 +256,11 @@ public class WeaponInventory : MonoBehaviour
             firearm.HandleWeaponEquipped(GetComponent<SpriteRenderer>());
         }
 
+        if (slots[currentIndex].TryGetComponent<MeleeWeapon>(out var melee))
+        {
+            melee.HandleWeaponEquipped(GetComponent<SpriteRenderer>());
+        }
+
         if (spriteHandler != null)
             spriteHandler.UpdateWeaponSprite(slots[currentIndex]);
     }
@@ -268,13 +273,12 @@ public class WeaponInventory : MonoBehaviour
         WeaponPickupBase currentWeapon = slots[currentIndex];
         slots[currentIndex] = null;
 
-        // Явно вызываем ReleaseItem для триггера OnDropped
         currentWeapon.ReleaseItem();
         currentWeapon.DropToWorld(transform.position, transform.right);
 
         FindNextValidSlot();
 
-        if (spriteHandler != null)
+        if (currentIndex == -1 && spriteHandler != null)
             spriteHandler.SetUnarmed();
     }
 
@@ -290,6 +294,9 @@ public class WeaponInventory : MonoBehaviour
             }
         }
         currentIndex = -1;
+
+        if (spriteHandler != null)
+            spriteHandler.SetUnarmed();
     }
 
     private int CountActiveSlots()
