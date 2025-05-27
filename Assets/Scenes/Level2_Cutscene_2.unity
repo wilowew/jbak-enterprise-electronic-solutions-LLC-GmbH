@@ -3945,6 +3945,10 @@ PrefabInstance:
       value: -0.045
       objectReference: {fileID: 0}
     - target: {fileID: 8338751728775710249, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 625648436, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+    - target: {fileID: 8338751728775710249, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
       propertyPath: m_Color.b
       value: 0.5608971
       objectReference: {fileID: 0}
@@ -4129,6 +4133,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTime: 0
+  IsTrackingEnemy: 0
+  enemyKillThreshold: 5
+  newMusicClip: {fileID: 0}
+  newTrackStartTime: 0
+  fadeDuration: 2
 --- !u!82 &1557111061
 AudioSource:
   m_ObjectHideFlags: 0

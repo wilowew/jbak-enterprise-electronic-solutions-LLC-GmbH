@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 61da4e98a4b4d03489b696603846f6d3
+guid: 194b6a5837ff6c04aa28ad2b9d7aef2e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1046429694056152943
-    second: ooo_0
+      213: -3874083184528430179
+    second: yashkatemp_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ooo_0
+      name: yashkatemp_0
       rect:
         serializedVersion: 2
-        x: 11
+        x: 0
         y: 0
-        width: 236
-        height: 301
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f6f33a4334aa58e00800000000000000
-      internalID: 1046429694056152943
+      spriteID: d9b6ed39edd7c3ac0800000000000000
+      internalID: -3874083184528430179
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ooo_0: 1046429694056152943
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
