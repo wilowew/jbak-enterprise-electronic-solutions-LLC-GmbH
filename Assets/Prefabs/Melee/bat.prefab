@@ -215,11 +215,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb8027f85c14e7448dbef5c70b6af93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdOffset: {x: 0.25, y: -0.3, z: 0}
+  holdOffset: {x: 0.3, y: -0.3, z: 0}
   rotationOffset: 180
   throwDistance: 0.7
   owner: {fileID: 0}
-  equippedPlayerSprite: {fileID: 0}
+  equippedPlayerSprite: {fileID: 290040158, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
 --- !u!82 &8752999198724997024
 AudioSource:
   m_ObjectHideFlags: 0
@@ -332,15 +332,14 @@ MonoBehaviour:
   attackRadius: 1.5
   damage: 1
   attackCooldown: 0.5
-  defaultRotationOffset: 180
-  swingRotationOffset: 45
+  attackAngle: 180
+  attackHoldOffset: {x: 0.35, y: 0.35, z: 0}
+  attackSprite: {fileID: 1187470075, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
   swingSound: {fileID: 8300000, guid: 0b2eb819295475b49a364d71a6bff2dd, type: 3}
   hitSound: {fileID: 8300000, guid: d0a4a306729894b428699eb8818c93f9, type: 3}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 256
-  originalSprite: {fileID: 290040158, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
-  attackSprite: {fileID: 1187470075, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
 --- !u!114 &1817146796993345285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,4 +354,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 1
   attackRange: 0.5
+  attackOffset: {x: 1, y: 0}
   attackSound: {fileID: 8300000, guid: d0a4a306729894b428699eb8818c93f9, type: 3}

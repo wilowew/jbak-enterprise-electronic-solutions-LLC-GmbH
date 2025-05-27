@@ -8,12 +8,17 @@ public class MeleeWeapon : MonoBehaviour
     [SerializeField] private float attackRadius = 1.5f;
     [SerializeField] private int damage = 1;
     [SerializeField] private float attackCooldown = 0.5f;
+    [SerializeField] private float attackAngle = 180;
 
-    [Header("Rotation Offsets")]
-    [Tooltip("Угол удержания по умолчанию (скопируйте из WeaponPickupBase для инициализации)")]
-    [SerializeField] private float defaultRotationOffset = -90f;
-    [Tooltip("Угол, на который повернётся бита при ударе")]
-    [SerializeField] private float swingRotationOffset = -45f;
+    [Header("Attack Offsets")]
+    [SerializeField] private Vector3 attackHoldOffset = new Vector3(0.3f, 0.3f, 0);
+    private Vector3 originalHoldOffset;
+    private float originalRotationOffset;
+
+    [Header("Visuals")]
+    [SerializeField] private Sprite attackSprite;
+    private Sprite originalPlayerSprite;
+    private SpriteRenderer playerSprite;
 
     [Header("Audio")]
     [SerializeField] private AudioClip swingSound;
@@ -22,24 +27,22 @@ public class MeleeWeapon : MonoBehaviour
     [Header("Obstacle Detection")]
     [SerializeField] private LayerMask obstacleMask;
 
-    private AudioSource audioSource;
     private WeaponPickupBase pickupBase;
+    private AudioSource audioSource;
     private float lastAttackTime;
 
     private void Awake()
     {
         pickupBase = GetComponent<WeaponPickupBase>();
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-            audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>() ?? gameObject.AddComponent<AudioSource>();
+
+        // Сохраняем оригинальные параметры из WeaponPickupBase
+        originalHoldOffset = pickupBase.HoldOffset;
+        originalRotationOffset = pickupBase.RotationOffset;
     }
 
     private void Start()
     {
-        // Сохраняем дефолтный угол из базового скрипта
-        defaultRotationOffset = pickupBase.RotationOffset;
-
-        // Подписываемся на события подбора/сброса
         pickupBase.OnEquipped += HandleWeaponEquipped;
         pickupBase.OnDropped += HandleWeaponDropped;
     }
@@ -55,87 +58,94 @@ public class MeleeWeapon : MonoBehaviour
         if (IsOwnerDead() || Time.time - lastAttackTime < attackCooldown) return;
 
         lastAttackTime = Time.time;
+        ApplyAttackTransform();
         audioSource.PlayOneShot(swingSound);
 
-        pickupBase.RotationOffset = swingRotationOffset;
-        pickupBase.UpdateHoldPosition();
-        Invoke(nameof(ResetRotation), attackCooldown);
+        if (playerSprite != null && attackSprite != null)
+            playerSprite.sprite = attackSprite;
 
+        Invoke(nameof(ResetWeaponTransform), attackCooldown);
+        DetectHits();
+    }
+
+    private void ApplyAttackTransform()
+    {
+        // Временное изменение параметров позиции и поворота
+        pickupBase.HoldOffset = attackHoldOffset;
+        pickupBase.RotationOffset = originalRotationOffset + attackAngle; // Резкий поворот
+        pickupBase.UpdateHoldPosition(); // Принудительное обновление
+    }
+
+    private void ResetWeaponTransform()
+    {
+        // Восстановление оригинальных параметров
+        pickupBase.HoldOffset = originalHoldOffset;
+        pickupBase.RotationOffset = originalRotationOffset;
+        pickupBase.UpdateHoldPosition();
+
+        if (playerSprite != null)
+            playerSprite.sprite = originalPlayerSprite;
+    }
+
+    private void DetectHits()
+    {
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRadius);
         bool hitSuccess = false;
 
         foreach (Collider2D hit in hits)
         {
-            Vector2 origin = transform.position;
-            Vector2 targetPos = hit.transform.position;
-            Vector2 direction = targetPos - origin;
-            float distance = direction.magnitude;
+            if (CheckObstacle(hit)) continue;
 
-            RaycastHit2D obstacleHit = Physics2D.Raycast(
-                origin,
-                direction.normalized,
-                distance,
-                obstacleMask
-            );
-
-            if (obstacleHit.collider != null)
+            if (hit.CompareTag("Enemy") && hit.TryGetComponent<EnemyAI>(out var enemy))
             {
-                continue;
+                enemy.TakeDamage(damage);
+                hitSuccess = true;
             }
 
-            if (hit.CompareTag("Enemy"))
+            if (hit.CompareTag("Boss") && hit.TryGetComponent<Yashka>(out var boss))
             {
-                var enemy = hit.GetComponent<EnemyAI>();
-                if (enemy != null)
-                {
-                    enemy.TakeDamage(damage);
-                    hitSuccess = true;
-                }
+                boss.TakeDamage(damage);
+                hitSuccess = true;
             }
 
-            if (hit.CompareTag("Boss"))
-            {
-                var yashka = hit.GetComponent<Yashka>();
-                if (yashka != null)
-                {
-                    yashka.TakeDamage(damage);
-                    hitSuccess = true;
-                }
-            }
-
-            Scarecrow scarecrow = hit.GetComponent<Scarecrow>();
-            if (scarecrow != null && !scarecrow.IsDestroyed)
+            if (hit.TryGetComponent<Scarecrow>(out var scarecrow) && !scarecrow.IsDestroyed)
             {
                 scarecrow.PlayDestructionEffect();
                 hitSuccess = true;
             }
         }
 
-        if (hitSuccess)
-            audioSource.PlayOneShot(hitSound);
+        if (hitSuccess) audioSource.PlayOneShot(hitSound);
     }
 
-    private bool IsOwnerDead()
+    private bool CheckObstacle(Collider2D hit)
     {
-        if (pickupBase == null || pickupBase.Owner == null) return false;
-        PlayerHealth health = pickupBase.Owner.GetComponent<PlayerHealth>();
-        return health != null && health.IsDead;
-    }
-
-    private void ResetRotation()
-    {
-        pickupBase.RotationOffset = defaultRotationOffset;
-        pickupBase.UpdateHoldPosition();
+        RaycastHit2D obstacleHit = Physics2D.Raycast(
+            transform.position,
+            (hit.transform.position - transform.position).normalized,
+            Vector2.Distance(transform.position, hit.transform.position),
+            obstacleMask
+        );
+        return obstacleHit.collider != null;
     }
 
     private void HandleWeaponEquipped(SpriteRenderer playerSpriteRenderer)
     {
-
+        playerSprite = playerSpriteRenderer;
+        originalPlayerSprite = pickupBase.EquippedPlayerSprite; // Используем спрайт из WeaponPickupBase
     }
 
     private void HandleWeaponDropped()
     {
+        if (playerSprite != null)
+            playerSprite.sprite = originalPlayerSprite;
+    }
 
+    private bool IsOwnerDead()
+    {
+        return pickupBase.Owner != null &&
+             pickupBase.Owner.TryGetComponent<PlayerHealth>(out var health) &&
+             health.IsDead;
     }
 
     private void OnDestroy()

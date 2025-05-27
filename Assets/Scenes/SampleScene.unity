@@ -1925,49 +1925,6 @@ MonoBehaviour:
   hintPanel: {fileID: 1336484732}
   hintText: {fileID: 784805259}
   hintIcon: {fileID: 930764269}
---- !u!1 &313246685 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 138797573996228728, guid: 226ba81616f300640a8575c9d07b1224, type: 3}
-  m_PrefabInstance: {fileID: 2142715584}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &313246693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 313246685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb855eb8b8f6f724a8d673cfb8dd69f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDamage: 1
-  attackRange: 0.5
-  attackOffset: {x: 1, y: 0}
-  attackSound: {fileID: 8300000, guid: 0b2eb819295475b49a364d71a6bff2dd, type: 3}
---- !u!114 &313246694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 313246685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99108a3c2b855de4db56058aadd56fde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRadius: 1.5
-  damage: 1
-  attackCooldown: 0.5
-  defaultRotationOffset: -45
-  swingRotationOffset: -135
-  swingSound: {fileID: 8300000, guid: 0b2eb819295475b49a364d71a6bff2dd, type: 3}
-  hitSound: {fileID: 8300000, guid: d0a4a306729894b428699eb8818c93f9, type: 3}
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &375842494
 GameObject:
   m_ObjectHideFlags: 0
@@ -3844,7 +3801,7 @@ Transform:
   m_GameObject: {fileID: 1425238408}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.1784, y: 1.7343, z: 0}
+  m_LocalPosition: {x: -17.2, y: -0.68, z: 0}
   m_LocalScale: {x: 1.5369653, y: 1.4065356, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31961,6 +31918,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1908870325812640079, guid: 226ba81616f300640a8575c9d07b1224, type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 133721806}
     - target: {fileID: 138797573996228728, guid: 226ba81616f300640a8575c9d07b1224, type: 3}
       propertyPath: m_Name
       value: bat
@@ -32005,20 +31966,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7349693563428591985, guid: 226ba81616f300640a8575c9d07b1224, type: 3}
-      propertyPath: damage
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 138797573996228728, guid: 226ba81616f300640a8575c9d07b1224, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 313246694}
-    - targetCorrespondingSourceObject: {fileID: 138797573996228728, guid: 226ba81616f300640a8575c9d07b1224, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 313246693}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 226ba81616f300640a8575c9d07b1224, type: 3}
 --- !u!1001 &171764052900285393
 PrefabInstance:

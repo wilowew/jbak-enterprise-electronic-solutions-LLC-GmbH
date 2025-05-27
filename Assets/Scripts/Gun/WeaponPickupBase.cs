@@ -14,6 +14,7 @@ public class WeaponPickupBase : MonoBehaviour
     [SerializeField] protected GameObject owner;
     protected static WeaponPickupBase currentHeldItem;
 
+
     [Header("Visuals")]
     [SerializeField] private Sprite equippedPlayerSprite;
     public Sprite EquippedPlayerSprite => equippedPlayerSprite;
@@ -38,6 +39,16 @@ public class WeaponPickupBase : MonoBehaviour
     public event System.Action OnDropped;
 
     private PlayerInput playerInput;
+
+    public Vector3 HoldOffset
+    {
+        get => holdOffset;
+        set
+        {
+            holdOffset = value;
+            UpdateHoldPosition(); // Обновляем позицию при изменении
+        }
+    }
 
     private void Awake()
     {

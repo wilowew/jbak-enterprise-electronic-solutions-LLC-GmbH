@@ -25,7 +25,6 @@ public class FirearmShooting : MonoBehaviour
     private int currentBulletsInMag = 0;
     private int reserveMagazineCount = 0;
     private float nextShotTime;
-    private InputAction fireAction;
     private AudioSource soundSource;
     private WeaponPickupBase pickupLogic;
 
@@ -75,7 +74,6 @@ public class FirearmShooting : MonoBehaviour
     private void OnEnable()
     {
         var input = FindFirstObjectByType<PlayerInput>();
-        fireAction = input.actions["Shoot"];
         reloadAction = input.actions["Drop"];
         reloadAction.performed += OnReloadPressed;
         UpdateUI();
@@ -90,7 +88,7 @@ public class FirearmShooting : MonoBehaviour
     private void HandleFiring()
     {
         if(IsPlayerDead() || FindFirstObjectByType<PauseManager>().IsPaused) return;
-        if (!fireAction.IsPressed() || Time.time < nextShotTime) return;
+        if (!Input.GetMouseButton(0) || Time.time < nextShotTime) return;
 
         nextShotTime = Time.time + 1f / shotsPerSecond;
 
