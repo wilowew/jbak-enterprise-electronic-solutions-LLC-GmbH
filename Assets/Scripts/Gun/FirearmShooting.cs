@@ -1,4 +1,3 @@
-// FirearmShooting.cs
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -42,14 +41,19 @@ public class FirearmShooting : MonoBehaviour
         if (ammoUIText != null)
             ammoUIText.text = "";
 
-        reloadAction.performed -= OnReloadPressed;
-        pickupLogic.OnEquipped -= HandleWeaponEquipped;
-        pickupLogic.OnDropped -= HandleWeaponDropped;
+        if (reloadAction != null)
+            reloadAction.performed -= OnReloadPressed;
+
+        if (pickupLogic != null)
+        {
+            pickupLogic.OnEquipped -= HandleWeaponEquipped;
+            pickupLogic.OnDropped -= HandleWeaponDropped;
+        }
     }
 
     private void OnReloadPressed(InputAction.CallbackContext ctx)
     {
-        if (pickupLogic.IsHeld) // “олько если это оружие в руках
+        if (pickupLogic.IsHeld && CurrentEquipped == this)
         {
             ManualReload();
         }
@@ -76,34 +80,44 @@ public class FirearmShooting : MonoBehaviour
     private void OnEnable()
     {
         var input = FindFirstObjectByType<PlayerInput>();
-        reloadAction = input.actions["Drop"];
-        reloadAction.performed += OnReloadPressed;
+        if (input != null)
+        {
+            reloadAction = input.actions["Drop"];
+            reloadAction.performed += OnReloadPressed;
+        }
         UpdateUI();
     }
 
     private void Update()
     {
-        if (!pickupLogic.IsHeld) return;
+        if (!pickupLogic.IsHeld)
+        {
+            // √арантированно скрываем UI, если оружие не в руках
+            if (CurrentEquipped == this && ammoUIText != null)
+            {
+                ammoUIText.text = "";
+            }
+            return;
+        }
+
         HandleFiring();
     }
 
     private void HandleFiring()
     {
-        if(IsPlayerDead() || FindFirstObjectByType<PauseManager>().IsPaused) return;
+        if (IsPlayerDead() || FindFirstObjectByType<PauseManager>().IsPaused) return;
         if (!Input.GetMouseButton(0) || Time.time < nextShotTime) return;
 
         nextShotTime = Time.time + 1f / shotsPerSecond;
 
         if (currentBulletsInMag > 0)
         {
-            // стрел€ем
             Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation);
             currentBulletsInMag--;
             PlaySound(shotSound);
         }
         else
         {
-            // щЄлкаем пустым
             PlaySound(emptyMagSound);
         }
 
@@ -125,13 +139,13 @@ public class FirearmShooting : MonoBehaviour
 
     private void HandleWeaponDropped()
     {
-        if (CurrentEquipped == this && ammoUIText != null)
-        {
-            ammoUIText.text = "";
-            Debug.Log("ќружие выброшено, UI очищен!");
-        }
         if (CurrentEquipped == this)
+        {
+            if (ammoUIText != null)
+                ammoUIText.text = "";
+
             CurrentEquipped = null;
+        }
     }
 
     private void PlaySound(AudioClip clip)
@@ -142,8 +156,15 @@ public class FirearmShooting : MonoBehaviour
 
     private void UpdateUI()
     {
-        if (ammoUIText == null) return;
-        if (CurrentEquipped != this) return; 
+        // ¬сегда скрываем UI, если это не текущее экипированное оружие
+        if (ammoUIText == null || CurrentEquipped != this)
+        {
+            // ƒополнительна€ страховка на случай несоответстви€
+            if (ammoUIText != null && CurrentEquipped != this)
+                ammoUIText.text = "";
+
+            return;
+        }
 
         int reserveBullets = reserveMagazineCount * bulletsPerMagazine;
         ammoUIText.text = $"{currentBulletsInMag}/{reserveBullets}";
@@ -155,7 +176,6 @@ public class FirearmShooting : MonoBehaviour
     /// </summary>
     public bool TryAddMagazine()
     {
-        // если в текущем клипе пусто Ч сразу заправл€ем его
         if (currentBulletsInMag == 0)
         {
             currentBulletsInMag = bulletsPerMagazine;
@@ -164,7 +184,6 @@ public class FirearmShooting : MonoBehaviour
             return true;
         }
 
-        // иначе Ч пытаемс€ добавить в запас
         if (reserveMagazineCount < maxReserveMagazines)
         {
             reserveMagazineCount++;
@@ -172,7 +191,6 @@ public class FirearmShooting : MonoBehaviour
             return true;
         }
 
-        // полный запас
         return false;
     }
 
@@ -187,7 +205,7 @@ public class FirearmShooting : MonoBehaviour
             reserveMagazineCount--;
             currentBulletsInMag = bulletsPerMagazine;
             PlaySound(reloadSound);
-            UpdateUI(); 
+            UpdateUI();
         }
     }
 }
