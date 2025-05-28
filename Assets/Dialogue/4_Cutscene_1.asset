@@ -27,6 +27,6 @@ MonoBehaviour:
   postDialogueDelayTime: 0
   nextDialogue: {fileID: 0}
   requireManualClose: 1
-  nextSceneName: 
-  cameraMoveHeight: 5
+  nextSceneName: Level4
+  cameraMoveHeight: 0
   cameraMoveHorizontal: 0

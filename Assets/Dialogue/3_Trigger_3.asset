@@ -22,6 +22,22 @@ MonoBehaviour:
     isChoicePoint: 0
     choices: []
     isExitLine: 0
+  - nameTermKey: dn_Mil
+    textTermKey: dt_3_Mil10
+    nameColor: {r: 1, g: 1, b: 1, a: 1}
+    nameFont: {fileID: 0}
+    characterIcon: {fileID: 5626149497181746903, guid: 278b1bc10764e0742a2cb077b4c88e4c, type: 3}
+    isChoicePoint: 0
+    choices: []
+    isExitLine: 0
+  - nameTermKey: dn_Dmitriy
+    textTermKey: dt_3_Dmitriy11
+    nameColor: {r: 1, g: 1, b: 1, a: 1}
+    nameFont: {fileID: 0}
+    characterIcon: {fileID: 5626149497181746903, guid: 278b1bc10764e0742a2cb077b4c88e4c, type: 3}
+    isChoicePoint: 0
+    choices: []
+    isExitLine: 0
   usePostDialogueDelay: 0
   blockMovementDuringDelay: 0
   postDialogueDelayTime: 0

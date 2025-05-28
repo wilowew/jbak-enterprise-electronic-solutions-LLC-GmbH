@@ -13,7 +13,6 @@ public class Yashka : MonoBehaviour
 
     [Header("Attack Settings")]
     [SerializeField] private float lungeSpeed = 10f;
-    [SerializeField] private float attackWindup = 0.5f;
     [SerializeField] private float attackCooldown = 2f;
     [SerializeField] private float attackRadius = 2f;
     [SerializeField] private int attackDamage = 2;
@@ -26,7 +25,6 @@ public class Yashka : MonoBehaviour
 
     [Header("Combat Settings")]
     [SerializeField] private int maxHealth = 10;
-    [SerializeField] private float damageFlashTime = 0.1f;
 
     [Header("References")]
     [SerializeField] private Transform player;
@@ -38,7 +36,6 @@ public class Yashka : MonoBehaviour
     [SerializeField] private float swingAngle = 90f;
     [SerializeField] private float swingSpeed = 360f;
     [SerializeField] private float returnSpeed = 180f;
-    [SerializeField] private float attackActiveAngle = 45f;
 
     [Header("Audio Settings")]
     [SerializeField] private AudioClip swingSound;

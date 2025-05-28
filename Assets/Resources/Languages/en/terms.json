@@ -81,6 +81,10 @@
             "value": "Alexander"
         },
         {
+            "key": "dn_Mil",
+            "value": "Policeman"
+        },
+        {
             "key": "dt_1_Bucks1",
             "value": "Damn... My head is splitting. It's been a while since I felt this bad."
         },
@@ -323,6 +327,38 @@
         {
             "key": "dt_3_Dmitriy9",
             "value": "Hmmm"
+        },
+        {
+            "key": "dt_3_Dmitriy9",
+            "value": "Arrived. What do we have, comrades?"
+        },
+        {
+            "key": "dt_3_Mil10",
+            "value": "Good day, Dmitry Ivanovich. In general, a body was found in a ditch - covered with leaves. An ordinary tramp: worn-out boots, a torn quilted jacket. We assume that two local groups clashed."
+        },
+        {
+            "key": "dt_3_Dmitriy11",
+            "value": "Hmm... I'll step away and look around"
+        },
+        {
+            "key": "dt_3_Dmitriy12",
+            "value": "*Notices a pack of cigarettes* Kazbek... Almost full. The dead man's pockets are turned out, and it's lying here, as if it was carefully placed? A beggar wouldn't lose something like that."
+        },
+        {
+            "key": "dt_3_Dmitriy13",
+            "value": "*Glances at the stick* The stick... Broken in an unnatural way. A clean chip, a sharp corner."
+        },
+        {
+            "key": "dt_3_Dmitriy14",
+            "value": "*Looks around the area* And here... it's too clean. The whole wasteland is uneven and dirty, and here - it's as if it was swept. The ground... is loose. *Takes out a penknife, starts to carefully pick.*"
+        },
+        {
+            "key": "dt_3_Dmitriy15",
+            "value": "I wonder if the gold chervonets..."
+        },
+        {
+            "key": "dt_3_Dmitriy16",
+            "value": "A scrap of clothing. Exactly like the dead man's."
         }
     ]
 }
