@@ -2840,6 +2840,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2792007695213915856, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
   m_PrefabInstance: {fileID: 5858002711133707940}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1004495942 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 752012715337343994, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
+  m_PrefabInstance: {fileID: 5858002711133707940}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1060879481 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7350639149800774391, guid: 6e74f09b8a545fa4ba63e263bb204496, type: 3}
@@ -31907,7 +31918,7 @@ PrefabInstance:
     - target: {fileID: -6843214574165353483, guid: 74f0a56784c88894582f956f78a24853, type: 3}
       propertyPath: ammoUIText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1004495942}
     - target: {fileID: -6843214574165353483, guid: 74f0a56784c88894582f956f78a24853, type: 3}
       propertyPath: reloadSound
       value: 
@@ -32422,7 +32433,7 @@ PrefabInstance:
     - target: {fileID: 3454574114282158225, guid: 97a25879bc9f76a47a70727e5188287b, type: 3}
       propertyPath: ammoUIText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1004495942}
     - target: {fileID: 3454574114282158225, guid: 97a25879bc9f76a47a70727e5188287b, type: 3}
       propertyPath: reloadSound
       value: 

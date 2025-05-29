@@ -36,4 +36,9 @@ public class DialogueTracker : MonoBehaviour
         }
         return true;
     }
+
+    public bool HasPlayed(string dialogueID)
+    {
+        return _playedDialogueIDs.Contains(dialogueID);
+    }
 }

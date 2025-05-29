@@ -5870,7 +5870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79a4bb2e8e26944abcc2127251f7be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Level1
+  nextSceneName: Level4_Cutscene_2
   transitionDuration: 2
   cameraMoveHeight: 0
   cameraMoveHorizontal: 15

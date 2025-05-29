@@ -20,9 +20,12 @@ public class FirearmShooting : MonoBehaviour
     [SerializeField] private AudioClip emptyMagSound;
     [SerializeField] private AudioClip reloadSound;
 
+    [Header("Events")]
+    public System.Action OnAmmoLoaded;
+
     // --- состояние ---
-    private int currentBulletsInMag = 0;
-    private int reserveMagazineCount = 0;
+    public int currentBulletsInMag = 0;
+    public int reserveMagazineCount = 0;
     private float nextShotTime;
     private AudioSource soundSource;
     private WeaponPickupBase pickupLogic;
@@ -35,6 +38,7 @@ public class FirearmShooting : MonoBehaviour
     private InputAction reloadAction;
 
     public static FirearmShooting CurrentEquipped;
+
 
     private void OnDisable()
     {
@@ -181,6 +185,8 @@ public class FirearmShooting : MonoBehaviour
             currentBulletsInMag = bulletsPerMagazine;
             PlaySound(reloadSound);
             UpdateUI();
+
+            OnAmmoLoaded?.Invoke();
             return true;
         }
 
@@ -188,6 +194,8 @@ public class FirearmShooting : MonoBehaviour
         {
             reserveMagazineCount++;
             UpdateUI();
+
+            OnAmmoLoaded?.Invoke();
             return true;
         }
 

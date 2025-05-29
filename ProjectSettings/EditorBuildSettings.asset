@@ -44,6 +44,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level4.unity
     guid: 4e1c114d38720774a89f070702afd257
+  - enabled: 1
+    path: Assets/Scenes/Level4_Cutscene_2.unity
+    guid: a70ecf9d727865d479c7aa49f250690f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

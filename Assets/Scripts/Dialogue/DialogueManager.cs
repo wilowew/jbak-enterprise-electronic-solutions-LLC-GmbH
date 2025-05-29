@@ -44,6 +44,7 @@ public class DialogueManager : MonoBehaviour
     private bool isWaitingForManualClose;
 
     public bool IsInPostDialogueDelay { get; private set; }
+    public event Action<Dialogue> OnDialogueStart;
     public event Action<Dialogue> OnDialogueEnd;
 
     private void Awake()
@@ -52,6 +53,15 @@ public class DialogueManager : MonoBehaviour
         {
             Instance = this;
             dialoguePanel.SetActive(false);
+
+            if (cursorChanger == null)
+            {
+                cursorChanger = GetComponent<CursorChanger>();
+                if (cursorChanger == null)
+                {
+                    Debug.LogWarning("CursorChanger not assigned and not found on the same object.");
+                }
+            }
         }
         else
         {
@@ -84,14 +94,14 @@ public class DialogueManager : MonoBehaviour
 
         dialoguePanel.SetActive(true);
         choicePanel.SetActive(false);
-        cursorChanger.SetPauseCursor();
+        cursorChanger?.SetPauseCursor();
         PauseManager.Instance.UpdateTimeScale();
 
         if (HintSystem.Instance != null)
         {
             HintSystem.Instance.HideHint();
         }
-     
+        OnDialogueStart?.Invoke(dialogue);
         DisplayNextLine();
     }
 

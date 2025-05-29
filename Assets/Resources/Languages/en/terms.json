@@ -173,6 +173,10 @@
             "value": "Oh, look at these people!"
         },
         {
+            "key": "dt_1_Shirt20dop2",
+            "value": "I drank myself to the point of death, and couldn't achieve my goal."
+        },
+        {
             "key": "dt_1_Bayonet21",
             "value": "Guys, listen! There's a thread here. In short, I've received information that things are worse for Gr1 than ever. Their chieftain is in debt, half the gang has fled."
         },
@@ -211,6 +215,10 @@
         {
             "key": "dt_1_Bayonet30",
             "value": "Okay, guys, stop wagging your tongues. Let's gather the lads."
+        },
+        {
+            "key": "dt_1_dop",
+            "value": "I've lost my grip... I'll go to Shirt."
         },
         {
             "key": "dt_2_Bayonet1",
