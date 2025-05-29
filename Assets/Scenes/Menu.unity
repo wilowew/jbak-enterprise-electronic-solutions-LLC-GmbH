@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 7.8
+  delayBeforeStart: 10.8
   fadeDuration: 3
   targetAlpha: 0.5
 --- !u!114 &169084721
@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 5.9
+  delayBeforeStart: 8.9
   fadeDuration: 2
   targetAlpha: 0
 --- !u!114 &333636519
@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0
+  delayBeforeStart: 2.5
   fadeDuration: 2
   targetAlpha: 1
 --- !u!114 &333636520
@@ -597,6 +597,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTime: 0
+  IsTrackingEnemy: 0
+  enemyKillThreshold: 5
+  newMusicClip: {fileID: 0}
+  newTrackStartTime: 0
+  fadeDuration: 2
 --- !u!82 &592802704
 AudioSource:
   m_ObjectHideFlags: 0
@@ -783,7 +788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 11.45
+  delayBeforeStart: 13.45
   fadeDuration: 0
   targetAlpha: 1
 --- !u!225 &739049774
@@ -1129,7 +1134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 8.2
+  delayBeforeStart: 11.2
   fadeDuration: 3
   targetAlpha: 0.3
 --- !u!1 &1357262288
@@ -1183,7 +1188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 5.9
+  delayBeforeStart: 8.9
   fadeDuration: 2
   targetAlpha: 0
 --- !u!114 &1357262291
@@ -1198,8 +1203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 2
-  fadeDuration: 2
+  delayBeforeStart: 3
+  fadeDuration: 3
   targetAlpha: 1
 --- !u!114 &1357262292
 MonoBehaviour:
@@ -1548,7 +1553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 7.8
+  delayBeforeStart: 10.8
   fadeDuration: 3
   targetAlpha: 0.5
 --- !u!1 &1575068005
@@ -1759,7 +1764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 8
+  delayBeforeStart: 11
   fadeDuration: 3
   targetAlpha: 0.3
 --- !u!1 &1713823579
@@ -1861,7 +1866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 7.8
+  delayBeforeStart: 10.8
   fadeDuration: 3
   targetAlpha: 0.5
 --- !u!114 &2060330530
