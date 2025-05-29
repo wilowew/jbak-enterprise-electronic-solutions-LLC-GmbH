@@ -5841,7 +5841,7 @@ GameObject:
   - component: {fileID: 296015410}
   m_Layer: 8
   m_Name: UnwalkableObjects
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14501,7 +14501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1728296075413392659, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: maxHealth
-      value: 2
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 1728296075413392659, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: cursorChanger
@@ -14686,7 +14686,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7544233
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalRotation.x
@@ -14698,7 +14698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.6563883
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14710,11 +14710,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 82.05
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: spriteResetDelay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: weaponSwingAngle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: obstacleLayerMask.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 3368558483572712597, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_Name
       value: EnemyMelee (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785750397345599685, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: attackAngle
+      value: 160
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

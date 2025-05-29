@@ -367,6 +367,30 @@
         {
             "key": "dt_3_Dmitriy16",
             "value": "A scrap of clothing. Exactly like the dead man's."
+        },
+        {
+            "key": "dn_Eyewitness",
+            "value": "Eyewitness"
+        },
+        {
+            "key": "dt_3_Dmitriy17",
+            "value": "Good afternoon, sir. Have you seen anything suspicious lately?"
+        },
+        {
+            "key": "dt_3_Eyewitness18",
+            "value": "No."
+        },
+        {
+            "key": "dt_3_Dmitriy19",
+            "value": "Okay, nothing more to catch here. I'll go to Sasha."
+        },
+        {
+            "key": "dt_3_Alexander20",
+            "value": "Are you done?"
+        },
+        {
+            "key": "dt_3_Dmitriy21",
+            "value": "Yes, start the car."
         }
     ]
 }

@@ -13,6 +13,7 @@ TagManager:
   - wood
   - Item
   - Boss
+  - Wall
   layers:
   - Default
   - TransparentFX

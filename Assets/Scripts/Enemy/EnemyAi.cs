@@ -42,7 +42,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private LayerMask obstacleLayerMask;
 
     [Header("Chase Settings")]
-    [SerializeField] private float chaseDuration = 5f; 
+    [SerializeField] private float chaseDuration = 5f;
     //[SerializeField] private float searchRadius = 3f;  
 
     private Vector2 lastKnownPlayerPosition;
@@ -66,7 +66,7 @@ public class EnemyAI : MonoBehaviour
     private Coroutine recoverCoroutine;
 
     private AudioSource audioSource;
-    private float defaultWeaponRotation; 
+    private float defaultWeaponRotation;
 
     public bool IsStatic => isStatic;
     public bool IsHostile => isHostile;
@@ -180,8 +180,8 @@ public class EnemyAI : MonoBehaviour
 
         if (PlayerVisible)
         {
-            lastKnownPlayerPosition = player.position; 
-            chaseTimer = chaseDuration; 
+            lastKnownPlayerPosition = player.position;
+            chaseTimer = chaseDuration;
             isChasing = true;
         }
     }
@@ -228,7 +228,7 @@ public class EnemyAI : MonoBehaviour
     {
         float distanceToTarget = Vector2.Distance(transform.position, targetPosition);
 
-        if (distanceToTarget <= attackRange && Time.time >= nextAttackTime && PlayerVisible) 
+        if (distanceToTarget <= attackRange && Time.time >= nextAttackTime && PlayerVisible)
         {
             Attack();
             nextAttackTime = Time.time + attackRate;
@@ -331,7 +331,7 @@ public class EnemyAI : MonoBehaviour
         if (weaponTransform != null)
         {
             weaponTransform.localRotation = Quaternion.Euler(0, 0, weaponSwingAngle);
-            Invoke(nameof(ResetWeaponRotation), attackRate * 0.5f); 
+            Invoke(nameof(ResetWeaponRotation), attackRate * 0.5f);
         }
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, meleeAttackRadius);
