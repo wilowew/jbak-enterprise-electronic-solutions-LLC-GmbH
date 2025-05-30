@@ -157,6 +157,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\GameManager\PauseManager.cs" />
     <Compile Include="Assets\PlayerControls.cs" />
+    <Compile Include="Assets\Scripts\ForLevel\lvl3\DelayedDialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl3\TimedSceneCut.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl3\TimedScene.cs" />
     <Compile Include="Assets\Scripts\GameManager\HintSystem.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="Assets\Scripts\ForLevel\lvl3\Ramka.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl2\YashkaLose.cs" />
     <Compile Include="Assets\Scripts\Scenes\ScenePersist.cs" />
+    <Compile Include="Assets\Scripts\ForLevel\lvl3\DialogueTriggeredEnemyActivator.cs" />
     <Compile Include="Assets\Scripts\Camera\CutsceneCamera.cs" />
     <Compile Include="Assets\Scripts\Audio\BoxSound.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl2\NPCDestroyTrigger.cs" />

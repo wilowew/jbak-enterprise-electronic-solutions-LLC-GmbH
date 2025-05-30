@@ -5849,7 +5849,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5858,6 +5858,58 @@ TextureImporter:
       bones: []
       spriteID: 139f9a700de631a4f8d2c5410d0a5411
       internalID: 2035202654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuburbPack_260
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 512
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 16, y: 16}
+        - {x: 9, y: 16}
+        - {x: 9, y: -16}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a18ed37267cb974fb7852c19f26dafb
+      internalID: -803955496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuburbPack_261
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 16, y: 16}
+        - {x: 9, y: 16}
+        - {x: 9, y: -16}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 739a7cd7b7253c44d9dec2d4f3405ebf
+      internalID: -1778485578
       vertices: []
       indices: 
       edges: []
@@ -6056,6 +6108,8 @@ TextureImporter:
       SuburbPack_258: 192709026
       SuburbPack_259: 2035202654
       SuburbPack_26: 928095922
+      SuburbPack_260: -803955496
+      SuburbPack_261: -1778485578
       SuburbPack_27: -1742210345
       SuburbPack_28: 412108778
       SuburbPack_29: 330261967

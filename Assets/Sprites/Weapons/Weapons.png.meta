@@ -160,7 +160,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Weapons_0
+      name: Dubina1
       rect:
         serializedVersion: 2
         x: 0
@@ -182,7 +182,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Weapons_1
+      name: Dubina2
       rect:
         serializedVersion: 2
         x: 64
@@ -357,6 +357,72 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Rose1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 364
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbbadc617ca2a1b4397cd1996d9bd6a7
+      internalID: 1110580730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rose2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 364
+        width: 16
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c39302c2e41511649be6b8600a62280f
+      internalID: -673689177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChairLeg
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 337
+        width: 24
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 728d69c7002a0cc4786cd8c0540acfbd
+      internalID: 1180600477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -371,10 +437,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      ChairLeg: 1180600477
+      Dubina1: 5601323976189978565
+      Dubina2: -179914541
       FedorovAutomat: 271778489
       MosinRifle: -761887118410055393
-      Weapons_0: 5601323976189978565
-      Weapons_1: -179914541
+      Rose1: 1110580730
+      Rose2: -673689177
       Weapons_2: -1730902195
       Weapons_3: -1657625073
       Weapons_4: -1560774131
