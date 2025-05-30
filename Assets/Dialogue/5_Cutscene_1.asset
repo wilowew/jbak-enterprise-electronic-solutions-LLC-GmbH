@@ -10,23 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26863ff2943f37944af83dafde358442, type: 3}
-  m_Name: 3_Trigger_7
+  m_Name: 5_Cutscene_1
   m_EditorClassIdentifier: 
-  dialogueID: 26b
+  dialogueID: 20
   lines:
-  - nameTermKey: dn_Dmitriy
-    textTermKey: dt_3_Dmitriy17
+  - nameTermKey: dn_Alexander
+    textTermKey: dt_3_Alexander1
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
-    characterIcon: {fileID: 5626149497181746903, guid: 278b1bc10764e0742a2cb077b4c88e4c, type: 3}
-    isChoicePoint: 0
-    choices: []
-    isExitLine: 0
-  - nameTermKey: dn_Eyewitness
-    textTermKey: dt_3_Eyewitness18
-    nameColor: {r: 1, g: 1, b: 1, a: 1}
-    nameFont: {fileID: 0}
-    characterIcon: {fileID: 2882136417541409493, guid: 9b23cfb622e5a504aa65b92d3bc928bf, type: 3}
+    characterIcon: {fileID: -7232777622814007212, guid: 1a1d002b915bf4547802aafd0355c9e1, type: 3}
     isChoicePoint: 0
     choices: []
     isExitLine: 0
@@ -35,6 +27,6 @@ MonoBehaviour:
   postDialogueDelayTime: 0
   nextDialogue: {fileID: 0}
   requireManualClose: 1
-  nextSceneName: 
-  cameraMoveHeight: 5
-  cameraMoveHorizontal: 0
+  nextSceneName: Level5_Cutscene_2
+  cameraMoveHeight: 0
+  cameraMoveHorizontal: 5

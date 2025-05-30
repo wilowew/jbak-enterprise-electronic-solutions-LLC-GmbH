@@ -85,6 +85,14 @@
             "value": "Policeman"
         },
         {
+            "key": "dn_Eyewitness",
+            "value": "Eyewitness"
+        },
+        {
+            "key": "dn_Random",
+            "value": "???"
+        },
+        {
             "key": "dt_1_Bucks1",
             "value": "Damn... My head is splitting. It's been a while since I felt this bad."
         },
@@ -369,10 +377,6 @@
             "value": "A scrap of clothing. Exactly like the dead man's."
         },
         {
-            "key": "dn_Eyewitness",
-            "value": "Eyewitness"
-        },
-        {
             "key": "dt_3_Dmitriy17",
             "value": "Good afternoon, sir. Have you seen anything suspicious lately?"
         },
@@ -391,6 +395,51 @@
         {
             "key": "dt_3_Dmitriy21",
             "value": "Yes, start the car."
+        },
+        {
+            "key": "dt_4_Bayonet1",
+            "value": "Well, guys, for Yashka's debts! And for our full pockets! *slams mug on table*"
+        },
+        {
+            "key": "dt_4_Bucks2",
+            "value": "And for the way those brats widened their eyes when we dropped in on them!"
+        },
+        {
+            "key": "dt_4_Shirt3",
+            "value": "And you really hit Yashka on the helmet with a baton! He even started singing! *Takes out a new bottle* Who wants more?"
+        },
+        {
+            "key": "dt_4_Bucks4",
+            "value": "Me! *hiccups*"
+        },
+        {
+            "key": "dt_4_Random5",
+            "value": "*Loudly, at the next table* Ha, heroes have appeared. Did you shoot some brats? *Spits on the floor*"
+        },
+        {
+            "key": "dt_4_Bucks6",
+            "value": "What did you say, bag?"
+        },
+        {
+            "key": "dt_4_Bayonet7",
+            "value": "Bucks, don't be a jerk, we've had enough corpses for today."
+        },
+        {
+            "key": "dt_4_Random8",
+            "value": "Who are you calling a corpse? Huh? You? Bandit spawn."
+        },
+        {
+            "key": "dt_4_Bayonet9",
+            "value": "Listen, I wanted to do it the easy way, but it seems like it's going to be the hard way."
+        },
+        {
+            "key": "dt_4_Bucks10",
+            "value": "*Laughing loudly* And these guys got screwed too. What a beautiful day today."
+        },
+        {
+            "key": "dt_4_Bayonet11",
+            "value": "Time to go to base."
         }
+
     ]
 }

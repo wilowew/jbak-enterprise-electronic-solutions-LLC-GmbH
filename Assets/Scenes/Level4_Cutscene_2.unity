@@ -379,6 +379,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &104303966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 104303967}
+  - component: {fileID: 104303968}
+  m_Layer: 0
+  m_Name: SceneTransistor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &104303967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104303966}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 962538976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &104303968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104303966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b8a0bf24a15704cb07a8253d403022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionDuration: 1.5
+  fadeAnimator: {fileID: 155591246}
+  cameraFollow: {fileID: 1365275590}
 --- !u!114 &104971348 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1874000129469262825, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
@@ -836,7 +883,7 @@ PrefabInstance:
     - target: {fileID: 1469227303384726553, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1365275593}
     - target: {fileID: 1469227303384726553, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
       propertyPath: m_RenderMode
       value: 1
@@ -1778,6 +1825,7 @@ Transform:
   - {fileID: 1711374552}
   - {fileID: 1734624025}
   - {fileID: 1758111980}
+  - {fileID: 104303967}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &976418206 stripped
@@ -2198,7 +2246,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1365275593}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2870,7 +2918,7 @@ Transform:
   m_GameObject: {fileID: 1365275587}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -14.76, y: -0.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2895,6 +2943,11 @@ MonoBehaviour:
   newOffset: {x: 0, y: 0, z: -10}
   disableMouseLookAhead: 1
   dialogueTarget: {fileID: 0}
+  sceneTransistor: {fileID: 104303968}
+  targetSceneName: Level5_Cutscene_1
+  cameraMoveHeight: 10
+  cameraMoveHorizontal: 5
+  transitionDelay: 2
 --- !u!1 &1373441193
 GameObject:
   m_ObjectHideFlags: 0

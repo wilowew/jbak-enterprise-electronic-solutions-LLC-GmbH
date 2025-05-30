@@ -14,11 +14,75 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueID: 27
   lines:
-  - nameTermKey: dn_Dmitriy
-    textTermKey: dt_3_Dmitriy9
+  - nameTermKey: dn_Bayonet
+    textTermKey: dt_4_Bayonet1
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
-    characterIcon: {fileID: 5626149497181746903, guid: 278b1bc10764e0742a2cb077b4c88e4c, type: 3}
+    characterIcon: {fileID: -2453305891492352482, guid: dc20cb92f0b2bbd44899af91c7d33ad7, type: 3}
+    isChoicePoint: 0
+    choices: []
+    isExitLine: 0
+  - nameTermKey: dn_Bucks
+    textTermKey: dt_4_Bucks2
+    nameColor: {r: 1, g: 1, b: 1, a: 1}
+    nameFont: {fileID: 0}
+    characterIcon: {fileID: 21300000, guid: 9a02ad6e3730d6040989f8d56e18a340, type: 3}
+    isChoicePoint: 0
+    choices: []
+    isExitLine: 0
+  - nameTermKey: dn_Shirt
+    textTermKey: dt_4_Shirt3
+    nameColor: {r: 1, g: 1, b: 1, a: 1}
+    nameFont: {fileID: 0}
+    characterIcon: {fileID: 21300000, guid: 45b6165b77ab05c49b1a28b6beaa2387, type: 3}
+    isChoicePoint: 0
+    choices: []
+    isExitLine: 0
+  - nameTermKey: dn_Bucks
+    textTermKey: dt_4_Bucks4
+    nameColor: {r: 1, g: 1, b: 1, a: 1}
+    nameFont: {fileID: 0}
+    characterIcon: {fileID: 21300000, guid: 9a02ad6e3730d6040989f8d56e18a340, type: 3}
+    isChoicePoint: 0
+    choices: []
+    isExitLine: 0
+  - nameTermKey: dn_Random
+    textTermKey: dt_4_Random5
+    nameColor: {r: 1, g: 1, b: 1, a: 1}
+    nameFont: {fileID: 0}
+    characterIcon: {fileID: 1949822048628804724, guid: d8021ed20a3064c48a04edf1d263a6d3, type: 3}
+    isChoicePoint: 0
+    choices: []
+    isExitLine: 0
+  - nameTermKey: dn_Bucks
+    textTermKey: dt_4_Bucks6
+    nameColor: {r: 1, g: 1, b: 1, a: 1}
+    nameFont: {fileID: 0}
+    characterIcon: {fileID: 21300000, guid: 9a02ad6e3730d6040989f8d56e18a340, type: 3}
+    isChoicePoint: 0
+    choices: []
+    isExitLine: 0
+  - nameTermKey: dn_Bayonet
+    textTermKey: dt_4_Bayonet7
+    nameColor: {r: 1, g: 1, b: 1, a: 1}
+    nameFont: {fileID: 0}
+    characterIcon: {fileID: -2453305891492352482, guid: dc20cb92f0b2bbd44899af91c7d33ad7, type: 3}
+    isChoicePoint: 0
+    choices: []
+    isExitLine: 0
+  - nameTermKey: dn_Random
+    textTermKey: dt_4_Random8
+    nameColor: {r: 1, g: 1, b: 1, a: 1}
+    nameFont: {fileID: 0}
+    characterIcon: {fileID: 1949822048628804724, guid: d8021ed20a3064c48a04edf1d263a6d3, type: 3}
+    isChoicePoint: 0
+    choices: []
+    isExitLine: 0
+  - nameTermKey: dn_Bayonet
+    textTermKey: dt_4_Bayonet9
+    nameColor: {r: 1, g: 1, b: 1, a: 1}
+    nameFont: {fileID: 0}
+    characterIcon: {fileID: -2453305891492352482, guid: dc20cb92f0b2bbd44899af91c7d33ad7, type: 3}
     isChoicePoint: 0
     choices: []
     isExitLine: 0

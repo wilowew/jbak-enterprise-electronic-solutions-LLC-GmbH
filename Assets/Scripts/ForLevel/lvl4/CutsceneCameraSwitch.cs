@@ -16,6 +16,13 @@ public class DialogueCameraSwitcher : MonoBehaviour
     [Header("Настройки диалога")]
     [SerializeField] private Transform dialogueTarget;
 
+    [Header("Переход сцены")]
+    [SerializeField] private SceneTransistor sceneTransistor;
+    [SerializeField] private string targetSceneName;
+    [SerializeField] private float cameraMoveHeight = 10f;
+    [SerializeField] private float cameraMoveHorizontal = 5f;
+    [SerializeField] private float transitionDelay = 1f;
+
     private CameraFollow cameraFollow;
     private Transform originalTarget;
     private Vector3 originalOffset;
@@ -116,7 +123,22 @@ public class DialogueCameraSwitcher : MonoBehaviour
             cameraFollow.maxLookAhead = 0;
         }
 
-        Debug.Log($"Камера переключена на {newCameraTarget.name}");
+        yield return new WaitForSeconds(transitionDelay);
+
+        if (sceneTransistor != null)
+        {
+            sceneTransistor.SetSceneParameters(
+                targetSceneName,
+                cameraMoveHeight,
+                cameraMoveHorizontal
+            );
+            sceneTransistor.StartTransition();
+        }
+        else
+        {
+            Debug.LogWarning("SceneTransistor reference missing!");
+        }
+
         isSwitching = false;
     }
 
