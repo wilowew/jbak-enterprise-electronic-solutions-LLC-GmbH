@@ -93,6 +93,10 @@
             "value": "???"
         },
         {
+            "key": "dn_Sergey",
+            "value": "Sergey"
+        },
+        {
             "key": "dt_1_Bucks1",
             "value": "Damn... My head is splitting. It's been a while since I felt this bad."
         },
@@ -439,6 +443,26 @@
         {
             "key": "dt_4_Bayonet11",
             "value": "Time to go to base."
+        },
+        {
+            "key": "dt_5_Sergey1",
+            "value": "Dmitry Ivanovich, we were promptly informed about the gathering place of one of the local groups. We need to go and check it out."
+        },
+        {
+            "key": "dt_5_Dmitriy2",
+            "value": "Unfortunately, Alexander is busy with another matter now, so you will go with me."
+        },
+        {
+            "key": "dt_5_Sergey3",
+            "value": "We're going to crash."
+        },
+        {
+            "key": "dt_5_Sergey4",
+            "value": "auch..."
+        },
+        {
+            "key": "dt_5_Dmitriy5",
+            "value": "I need to break the glass."
         }
 
     ]

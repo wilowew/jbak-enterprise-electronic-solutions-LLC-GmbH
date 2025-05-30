@@ -50,6 +50,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level5_Cutscene_1.unity
     guid: a766e18b7e645264d8882e8749596486
+  - enabled: 1
+    path: Assets/Scenes/Level5_Cutscene_2.unity
+    guid: 93fc1af81cfd1724ca61aceed8ae0893
+  - enabled: 1
+    path: Assets/Scenes/Level5.unity
+    guid: a8989c0f926a8eb4aa9b468aa2ea6e70
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
