@@ -15,9 +15,13 @@ public class PathPatrol : MonoBehaviour
     [Header("Dialogue Trigger")]
     [SerializeField] private Dialogue triggerDialogue;
 
+    [Header("Legs Settings")]
+    public bool IsStopped => isStopped;
+
     private int currentWaypointIndex = 0;
     private bool isStopped = false;
     private Rigidbody2D rb;
+
 
     void Start()
     {

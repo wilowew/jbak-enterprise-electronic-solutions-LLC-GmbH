@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class EnemyLegs : MonoBehaviour
+public class PatrolLegs : MonoBehaviour
 {
-    private EnemyAI enemyAI;
+    private PathPatrol pathPatrol;
     private Rigidbody2D rb;
     private Animator animator;
     private float targetLegsRotation;
@@ -10,20 +10,26 @@ public class EnemyLegs : MonoBehaviour
 
     private void Start()
     {
-        enemyAI = GetComponentInParent<EnemyAI>();
-        rb = enemyAI.GetComponent<Rigidbody2D>();
+        pathPatrol = GetComponentInParent<PathPatrol>();
+        rb = GetComponentInParent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         targetLegsRotation = transform.eulerAngles.z;
+
+        if (pathPatrol == null)
+        {
+            Debug.LogError("PathPatrol component not found in parent!");
+            enabled = false;
+        }
     }
 
     private void Update()
     {
-        if (enemyAI == null || animator == null || rb == null) return;
+        if (pathPatrol == null || animator == null || rb == null) return;
 
-        bool isMoving = rb.linearVelocity.magnitude > 0.1f && !enemyAI.IsStatic;
+        bool isMoving = rb.linearVelocity.magnitude > 0.1f && !pathPatrol.IsStopped;
         animator.SetBool("IsMoving", isMoving);
 
-        float parentRotation = enemyAI.transform.eulerAngles.z;
+        float parentRotation = transform.parent.eulerAngles.z;
 
         if (isMoving)
         {

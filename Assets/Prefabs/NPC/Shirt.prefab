@@ -36,6 +36,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shirt
       objectReference: {fileID: 0}
+    - target: {fileID: 8061885920490313307, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8061885920490313307, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8061885920490313307, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8181817407811480959, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
       propertyPath: m_Points.Array.data[0].x
       value: -0.26603395
@@ -230,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9077404966932934530, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.34284
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9077404966932934530, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
       propertyPath: m_LocalRotation.x
@@ -238,11 +250,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9077404966932934530, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9077404966932934530, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.9393939
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9077404966932934530, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -254,24 +266,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9077404966932934530, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 220.1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5324827322705055999, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
+    - {fileID: 7534817505890196509, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1471038502051834510, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6104083441491413580, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8042025065724890521}
+      addedObject: {fileID: 1917102454439821816}
+    - targetCorrespondingSourceObject: {fileID: 2153567430957001272, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4699320094207301035}
   m_SourcePrefab: {fileID: 100100000, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
 --- !u!1 &778523621052687893 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6104083441491413580, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
   m_PrefabInstance: {fileID: 6808264610058611801}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8042025065724890521
+--- !u!114 &1917102454439821816
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -280,34 +296,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 778523621052687893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0427140f8b28ef4486a0d298deb1b72, type: 3}
+  m_Script: {fileID: 11500000, guid: 7998d31cbb7703042ad9eda76d5e1635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: 0
-  attackRange: 3
-  attackRate: 1
-  projectilePrefab: {fileID: 0}
-  shootPoint: {fileID: 0}
-  projectileSpeed: 10
-  missChance: 0.3
-  health: 1000
-  meleeDamage: 1
-  redPuddlePrefab: {fileID: 0}
-  fieldOfViewAngle: 360
-  viewDistance: 10
-  drawGizmos: 1
-  isStatic: 1
-  isHostile: 1
-  wanderRadius: 3
-  wanderDelay: 2
-  chaseSpeed: 3
-  wanderSpeed: 1
-  rotationSpeed: 10
-  stoppingDistance: 1
-  chaseDuration: 5
-  searchRadius: 3
-  meleeAttackRadius: 1.5
-  meleeSwingSound: {fileID: 0}
-  meleeHitSound: {fileID: 0}
-  weaponTransform: {fileID: 0}
-  weaponSwingAngle: -45
+  waypoints: []
+  movementSpeed: 3
+  isCyclic: 1
+  waypointThreshold: 0.1
+  rotateTowardsMovement: 1
+  rotationSpeed: 5
+  triggerDialogue: {fileID: 0}
+--- !u!1 &4870874703128086113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2153567430957001272, guid: 1bf19f4eace8e4648ab28ea2f5c3f4cb, type: 3}
+  m_PrefabInstance: {fileID: 6808264610058611801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4699320094207301035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4870874703128086113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be26a91a7e9d84242acff05116b68be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

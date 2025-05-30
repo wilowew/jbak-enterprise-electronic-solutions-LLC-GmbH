@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+
 public class EnemyAI : MonoBehaviour
 {
     public enum WeaponType { Melee, Ranged }
@@ -99,7 +100,7 @@ public class EnemyAI : MonoBehaviour
             GetComponent<Collider2D>().isTrigger = true;
         }
 
-        if (player == null)
+        if (player != null)
         {
             playerHealth = player.GetComponent<PlayerHealth>();
         }
@@ -126,6 +127,12 @@ public class EnemyAI : MonoBehaviour
         {
             CheckPlayerVisibility();
             UpdateHostileBehavior();
+
+            if (PlayerVisible)
+            {
+                Vector2 dirToPlayer = (Vector2)player.position - (Vector2)transform.position;
+                RotateTowards(dirToPlayer); 
+            }
         }
         else if (!isStatic)
         {
@@ -194,7 +201,12 @@ public class EnemyAI : MonoBehaviour
         {
             isChasing = false;
             PlayerVisible = false;
-            if (!isStatic) WanderAround();
+
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector2.zero;
+            }
+
             return;
         }
 
@@ -234,6 +246,18 @@ public class EnemyAI : MonoBehaviour
             nextAttackTime = Time.time + attackRate;
         }
 
+        if (playerHealth != null && playerHealth.IsDead)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
+        if (weaponType == WeaponType.Ranged && PlayerVisible)
+        {
+            Vector2 dirToPlayer = (Vector2)player.position - (Vector2)transform.position;
+            RotateTowards(dirToPlayer);
+        }
+
         if (weaponType == WeaponType.Ranged)
         {
             stoppingDistance = attackRange * 0.8f;
@@ -256,21 +280,34 @@ public class EnemyAI : MonoBehaviour
     private void ApproachTarget(Vector2 targetPosition)
     {
         Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
-        Vector2 avoidance = CalculateObstacleAvoidance();
-        direction = (direction + avoidance).normalized;
+        float distanceToTarget = Vector2.Distance(transform.position, targetPosition);
 
+        Vector2 avoidance = CalculateObstacleAvoidance();
+        float avoidanceScale = Mathf.Clamp01(distanceToTarget / stoppingDistance);
+        avoidance *= avoidanceScale;
+
+        direction = (direction + avoidance).normalized;
         RotateTowards(direction);
 
-        if (!isStatic && Vector2.Distance(transform.position, targetPosition) > stoppingDistance)
+        if (!isStatic && distanceToTarget > stoppingDistance)
         {
-            rb.linearVelocity = direction * chaseSpeed;
+            float speedFactor = Mathf.Clamp01(distanceToTarget / (stoppingDistance * 2f));
+            rb.linearVelocity = direction * chaseSpeed * speedFactor;
+        }
+        else
+        {
+            rb.linearVelocity = Vector2.zero;
         }
     }
 
     private Vector2 CalculateObstacleAvoidance()
     {
         Vector2 avoidance = Vector2.zero;
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, avoidanceCheckRadius, obstacleLayerMask);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(
+            transform.position,
+            avoidanceCheckRadius,
+            obstacleLayerMask
+        );
 
         foreach (var hit in hits)
         {
@@ -280,7 +317,8 @@ public class EnemyAI : MonoBehaviour
 
             if (distance > 0)
             {
-                avoidance += dirToObstacle.normalized * (avoidanceForce / distance);
+                float forceFactor = Mathf.Clamp01(1 - (distance / avoidanceCheckRadius));
+                avoidance += dirToObstacle.normalized * (avoidanceForce * forceFactor);
             }
         }
 
@@ -291,10 +329,21 @@ public class EnemyAI : MonoBehaviour
     {
         Vector2 desiredDirection = (transform.position - player.position).normalized;
         Vector2 avoidance = CalculateObstacleAvoidance();
-        Vector2 combinedDirection = (desiredDirection + avoidance).normalized;
 
+        float avoidanceMagnitude = avoidance.magnitude;
+        if (avoidanceMagnitude > 0 && avoidanceMagnitude < 0.3f)
+        {
+            avoidance = Vector2.zero;
+        }
+
+        Vector2 combinedDirection = (desiredDirection + avoidance).normalized;
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         float speedMultiplier = Mathf.Clamp01((distanceToPlayer - stoppingDistance) / (attackRange - stoppingDistance));
+
+        if (distanceToPlayer > stoppingDistance && distanceToPlayer < stoppingDistance + 0.5f)
+        {
+            speedMultiplier *= 0.3f;
+        }
 
         RotateTowards(combinedDirection);
         rb.linearVelocity = combinedDirection * chaseSpeed * 0.5f * speedMultiplier;
@@ -366,26 +415,23 @@ public class EnemyAI : MonoBehaviour
 
     private void RangedAttack()
     {
-        if (projectilePrefab == null || shootPoint == null) return;
+        if(projectilePrefab == null || shootPoint == null) return;
+        if (!HasClearPathToPlayer(meleeAttackRadius)) return;
+        if (!IsFacingPlayer(15f)) return;
 
-        if (!HasClearPathToPlayer(meleeAttackRadius))
-        {
-            return;
-        }
+        Vector2 targetDirection = ((Vector2)player.position - (Vector2)shootPoint.position).normalized;
 
-        Vector2 targetDirection = (player.position - shootPoint.position).normalized;
-
-        // ƒобавл€ем случайное отклонение дл€ промаха
         if (Random.value < missChance)
         {
             float spreadAngle = Random.Range(-15f, 15f);
             targetDirection = Quaternion.Euler(0, 0, spreadAngle) * targetDirection;
         }
 
+        float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
         GameObject projectile = Instantiate(
             projectilePrefab,
             shootPoint.position,
-            Quaternion.LookRotation(Vector3.forward, targetDirection)
+            Quaternion.Euler(0, 0, angle)
         );
 
         Rigidbody2D rbProjectile = projectile.GetComponent<Rigidbody2D>();
@@ -393,6 +439,7 @@ public class EnemyAI : MonoBehaviour
         {
             rbProjectile.linearVelocity = targetDirection * projectileSpeed;
         }
+
     }
 
     private bool HasClearPathToPlayer(float maxDistance)
@@ -435,14 +482,25 @@ public class EnemyAI : MonoBehaviour
         currentWanderTarget = initialPosition + Random.insideUnitCircle * wanderRadius;
     }
 
+    private bool IsFacingPlayer(float tolerance = 15f)
+    {
+        Vector2 toPlayer = ((Vector2)player.position - (Vector2)transform.position).normalized;
+        Vector2 forward = transform.right; 
+        float angle = Vector2.Angle(forward, toPlayer);
+        return angle < tolerance;
+    }
+
     private void RotateTowards(Vector2 direction)
     {
+        if (direction.sqrMagnitude < 0.001f)
+            return; 
+
         float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Slerp(
-            transform.rotation,
-            Quaternion.Euler(0, 0, targetAngle),
-            rotationSpeed * Time.fixedDeltaTime
-        );
+        float currentAngle = transform.eulerAngles.z;
+        float delta = Mathf.DeltaAngle(currentAngle, targetAngle);
+
+        if (Mathf.Abs(delta) > 0.1f) 
+            transform.rotation = Quaternion.Euler(0, 0, targetAngle);
     }
 
     public void TakeDamage(int damage)
@@ -500,7 +558,7 @@ public class EnemyAI : MonoBehaviour
         {
             Instantiate(redPuddlePrefab, transform.position, Quaternion.identity);
         }
-        FindObjectOfType<BackgroundMusic>()?.AddKillPoint();
+        FindAnyObjectByType<BackgroundMusic>()?.AddKillPoint();
         Destroy(gameObject);
     }
 
