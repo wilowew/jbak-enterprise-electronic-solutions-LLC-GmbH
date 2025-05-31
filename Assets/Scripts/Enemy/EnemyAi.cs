@@ -16,7 +16,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField][Range(0f, 1f)] private float missChance = 0.3f;
 
     [Header("Combat Settings")]
-    [SerializeField] private int health = 1;
+    [SerializeField] private double health = 1;
     [SerializeField] private int meleeDamage = 1;
     [SerializeField] private GameObject redPuddlePrefab;
 
@@ -63,7 +63,7 @@ public class EnemyAI : MonoBehaviour
 
     private float originalChaseSpeed;
     private float originalWanderSpeed;
-    private int originalHealth;
+    private double originalHealth;
     private Coroutine recoverCoroutine;
 
     private AudioSource audioSource;
@@ -503,7 +503,7 @@ public class EnemyAI : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, targetAngle);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(double damage)
     {
         health -= damage;
         if (health <= 0)

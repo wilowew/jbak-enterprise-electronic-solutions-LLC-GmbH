@@ -24,7 +24,7 @@ public class Yashka : MonoBehaviour
     [SerializeField] private float dodgeDuration = 0.3f;
 
     [Header("Combat Settings")]
-    [SerializeField] private int maxHealth = 10;
+    [SerializeField] private double maxHealth = 10;
 
     [Header("References")]
     [SerializeField] private Transform player;
@@ -51,7 +51,7 @@ public class Yashka : MonoBehaviour
     private Quaternion originalWeaponRotation;
     private bool isSwinging = false;
 
-    private int currentHealth;
+    private double currentHealth;
     private bool isAttacking = false;
     private bool isDodging = false;
     private float nextAttackTime = 0f;
@@ -241,7 +241,7 @@ public class Yashka : MonoBehaviour
         return avoidance;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(double damage)
     {
         if (isDodging) return;
 

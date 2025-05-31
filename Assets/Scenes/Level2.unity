@@ -10320,6 +10320,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5272325595893036933, guid: ab945dd484ea2d74894d8e4a472c474e, type: 3}
   m_PrefabInstance: {fileID: 1531338912}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1004989070 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -1908870325812640079, guid: 226ba81616f300640a8575c9d07b1224, type: 3}
+  m_PrefabInstance: {fileID: 1483319071}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb8027f85c14e7448dbef5c70b6af93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1006363312 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2830513254530895825, guid: 7615552bb1fbf9340800ed03109291ee, type: 3}
@@ -14424,6 +14435,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 124542883347616389, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 270555892976294677, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: m_Radius
       value: 0.27440798
@@ -14524,6 +14539,14 @@ PrefabInstance:
       propertyPath: footstepSource
       value: 
       objectReference: {fileID: 1539631083}
+    - target: {fileID: 4386541877673493124, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: startingWeapons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386541877673493124, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: 'startingWeapons.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1004989070}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

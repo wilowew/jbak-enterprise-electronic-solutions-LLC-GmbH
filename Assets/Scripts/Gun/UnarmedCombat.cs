@@ -5,7 +5,7 @@ public class UnarmedCombat : MonoBehaviour
 {
     [Header("Combat Settings")]
     [SerializeField] private float attackRadius = 1f;
-    [SerializeField] private int damage = 1;
+    [SerializeField] private double damage = 0.5f;
     [SerializeField] private float attackCooldown = 0.5f;
     [SerializeField] private float combatStanceDuration = 3f;
     [SerializeField] private float attackAngle = 90f; // ”гол атаки в градусах
@@ -32,11 +32,14 @@ public class UnarmedCombat : MonoBehaviour
     private float combatStanceTimer;
     private bool inCombatStance;
 
+    private PlayerHealth playerHealth;
+
     private void Awake()
     {
         playerSprite = GetComponent<SpriteRenderer>();
         inventory = GetComponent<WeaponInventory>();
         audioSource = GetComponent<AudioSource>() ?? gameObject.AddComponent<AudioSource>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     private void Start()
@@ -46,6 +49,7 @@ public class UnarmedCombat : MonoBehaviour
 
     private void Update()
     {
+        if (playerHealth != null && playerHealth.IsDead) return;
         UpdateCombatStance();
 
         if (Mouse.current.leftButton.wasPressedThisFrame && !inventory.HasWeaponEquipped() && !isAttacking)
@@ -68,6 +72,7 @@ public class UnarmedCombat : MonoBehaviour
 
     private void TryAttack()
     {
+        if (playerHealth != null && playerHealth.IsDead) return;
         if (Time.time - lastAttackTime < attackCooldown)
             return;
 
@@ -116,6 +121,7 @@ public class UnarmedCombat : MonoBehaviour
 
     private void DetectHits()
     {
+        if (playerHealth != null && playerHealth.IsDead) return;
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRadius);
         bool hitSuccess = false;
 

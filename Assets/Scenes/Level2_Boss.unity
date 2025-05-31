@@ -690,11 +690,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5845808778970018528, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
   m_PrefabInstance: {fileID: 1289470}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &210230908 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3368558483572712597, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
-  m_PrefabInstance: {fileID: 1287906149}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &210230917 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 572205789866688859, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
@@ -4732,7 +4727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: b05720f049d03554cbfa61d1a4b5c01c, type: 2}
   startAutomatically: 1
-  delaySeconds: 2
+  delaySeconds: 1.3
 --- !u!114 &928785406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5919,6 +5914,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 124542883347616389, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 500428951356881250, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -6039,66 +6038,30 @@ PrefabInstance:
       propertyPath: 'grassFootstepSounds.Array.data[0]'
       value: 
       objectReference: {fileID: 8300000, guid: 2cc9645c5504eac4dbe3eb0363e6305f, type: 3}
+    - target: {fileID: 4386541877673493124, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: startingWeapons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386541877673493124, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: 'startingWeapons.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1320924085}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3368558483572712597, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1287906151}
-    - targetCorrespondingSourceObject: {fileID: 3368558483572712597, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1287906159}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
---- !u!212 &1287906150 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 698263684947093744, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
-  m_PrefabInstance: {fileID: 1287906149}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1287906151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210230908}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b9eef35703310348a203aa912067ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpriteRenderer: {fileID: 1287906150}
-  meleeSprite: {fileID: 290040158, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
-  rangedSprite: {fileID: 3542127132570728493, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
-  unarmedSprite: {fileID: -1960546628078278901, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
 --- !u!114 &1287906152 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2517337248772922572, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
   m_PrefabInstance: {fileID: 1287906149}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210230908}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1989bdf80ef0ed041b5dc310d8c11cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1287906159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210230908}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c2eb59c779ae554eb1a1c8655c2e654, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingWeapons:
-  - {fileID: 1320924085}
-  spriteHandler: {fileID: 1287906151}
-  maxSlots: 2
-  pickupRadius: 2
 --- !u!1 &1316140914
 GameObject:
   m_ObjectHideFlags: 0
@@ -8254,7 +8217,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

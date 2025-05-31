@@ -5,39 +5,37 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 2;
-    [SerializeField] private SpriteRenderer playerSpriteRenderer;
-    [SerializeField] private Sprite deadSprite;
-    [SerializeField] private Vector3 deathScale = new Vector3(0.5f, 0.5f, 1f);
+    [SerializeField] private GameObject deathPrefab; 
     [SerializeField] private float regenInterval = 10f;
     [SerializeField] private Image healthOverlay;
     [SerializeField] private float maxOverlayAlpha = 0.7f;
     [SerializeField] private CanvasGroup deathScreenGroup;
     [SerializeField] private CursorChanger cursorChanger;
+    [SerializeField] private float deathEffectDuration = 0.5f; 
 
     private int currentHealth;
-    private Vector3 originalScale;
     private float regenTimer = 0f;
-
     private bool isDead = false;
     public bool IsDead => isDead;
 
     private void Start()
     {
         currentHealth = maxHealth;
-        originalScale = transform.localScale;
         if (healthOverlay != null)
             healthOverlay.color = new Color(healthOverlay.color.r, healthOverlay.color.g, healthOverlay.color.b, 0);
     }
 
     private void Update()
     {
+        if (isDead) return; 
+
         UpdateHealthRegeneration();
         UpdateHealthOverlay();
     }
 
     private void UpdateHealthRegeneration()
     {
-        if (!isDead && currentHealth < maxHealth)
+        if (currentHealth < maxHealth)
         {
             regenTimer += Time.deltaTime;
             if (regenTimer >= regenInterval)
@@ -54,7 +52,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void UpdateHealthOverlay()
     {
-        if (healthOverlay == null || isDead) return;
+        if (healthOverlay == null) return;
 
         if (currentHealth < maxHealth)
         {
@@ -75,8 +73,10 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (isDead) return;
+
         currentHealth -= damage;
-        regenTimer = 0f; 
+        regenTimer = 0f;
         if (currentHealth <= 0) Die();
     }
 
@@ -85,35 +85,44 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
         Debug.Log("Player Died!");
 
-        if (cursorChanger != null)
-        {
-            cursorChanger.SetPauseCursor();
-        }
-
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-
-        if (deathScreenGroup != null)
-        {
-            deathScreenGroup.gameObject.SetActive(true);
-            StartCoroutine(FadeInDeathScreen());
-        }
+        DisablePlayerComponents();
 
         foreach (Transform child in transform)
         {
-            Destroy(child.gameObject);
+            child.gameObject.SetActive(false);
         }
 
-        PlayerMovement movement = GetComponent<PlayerMovement>();
-        if (movement != null) movement.SetMovement(false);
-
-        playerSpriteRenderer.sortingOrder = -9;
-
-        if (playerSpriteRenderer != null && deadSprite != null)
+        if (deathPrefab != null)
         {
-            playerSpriteRenderer.sprite = deadSprite;
-            transform.localScale = deathScale;
+            Instantiate(deathPrefab, transform.position, transform.rotation);
         }
+        else
+        {
+            Debug.LogError("Death prefab is not assigned in PlayerHealth!");
+        }
+
+        StartCoroutine(DeathEffect());
+    }
+
+    private void DisablePlayerComponents()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr != null) sr.enabled = false;
+
+        foreach (Transform child in transform)
+        {
+            SpriteRenderer childSr = child.GetComponent<SpriteRenderer>();
+            if (childSr != null) childSr.enabled = false;
+
+            MeshRenderer meshRenderer = child.GetComponent<MeshRenderer>();
+            if (meshRenderer != null) meshRenderer.enabled = false;
+
+            Animator animator = child.GetComponent<Animator>();
+            if (animator != null) animator.enabled = false;
+        }
+
+        Collider2D collider = GetComponent<Collider2D>();
+        if (collider != null) collider.enabled = false;
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
@@ -122,26 +131,36 @@ public class PlayerHealth : MonoBehaviour
             rb.simulated = false;
         }
 
-        StartCoroutine(RestartSceneAfterDelay(3f));
+        PlayerMovement movement = GetComponent<PlayerMovement>();
+        if (movement != null) movement.enabled = false;
+
+        UnarmedCombat combat = GetComponent<UnarmedCombat>();
+        if (combat != null) combat.enabled = false;
+
+        WeaponInventory inventory = GetComponent<WeaponInventory>();
+        if (inventory != null) inventory.enabled = false;
     }
 
-    private System.Collections.IEnumerator FadeInDeathScreen()
+    private System.Collections.IEnumerator DeathEffect()
     {
-        float duration = 1f;
-        float elapsed = 0f;
+        if (cursorChanger != null) cursorChanger.SetPauseCursor();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
-        while (elapsed < duration)
+        if (deathScreenGroup != null)
         {
-            deathScreenGroup.alpha = Mathf.Lerp(0f, 1f, elapsed / duration);
-            elapsed += Time.deltaTime;
-            yield return null;
+            deathScreenGroup.gameObject.SetActive(true);
+            float timer = 0f;
+            while (timer < deathEffectDuration)
+            {
+                deathScreenGroup.alpha = Mathf.Lerp(0f, 1f, timer / deathEffectDuration);
+                timer += Time.deltaTime;
+                yield return null;
+            }
+            deathScreenGroup.alpha = 1f;
         }
-        deathScreenGroup.alpha = 1f;
-    }
 
-    private System.Collections.IEnumerator RestartSceneAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
