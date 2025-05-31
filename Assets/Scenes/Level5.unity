@@ -4722,6 +4722,14 @@ PrefabInstance:
       propertyPath: health
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: projectileSpeed
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: f3eacf0faa4511c46a53473c3a7273e0, type: 3}
     - target: {fileID: 4681553715321597533, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.840843
@@ -5108,6 +5116,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5845808778970018528, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -5116,6 +5128,28 @@ PrefabInstance:
       addedObject: {fileID: 397046036}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
+--- !u!114 &256568540 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5125172617699629307, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
+  m_PrefabInstance: {fileID: 256568539}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &256568541 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3318046825647016980, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
+  m_PrefabInstance: {fileID: 256568539}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &258054655 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1780590508973046413, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
@@ -6971,11 +7005,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1308769520639815908, guid: f957d1422231f0f42acf3750103723bc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.21
+      value: -12.46
       objectReference: {fileID: 0}
     - target: {fileID: 1308769520639815908, guid: f957d1422231f0f42acf3750103723bc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.35
+      value: -10.54
       objectReference: {fileID: 0}
     - target: {fileID: 1308769520639815908, guid: f957d1422231f0f42acf3750103723bc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7264,6 +7298,14 @@ PrefabInstance:
       propertyPath: health
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: projectileSpeed
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: f3eacf0faa4511c46a53473c3a7273e0, type: 3}
     - target: {fileID: 4681553715321597533, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.88
@@ -7406,6 +7448,14 @@ PrefabInstance:
       propertyPath: health
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: projectileSpeed
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: f3eacf0faa4511c46a53473c3a7273e0, type: 3}
     - target: {fileID: 4681553715321597533, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.32
@@ -7590,6 +7640,14 @@ PrefabInstance:
       propertyPath: health
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: projectileSpeed
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: f3eacf0faa4511c46a53473c3a7273e0, type: 3}
     - target: {fileID: 4681553715321597533, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.17
@@ -7656,6 +7714,14 @@ PrefabInstance:
       propertyPath: health
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: projectileSpeed
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: f3eacf0faa4511c46a53473c3a7273e0, type: 3}
     - target: {fileID: 4681553715321597533, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.35
@@ -8248,6 +8314,14 @@ PrefabInstance:
       propertyPath: health
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: projectileSpeed
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: f3eacf0faa4511c46a53473c3a7273e0, type: 3}
     - target: {fileID: 4681553715321597533, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.45
@@ -8417,6 +8491,14 @@ PrefabInstance:
       propertyPath: health
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: projectileSpeed
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: f3eacf0faa4511c46a53473c3a7273e0, type: 3}
     - target: {fileID: 4681553715321597533, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.73
@@ -8633,6 +8715,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -5382620598677276397, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
+      propertyPath: wallMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: -5382620598677276397, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 2050077445914033813, guid: 814725d02d1a8ba40874d03c39969b21, type: 3}
@@ -8646,11 +8732,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5382620598677276397, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
       propertyPath: maxReserveMagazines
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5382620598677276397, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
       propertyPath: reserveMagazineCount
-      value: 20
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3765289858590601037, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
+      propertyPath: m_Size.x
+      value: 1.4730415
+      objectReference: {fileID: 0}
+    - target: {fileID: 3765289858590601037, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
+      propertyPath: m_Size.y
+      value: 0.3045931
+      objectReference: {fileID: 0}
+    - target: {fileID: 3765289858590601037, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3765289858590601037, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.21515083
+      objectReference: {fileID: 0}
+    - target: {fileID: 3765289858590601037, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.046646595
       objectReference: {fileID: 0}
     - target: {fileID: 4417200160477959926, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
       propertyPath: m_Name
@@ -8713,6 +8819,14 @@ PrefabInstance:
       propertyPath: health
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: projectileSpeed
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: f3eacf0faa4511c46a53473c3a7273e0, type: 3}
     - target: {fileID: 4681553715321597533, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.57
@@ -9304,11 +9418,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1308769520639815908, guid: f957d1422231f0f42acf3750103723bc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.31
+      value: -24.16
       objectReference: {fileID: 0}
     - target: {fileID: 1308769520639815908, guid: f957d1422231f0f42acf3750103723bc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.01
+      value: -17.71
       objectReference: {fileID: 0}
     - target: {fileID: 1308769520639815908, guid: f957d1422231f0f42acf3750103723bc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9489,6 +9603,14 @@ PrefabInstance:
       propertyPath: health
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: projectileSpeed
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: f3eacf0faa4511c46a53473c3a7273e0, type: 3}
     - target: {fileID: 4681553715321597533, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.4
@@ -9675,6 +9797,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 124542883347616389, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: attackSprite1
+      value: 
+      objectReference: {fileID: 559502775, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+    - target: {fileID: 124542883347616389, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: attackSprite2
+      value: 
+      objectReference: {fileID: 1549777032, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+    - target: {fileID: 124542883347616389, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: defaultSprite
+      value: 
+      objectReference: {fileID: 1313251922, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+    - target: {fileID: 124542883347616389, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: combatStanceSprite
+      value: 
+      objectReference: {fileID: 1897359805, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+    - target: {fileID: 124542883347616389, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 270555892976294677, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: m_Radius
       value: 0.27440798
@@ -9775,7 +9917,9 @@ PrefabInstance:
       propertyPath: footstepSource
       value: 
       objectReference: {fileID: 1539631083}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4386541877673493124, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+    - {fileID: 2836624509755929510, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -9798,6 +9942,14 @@ PrefabInstance:
       propertyPath: health
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: projectileSpeed
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: f3eacf0faa4511c46a53473c3a7273e0, type: 3}
     - target: {fileID: 4681553715321597533, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.75
@@ -9909,7 +10061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpriteRenderer: {fileID: 3368558482313965666}
   meleeSprite: {fileID: 290040158, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
-  rangedSprite: {fileID: 3542127132570728493, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+  rangedSprite: {fileID: 1255915376, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
   unarmedSprite: {fileID: 1313251922, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
 --- !u!1001 &4842204595003939326
 PrefabInstance:
@@ -9996,6 +10148,22 @@ PrefabInstance:
       propertyPath: backgroundMusicSource
       value: 
       objectReference: {fileID: 1949856691}
+    - target: {fileID: 3477144702431879873, guid: 3bac40c2294706c4683349910fa1ba34, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 431667555}
+    - target: {fileID: 3477144702431879873, guid: 3bac40c2294706c4683349910fa1ba34, type: 3}
+      propertyPath: quitButton
+      value: 
+      objectReference: {fileID: 256568540}
+    - target: {fileID: 3477144702431879873, guid: 3bac40c2294706c4683349910fa1ba34, type: 3}
+      propertyPath: resumeButton
+      value: 
+      objectReference: {fileID: 256568541}
+    - target: {fileID: 3477144702431879873, guid: 3bac40c2294706c4683349910fa1ba34, type: 3}
+      propertyPath: cursorChanger
+      value: 
+      objectReference: {fileID: 599644103}
     - target: {fileID: 4244439157118179429, guid: 3bac40c2294706c4683349910fa1ba34, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.1039835

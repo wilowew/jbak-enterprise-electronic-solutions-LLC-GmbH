@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26863ff2943f37944af83dafde358442, type: 3}
-  m_Name: 5_Cutscene_3
+  m_Name: 5_Cutscene_3 1
   m_EditorClassIdentifier: 
-  dialogueID: 30
+  dialogueID: 30_1
   lines:
-  - nameTermKey: dn_Sergey
-    textTermKey: dt_5_Sergey4
+  - nameTermKey: dn_Dmitriy
+    textTermKey: dt_5_Dmitriy4
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
     characterIcon: {fileID: -7232777622814007212, guid: 1a1d002b915bf4547802aafd0355c9e1, type: 3}
     isChoicePoint: 0
     choices: []
     isExitLine: 0
-  usePostDialogueDelay: 1
+  usePostDialogueDelay: 0
   blockMovementDuringDelay: 0
-  postDialogueDelayTime: 0.1
-  nextDialogue: {fileID: 11400000, guid: e79a64c338f25ee4d8023f74a4206959, type: 2}
+  postDialogueDelayTime: 0
+  nextDialogue: {fileID: 0}
   requireManualClose: 1
   nextSceneName: 
   cameraMoveHeight: 0

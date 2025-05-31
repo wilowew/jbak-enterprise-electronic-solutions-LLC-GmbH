@@ -237,7 +237,7 @@ PrefabInstance:
     - target: {fileID: 5672390871737812982, guid: c42a1d2f201d3c44c9e4e9235e63ca6f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 290040158, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+      objectReference: {fileID: 1003234450, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
     - target: {fileID: 5672390871737812982, guid: c42a1d2f201d3c44c9e4e9235e63ca6f, type: 3}
       propertyPath: m_Color.b
       value: 0.64530563
@@ -287,34 +287,29 @@ MonoBehaviour:
   moveSpeed: 3
   desiredDistance: 4
   rotationSpeed: 5
+  distanceDeadZone: 0.5
+  movementSmoothFactor: 5
   lungeSpeed: 10
-  attackWindup: 0.5
   attackCooldown: 2
   attackRadius: 2
   attackDamage: 2
+  attackProbability: 0.3
   dodgeChance: 0.5
   dodgeSpeed: 8
   dodgeDuration: 0.3
   maxHealth: 10
-  damageFlashTime: 0.1
   player: {fileID: 0}
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 256
-  spriteRenderer: {fileID: 2629867875370388083}
   weaponPivot: {fileID: 4525751063782986494}
   weaponCollider: {fileID: 5873113464587515103}
   swingAngle: 90
   swingSpeed: 360
   returnSpeed: 180
-  attackActiveAngle: 45
   swingSound: {fileID: 8300000, guid: cd6233fefc06e78469c4f6da36b0caf9, type: 3}
   hitSound: {fileID: 8300000, guid: 0b2eb819295475b49a364d71a6bff2dd, type: 3}
---- !u!212 &2629867875370388083 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 5672390871737812982, guid: c42a1d2f201d3c44c9e4e9235e63ca6f, type: 3}
-  m_PrefabInstance: {fileID: 7694201602926710149}
-  m_PrefabAsset: {fileID: 0}
+  deathPrefab: {fileID: 0}
 --- !u!4 &3044279258803823576 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4681553715321597533, guid: c42a1d2f201d3c44c9e4e9235e63ca6f, type: 3}

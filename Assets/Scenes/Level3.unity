@@ -362,14 +362,14 @@ PrefabInstance:
     - target: {fileID: 2654482616775816326, guid: 7fd4404eb04ac274bab0b50d73c6a154, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1569112790, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+      objectReference: {fileID: -1683554313, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
     - target: {fileID: 2654482616775816326, guid: 7fd4404eb04ac274bab0b50d73c6a154, type: 3}
       propertyPath: m_Color.b
-      value: 0.043137252
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2654482616775816326, guid: 7fd4404eb04ac274bab0b50d73c6a154, type: 3}
       propertyPath: m_Color.g
-      value: 0.7749197
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2654482616775816326, guid: 7fd4404eb04ac274bab0b50d73c6a154, type: 3}
       propertyPath: m_Color.r
@@ -2311,6 +2311,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5845808778970018528, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2319,6 +2323,28 @@ PrefabInstance:
       addedObject: {fileID: 397046036}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
+--- !u!114 &256568540 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5125172617699629307, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
+  m_PrefabInstance: {fileID: 256568539}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &256568541 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3318046825647016980, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
+  m_PrefabInstance: {fileID: 256568539}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &258054655 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1780590508973046413, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
@@ -22917,18 +22943,18 @@ PrefabInstance:
     - target: {fileID: 2654482616775816326, guid: 7fd4404eb04ac274bab0b50d73c6a154, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1569112790, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+      objectReference: {fileID: -100573573, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
     - target: {fileID: 2654482616775816326, guid: 7fd4404eb04ac274bab0b50d73c6a154, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2654482616775816326, guid: 7fd4404eb04ac274bab0b50d73c6a154, type: 3}
       propertyPath: m_Color.g
-      value: 0.5320754
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2654482616775816326, guid: 7fd4404eb04ac274bab0b50d73c6a154, type: 3}
       propertyPath: m_Color.r
-      value: 0.52771413
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3068856650990460205, guid: 7fd4404eb04ac274bab0b50d73c6a154, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23778,18 +23804,18 @@ PrefabInstance:
     - target: {fileID: 2654482616775816326, guid: 7fd4404eb04ac274bab0b50d73c6a154, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1569112790, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+      objectReference: {fileID: -100573573, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
     - target: {fileID: 2654482616775816326, guid: 7fd4404eb04ac274bab0b50d73c6a154, type: 3}
       propertyPath: m_Color.b
-      value: 0.029355614
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2654482616775816326, guid: 7fd4404eb04ac274bab0b50d73c6a154, type: 3}
       propertyPath: m_Color.g
-      value: 0.5018867
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2654482616775816326, guid: 7fd4404eb04ac274bab0b50d73c6a154, type: 3}
       propertyPath: m_Color.r
-      value: 0.49801353
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3068856650990460205, guid: 7fd4404eb04ac274bab0b50d73c6a154, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24592,6 +24618,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 182.2
       objectReference: {fileID: 0}
+    - target: {fileID: 909317023261654099, guid: 654a62747f46dc047887dab3189a6a1e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1077796788, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+    - target: {fileID: 909317023261654099, guid: 654a62747f46dc047887dab3189a6a1e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 909317023261654099, guid: 654a62747f46dc047887dab3189a6a1e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 909317023261654099, guid: 654a62747f46dc047887dab3189a6a1e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3934276030314191441, guid: 654a62747f46dc047887dab3189a6a1e, type: 3}
       propertyPath: m_Name
       value: Police
@@ -25008,6 +25050,22 @@ PrefabInstance:
       propertyPath: backgroundMusicSource
       value: 
       objectReference: {fileID: 1949856691}
+    - target: {fileID: 3477144702431879873, guid: 3bac40c2294706c4683349910fa1ba34, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 431667555}
+    - target: {fileID: 3477144702431879873, guid: 3bac40c2294706c4683349910fa1ba34, type: 3}
+      propertyPath: quitButton
+      value: 
+      objectReference: {fileID: 256568540}
+    - target: {fileID: 3477144702431879873, guid: 3bac40c2294706c4683349910fa1ba34, type: 3}
+      propertyPath: resumeButton
+      value: 
+      objectReference: {fileID: 256568541}
+    - target: {fileID: 3477144702431879873, guid: 3bac40c2294706c4683349910fa1ba34, type: 3}
+      propertyPath: cursorChanger
+      value: 
+      objectReference: {fileID: 599644103}
     - target: {fileID: 4244439157118179429, guid: 3bac40c2294706c4683349910fa1ba34, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.1039835

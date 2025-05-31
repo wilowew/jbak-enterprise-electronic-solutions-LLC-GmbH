@@ -234,14 +234,14 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2050077445914033813, guid: 814725d02d1a8ba40874d03c39969b21, type: 3}
   shootPoint: {fileID: 4693456920725371809}
   shotsPerSecond: 5
-  bulletsPerMagazine: 30
-  maxReserveMagazines: 150
+  bulletsPerMagazine: 5
+  maxReserveMagazines: 1
   ammoUIText: {fileID: 0}
   shotSound: {fileID: 8300000, guid: cd6233fefc06e78469c4f6da36b0caf9, type: 3}
   emptyMagSound: {fileID: 8300000, guid: 2300dd3e5aa683a419a953764171f831, type: 3}
   reloadSound: {fileID: 8300000, guid: 596b0d3534154024cb15e6a98dcf3723, type: 3}
   currentBulletsInMag: 5
-  reserveMagazineCount: 20
+  reserveMagazineCount: 4
   weaponID: 
 --- !u!1 &5770798190669881655
 GameObject:

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PauseManager : MonoBehaviour
 {
@@ -21,9 +20,12 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    public void OnPause()
+    private void Update()
     {
-        TogglePause();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
     }
 
     public bool IsPaused
@@ -33,7 +35,7 @@ public class PauseManager : MonoBehaviour
 
     private void TogglePause()
     {
-        bool wasDialogueInterrupted = DialogueManager.Instance.IsDialogueActive || DialogueManager.Instance.IsDialoguePaused;
+        bool wasDialogueInterrupted = DialogueManager.Instance.IsDialogueActive && DialogueManager.Instance.IsDialoguePaused;
 
         if (wasDialogueInterrupted)
         {
@@ -52,7 +54,6 @@ public class PauseManager : MonoBehaviour
         UpdateTimeScale();
         pauseMenu.SetActive(isPaused);
 
-        // ћен€ем курсор в зависимости от паузы
         if (cursorChanger != null)
         {
             if (isPaused)
@@ -75,7 +76,6 @@ public class PauseManager : MonoBehaviour
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
-        // ѕри перезапуске возвращаем игровой курсор
         if (cursorChanger != null)
         {
             cursorChanger.SetGameCursor();

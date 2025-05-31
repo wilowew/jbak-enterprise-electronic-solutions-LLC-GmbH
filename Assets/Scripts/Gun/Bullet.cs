@@ -12,7 +12,9 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.linearVelocity = transform.up * speed; 
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+        rb.linearVelocity = transform.up * speed;
     }
 
     private void Update()
@@ -22,28 +24,26 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Wall"))
+        if (collision.collider.CompareTag("Wall"))
         {
             Destroy(gameObject);
             return;
         }
 
-        if (collision.CompareTag("Scarecrow"))
+        if (collision.collider.CompareTag("Scarecrow"))
         {
-            Scarecrow scarecrow = collision.GetComponent<Scarecrow>();
+            Scarecrow scarecrow = collision.collider.GetComponent<Scarecrow>();
             if (scarecrow != null)
                 scarecrow.PlayDestructionEffect();
-
             Destroy(gameObject);
         }
-        else if (collision.CompareTag("Enemy"))
+        else if (collision.collider.CompareTag("Enemy"))
         {
-            EnemyAI enemy = collision.GetComponent<EnemyAI>();
+            EnemyAI enemy = collision.collider.GetComponent<EnemyAI>();
             if (enemy != null)
                 enemy.TakeDamage(damage);
-
             Destroy(gameObject);
         }
     }

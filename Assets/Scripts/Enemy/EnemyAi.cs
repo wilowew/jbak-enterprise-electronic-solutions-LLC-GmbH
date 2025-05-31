@@ -131,7 +131,7 @@ public class EnemyAI : MonoBehaviour
             if (PlayerVisible)
             {
                 Vector2 dirToPlayer = (Vector2)player.position - (Vector2)transform.position;
-                RotateTowards(dirToPlayer); 
+                RotateTowards(dirToPlayer);
             }
         }
         else if (!isStatic)
@@ -258,16 +258,18 @@ public class EnemyAI : MonoBehaviour
             RotateTowards(dirToPlayer);
         }
 
-        if (weaponType == WeaponType.Ranged)
+        stoppingDistance = 1f;
+
+        if (PlayerVisible)
         {
-            stoppingDistance = attackRange * 0.8f;
-            if (distanceToTarget < attackRange) MaintainDistance();
-            else ApproachTarget(targetPosition);
-        }
-        else
-        {
-            stoppingDistance = 1f;
-            ApproachTarget(targetPosition);
+            if (weaponType == WeaponType.Ranged)
+            {
+                if (distanceToTarget < attackRange * 0.8f)
+                {
+                    MaintainDistance();
+                    return;
+                }
+            }
         }
 
         if (distanceToTarget <= attackRange && Time.time >= nextAttackTime)
@@ -289,14 +291,19 @@ public class EnemyAI : MonoBehaviour
         direction = (direction + avoidance).normalized;
         RotateTowards(direction);
 
-        if (!isStatic && distanceToTarget > stoppingDistance)
-        {
-            float speedFactor = Mathf.Clamp01(distanceToTarget / (stoppingDistance * 2f));
-            rb.linearVelocity = direction * chaseSpeed * speedFactor;
-        }
-        else
+        if (!PlayerVisible && distanceToTarget <= stoppingDistance)
         {
             rb.linearVelocity = Vector2.zero;
+
+            if (isChasing)
+            {
+                Vector2 randomDirection = new Vector2(
+                    Random.Range(-1f, 1f),
+                    Random.Range(-1f, 1f)
+                ).normalized;
+                RotateTowards(randomDirection);
+            }
+            return;
         }
     }
 
@@ -327,6 +334,12 @@ public class EnemyAI : MonoBehaviour
 
     private void MaintainDistance()
     {
+        if (!PlayerVisible)
+        {
+            ApproachTarget(lastKnownPlayerPosition);
+            return;
+        }
+
         Vector2 desiredDirection = (transform.position - player.position).normalized;
         Vector2 avoidance = CalculateObstacleAvoidance();
 
@@ -415,7 +428,7 @@ public class EnemyAI : MonoBehaviour
 
     private void RangedAttack()
     {
-        if(projectilePrefab == null || shootPoint == null) return;
+        if (projectilePrefab == null || shootPoint == null) return;
         if (!HasClearPathToPlayer(meleeAttackRadius)) return;
         if (!IsFacingPlayer(15f)) return;
 
@@ -485,7 +498,7 @@ public class EnemyAI : MonoBehaviour
     private bool IsFacingPlayer(float tolerance = 15f)
     {
         Vector2 toPlayer = ((Vector2)player.position - (Vector2)transform.position).normalized;
-        Vector2 forward = transform.right; 
+        Vector2 forward = transform.right;
         float angle = Vector2.Angle(forward, toPlayer);
         return angle < tolerance;
     }
@@ -493,13 +506,13 @@ public class EnemyAI : MonoBehaviour
     private void RotateTowards(Vector2 direction)
     {
         if (direction.sqrMagnitude < 0.001f)
-            return; 
+            return;
 
         float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         float currentAngle = transform.eulerAngles.z;
         float delta = Mathf.DeltaAngle(currentAngle, targetAngle);
 
-        if (Mathf.Abs(delta) > 0.1f) 
+        if (Mathf.Abs(delta) > 0.1f)
             transform.rotation = Quaternion.Euler(0, 0, targetAngle);
     }
 

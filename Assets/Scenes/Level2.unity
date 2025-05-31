@@ -4630,7 +4630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.148586
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4638,11 +4638,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.9888995
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4654,12 +4654,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -197.09
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: health
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: 0765565a0d8a13f4498c1e822d5a0903, type: 3}
     - target: {fileID: 3368558483572712597, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_Name
       value: EnemyMelee (4)
@@ -5068,6 +5072,10 @@ PrefabInstance:
       propertyPath: health
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: 0765565a0d8a13f4498c1e822d5a0903, type: 3}
     - target: {fileID: 3368558483572712597, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_Name
       value: EnemyMelee (7)
@@ -5531,19 +5539,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.48755497
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.8730923
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5555,12 +5563,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -121.64
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: health
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: 0765565a0d8a13f4498c1e822d5a0903, type: 3}
     - target: {fileID: 3368558483572712597, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_Name
       value: EnemyMelee (3)
@@ -5793,6 +5805,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5845808778970018528, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -5801,6 +5817,28 @@ PrefabInstance:
       addedObject: {fileID: 397046036}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
+--- !u!114 &256568540 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5125172617699629307, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
+  m_PrefabInstance: {fileID: 256568539}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &256568541 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3318046825647016980, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
+  m_PrefabInstance: {fileID: 256568539}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &258054655 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1780590508973046413, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
@@ -13150,19 +13188,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.73591983
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.6770687
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -13174,12 +13212,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 85.23
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: health
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: 0765565a0d8a13f4498c1e822d5a0903, type: 3}
     - target: {fileID: 3368558483572712597, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_Name
       value: EnemyMelee (1)
@@ -13394,6 +13436,10 @@ PrefabInstance:
       propertyPath: wanderRadius
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: 0765565a0d8a13f4498c1e822d5a0903, type: 3}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: fieldOfViewAngle
       value: 360
@@ -13716,6 +13762,10 @@ PrefabInstance:
       propertyPath: wanderRadius
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: 0765565a0d8a13f4498c1e822d5a0903, type: 3}
     - target: {fileID: 3368558483572712597, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_Name
       value: EnemyMelee (5)
@@ -14727,12 +14777,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: attackRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: 0765565a0d8a13f4498c1e822d5a0903, type: 3}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: spriteResetDelay
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: weaponSwingAngle
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: meleeAttackRadius
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: obstacleLayerMask.m_Bits
@@ -14960,11 +15026,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.9208431
+      value: -3.44
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6552596
+      value: 0.41
       objectReference: {fileID: 0}
     - target: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15014,6 +15080,10 @@ PrefabInstance:
       propertyPath: wanderRadius
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: 0765565a0d8a13f4498c1e822d5a0903, type: 3}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: fieldOfViewAngle
       value: 360
@@ -15160,6 +15230,10 @@ PrefabInstance:
       propertyPath: wanderRadius
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: 0765565a0d8a13f4498c1e822d5a0903, type: 3}
     - target: {fileID: 3368558483572712597, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_Name
       value: EnemyMelee (6)
@@ -16484,6 +16558,22 @@ PrefabInstance:
       propertyPath: backgroundMusicSource
       value: 
       objectReference: {fileID: 1949856691}
+    - target: {fileID: 3477144702431879873, guid: 3bac40c2294706c4683349910fa1ba34, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 431667555}
+    - target: {fileID: 3477144702431879873, guid: 3bac40c2294706c4683349910fa1ba34, type: 3}
+      propertyPath: quitButton
+      value: 
+      objectReference: {fileID: 256568540}
+    - target: {fileID: 3477144702431879873, guid: 3bac40c2294706c4683349910fa1ba34, type: 3}
+      propertyPath: resumeButton
+      value: 
+      objectReference: {fileID: 256568541}
+    - target: {fileID: 3477144702431879873, guid: 3bac40c2294706c4683349910fa1ba34, type: 3}
+      propertyPath: cursorChanger
+      value: 
+      objectReference: {fileID: 599644103}
     - target: {fileID: 4244439157118179429, guid: 3bac40c2294706c4683349910fa1ba34, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.1039835

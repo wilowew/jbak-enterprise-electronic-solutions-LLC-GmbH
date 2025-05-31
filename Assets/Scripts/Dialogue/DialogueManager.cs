@@ -26,7 +26,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] choiceTexts;
 
     [Header("Dialogue Timing")]
-    private bool isInPostDialogueDelay = false;
+    public bool isInPostDialogueDelay = false;
 
     [Header("Cursor Settings")]
     [SerializeField] private CursorChanger cursorChanger;

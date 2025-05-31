@@ -50,9 +50,12 @@ public class UnarmedCombat : MonoBehaviour
     private void Update()
     {
         if (playerHealth != null && playerHealth.IsDead) return;
+        if (IsCombatBlocked()) return;
         UpdateCombatStance();
 
-        if (Mouse.current.leftButton.wasPressedThisFrame && !inventory.HasWeaponEquipped() && !isAttacking)
+        if (Mouse.current.leftButton.wasPressedThisFrame &&
+        !inventory.HasWeaponEquipped() &&
+        !isAttacking)
             TryAttack();
     }
 
@@ -70,8 +73,17 @@ public class UnarmedCombat : MonoBehaviour
         }
     }
 
+    private bool IsCombatBlocked()
+    {
+        return (PauseManager.Instance != null && PauseManager.Instance.IsPaused) ||
+               (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive) ||
+               (DialogueManager.Instance != null && DialogueManager.Instance.IsInPostDialogueDelay);
+    }
+
     private void TryAttack()
     {
+        if (IsCombatBlocked()) return;
+        if (inventory.HasWeaponEquipped()) return;
         if (playerHealth != null && playerHealth.IsDead) return;
         if (Time.time - lastAttackTime < attackCooldown)
             return;
@@ -107,7 +119,7 @@ public class UnarmedCombat : MonoBehaviour
     {
         isAttacking = false;
 
-        if (inCombatStance && playerSprite != null)
+        if (inCombatStance && playerSprite != null && !inventory.HasWeaponEquipped())
         {
             playerSprite.sprite = combatStanceSprite;
         }
@@ -121,6 +133,8 @@ public class UnarmedCombat : MonoBehaviour
 
     private void DetectHits()
     {
+        if (IsCombatBlocked()) return;
+        if (inventory.HasWeaponEquipped()) return;
         if (playerHealth != null && playerHealth.IsDead) return;
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRadius);
         bool hitSuccess = false;
@@ -180,6 +194,14 @@ public class UnarmedCombat : MonoBehaviour
             obstacleMask
         );
         return obstacleHit.collider != null;
+    }
+
+    public void CancelAttack()
+    {
+        isAttacking = false;
+        inCombatStance = false;
+        SetDefaultSprite();
+        CancelInvoke(nameof(ResetAttackState));
     }
 
     private void OnDrawGizmosSelected()

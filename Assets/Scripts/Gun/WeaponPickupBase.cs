@@ -157,6 +157,12 @@ public class WeaponPickupBase : MonoBehaviour
         OnEquipped?.Invoke(owner.GetComponent<SpriteRenderer>());
     }
 
+    public virtual void RestoreState()
+    {
+        StoreInInventory();
+        gameObject.SetActive(false);
+    }
+
     public void DropToWorld(Vector3 dropPos, Vector3 throwDir)
     {
         if (IsHeld)

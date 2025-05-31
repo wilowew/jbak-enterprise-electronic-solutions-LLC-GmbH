@@ -161,6 +161,17 @@ public class PlayerHealth : MonoBehaviour
         }
 
         yield return new WaitForSeconds(3f);
+
+        WeaponInventory inventory = GetComponent<WeaponInventory>();
+        WeaponPickupBase[] weaponsToKeep = inventory.GetWeaponsCopy();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        if (weaponsToKeep != null)
+        {
+            GameObject.FindGameObjectWithTag("Player")
+                .GetComponent<WeaponInventory>()
+                .RestoreWeapons(weaponsToKeep);
+        }
     }
 }

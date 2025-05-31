@@ -10,8 +10,11 @@ public class PlayerWeaponSpriteHandler : MonoBehaviour
     [SerializeField] private Sprite rangedSprite;
     [SerializeField] private Sprite unarmedSprite;
 
+    private bool needsRefresh = true;
+
     private void Awake()
     {
+        needsRefresh = true;
         if (unarmedSprite != null)
         {
             playerSpriteRenderer.sprite = unarmedSprite;
@@ -33,6 +36,33 @@ public class PlayerWeaponSpriteHandler : MonoBehaviour
                                      isRanged ? rangedSprite :
                                      unarmedSprite;
     }
+
+    public void LateUpdate()
+    {
+        if (needsRefresh)
+        {
+            WeaponInventory inventory = GetComponent<WeaponInventory>();
+            if (inventory != null && inventory.HasWeaponEquipped())
+            {
+                UpdateWeaponSprite(inventory.GetEquippedWeapon());
+            }
+            needsRefresh = false;
+        }
+    }
+
+    public void ForceUpdateWeaponSprite()
+    {
+        WeaponInventory inventory = GetComponent<WeaponInventory>();
+        if (inventory != null && inventory.HasWeaponEquipped())
+        {
+            UpdateWeaponSprite(inventory.GetEquippedWeapon());
+        }
+        else
+        {
+            SetUnarmed();
+        }
+    }
+
     public void SetUnarmedSprite(Sprite sprite)
     {
         unarmedSprite = sprite;

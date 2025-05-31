@@ -262,6 +262,28 @@ PrefabInstance:
       addedObject: {fileID: 872055731}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
+--- !u!114 &1289471 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5125172617699629307, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
+  m_PrefabInstance: {fileID: 1289470}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1289472 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3318046825647016980, guid: 519fc40e19f498744ac00fb256fadec5, type: 3}
+  m_PrefabInstance: {fileID: 1289470}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &54165883
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,6 +1185,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 170233186}
+  resumeButton: {fileID: 1289472}
+  quitButton: {fileID: 1289471}
   cursorChanger: {fileID: 1694269469}
 --- !u!1 &332947749
 GameObject:
@@ -1963,6 +1987,7 @@ MonoBehaviour:
   choiceTexts:
   - {fileID: 0}
   - {fileID: 0}
+  isInPostDialogueDelay: 0
   cursorChanger: {fileID: 1694269469}
   isDialogueActive: 0
 --- !u!4 &569416342

@@ -194,6 +194,9 @@ public class WeaponInventory : MonoBehaviour
             return;
         }
 
+        UnarmedCombat unarmed = GetComponent<UnarmedCombat>();
+        if (unarmed != null) unarmed.CancelAttack();
+
         int emptySlot = FindEmptySlot();
         if (emptySlot == -1)
             DropCurrent();
@@ -261,8 +264,13 @@ public class WeaponInventory : MonoBehaviour
             melee.HandleWeaponEquipped(GetComponent<SpriteRenderer>());
         }
 
+        UnarmedCombat unarmed = GetComponent<UnarmedCombat>();
+        if (unarmed != null) unarmed.CancelAttack();
+
         if (spriteHandler != null)
-            spriteHandler.UpdateWeaponSprite(slots[currentIndex]);
+        {
+            spriteHandler.ForceUpdateWeaponSprite();
+        }
     }
 
     private void DropCurrent()
@@ -277,6 +285,9 @@ public class WeaponInventory : MonoBehaviour
         currentWeapon.DropToWorld(transform.position, transform.right);
 
         FindNextValidSlot();
+
+        UnarmedCombat unarmed = GetComponent<UnarmedCombat>();
+        if (unarmed != null) unarmed.CancelAttack();
 
         if (currentIndex == -1 && spriteHandler != null)
             spriteHandler.SetUnarmed();
@@ -308,6 +319,11 @@ public class WeaponInventory : MonoBehaviour
         return count;
     }
 
+    public WeaponPickupBase GetEquippedWeapon()
+    {
+        return (currentIndex >= 0) ? slots[currentIndex] : null;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         WeaponPickupBase weapon = other.GetComponent<WeaponPickupBase>();
@@ -317,6 +333,38 @@ public class WeaponInventory : MonoBehaviour
         Key key = other.GetComponent<Key>();
         if (key != null && !nearbyKeys.Contains(key))
             nearbyKeys.Add(key);
+    }
+
+    public WeaponPickupBase[] GetWeaponsCopy()
+    {
+        WeaponPickupBase[] copy = new WeaponPickupBase[slots.Length];
+        System.Array.Copy(slots, copy, slots.Length);
+        return copy;
+    }
+
+    public void RestoreWeapons(WeaponPickupBase[] savedWeapons)
+    {
+        slots = savedWeapons;
+        currentIndex = -1;
+
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] != null)
+            {
+                slots[i].StoreInInventory();
+                slots[i].gameObject.SetActive(false);
+
+                if (currentIndex == -1)
+                {
+                    EquipSlot(i);
+                }
+            }
+        }
+
+        if (currentIndex == -1 && spriteHandler != null)
+        {
+            spriteHandler.SetUnarmed();
+        }
     }
 
     public bool HasWeaponEquipped()
