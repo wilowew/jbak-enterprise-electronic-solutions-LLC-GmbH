@@ -332,7 +332,8 @@ MonoBehaviour:
   attackRadius: 1.5
   damage: 1
   attackCooldown: 0.5
-  attackAngle: 160
+  weaponSwingAngle: 160
+  attackAngle: 180
   attackHoldOffset: {x: 0.2, y: 0.3, z: 0}
   attackSprite: {fileID: 1187470075, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
   swingSound: {fileID: 8300000, guid: 0b2eb819295475b49a364d71a6bff2dd, type: 3}

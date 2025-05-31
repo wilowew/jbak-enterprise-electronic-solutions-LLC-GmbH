@@ -33,6 +33,12 @@ public class PlayerWeaponSpriteHandler : MonoBehaviour
                                      isRanged ? rangedSprite :
                                      unarmedSprite;
     }
+    public void SetUnarmedSprite(Sprite sprite)
+    {
+        unarmedSprite = sprite;
+        if (!GetComponent<WeaponInventory>().HasWeaponEquipped())
+            playerSpriteRenderer.sprite = unarmedSprite;
+    }
 
     public void SetUnarmed()
     {

@@ -1,25 +1,20 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(WeaponPickupBase))]
-public class MeleeWeapon : MonoBehaviour
+public class UnarmedCombat : MonoBehaviour
 {
-    [Header("Attack Settings")]
-    [SerializeField] private float attackRadius = 1.5f;
+    [Header("Combat Settings")]
+    [SerializeField] private float attackRadius = 1f;
     [SerializeField] private int damage = 1;
     [SerializeField] private float attackCooldown = 0.5f;
-    [SerializeField] private float weaponSwingAngle = 180; // Угол поворота оружия
+    [SerializeField] private float combatStanceDuration = 3f;
     [SerializeField] private float attackAngle = 90f; // Угол атаки в градусах
 
-    [Header("Attack Offsets")]
-    [SerializeField] private Vector3 attackHoldOffset = new Vector3(0.3f, 0.3f, 0);
-    private Vector3 originalHoldOffset;
-    private float originalRotationOffset;
-
-    [Header("Visuals")]
-    [SerializeField] private Sprite attackSprite;
-    private Sprite originalPlayerSprite;
-    private SpriteRenderer playerSprite;
+    [Header("Sprites")]
+    [SerializeField] private Sprite defaultSprite;
+    [SerializeField] private Sprite combatStanceSprite;
+    [SerializeField] private Sprite attackSprite1;
+    [SerializeField] private Sprite attackSprite2;
 
     [Header("Audio")]
     [SerializeField] private AudioClip swingSound;
@@ -28,64 +23,95 @@ public class MeleeWeapon : MonoBehaviour
     [Header("Obstacle Detection")]
     [SerializeField] private LayerMask obstacleMask;
 
-    private WeaponPickupBase pickupBase;
+    private SpriteRenderer playerSprite;
+    private WeaponInventory inventory;
     private AudioSource audioSource;
     private float lastAttackTime;
+    private bool nextIsSecondAttack;
+    private bool isAttacking;
+    private float combatStanceTimer;
+    private bool inCombatStance;
 
     private void Awake()
     {
-        pickupBase = GetComponent<WeaponPickupBase>();
+        playerSprite = GetComponent<SpriteRenderer>();
+        inventory = GetComponent<WeaponInventory>();
         audioSource = GetComponent<AudioSource>() ?? gameObject.AddComponent<AudioSource>();
-
-        // Сохраняем оригинальные параметры из WeaponPickupBase
-        originalHoldOffset = pickupBase.HoldOffset;
-        originalRotationOffset = pickupBase.RotationOffset;
     }
 
     private void Start()
     {
-        pickupBase.OnEquipped += HandleWeaponEquipped;
-        pickupBase.OnDropped += HandleWeaponDropped;
+        SetDefaultSprite();
     }
 
     private void Update()
     {
-        if (pickupBase.IsHeld && Mouse.current.leftButton.wasPressedThisFrame)
+        UpdateCombatStance();
+
+        if (Mouse.current.leftButton.wasPressedThisFrame && !inventory.HasWeaponEquipped() && !isAttacking)
             TryAttack();
+    }
+
+    private void UpdateCombatStance()
+    {
+        if (inCombatStance)
+        {
+            combatStanceTimer -= Time.deltaTime;
+
+            if (combatStanceTimer <= 0)
+            {
+                inCombatStance = false;
+                SetDefaultSprite();
+            }
+        }
     }
 
     private void TryAttack()
     {
-        if (IsOwnerDead() || Time.time - lastAttackTime < attackCooldown) return;
+        if (Time.time - lastAttackTime < attackCooldown)
+            return;
 
         lastAttackTime = Time.time;
-        ApplyAttackTransform();
+        isAttacking = true;
         audioSource.PlayOneShot(swingSound);
 
-        if (playerSprite != null && attackSprite != null)
-            playerSprite.sprite = attackSprite;
-
-        Invoke(nameof(ResetWeaponTransform), attackCooldown);
-        DetectHits();
-    }
-
-    private void ApplyAttackTransform()
-    {
-        // Временное изменение параметров позиции и поворота
-        pickupBase.HoldOffset = attackHoldOffset;
-        pickupBase.RotationOffset = originalRotationOffset + weaponSwingAngle;
-        pickupBase.UpdateHoldPosition();
-    }
-
-    private void ResetWeaponTransform()
-    {
-        // Восстановление оригинальных параметров
-        pickupBase.HoldOffset = originalHoldOffset;
-        pickupBase.RotationOffset = originalRotationOffset;
-        pickupBase.UpdateHoldPosition();
+        ActivateCombatStance();
 
         if (playerSprite != null)
-            playerSprite.sprite = originalPlayerSprite;
+        {
+            playerSprite.sprite = nextIsSecondAttack ? attackSprite2 : attackSprite1;
+            nextIsSecondAttack = !nextIsSecondAttack;
+        }
+
+        DetectHits();
+        Invoke(nameof(ResetAttackState), attackCooldown);
+    }
+
+    private void ActivateCombatStance()
+    {
+        inCombatStance = true;
+        combatStanceTimer = combatStanceDuration;
+
+        if (playerSprite.sprite != combatStanceSprite)
+        {
+            playerSprite.sprite = combatStanceSprite;
+        }
+    }
+
+    private void ResetAttackState()
+    {
+        isAttacking = false;
+
+        if (inCombatStance && playerSprite != null)
+        {
+            playerSprite.sprite = combatStanceSprite;
+        }
+    }
+
+    private void SetDefaultSprite()
+    {
+        if (playerSprite != null && defaultSprite != null)
+            playerSprite.sprite = defaultSprite;
     }
 
     private void DetectHits()
@@ -99,7 +125,8 @@ public class MeleeWeapon : MonoBehaviour
             if (!IsTargetInAttackZone(hit.transform.position))
                 continue;
 
-            if (CheckObstacle(hit)) continue;
+            if (CheckObstacle(hit))
+                continue;
 
             if (hit.CompareTag("Enemy") && hit.TryGetComponent<EnemyAI>(out var enemy))
             {
@@ -128,7 +155,7 @@ public class MeleeWeapon : MonoBehaviour
         // Направление от игрока к цели
         Vector2 directionToTarget = (targetPosition - transform.position).normalized;
 
-        // Направление взгляда игрока
+        // Направление взгляда игрока (в 2D top-down это обычно transform.right)
         Vector2 lookDirection = transform.right;
 
         // Угол между направлением взгляда и направлением к цели
@@ -149,42 +176,14 @@ public class MeleeWeapon : MonoBehaviour
         return obstacleHit.collider != null;
     }
 
-    public void HandleWeaponEquipped(SpriteRenderer playerSpriteRenderer)
-    {
-        playerSprite = playerSpriteRenderer;
-        originalPlayerSprite = pickupBase.EquippedPlayerSprite;
-    }
-
-    private void HandleWeaponDropped()
-    {
-        if (playerSprite != null)
-            playerSprite.sprite = originalPlayerSprite;
-    }
-
-    private bool IsOwnerDead()
-    {
-        return pickupBase.Owner != null &&
-             pickupBase.Owner.TryGetComponent<PlayerHealth>(out var health) &&
-             health.IsDead;
-    }
-
-    private void OnDestroy()
-    {
-        if (pickupBase != null)
-        {
-            pickupBase.OnEquipped -= HandleWeaponEquipped;
-            pickupBase.OnDropped -= HandleWeaponDropped;
-        }
-    }
-
     private void OnDrawGizmosSelected()
     {
         // Визуализация радиуса атаки
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, attackRadius);
 
         // Визуализация сектора атаки
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.red;
         float halfAngle = attackAngle / 2f;
         Vector2 lookDirection = transform.right;
 

@@ -319,6 +319,10 @@ public class WeaponInventory : MonoBehaviour
             nearbyKeys.Add(key);
     }
 
+    public bool HasWeaponEquipped()
+    {
+        return currentIndex >= 0 && slots[currentIndex] != null;
+    }
     private void OnTriggerExit2D(Collider2D other)
     {
         WeaponPickupBase weapon = other.GetComponent<WeaponPickupBase>();
