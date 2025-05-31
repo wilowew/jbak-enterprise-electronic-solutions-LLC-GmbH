@@ -238,7 +238,7 @@ MonoBehaviour:
   projectileSpeed: 10
   missChance: 0.3
   health: 2
-  meleeDamage: 1
+  meleeDamage: 2
   redPuddlePrefab: {fileID: 3333745628535621099, guid: 0765565a0d8a13f4498c1e822d5a0903, type: 3}
   fieldOfViewAngle: 360
   viewDistance: 7

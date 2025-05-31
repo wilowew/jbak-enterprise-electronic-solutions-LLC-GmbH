@@ -475,8 +475,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 120.17}
-  m_SizeDelta: {x: 1398.624, y: 240.3397}
+  m_AnchoredPosition: {x: 0, y: 203.69}
+  m_SizeDelta: {x: 954.0139, y: 174.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &333636518
 MonoBehaviour:
@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 8.9
+  delayBeforeStart: 8.3
   fadeDuration: 2
   targetAlpha: 0
 --- !u!114 &333636519
@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 2.5
+  delayBeforeStart: 0.1
   fadeDuration: 2
   targetAlpha: 1
 --- !u!114 &333636520
@@ -530,19 +530,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8bef44bda1e05a34c8c824bf452d2cbd, type: 3}
-    m_FontSize: 120
+    m_FontSize: 140
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 120
+    m_MaxSize: 140
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0419\u041E\u0423, \u0422\u0423\u0422 \u041D\u0410\u0417\u0412\u0410\u041D\u0418\u0415
-    \u0418\u0413\u0420\u042B"
+  m_Text: FADING ROSES
 --- !u!222 &333636521
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -788,7 +787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 13.45
+  delayBeforeStart: 14.58
   fadeDuration: 0
   targetAlpha: 1
 --- !u!225 &739049774
@@ -1134,7 +1133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 11.2
+  delayBeforeStart: 10.9
   fadeDuration: 3
   targetAlpha: 0.3
 --- !u!1 &1357262288
@@ -1173,7 +1172,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 636, y: -14}
+  m_AnchoredPosition: {x: 374, y: 68}
   m_SizeDelta: {x: 404.6281, y: 147.6354}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1357262290
@@ -1188,7 +1187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 8.9
+  delayBeforeStart: 8.3
   fadeDuration: 2
   targetAlpha: 0
 --- !u!114 &1357262291
@@ -1203,7 +1202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 3
+  delayBeforeStart: 3.5
   fadeDuration: 3
   targetAlpha: 1
 --- !u!114 &1357262292
@@ -1553,7 +1552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 10.8
+  delayBeforeStart: 10.3
   fadeDuration: 3
   targetAlpha: 0.5
 --- !u!1 &1575068005
@@ -1764,7 +1763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 11
+  delayBeforeStart: 10.7
   fadeDuration: 3
   targetAlpha: 0.3
 --- !u!1 &1713823579
@@ -1866,7 +1865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 10.8
+  delayBeforeStart: 10.5
   fadeDuration: 3
   targetAlpha: 0.5
 --- !u!114 &2060330530

@@ -522,7 +522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraDropHeight: 0
   cameraDropHorizontal: -12
-  cameraDropDuration: 1.2
+  cameraDropDuration: 2
   player: {fileID: 572205790056823284}
   playerMovement: {fileID: 2517337248309388387}
   fadeAnimator: {fileID: 1314087783}
@@ -11616,8 +11616,8 @@ MonoBehaviour:
   - 26c
   - 26d
   targetSceneName: Level4_Cutscene_1
-  cameraMoveHeight: 15
-  cameraMoveHorizontal: 15
+  cameraMoveHeight: 0
+  cameraMoveHorizontal: 0
   sceneTransistor: {fileID: 1120619076}
 --- !u!4 &1131699810 stripped
 Transform:
