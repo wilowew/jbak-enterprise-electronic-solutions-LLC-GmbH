@@ -1132,11 +1132,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 94
+        y: 96
         width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.51759434, y: 0.54467154}
+      pivot: {x: 0.5210742, y: 0.48899388}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1457,6 +1457,292 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: EnemyWeapon
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.27010077, y: 0.61035156}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc952017b3c9a1a488caec60553c4810
+      internalID: -1074023611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyKnocked
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 225
+        width: 64
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f653f3cea760ff4488c3eb4d2aed6cc8
+      internalID: 1220523275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyDead
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe8de96419dd2a4bb1e53453d93e75f
+      internalID: -1083946915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YashkaKnocked
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 192
+        width: 52
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38851a6f06a92a2498dab5fcbae71c36
+      internalID: -359344447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PolicemanDead
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1afbfb89d06a0904a8c6d2d987d58a6f
+      internalID: 1297414362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DmitryWeapon
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.2986188, y: 0.54997873}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15412524fa5c0394f83395541bee9b7f
+      internalID: 1255915376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DmitryPunch1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 41
+        height: 32
+      alignment: 9
+      pivot: {x: 0.23543939, y: 0.5746877}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b49c2db4d2f4a5843a079297d8383b1e
+      internalID: 1549777032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DmitryPunch2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 98
+        width: 36
+        height: 30
+      alignment: 9
+      pivot: {x: 0.26988137, y: 0.38691357}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ec3c111f71c99f439eb491bd923e4de
+      internalID: 559502775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DmitryBattlePos
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 97
+        width: 28
+        height: 31
+      alignment: 9
+      pivot: {x: 0.34271023, y: 0.56974274}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2cdd469061821746a2aa8a3a20f2f86
+      internalID: 1897359805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PolicemanWeapon
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.30472234, y: 0.5517607}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce32b0afcc7fd504690256f46adc33b6
+      internalID: -773452792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Policeman1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5054837, y: 0.48922205}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 347d05fb8bb49764589b02655a6e5874
+      internalID: -100573573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Policeman2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.51976967, y: 0.4844668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a5e0974c61b69544ba6061cfdc38756
+      internalID: -1077796788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4911804, y: 0.5529169}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f4d7ac45a2737c4d8d553d11a602e9a
+      internalID: -1683554313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1525,12 +1811,25 @@ TextureImporter:
       Characters_7: -1280756922
       Characters_8: -549432089
       Characters_9: 1225348681
+      Civilian1: -1683554313
       Dmitry: 1313251922
+      DmitryBattlePos: 1897359805
+      DmitryPunch1: 1549777032
+      DmitryPunch2: 559502775
+      DmitryWeapon: 1255915376
       Enemy1: -1915985175
       Enemy1Hit: -1600977119
+      EnemyDead: -1083946915
+      EnemyKnocked: 1220523275
+      EnemyWeapon: -1074023611
+      Policeman1: -100573573
+      Policeman2: -1077796788
+      PolicemanDead: 1297414362
+      PolicemanWeapon: -773452792
       Violinist: 625648436
       Yashka: -1579302051
       YashkaAttack: 1384385081
+      YashkaKnocked: -359344447
       YashkaWithWeapon: 1003234450
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

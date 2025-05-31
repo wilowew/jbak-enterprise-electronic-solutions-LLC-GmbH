@@ -9594,6 +9594,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 9098125075501673649, guid: 651b9975a721ff14b91ae381f8ffc547, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14435,6 +14439,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 124542883347616389, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
+      propertyPath: damage
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 124542883347616389, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: obstacleMask.m_Bits
       value: 256

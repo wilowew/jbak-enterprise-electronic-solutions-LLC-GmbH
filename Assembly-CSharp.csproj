@@ -68,6 +68,8 @@
     <Compile Include="Assets\Scripts\Gun\PlayerWeaponSpriteHandler.cs" />
     <Compile Include="Assets\Scripts\GameManager\LanguageManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
+    <Compile Include="Assets\Scripts\Gun\UnarmedCombat.cs" />
+    <Compile Include="Assets\Scripts\Enemy\PatrolLegs.cs" />
     <Compile Include="Assets\Scripts\GameManager\FadeInObjects.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\Enemy\Yashka.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="Assets\Scripts\ForLevel\lvl1\SpecificScarecrowsDialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\Environment\GateController.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl2\DialogueTriggerSklad.cs" />
+    <Compile Include="Assets\Scripts\ForLevel\lvl5\EnemyNPCHunter.cs" />
     <Compile Include="Assets\Scripts\Gun\WeaponInventory.cs" />
     <Compile Include="Assets\Scripts\GameManager\InteractiveItem.cs" />
     <Compile Include="Assets\Scripts\InputSystem\InputManager.cs" />
@@ -105,6 +108,7 @@
     <Compile Include="Assets\Scripts\Player\Evidence\EvidenceItem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
+    <Compile Include="Assets\Scripts\ForLevel\lvl5\KillableNPC.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Scripts\Environment\LockedDoor.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
