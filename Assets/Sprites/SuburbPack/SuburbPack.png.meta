@@ -5914,6 +5914,72 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: WindowUp
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c83d41e90da44a348836383ca54843dd
+      internalID: 1296831902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WindowRight
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e4645b862eb0c54d90eddbf8713e6f8
+      internalID: 1328673015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BrokenWindow
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f1b83eeadfe8e14f9aaabf786025f79
+      internalID: -84894707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -5928,6 +5994,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      BrokenWindow: -84894707
       SuburbPack_0: 7123752085818183455
       SuburbPack_1: -4043392665986282969
       SuburbPack_10: -1480740850
@@ -6190,6 +6257,8 @@ TextureImporter:
       SuburbPack_97: -1035914500
       SuburbPack_98: 205111224
       SuburbPack_99: -114895222
+      WindowRight: 1328673015
+      WindowUp: 1296831902
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

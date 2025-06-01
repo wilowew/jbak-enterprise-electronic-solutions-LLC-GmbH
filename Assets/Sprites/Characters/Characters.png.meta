@@ -1730,7 +1730,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.4911804, y: 0.5529169}
+      pivot: {x: 0.5308773, y: 0.51718986}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1739,6 +1739,72 @@ TextureImporter:
       bones: []
       spriteID: 2f4d7ac45a2737c4d8d553d11a602e9a
       internalID: -1683554313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5198486, y: 0.51984835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3479c6294de71e4c9fc37d414351ae5
+      internalID: 1098165446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5238185, y: 0.5119091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c6b99359826e7a47a0318a5d938d2e3
+      internalID: -1737785353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Civilian4
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5238185, y: 0.5119091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46109367714d2ef48b4f1950e44154b4
+      internalID: 701698141
       vertices: []
       indices: 
       edges: []
@@ -1812,6 +1878,9 @@ TextureImporter:
       Characters_8: -549432089
       Characters_9: 1225348681
       Civilian1: -1683554313
+      Civilian2: 1098165446
+      Civilian3: -1737785353
+      Civilian4: 701698141
       Dmitry: 1313251922
       DmitryBattlePos: 1897359805
       DmitryPunch1: 1549777032

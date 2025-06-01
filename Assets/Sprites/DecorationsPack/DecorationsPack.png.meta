@@ -670,6 +670,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: DecorationsPack_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 800
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.49999952, y: 0.58153343}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 482245a0b7d72d0468379d2e4b827d30
+      internalID: -986128145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DecorationsPack_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 800
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52329636}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 132f858c79b68bd4f82081ad2f4f9212
+      internalID: -17521797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -712,6 +756,7 @@ TextureImporter:
       DecorationsPack_31: 1564435534
       DecorationsPack_32: -826648091
       DecorationsPack_4: -986128145
+      DecorationsPack_5: -17521797
       DecorationsPack_6: -1824223405
       DecorationsPack_7: 1362571512
       DecorationsPack_8: -233678109

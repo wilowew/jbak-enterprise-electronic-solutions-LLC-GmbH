@@ -12668,6 +12668,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -171.66
       objectReference: {fileID: 0}
+    - target: {fileID: 5491884762996343698, guid: 4ff6b04d733653946bec9fadfc099082, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491884762996343698, guid: 4ff6b04d733653946bec9fadfc099082, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491884762996343698, guid: 4ff6b04d733653946bec9fadfc099082, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5679528914770306773, guid: 4ff6b04d733653946bec9fadfc099082, type: 3}
       propertyPath: 'waypoints.Array.data[0]'
       value: 
