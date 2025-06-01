@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4431375265423609867, guid: 0d3c9c33d2f4b8f4bb8736a620460e44, type: 3}
+  m_Sprite: {fileID: 271778489, guid: bd73af9832470d1458491f1b64611efc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -158,7 +158,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.9375, y: 1.78125}
+    oldSize: {x: 1.03125, y: 0.25}
     newSize: {x: 7.9375, y: 1.78125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -217,6 +217,7 @@ MonoBehaviour:
   holdOffset: {x: 0.5, y: -0.2, z: 0}
   rotationOffset: 0
   throwDistance: 0.7
+  owner: {fileID: 0}
   equippedPlayerSprite: {fileID: 3542127132570728493, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
 --- !u!114 &-6843214574165353483
 MonoBehaviour:
@@ -239,6 +240,8 @@ MonoBehaviour:
   shotSound: {fileID: 8300000, guid: f8d84eddf6290ce4ca50840fbd2cac30, type: 3}
   emptyMagSound: {fileID: 0}
   reloadSound: {fileID: 0}
+  currentBulletsInMag: 0
+  reserveMagazineCount: 0
   weaponID: 
 --- !u!1 &3435290469894494280
 GameObject:
@@ -265,7 +268,7 @@ Transform:
   m_GameObject: {fileID: 3435290469894494280}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalPosition: {x: -0.42, y: 0, z: 0}
   m_LocalScale: {x: 6.6666656, y: 6.6666656, z: 6.6666656}
   m_ConstrainProportionsScale: 0
   m_Children: []

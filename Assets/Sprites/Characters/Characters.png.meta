@@ -1809,6 +1809,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: DmitryMelee
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.30450392, y: 0.55782366}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a50f857a42644141b55b0fdd6b02c9e
+      internalID: 523353548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DmitryMeleeAttack
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.29969978, y: 0.4556713}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bab8eca224c49e4790a37cfaabe743d
+      internalID: -1789237692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1883,6 +1927,8 @@ TextureImporter:
       Civilian4: 701698141
       Dmitry: 1313251922
       DmitryBattlePos: 1897359805
+      DmitryMelee: 523353548
+      DmitryMeleeAttack: -1789237692
       DmitryPunch1: 1549777032
       DmitryPunch2: 559502775
       DmitryWeapon: 1255915376
