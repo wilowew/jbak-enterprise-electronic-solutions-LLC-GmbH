@@ -268,9 +268,7 @@ public class WeaponInventory : MonoBehaviour
         if (unarmed != null) unarmed.CancelAttack();
 
         if (spriteHandler != null)
-        {
             spriteHandler.ForceUpdateWeaponSprite();
-        }
     }
 
     private void DropCurrent()

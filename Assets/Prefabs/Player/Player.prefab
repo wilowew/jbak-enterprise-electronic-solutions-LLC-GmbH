@@ -168,7 +168,6 @@ GameObject:
   - component: {fileID: 3761277245493478846}
   - component: {fileID: 829275919636988838}
   - component: {fileID: 270555892976294677}
-  - component: {fileID: 2517337248772922572}
   - component: {fileID: 4079592033955247761}
   - component: {fileID: 820810259008413157}
   - component: {fileID: 1728296075413392659}
@@ -176,6 +175,7 @@ GameObject:
   - component: {fileID: 4386541877673493124}
   - component: {fileID: 124542883347616389}
   - component: {fileID: 929360943139552608}
+  - component: {fileID: 1633494813326478168}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -379,20 +379,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.060240746, y: -0.04591304}
   m_Radius: 0.32454705
---- !u!114 &2517337248772922572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3368558483572712597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1989bdf80ef0ed041b5dc310d8c11cdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  isMoving: 0
 --- !u!114 &4079592033955247761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,3 +604,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1633494813326478168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3368558483572712597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1989bdf80ef0ed041b5dc310d8c11cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  isMoving: 0

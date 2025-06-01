@@ -26,7 +26,7 @@ MonoBehaviour:
     textTermKey: dt_4_Bayonet11
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
-    characterIcon: {fileID: -2453305891492352482, guid: dc20cb92f0b2bbd44899af91c7d33ad7, type: 3}
+    characterIcon: {fileID: 430323828770358553, guid: e0e47fd3cf2d7de499efcaca52865f51, type: 3}
     isChoicePoint: 0
     choices: []
     isExitLine: 0

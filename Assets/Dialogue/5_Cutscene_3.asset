@@ -18,7 +18,7 @@ MonoBehaviour:
     textTermKey: dt_5_Sergey4
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
-    characterIcon: {fileID: -7232777622814007212, guid: 1a1d002b915bf4547802aafd0355c9e1, type: 3}
+    characterIcon: {fileID: -4797579577715123365, guid: 7f9e1a646c3d5454599c4ce78fad2dde, type: 3}
     isChoicePoint: 0
     choices: []
     isExitLine: 0

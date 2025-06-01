@@ -29,8 +29,8 @@ public class PlayerWeaponSpriteHandler : MonoBehaviour
             return;
         }
 
-        bool isMelee = weapon.GetComponentInChildren<MeleeWeapon>(includeInactive: true) != null;
-        bool isRanged = weapon.GetComponentInChildren<FirearmShooting>(includeInactive: true) != null;
+        bool isMelee = weapon.GetComponent<MeleeWeapon>() != null;
+        bool isRanged = weapon.GetComponent<FirearmShooting>() != null;
 
         playerSpriteRenderer.sprite = isMelee ? meleeSprite :
                                      isRanged ? rangedSprite :
@@ -41,27 +41,35 @@ public class PlayerWeaponSpriteHandler : MonoBehaviour
     {
         if (needsRefresh)
         {
-            WeaponInventory inventory = GetComponent<WeaponInventory>();
-            if (inventory != null && inventory.HasWeaponEquipped())
-            {
-                UpdateWeaponSprite(inventory.GetEquippedWeapon());
-            }
+            RefreshSprite();
             needsRefresh = false;
         }
     }
 
-    public void ForceUpdateWeaponSprite()
+    private void RefreshSprite()
     {
         WeaponInventory inventory = GetComponent<WeaponInventory>();
         if (inventory != null && inventory.HasWeaponEquipped())
         {
-            UpdateWeaponSprite(inventory.GetEquippedWeapon());
+            WeaponPickupBase weapon = inventory.GetEquippedWeapon();
+
+            if (weapon.EquippedPlayerSprite != null)
+            {
+                playerSpriteRenderer.sprite = weapon.EquippedPlayerSprite;
+            }
+            else
+            {
+                playerSpriteRenderer.sprite = unarmedSprite;
+            }
         }
         else
         {
-            SetUnarmed();
+            playerSpriteRenderer.sprite = unarmedSprite;
         }
     }
+
+    public void ForceUpdateWeaponSprite() => needsRefresh = true;
+    public void SetUnarmed() => needsRefresh = true;
 
     public void SetUnarmedSprite(Sprite sprite)
     {
@@ -70,8 +78,4 @@ public class PlayerWeaponSpriteHandler : MonoBehaviour
             playerSpriteRenderer.sprite = unarmedSprite;
     }
 
-    public void SetUnarmed()
-    {
-        playerSpriteRenderer.sprite = unarmedSprite;
-    }
 }

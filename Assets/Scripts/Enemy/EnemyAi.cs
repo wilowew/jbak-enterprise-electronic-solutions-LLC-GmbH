@@ -286,8 +286,7 @@ public class EnemyAI : MonoBehaviour
             {
                 if (distanceToTarget < attackRange * 0.8f)
                 {
-                    MaintainDistance();
-                    return;
+                    MaintainDistance(); 
                 }
             }
         }
@@ -429,7 +428,7 @@ public class EnemyAI : MonoBehaviour
     private void RangedAttack()
     {
         if (projectilePrefab == null || shootPoint == null) return;
-        if (!HasClearPathToPlayer(meleeAttackRadius)) return;
+        if (!HasClearPathToPlayer(attackRange)) return;
         if (!IsFacingPlayer(15f)) return;
 
         Vector2 targetDirection = ((Vector2)player.position - (Vector2)shootPoint.position).normalized;
@@ -495,7 +494,7 @@ public class EnemyAI : MonoBehaviour
         currentWanderTarget = initialPosition + Random.insideUnitCircle * wanderRadius;
     }
 
-    private bool IsFacingPlayer(float tolerance = 15f)
+    private bool IsFacingPlayer(float tolerance = 30f)
     {
         Vector2 toPlayer = ((Vector2)player.position - (Vector2)transform.position).normalized;
         Vector2 forward = transform.right;
@@ -569,7 +568,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (redPuddlePrefab != null)
         {
-            Instantiate(redPuddlePrefab, transform.position, Quaternion.identity);
+            Instantiate(redPuddlePrefab, transform.position, transform.rotation);
         }
         FindAnyObjectByType<BackgroundMusic>()?.AddKillPoint();
         Destroy(gameObject);

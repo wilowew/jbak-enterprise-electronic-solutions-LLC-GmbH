@@ -18,7 +18,7 @@ MonoBehaviour:
     textTermKey: dt_2_Bayonet1
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
-    characterIcon: {fileID: -2453305891492352482, guid: dc20cb92f0b2bbd44899af91c7d33ad7, type: 3}
+    characterIcon: {fileID: 430323828770358553, guid: e0e47fd3cf2d7de499efcaca52865f51, type: 3}
     isChoicePoint: 0
     choices: []
     isExitLine: 0
@@ -42,7 +42,7 @@ MonoBehaviour:
     textTermKey: dt_2_Bayonet4
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
-    characterIcon: {fileID: -2453305891492352482, guid: dc20cb92f0b2bbd44899af91c7d33ad7, type: 3}
+    characterIcon: {fileID: 430323828770358553, guid: e0e47fd3cf2d7de499efcaca52865f51, type: 3}
     isChoicePoint: 0
     choices: []
     isExitLine: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
     textTermKey: dt_2_Violinist5
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
-    characterIcon: {fileID: -7947079355947064970, guid: c0aa40ece402fc14081f9d67b04a9cbb, type: 3}
+    characterIcon: {fileID: -8150220669122673487, guid: fac789af4e9be9c4da4e5736ce4e9046, type: 3}
     isChoicePoint: 0
     choices: []
     isExitLine: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
     textTermKey: dt_2_Violinist8
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
-    characterIcon: {fileID: -7947079355947064970, guid: c0aa40ece402fc14081f9d67b04a9cbb, type: 3}
+    characterIcon: {fileID: -8150220669122673487, guid: fac789af4e9be9c4da4e5736ce4e9046, type: 3}
     isChoicePoint: 0
     choices: []
     isExitLine: 0

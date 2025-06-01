@@ -67,6 +67,25 @@ public class PauseManager : MonoBehaviour
         }
     }
 
+    public void ResumeGame()
+    {
+        Debug.Log("ResumeGame called!");
+        if (isPaused)
+        {
+            TogglePause();
+        }
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("QuitGame called!");
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
+        Application.Quit();
+        #endif
+    }
+
     public void UpdateTimeScale()
     {
         Time.timeScale = (isPaused || DialogueManager.Instance.IsDialogueActive) ? 0 : 1;

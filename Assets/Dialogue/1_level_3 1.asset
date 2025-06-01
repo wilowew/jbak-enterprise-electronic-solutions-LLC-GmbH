@@ -34,7 +34,7 @@ MonoBehaviour:
     textTermKey: dt_1_Bayonet23
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
-    characterIcon: {fileID: -2453305891492352482, guid: dc20cb92f0b2bbd44899af91c7d33ad7, type: 3}
+    characterIcon: {fileID: 430323828770358553, guid: e0e47fd3cf2d7de499efcaca52865f51, type: 3}
     isChoicePoint: 0
     choices: []
     isExitLine: 0
@@ -50,11 +50,11 @@ MonoBehaviour:
     textTermKey: dt_1_Bayonet25
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
-    characterIcon: {fileID: -2453305891492352482, guid: dc20cb92f0b2bbd44899af91c7d33ad7, type: 3}
+    characterIcon: {fileID: 430323828770358553, guid: e0e47fd3cf2d7de499efcaca52865f51, type: 3}
     isChoicePoint: 0
     choices: []
     isExitLine: 0
-  - nameTermKey: dn_Bayonet
+  - nameTermKey: dn_Shirt
     textTermKey: dt_1_Shirt26
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
@@ -74,7 +74,7 @@ MonoBehaviour:
     textTermKey: dt_1_Bayonet28
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
-    characterIcon: {fileID: -2453305891492352482, guid: dc20cb92f0b2bbd44899af91c7d33ad7, type: 3}
+    characterIcon: {fileID: 430323828770358553, guid: e0e47fd3cf2d7de499efcaca52865f51, type: 3}
     isChoicePoint: 0
     choices: []
     isExitLine: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
     textTermKey: dt_1_Bayonet30
     nameColor: {r: 1, g: 1, b: 1, a: 1}
     nameFont: {fileID: 0}
-    characterIcon: {fileID: -2453305891492352482, guid: dc20cb92f0b2bbd44899af91c7d33ad7, type: 3}
+    characterIcon: {fileID: 430323828770358553, guid: e0e47fd3cf2d7de499efcaca52865f51, type: 3}
     isChoicePoint: 0
     choices: []
     isExitLine: 0
@@ -100,3 +100,5 @@ MonoBehaviour:
   nextDialogue: {fileID: 0}
   requireManualClose: 1
   nextSceneName: Level2_Cutscene_1
+  cameraMoveHeight: 5
+  cameraMoveHorizontal: 0

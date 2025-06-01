@@ -155,6 +155,7 @@ public class WeaponPickupBase : MonoBehaviour
 
         UpdateHoldPosition();
         OnEquipped?.Invoke(owner.GetComponent<SpriteRenderer>());
+
     }
 
     public virtual void RestoreState()
