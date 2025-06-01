@@ -240,7 +240,7 @@ public class EnemyAI : MonoBehaviour
     {
         float distanceToTarget = Vector2.Distance(transform.position, targetPosition);
 
-        if (distanceToTarget <= attackRange && Time.time >= nextAttackTime && PlayerVisible)
+        if (PlayerVisible && distanceToTarget <= attackRange && Time.time >= nextAttackTime)
         {
             Attack();
             nextAttackTime = Time.time + attackRate;
@@ -252,13 +252,33 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
+        if (weaponType == WeaponType.Melee)
+        {
+            if (PlayerVisible && distanceToTarget > stoppingDistance)
+            {
+                ApproachTarget(player.position);
+            }
+            else if (isChasing && distanceToTarget > stoppingDistance)
+            {
+                ApproachTarget(targetPosition);
+            }
+            else
+            {
+                rb.linearVelocity = Vector2.zero;
+            }
+
+            if (PlayerVisible)
+            {
+                Vector2 dirToPlayer = (Vector2)player.position - (Vector2)transform.position;
+                RotateTowards(dirToPlayer);
+            }
+        }
+
         if (weaponType == WeaponType.Ranged && PlayerVisible)
         {
             Vector2 dirToPlayer = (Vector2)player.position - (Vector2)transform.position;
             RotateTowards(dirToPlayer);
         }
-
-        stoppingDistance = 1f;
 
         if (PlayerVisible)
         {
@@ -272,39 +292,19 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
-        if (distanceToTarget <= attackRange && Time.time >= nextAttackTime)
-        {
-            Attack();
-            nextAttackTime = Time.time + attackRate;
-        }
     }
 
     private void ApproachTarget(Vector2 targetPosition)
     {
         Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
-        float distanceToTarget = Vector2.Distance(transform.position, targetPosition);
-
         Vector2 avoidance = CalculateObstacleAvoidance();
-        float avoidanceScale = Mathf.Clamp01(distanceToTarget / stoppingDistance);
-        avoidance *= avoidanceScale;
 
-        direction = (direction + avoidance).normalized;
-        RotateTowards(direction);
+        Vector2 moveDirection = (direction + avoidance).normalized;
 
-        if (!PlayerVisible && distanceToTarget <= stoppingDistance)
-        {
-            rb.linearVelocity = Vector2.zero;
+        RotateTowards(moveDirection);
 
-            if (isChasing)
-            {
-                Vector2 randomDirection = new Vector2(
-                    Random.Range(-1f, 1f),
-                    Random.Range(-1f, 1f)
-                ).normalized;
-                RotateTowards(randomDirection);
-            }
-            return;
-        }
+        float currentSpeed = isChasing ? chaseSpeed : wanderSpeed;
+        rb.linearVelocity = moveDirection * currentSpeed;
     }
 
     private Vector2 CalculateObstacleAvoidance()

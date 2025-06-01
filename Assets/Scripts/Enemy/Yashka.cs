@@ -58,6 +58,9 @@ public class Yashka : MonoBehaviour
     private Vector2 movementDirection;
     private Color originalColor;
 
+    public bool IsAttacking => isAttacking;
+public bool IsDodging => isDodging;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

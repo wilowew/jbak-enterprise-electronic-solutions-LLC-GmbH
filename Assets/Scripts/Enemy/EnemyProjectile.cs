@@ -4,7 +4,6 @@ public class EnemyProjectile : MonoBehaviour
 {
     [SerializeField] private float speed = 20f;
     [SerializeField] private float lifetime = 2f;
-    //[SerializeField] private float pushForce = 5f;
     [SerializeField] private int damage = 5;
 
     private Rigidbody2D rb;
@@ -13,6 +12,7 @@ public class EnemyProjectile : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         rb.linearVelocity = transform.up * speed;
     }
 
@@ -22,12 +22,13 @@ public class EnemyProjectile : MonoBehaviour
         if (timer >= lifetime) Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerHealth>()?.TakeDamage(damage);
-            Destroy(gameObject);
+            collision.collider.GetComponent<PlayerHealth>()?.TakeDamage(damage);
         }
+        Destroy(gameObject);
     }
 }
+
