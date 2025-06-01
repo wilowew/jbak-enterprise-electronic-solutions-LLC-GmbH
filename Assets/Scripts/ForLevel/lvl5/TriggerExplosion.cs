@@ -1,20 +1,34 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Audio;
 
 public class TriggerExplosion : MonoBehaviour
 {
     [Header("Explosion Settings")]
     public GameObject explosionPrefab;
+    [Tooltip("Звук для воспроизведения")]
+    public AudioClip soundEffect;
     public float explosionDuration = 1f;
 
     [Header("Death Object")]
     public GameObject deathPrefab;
-
     [Header("Scene Transition")]
     public string nextSceneName;
     public SceneTransistor5 sceneTransistor; 
     public float cameraMoveHeight = 3f;    
-    public float cameraMoveHorizontal = 2f; 
+    public float cameraMoveHorizontal = 2f;
+
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.spatialBlend = 1f;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -26,6 +40,10 @@ public class TriggerExplosion : MonoBehaviour
 
     private IEnumerator ExplodeAndTransition(GameObject player)
     {
+        if (soundEffect != null)
+        {
+            audioSource.PlayOneShot(soundEffect);
+        }
         Vector2 playerPosition = player.transform.position;
 
         if (explosionPrefab != null)

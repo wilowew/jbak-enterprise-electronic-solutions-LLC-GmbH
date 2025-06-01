@@ -4946,7 +4946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85cab1fb5e2c2d741b64a354909ca050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 18
+  startTime: 0
   IsTrackingEnemy: 0
   enemyKillThreshold: 5
   newMusicClip: {fileID: 0}

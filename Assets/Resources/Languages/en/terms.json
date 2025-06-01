@@ -13,6 +13,10 @@
             "value": "RESUME GAME"
         },
         {
+            "key": "&m_menu",
+            "value": "BACK TO MENU"
+        },
+        {
             "key": "&m_start",
             "value": "START GAME"
         },

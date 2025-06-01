@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\ForLevel\lvl3\TimedImage.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl1\DisableObjectAfterDialogue.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl4\CutsceneCameraSwitch.cs" />
+    <Compile Include="Assets\Scripts\ForLevel\lvl5\SceneTransistor5.cs" />
     <Compile Include="Assets\Scripts\GameManager\LocalizedText.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl3\MoneyDialogue.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl1\SpecificScarecrowsDialogueTrigger.cs" />
@@ -86,9 +87,12 @@
     <Compile Include="Assets\Scripts\InputSystem\InputManager.cs" />
     <Compile Include="Assets\Scripts\Gun\FirearmShooting.cs" />
     <Compile Include="Assets\Scripts\Gun\AmmoMagazinePickup.cs" />
+    <Compile Include="Assets\Scripts\ForLevel\lvl6\NPCDeath.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl3\DialogueTracker.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyAi.cs" />
+    <Compile Include="Assets\Scripts\ForLevel\lvl5\TriggerExplosion.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyProjectile.cs" />
+    <Compile Include="Assets\Scripts\ForLevel\lvl5\Glass.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl3\ImageData.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl2\GuysLose.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
@@ -120,6 +124,7 @@
     <Compile Include="Assets\Scripts\Dialogue\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\Audio\PlayerFootsteps.cs" />
     <Compile Include="Assets\Scripts\Scenes\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\ForLevel\lvl6\DialogueEnd.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl1\DialogueTriggerOnAmmoAndObjects.cs" />
     <Compile Include="Assets\Scripts\GameManager\CursorChanger.cs" />
     <Compile Include="Assets\Scripts\Scenes\SceneTransistor_cutscene.cs" />

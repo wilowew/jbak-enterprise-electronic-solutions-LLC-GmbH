@@ -378,19 +378,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: attackRate
-      value: 4
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: drawGizmos
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: missChance
-      value: 0.1
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: attackRange
-      value: 10
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: viewDistance
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: projectileSpeed
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: redPuddlePrefab
@@ -606,6 +614,10 @@ PrefabInstance:
     - target: {fileID: 4716493301844326837, guid: b746083249c9bb44c9e95999ce258813, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -24.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912540582402510490, guid: b746083249c9bb44c9e95999ce258813, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3205,7 +3217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5837881331720794196, guid: 2c4431bf15c45aa4186d0bbb6af92a96, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: -5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3351,6 +3363,10 @@ PrefabInstance:
     - target: {fileID: 3368558483572712597, guid: 5af4cdb688ec35549bc5895efd08f897, type: 3}
       propertyPath: m_Name
       value: BanditRose
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694684971487317557, guid: 5af4cdb688ec35549bc5895efd08f897, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4336,6 +4352,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FallenChair1
       objectReference: {fileID: 0}
+    - target: {fileID: 2296946591762892084, guid: 6e00f5f02f39aba4fbbcadaaed2579b9, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4372,12 +4392,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 2142902328764213910, guid: c3a484c6837741b4bbeda014a4d48a5e, type: 3}
+  soundEffect: {fileID: 8300000, guid: f8d84eddf6290ce4ca50840fbd2cac30, type: 3}
   explosionDuration: 2
   deathPrefab: {fileID: 3333745628535621099, guid: 5952881131784be43b544afb22192ad2, type: 3}
   nextSceneName: Level6
   sceneTransistor: {fileID: 1861852773}
   cameraMoveHeight: 0
-  cameraMoveHorizontal: -10
+  cameraMoveHorizontal: 0
 --- !u!61 &650553029
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4412,7 +4433,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.34035206, y: 1.2606912}
+  m_Offset: {x: 0.34035206, y: 0.496233}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4422,7 +4443,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.5463428, y: 2.5628557}
+  m_Size: {x: 3.5463428, y: 4.091772}
   m_EdgeRadius: 0
 --- !u!4 &650553030
 Transform:
@@ -4521,15 +4542,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: attackRate
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: missChance
-      value: 0.1
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: attackRange
-      value: 10
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: viewDistance
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: wanderRadius
@@ -4537,7 +4562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: projectileSpeed
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: redPuddlePrefab
@@ -4652,6 +4677,10 @@ PrefabInstance:
     - target: {fileID: 8545883627089188565, guid: e751885325e724b47afb6b5bc9b477ec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546820784062874816, guid: e751885325e724b47afb6b5bc9b477ec, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4908,19 +4937,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: attackRate
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: missChance
-      value: 0.1
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: attackRange
-      value: 10
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: viewDistance
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: projectileSpeed
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: redPuddlePrefab
@@ -4994,23 +5027,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: attackRate
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: missChance
-      value: 0.1
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: attackRange
-      value: 10
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: viewDistance
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: projectileSpeed
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: redPuddlePrefab
@@ -5232,12 +5265,20 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 5af4cdb688ec35549bc5895efd08f897, type: 3}
+      propertyPath: viewDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 5af4cdb688ec35549bc5895efd08f897, type: 3}
       propertyPath: redPuddlePrefab
       value: 
       objectReference: {fileID: 3333745628535621099, guid: f3eacf0faa4511c46a53473c3a7273e0, type: 3}
     - target: {fileID: 3368558483572712597, guid: 5af4cdb688ec35549bc5895efd08f897, type: 3}
       propertyPath: m_Name
       value: BanditRose (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694684971487317557, guid: 5af4cdb688ec35549bc5895efd08f897, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5542,7 +5583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85cab1fb5e2c2d741b64a354909ca050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 18
+  startTime: 27
   IsTrackingEnemy: 1
   enemyKillThreshold: 13
   newMusicClip: {fileID: 8300000, guid: fb8e38b5dc1912a41b4f11cb6f4764be, type: 3}
@@ -5558,8 +5599,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cc962b1b1e9c31b438ca9daa15f8e907, type: 3}
-  m_Resource: {fileID: 8300000, guid: cc962b1b1e9c31b438ca9daa15f8e907, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 39c769b37e454e7499d43c836d6b2ecb, type: 3}
+  m_Resource: {fileID: 8300000, guid: 39c769b37e454e7499d43c836d6b2ecb, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -5856,15 +5897,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4679941127666725005, guid: f1c472e29370177499baac1a8b211069, type: 3}
       propertyPath: attackRate
-      value: 4
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: f1c472e29370177499baac1a8b211069, type: 3}
       propertyPath: missChance
-      value: 0.1
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: f1c472e29370177499baac1a8b211069, type: 3}
       propertyPath: attackRange
-      value: 10
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: f1c472e29370177499baac1a8b211069, type: 3}
       propertyPath: wanderRadius
@@ -5872,7 +5913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: f1c472e29370177499baac1a8b211069, type: 3}
       propertyPath: projectileSpeed
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: f1c472e29370177499baac1a8b211069, type: 3}
       propertyPath: redPuddlePrefab
@@ -12420,6 +12461,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FallenChair1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2296946591762892084, guid: 6e00f5f02f39aba4fbbcadaaed2579b9, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12439,19 +12484,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: attackRate
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: missChance
-      value: 0.1
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: attackRange
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: projectileSpeed
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: redPuddlePrefab
@@ -12730,19 +12775,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: attackRate
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: missChance
-      value: 0.1
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: attackRange
-      value: 10
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: viewDistance
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: projectileSpeed
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: redPuddlePrefab
@@ -12871,6 +12920,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1036539283482798387, guid: 39e37889d8726e74ba48ea2db6df9706, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1070709564342947502, guid: 39e37889d8726e74ba48ea2db6df9706, type: 3}
       propertyPath: m_Name
       value: Chair (2)
@@ -13208,15 +13261,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: attackRate
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: missChance
-      value: 0.1
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: attackRange
-      value: 10
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: wanderRadius
@@ -13224,7 +13277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: projectileSpeed
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: redPuddlePrefab
@@ -13438,6 +13491,10 @@ PrefabInstance:
     - target: {fileID: 7690336584353415037, guid: 9cefdc991af3f594f8e9ae5854ae1c87, type: 3}
       propertyPath: m_Name
       value: BanditStick
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069131417068065010, guid: 9cefdc991af3f594f8e9ae5854ae1c87, type: 3}
+      propertyPath: viewDistance
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14234,6 +14291,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BanditRose (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6694684971487317557, guid: 5af4cdb688ec35549bc5895efd08f897, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14957,7 +15018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1728296075413392659, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: maxHealth
-      value: 2000
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1728296075413392659, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: cursorChanger
@@ -15448,6 +15509,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4942080765021626458, guid: b52ecdbc74a20474c82393d8ccc78e16, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 7145922558086500186, guid: b52ecdbc74a20474c82393d8ccc78e16, type: 3}
       propertyPath: m_Name
       value: BrokenFallenChair1

@@ -1201,7 +1201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a66adc2f5b02b914e96d0023c493fb72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraDropHeight: 0
+  cameraDropHeight: 10
   cameraDropHorizontal: 0
   cameraDropDuration: 2
   player: {fileID: 282035939}
@@ -4008,7 +4008,7 @@ Transform:
   m_GameObject: {fileID: 1257071008}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.207, y: 7.936, z: 0}
+  m_LocalPosition: {x: 2.311, y: 8.145, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4173,10 +4173,10 @@ MonoBehaviour:
   - {fileID: 564356527}
   - {fileID: 2107760417}
   deathPrefab: {fileID: 3333745628535621099, guid: ed228c9fa47e3894eb516da4517d4071, type: 3}
-  delayAfterDialogue: 2.7
+  delayAfterDialogue: 2.3
   transitionAfterReplace: 1
   nextSceneName: Level6_Final
-  cameraMoveHeight: 5
+  cameraMoveHeight: -20
   cameraMoveHorizontal: 0
   sceneTransitionDelay: 1
 --- !u!1 &1262816097

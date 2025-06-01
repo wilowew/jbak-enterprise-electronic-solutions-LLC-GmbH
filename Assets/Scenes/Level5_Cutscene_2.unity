@@ -1971,7 +1971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85cab1fb5e2c2d741b64a354909ca050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 60
+  startTime: 0
   IsTrackingEnemy: 0
   enemyKillThreshold: 5
   newMusicClip: {fileID: 0}
@@ -1987,8 +1987,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fb8e38b5dc1912a41b4f11cb6f4764be, type: 3}
-  m_Resource: {fileID: 8300000, guid: fb8e38b5dc1912a41b4f11cb6f4764be, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 39c769b37e454e7499d43c836d6b2ecb, type: 3}
+  m_Resource: {fileID: 8300000, guid: 39c769b37e454e7499d43c836d6b2ecb, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
