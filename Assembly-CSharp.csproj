@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\ForLevel\lvl6\NPCDeath.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl3\DialogueTracker.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyAi.cs" />
+    <Compile Include="Assets\Scripts\Gun\AmmoDropper.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl5\TriggerExplosion.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyProjectile.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl5\Glass.cs" />
@@ -106,9 +107,11 @@
     <Compile Include="Assets\Scripts\Enemy\LookAtTarget.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl1\ScarecrowDialogueTrigger.cs" />
+    <Compile Include="Assets\Scripts\Scenes\LevelButton.cs" />
     <Compile Include="Assets\Scripts\Environment\ScareCrow.cs" />
     <Compile Include="Assets\Scripts\Dialogue\Dialogue.cs" />
     <Compile Include="Assets\Scripts\InputSystem\RebindButton.cs" />
+    <Compile Include="Assets\Scripts\Scenes\LevelMenu.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyLegs.cs" />
     <Compile Include="Assets\Scripts\Scenes\SceneTransistor.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl3\FadeUI.cs" />
