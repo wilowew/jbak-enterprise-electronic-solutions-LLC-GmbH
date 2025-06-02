@@ -14343,7 +14343,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1308769520639815908, guid: f957d1422231f0f42acf3750103723bc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.435
+      value: -21.544
       objectReference: {fileID: 0}
     - target: {fileID: 1308769520639815908, guid: f957d1422231f0f42acf3750103723bc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14994,7 +14994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1728296075413392659, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: maxHealth
-      value: 3
+      value: 30000
       objectReference: {fileID: 0}
     - target: {fileID: 1728296075413392659, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: cursorChanger
