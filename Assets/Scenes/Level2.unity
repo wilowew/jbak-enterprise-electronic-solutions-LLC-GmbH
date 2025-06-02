@@ -8158,7 +8158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0.007507324}
+  m_AnchoredPosition: {x: 0, y: 0.0075683594}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &398466269 stripped
@@ -12600,33 +12600,9 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 3368558482313965657}
-    - target: {fileID: -1908870325812640079, guid: 226ba81616f300640a8575c9d07b1224, type: 3}
-      propertyPath: equippedPlayerSprite
-      value: 
-      objectReference: {fileID: 290040158, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
     - target: {fileID: 138797573996228728, guid: 226ba81616f300640a8575c9d07b1224, type: 3}
       propertyPath: m_Name
       value: bat
-      objectReference: {fileID: 0}
-    - target: {fileID: 252823035611817194, guid: 226ba81616f300640a8575c9d07b1224, type: 3}
-      propertyPath: attackHoldOffset.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 252823035611817194, guid: 226ba81616f300640a8575c9d07b1224, type: 3}
-      propertyPath: attackHoldOffset.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 252823035611817194, guid: 226ba81616f300640a8575c9d07b1224, type: 3}
-      propertyPath: obstacleMask.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 252823035611817194, guid: 226ba81616f300640a8575c9d07b1224, type: 3}
-      propertyPath: swingRotationOffset
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 2894084444706375669, guid: 226ba81616f300640a8575c9d07b1224, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4716493301844326837, guid: 226ba81616f300640a8575c9d07b1224, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14970,7 +14946,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: weaponSwingAngle
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: meleeAttackRadius

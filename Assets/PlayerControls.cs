@@ -613,7 +613,7 @@ namespace JBAK
                 {
                     ""name"": """",
                     ""id"": ""7ce1c076-b351-41e9-8685-176d009da067"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",

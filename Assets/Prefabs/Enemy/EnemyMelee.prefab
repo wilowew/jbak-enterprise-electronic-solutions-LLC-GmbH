@@ -261,12 +261,11 @@ MonoBehaviour:
   meleeSwingSound: {fileID: 8300000, guid: 0b2eb819295475b49a364d71a6bff2dd, type: 3}
   meleeHitSound: {fileID: 8300000, guid: d0a4a306729894b428699eb8818c93f9, type: 3}
   weaponTransform: {fileID: 3385271099514752410}
-  weaponSwingAngle: 70
-  attackSprite: {fileID: -1600977119, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
-  spriteChangeDelay: 0.1
-  spriteResetDelay: 0.3
+  weaponSwingAngle: 20
   slowdownFactor: 0.7
   slowdownDuration: 10
+  weaponAttackOffset: {x: 0.3, y: 0.3, z: 0}
+  attackSprite: {fileID: -1600977119, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
 --- !u!1 &4802831941736509403
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +543,7 @@ MonoBehaviour:
   attackRadius: 1.5
   damage: 1
   attackCooldown: 0.5
+  weaponSwingAngle: 180
   attackAngle: 0
   attackHoldOffset: {x: 0.2, y: 0.3, z: 0}
   attackSprite: {fileID: 1187470075, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}

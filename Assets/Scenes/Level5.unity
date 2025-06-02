@@ -372,38 +372,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 872157231}
     m_Modifications:
-    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
-      propertyPath: health
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
-      propertyPath: attackRate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
-      propertyPath: drawGizmos
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
-      propertyPath: missChance
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
-      propertyPath: attackRange
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
-      propertyPath: viewDistance
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
-      propertyPath: projectileSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
-      propertyPath: redPuddlePrefab
-      value: 
-      objectReference: {fileID: 3333745628535621099, guid: f3eacf0faa4511c46a53473c3a7273e0, type: 3}
     - target: {fileID: 4681553715321597533, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.840843
@@ -568,9 +536,17 @@ PrefabInstance:
       value: rose2
       objectReference: {fileID: 0}
     - target: {fileID: 252823035611817194, guid: b746083249c9bb44c9e95999ce258813, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 252823035611817194, guid: b746083249c9bb44c9e95999ce258813, type: 3}
       propertyPath: attackSprite
       value: 
       objectReference: {fileID: -1789237692, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+    - target: {fileID: 1817146796993345285, guid: b746083249c9bb44c9e95999ce258813, type: 3}
+      propertyPath: attackDamage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2894084444706375669, guid: b746083249c9bb44c9e95999ce258813, type: 3}
       propertyPath: m_SortingOrder
       value: -1
@@ -13128,7 +13104,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5382620598677276397, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
       propertyPath: weaponID
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -5382620598677276397, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
       propertyPath: shotSound
@@ -13168,7 +13144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5382620598677276397, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
       propertyPath: maxReserveMagazines
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -5382620598677276397, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
       propertyPath: reserveMagazineCount
@@ -15018,7 +14994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1728296075413392659, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: maxHealth
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1728296075413392659, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: cursorChanger

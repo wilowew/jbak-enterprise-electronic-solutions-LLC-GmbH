@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 138797573996228728}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.01, y: -2.03, z: -0.005365344}
+  m_LocalPosition: {x: -21.21, y: 15.92, z: -0.005365344}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -334,13 +334,25 @@ MonoBehaviour:
   attackCooldown: 0.5
   weaponSwingAngle: 160
   attackAngle: 180
-  attackHoldOffset: {x: 0.2, y: 0.3, z: 0}
+  attackHoldOffset: {x: 0.3, y: 0.3, z: 0}
   attackSprite: {fileID: 1187470075, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
   swingSound: {fileID: 8300000, guid: 0b2eb819295475b49a364d71a6bff2dd, type: 3}
   hitSound: {fileID: 8300000, guid: d0a4a306729894b428699eb8818c93f9, type: 3}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 256
+  trailFrames:
+  - {fileID: -1657625073, guid: bd73af9832470d1458491f1b64611efc, type: 3}
+  - {fileID: -1560774131, guid: bd73af9832470d1458491f1b64611efc, type: 3}
+  - {fileID: -34467130, guid: bd73af9832470d1458491f1b64611efc, type: 3}
+  - {fileID: 879022008, guid: bd73af9832470d1458491f1b64611efc, type: 3}
+  - {fileID: 326876832, guid: bd73af9832470d1458491f1b64611efc, type: 3}
+  - {fileID: -75358588, guid: bd73af9832470d1458491f1b64611efc, type: 3}
+  frameDuration: 0.02
+  trailOffset: {x: 0.6, y: -0.5, z: 0}
+  trailColor: {r: 1, g: 1, b: 1, a: 0.47058824}
+  trailMaterial: {fileID: 0}
+  trailScale: 1
 --- !u!114 &1817146796993345285
 MonoBehaviour:
   m_ObjectHideFlags: 0

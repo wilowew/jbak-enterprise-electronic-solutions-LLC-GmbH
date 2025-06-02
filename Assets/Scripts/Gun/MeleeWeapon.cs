@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 [RequireComponent(typeof(WeaponPickupBase))]
 public class MeleeWeapon : MonoBehaviour
@@ -31,6 +32,14 @@ public class MeleeWeapon : MonoBehaviour
     private WeaponPickupBase pickupBase;
     private AudioSource audioSource;
     private float lastAttackTime;
+
+    [Header("Trail Effect")]
+    [SerializeField] private Sprite[] trailFrames; // 6 кадров для следа
+    [SerializeField] private float frameDuration = 0.05f; // Длительность каждого кадра
+    [SerializeField] private Vector3 trailOffset = new Vector3(0, 0.1f, 0); // Смещение следа относительно оружия
+    [SerializeField] private Color trailColor = Color.white;
+    [SerializeField] private Material trailMaterial;
+    [SerializeField] private float trailScale = 1f;
 
     private void Awake()
     {
@@ -65,8 +74,41 @@ public class MeleeWeapon : MonoBehaviour
         if (playerSprite != null && attackSprite != null)
             playerSprite.sprite = attackSprite;
 
+        // Запуск эффекта следа
+        StartCoroutine(PlayTrailEffect());
+
         Invoke(nameof(ResetWeaponTransform), attackCooldown);
         DetectHits();
+    }
+    private IEnumerator PlayTrailEffect()
+    {
+        if (trailFrames == null || trailFrames.Length == 0) yield break;
+
+        // Создаем объект для следа
+        GameObject trailObject = new GameObject("WeaponTrail");
+        SpriteRenderer trailRenderer = trailObject.AddComponent<SpriteRenderer>();
+
+        // Настройка рендерера
+        trailRenderer.sortingOrder = 10; // Поверх других спрайтов
+        trailRenderer.color = trailColor;
+        if (trailMaterial != null) trailRenderer.material = trailMaterial;
+        trailObject.transform.localScale = Vector3.one * trailScale;
+
+        // Позиционирование
+        trailObject.transform.position = transform.position + transform.TransformDirection(trailOffset);
+        trailObject.transform.rotation = transform.rotation;
+
+        // Проигрываем анимацию кадров
+        for (int i = 0; i < trailFrames.Length; i++)
+        {
+            if (trailFrames[i] == null) continue;
+
+            trailRenderer.sprite = trailFrames[i];
+            yield return new WaitForSeconds(frameDuration);
+        }
+
+        // Уничтожаем объект следа после завершения
+        Destroy(trailObject);
     }
 
     private void ApplyAttackTransform()

@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb8027f85c14e7448dbef5c70b6af93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdOffset: {x: 0.5, y: -0.2, z: 0}
+  holdOffset: {x: 0.5, y: -0.15, z: 0}
   rotationOffset: 0
   throwDistance: 0.7
   owner: {fileID: 0}
@@ -242,7 +242,7 @@ MonoBehaviour:
   reloadSound: {fileID: 8300000, guid: 596b0d3534154024cb15e6a98dcf3723, type: 3}
   currentBulletsInMag: 5
   reserveMagazineCount: 4
-  weaponID: 
+  weaponID: 2
 --- !u!1 &5770798190669881655
 GameObject:
   m_ObjectHideFlags: 0

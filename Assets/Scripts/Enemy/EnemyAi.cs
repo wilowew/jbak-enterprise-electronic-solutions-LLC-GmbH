@@ -55,7 +55,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private AudioClip meleeSwingSound;
     [SerializeField] private AudioClip meleeHitSound;
     [SerializeField] private Transform weaponTransform;
-    [SerializeField] private float weaponSwingAngle = -45f;
+    [SerializeField] public float weaponSwingAngle = -45f;
 
     [Header("Slowdown Settings")]
     [SerializeField] private float slowdownFactor = 0.7f;
@@ -83,6 +83,19 @@ public class EnemyAI : MonoBehaviour
 
     private PlayerHealth playerHealth;
 
+    [Header("Weapon Attack Settings")]
+    [SerializeField] private Vector3 weaponAttackOffset = new Vector3(0.3f, 0.3f, 0); // Смещение оружия при атаке
+    private Vector3 originalWeaponPosition; // Исходная позиция оружия
+    private Quaternion originalWeaponRotation; // Исходный поворот оружия
+
+    [Header("Attack Sprite")]
+    [SerializeField] private Sprite attackSprite; // Спрайт для атаки
+    private Sprite originalSprite; // Оригинальный спрайт
+    private SpriteRenderer spriteRenderer;
+
+    [Header("Ranged Attack Settings")]
+    [SerializeField] private AudioClip rangedShotSound; // Звук выстрела для оружия дальнего боя
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -93,6 +106,19 @@ public class EnemyAI : MonoBehaviour
         originalChaseSpeed = chaseSpeed;
         originalWanderSpeed = wanderSpeed;
         originalHealth = health;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            originalSprite = spriteRenderer.sprite;
+        }
+
+        // Сохранение исходных параметров оружия
+        if (weaponTransform != null)
+        {
+            originalWeaponPosition = weaponTransform.localPosition;
+            originalWeaponRotation = weaponTransform.localRotation;
+        }
 
         if (isStatic)
         {
@@ -389,6 +415,18 @@ public class EnemyAI : MonoBehaviour
             audioSource.PlayOneShot(meleeSwingSound);
         }
 
+        // Применение изменений для атаки
+        ApplyAttackTransform();
+
+        // Вызов сброса через половину времени атаки
+        Invoke(nameof(ResetAfterAttack), attackRate * 0.5f);
+
+
+        if (meleeSwingSound != null)
+        {
+            audioSource.PlayOneShot(meleeSwingSound);
+        }
+
         if (weaponTransform != null)
         {
             weaponTransform.localRotation = Quaternion.Euler(0, 0, weaponSwingAngle);
@@ -415,7 +453,41 @@ public class EnemyAI : MonoBehaviour
         {
             audioSource.PlayOneShot(meleeHitSound);
         }
+
+
     }
+
+    private void ApplyAttackTransform()
+    {
+        // Смена спрайта NPC
+        if (spriteRenderer != null && attackSprite != null)
+        {
+            spriteRenderer.sprite = attackSprite;
+        }
+
+        // Изменение позиции и поворота оружия
+        if (weaponTransform != null)
+        {
+            weaponTransform.localPosition = weaponAttackOffset;
+            weaponTransform.localRotation = Quaternion.Euler(0, 0, weaponSwingAngle);
+        }
+    }
+    private void ResetAfterAttack()
+    {
+        // Восстановление спрайта NPC
+        if (spriteRenderer != null && originalSprite != null)
+        {
+            spriteRenderer.sprite = originalSprite;
+        }
+
+        // Восстановление параметров оружия
+        if (weaponTransform != null)
+        {
+            weaponTransform.localPosition = originalWeaponPosition;
+            weaponTransform.localRotation = originalWeaponRotation;
+        }
+    }
+
 
     private void ResetWeaponRotation()
     {
@@ -430,6 +502,12 @@ public class EnemyAI : MonoBehaviour
         if (projectilePrefab == null || shootPoint == null) return;
         if (!HasClearPathToPlayer(attackRange)) return;
         if (!IsFacingPlayer(15f)) return;
+
+        // Воспроизведение звука выстрела
+        if (rangedShotSound != null)
+        {
+            audioSource.PlayOneShot(rangedShotSound);
+        }
 
         Vector2 targetDirection = ((Vector2)player.position - (Vector2)shootPoint.position).normalized;
 
@@ -566,6 +644,17 @@ public class EnemyAI : MonoBehaviour
 
     private void Die()
     {
+        // Отмена запланированного сброса
+        CancelInvoke(nameof(ResetAfterAttack));
+
+        // Вызов дропа патронов
+        AmmoDropper dropper = GetComponent<AmmoDropper>();
+        if (dropper != null)
+        {
+            dropper.DropAmmo();
+        }
+
+        // Оригинальный код смерти
         if (redPuddlePrefab != null)
         {
             Instantiate(redPuddlePrefab, transform.position, transform.rotation);
