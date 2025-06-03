@@ -84,5 +84,5 @@ MonoBehaviour:
   nextDialogue: {fileID: 0}
   requireManualClose: 1
   nextSceneName: Level3_Cutscene_2
-  cameraMoveHeight: 0
-  cameraMoveHorizontal: 5
+  cameraMoveHeight: 10
+  cameraMoveHorizontal: 0
