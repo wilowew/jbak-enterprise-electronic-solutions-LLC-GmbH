@@ -24766,6 +24766,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 572205790056823284}
     - target: {fileID: 6998456635122475940, guid: 0f2816a922fe027428b92ea78e64c76c, type: 3}
+      propertyPath: movementSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6998456635122475940, guid: 0f2816a922fe027428b92ea78e64c76c, type: 3}
       propertyPath: 'waypoints.Array.data[0]'
       value: 
       objectReference: {fileID: 1222511696}
@@ -24828,6 +24832,10 @@ PrefabInstance:
     - target: {fileID: 7483553603221603913, guid: 0f2816a922fe027428b92ea78e64c76c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864634662397756625, guid: 0f2816a922fe027428b92ea78e64c76c, type: 3}
+      propertyPath: movementSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7864634662397756625, guid: 0f2816a922fe027428b92ea78e64c76c, type: 3}
       propertyPath: 'waypoints.Array.data[0]'

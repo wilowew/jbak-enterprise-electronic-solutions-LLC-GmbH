@@ -8866,6 +8866,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 210230917}
+    - target: {fileID: 8154935375556097236, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: moveSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154935375556097236, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: dodgeSpeed
+      value: 8.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

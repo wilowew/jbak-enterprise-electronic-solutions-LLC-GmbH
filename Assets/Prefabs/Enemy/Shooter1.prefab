@@ -515,7 +515,7 @@ MonoBehaviour:
   attackRate: 1
   projectilePrefab: {fileID: 2050077445914033813, guid: 079018df9ffd9e84d912cbe01b19028b, type: 3}
   shootPoint: {fileID: 8331180630131569847}
-  projectileSpeed: 15
+  projectileSpeed: 40
   missChance: 0.08
   health: 3
   meleeDamage: 1

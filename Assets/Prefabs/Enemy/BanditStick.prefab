@@ -254,6 +254,12 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 256
+  trailFrames: []
+  frameDuration: 0.05
+  trailOffset: {x: 0, y: 0.1, z: 0}
+  trailColor: {r: 1, g: 1, b: 1, a: 1}
+  trailMaterial: {fileID: 0}
+  trailScale: 1
 --- !u!114 &459484794379053654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,8 +523,8 @@ MonoBehaviour:
   isHostile: 1
   wanderRadius: 3
   wanderDelay: 2
-  chaseSpeed: 3
-  wanderSpeed: 2
+  chaseSpeed: 5
+  wanderSpeed: 3
   rotationSpeed: 10
   stoppingDistance: 1
   avoidanceCheckRadius: 1
@@ -534,6 +540,9 @@ MonoBehaviour:
   weaponSwingAngle: 50
   slowdownFactor: 0.7
   slowdownDuration: 10
+  weaponAttackOffset: {x: 0.3, y: 0.3, z: 0}
+  attackSprite: {fileID: 0}
+  rangedShotSound: {fileID: 0}
 --- !u!1 &7744415608678999216
 GameObject:
   m_ObjectHideFlags: 0

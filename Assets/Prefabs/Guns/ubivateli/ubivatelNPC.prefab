@@ -218,8 +218,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.5042877
-        value: 0.068374634
+        time: 0.50085723
+        value: 0.06837448
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -284,5 +284,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  lifetime: 2
+  lifetime: 1
   damage: 3

@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33ae3249d846b3e40840bf11a6fc2995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 5
   desiredDistance: 4
   rotationSpeed: 5
   distanceDeadZone: 0.5
@@ -186,7 +186,7 @@ MonoBehaviour:
   attackRadius: 2
   attackDamage: 2
   attackProbability: 0.3
-  dodgeChance: 0.5
+  dodgeChance: 0.416
   dodgeSpeed: 8
   dodgeDuration: 0.3
   maxHealth: 2
