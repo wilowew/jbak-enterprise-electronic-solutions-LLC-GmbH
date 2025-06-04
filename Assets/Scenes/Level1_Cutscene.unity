@@ -1594,7 +1594,7 @@ MonoBehaviour:
   - {fileID: 892633751}
   - {fileID: 1439249569}
   - {fileID: 1170460922}
-  movementSpeed: 2
+  movementSpeed: 3
   isCyclic: 0
   waypointThreshold: 0.2
   rotateTowardsMovement: 1

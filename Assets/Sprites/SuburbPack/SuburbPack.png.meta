@@ -5401,15 +5401,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SuburbPack_239
+      name: ClothScrap
       rect:
         serializedVersion: 2
-        x: 192
+        x: 256
         y: 352
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.43255806, y: 0.5891199}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5423,15 +5423,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SuburbPack_240
+      name: Cigarettes
       rect:
         serializedVersion: 2
-        x: 224
-        y: 352
+        x: 256
+        y: 384
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.48313904, y: 0.55058193}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5440,28 +5440,6 @@ TextureImporter:
       bones: []
       spriteID: 63d55305b364b484ca506bf8de51f293
       internalID: -318040732
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SuburbPack_241
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5f9665e6fec48f048825acdc388c04c3
-      internalID: -1566444235
       vertices: []
       indices: 
       edges: []
@@ -5841,28 +5819,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SuburbPack_259
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 384
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 139f9a700de631a4f8d2c5410d0a5411
-      internalID: 2035202654
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: SuburbPack_260
       rect:
         serializedVersion: 2
@@ -6107,6 +6063,8 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       BrokenWindow: -84894707
+      Cigarettes: -318040732
+      ClothScrap: 2056569401
       SuburbPack_0: 7123752085818183455
       SuburbPack_1: -4043392665986282969
       SuburbPack_10: -1480740850
@@ -6263,9 +6221,7 @@ TextureImporter:
       SuburbPack_236: 1141083683
       SuburbPack_237: -330875251
       SuburbPack_238: -1062533343
-      SuburbPack_239: 2056569401
       SuburbPack_24: 1256380163
-      SuburbPack_240: -318040732
       SuburbPack_241: -1566444235
       SuburbPack_242: 1275663463
       SuburbPack_243: -32896205
