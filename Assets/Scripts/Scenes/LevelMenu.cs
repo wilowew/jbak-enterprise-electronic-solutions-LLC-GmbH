@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class LevelMenu : MonoBehaviour
 {
@@ -38,6 +39,11 @@ public class LevelMenu : MonoBehaviour
             currentIndex++;
             StartCoroutine(MoveToLevel(currentIndex));
         }
+    }
+
+    public void OpenMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     IEnumerator MoveToLevel(int index)

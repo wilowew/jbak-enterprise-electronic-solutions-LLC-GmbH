@@ -9,6 +9,14 @@
             "value": "No Saves Text"
         },
         {
+            "key": "&m_dophint",
+            "value": "Will open after completing the game"
+        },
+        {
+            "key": "&m_dop",
+            "value": "SELECT GAME"
+        },
+        {
             "key": "&m_resume",
             "value": "RESUME GAME"
         },

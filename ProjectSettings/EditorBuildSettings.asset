@@ -65,6 +65,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Storyline/Level6_Final.unity
     guid: 9514888cfb5ff4844a2ca474ec59dba2
+  - enabled: 1
+    path: Assets/Scenes/LevelSelection.unity
+    guid: 5323b0584f0469f46a09f437d929f6e3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
