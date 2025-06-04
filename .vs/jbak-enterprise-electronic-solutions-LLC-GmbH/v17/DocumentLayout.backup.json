@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|d:\\gitworks\\jbak-enterprise-electronic-solutions-llc-gmbh\\assets\\scripts\\scenes\\levelmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\assets\\scripts\\forlevel\\lvl6\\dialogueend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\forlevel\\lvl6\\dialogueend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\assets\\scripts\\scenes\\levelmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scenes\\levelmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|d:\\gitworks\\jbak-enterprise-electronic-solutions-llc-gmbh\\assets\\scripts\\scenes\\levelbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scenes\\levelbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\assets\\scripts\\forlevel\\lvl5\\triggerexplosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\forlevel\\lvl5\\triggerexplosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Scenes\\LevelSelectorUI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,14 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\assets\\scripts\\scenes\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scenes\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\assets\\scripts\\forlevel\\lvl6\\dialogueend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\forlevel\\lvl6\\dialogueend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\assets\\scripts\\forlevel\\lvl5\\triggerexplosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59A4D4ED-2320-6F03-619B-C4A384304430}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\forlevel\\lvl5\\triggerexplosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Resources\\Languages\\en\\terms.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -74,24 +78,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "LevelButton.cs",
+              "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Scenes\\LevelButton.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scenes\\LevelButton.cs",
+              "ToolTip": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Scenes\\LevelButton.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scenes\\LevelButton.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T14:46:23.553Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "LevelMenu.cs",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Scenes\\LevelMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scenes\\LevelMenu.cs",
               "ToolTip": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Scenes\\LevelMenu.cs",
               "RelativeToolTip": "Assets\\Scripts\\Scenes\\LevelMenu.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAgwDsAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAkwDsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-02T14:32:03.574Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "LevelSelectorUI.cs",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Scenes\\LevelSelectorUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scenes\\LevelSelectorUI.cs",
@@ -102,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "LevelSelectionCamera.cs",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Camera\\LevelSelectionCamera.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Camera\\LevelSelectionCamera.cs",
@@ -113,7 +130,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "PauseManager.cs",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\GameManager\\PauseManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager\\PauseManager.cs",
@@ -125,31 +142,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "DialogueEnd.cs",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\ForLevel\\lvl6\\DialogueEnd.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ForLevel\\lvl6\\DialogueEnd.cs",
               "ToolTip": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\ForLevel\\lvl6\\DialogueEnd.cs",
               "RelativeToolTip": "Assets\\Scripts\\ForLevel\\lvl6\\DialogueEnd.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwC0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAgwEAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T21:24:29.11Z"
+              "WhenOpened": "2025-06-01T21:24:29.11Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "TriggerExplosion.cs",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\ForLevel\\lvl5\\TriggerExplosion.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ForLevel\\lvl5\\TriggerExplosion.cs",
               "ToolTip": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\ForLevel\\lvl5\\TriggerExplosion.cs",
               "RelativeToolTip": "Assets\\Scripts\\ForLevel\\lvl5\\TriggerExplosion.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAYwB8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAgwB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T21:24:01.478Z"
+              "WhenOpened": "2025-06-01T21:24:01.478Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "terms.json",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Resources\\Languages\\en\\terms.json",
               "RelativeDocumentMoniker": "Assets\\Resources\\Languages\\en\\terms.json",
@@ -161,7 +180,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "terms.json",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Resources\\Languages\\ru\\terms.json",
               "RelativeDocumentMoniker": "Assets\\Resources\\Languages\\ru\\terms.json",
@@ -173,7 +192,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "MainMenu.cs",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Scenes\\MainMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scenes\\MainMenu.cs",
@@ -185,7 +204,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Yashka.cs",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Enemy\\Yashka.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\Yashka.cs",
@@ -197,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "EnemyAi.cs",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Enemy\\EnemyAi.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemyAi.cs",
@@ -209,7 +228,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "MusicManager.cs",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Audio\\MusicManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Audio\\MusicManager.cs",
@@ -221,7 +240,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "CursorChanger.cs",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\GameManager\\CursorChanger.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager\\CursorChanger.cs",
@@ -233,7 +252,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "PlayerLegs.cs",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Player\\PlayerLegs.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerLegs.cs",
@@ -245,7 +264,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "PlayerMovement.cs",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\Player\\PlayerMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerMovement.cs",
@@ -257,7 +276,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "CameraFollow.cs",
               "DocumentMoniker": "D:\\GitWorks\\jbak-enterprise-electronic-solutions-LLC-GmbH\\Assets\\Scripts\\CameraFollow.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CameraFollow.cs",

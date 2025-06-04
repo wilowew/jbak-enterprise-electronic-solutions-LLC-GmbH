@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Runtime.CompilerServices;
 
 public class DialogueEndEffect : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class DialogueEndEffect : MonoBehaviour
     public AudioClip soundEffect;
     [Tooltip("Префаб системы частиц")]
     public GameObject particleEffectPrefab;
+    private SpriteRenderer spriteRenderer;
 
     private AudioSource audioSource;
 
@@ -23,7 +25,7 @@ public class DialogueEndEffect : MonoBehaviour
         if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
-            audioSource.spatialBlend = 1f; 
+            audioSource.spatialBlend = 1f;
         }
 
         if (DialogueManager.Instance != null)
@@ -59,6 +61,13 @@ public class DialogueEndEffect : MonoBehaviour
         if (soundEffect != null)
         {
             audioSource.PlayOneShot(soundEffect);
+        }
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            Color color = spriteRenderer.color;
+            color.a = 0;
+            spriteRenderer.color = color;
         }
 
         if (particleEffectPrefab != null)
