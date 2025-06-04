@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRadius: 1.5
-  damage: 1
+  damage: 2
   attackCooldown: 0.5
   weaponSwingAngle: 160
   attackAngle: 180
@@ -341,6 +341,12 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 256
+  trailFrames: []
+  frameDuration: 0.05
+  trailOffset: {x: 0, y: 0.1, z: 0}
+  trailColor: {r: 1, g: 1, b: 1, a: 1}
+  trailMaterial: {fileID: 0}
+  trailScale: 1
 --- !u!114 &1817146796993345285
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 4679941127666725005}
   - component: {fileID: 385933506477297365}
   m_Layer: 10
-  m_Name: Shooter
+  m_Name: Shooter_LOCAL_1313
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -540,12 +540,16 @@ MonoBehaviour:
   meleeAttackRadius: 1.5
   meleeSwingSound: {fileID: 8300000, guid: 0b2eb819295475b49a364d71a6bff2dd, type: 3}
   meleeHitSound: {fileID: 8300000, guid: d0a4a306729894b428699eb8818c93f9, type: 3}
+  meleeSwingSoundVolume: 1
+  meleeHitSoundVolume: 1
   weaponTransform: {fileID: 0}
   weaponSwingAngle: 70
   slowdownFactor: 0.7
   slowdownDuration: 10
   weaponAttackOffset: {x: 0.3, y: 0.3, z: 0}
-  attackSprite: {fileID: -1600977119, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
+  attackSprite: {fileID: 0}
+  rangedShotSound: {fileID: 0}
+  rangedShotVolume: 1
 --- !u!114 &385933506477297365
 MonoBehaviour:
   m_ObjectHideFlags: 0

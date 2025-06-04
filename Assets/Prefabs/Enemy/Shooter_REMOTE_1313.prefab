@@ -89,6 +89,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: attackSprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: rotationSpeed
       value: 3
       objectReference: {fileID: 0}
@@ -338,12 +342,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3368558483572712597, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_Name
-      value: Shooter
+      value: Shooter_REMOTE_1313
       objectReference: {fileID: 0}
     - target: {fileID: 3368558483572712597, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6341329924126252766, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: 'ammoPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 138797573996228728, guid: 74f0a56784c88894582f956f78a24853, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2665817987603416390, guid: 10be818b0a596804c9c50d740bed6339, type: 3}

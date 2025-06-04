@@ -290,6 +290,7 @@ GameObject:
   - component: {fileID: 4383894946978533528}
   - component: {fileID: 5442065462327061211}
   - component: {fileID: 8069131417068065010}
+  - component: {fileID: 6536918425577606639}
   m_Layer: 10
   m_Name: BanditStick
   m_TagString: Enemy
@@ -536,13 +537,33 @@ MonoBehaviour:
   meleeAttackRadius: 1.5
   meleeSwingSound: {fileID: 8300000, guid: 0b2eb819295475b49a364d71a6bff2dd, type: 3}
   meleeHitSound: {fileID: 8300000, guid: d0a4a306729894b428699eb8818c93f9, type: 3}
+  meleeSwingSoundVolume: 1
+  meleeHitSoundVolume: 1
   weaponTransform: {fileID: 1786637931090391006}
   weaponSwingAngle: 50
   slowdownFactor: 0.7
   slowdownDuration: 10
   weaponAttackOffset: {x: 0.3, y: 0.3, z: 0}
-  attackSprite: {fileID: 0}
+  attackSprite: {fileID: -1600977119, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
   rangedShotSound: {fileID: 0}
+  rangedShotVolume: 1
+--- !u!114 &6536918425577606639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7690336584353415037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a3379a70950a14fb0ad75f75bdf324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoPrefabs:
+  - {fileID: 138797573996228728, guid: 55e8aef5fa8853045bdf22819c337942, type: 3}
+  minDistanceBetweenAmmo: 0.5
+  maxPlacementAttempts: 10
+  dropRadius: 1.5
 --- !u!1 &7744415608678999216
 GameObject:
   m_ObjectHideFlags: 0

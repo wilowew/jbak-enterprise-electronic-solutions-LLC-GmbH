@@ -54,6 +54,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float meleeAttackRadius = 1.5f;
     [SerializeField] private AudioClip meleeSwingSound;
     [SerializeField] private AudioClip meleeHitSound;
+    [Range(0f, 1f)][SerializeField] private float meleeSwingSoundVolume = 1f;
+    [Range(0f, 1f)][SerializeField] private float meleeHitSoundVolume = 1f;
     [SerializeField] private Transform weaponTransform;
     [SerializeField] public float weaponSwingAngle = -45f;
 
@@ -95,6 +97,7 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Ranged Attack Settings")]
     [SerializeField] private AudioClip rangedShotSound; // Звук выстрела для оружия дальнего боя
+    [Range(0f, 1f)][SerializeField] private float rangedShotVolume = 1f;
 
     void Start()
     {
@@ -412,8 +415,9 @@ public class EnemyAI : MonoBehaviour
 
         if (meleeSwingSound != null)
         {
-            audioSource.PlayOneShot(meleeSwingSound);
+            audioSource.PlayOneShot(meleeSwingSound, meleeSwingSoundVolume);
         }
+
 
         // Применение изменений для атаки
         ApplyAttackTransform();
@@ -424,8 +428,9 @@ public class EnemyAI : MonoBehaviour
 
         if (meleeSwingSound != null)
         {
-            audioSource.PlayOneShot(meleeSwingSound);
+            audioSource.PlayOneShot(meleeSwingSound, meleeSwingSoundVolume);
         }
+
 
         if (weaponTransform != null)
         {
@@ -451,10 +456,8 @@ public class EnemyAI : MonoBehaviour
 
         if (hitConnected && meleeHitSound != null)
         {
-            audioSource.PlayOneShot(meleeHitSound);
+            audioSource.PlayOneShot(meleeHitSound, meleeHitSoundVolume);
         }
-
-
     }
 
     private void ApplyAttackTransform()
@@ -506,7 +509,7 @@ public class EnemyAI : MonoBehaviour
         // Воспроизведение звука выстрела
         if (rangedShotSound != null)
         {
-            audioSource.PlayOneShot(rangedShotSound);
+            audioSource.PlayOneShot(rangedShotSound, rangedShotVolume);
         }
 
         Vector2 targetDirection = ((Vector2)player.position - (Vector2)shootPoint.position).normalized;

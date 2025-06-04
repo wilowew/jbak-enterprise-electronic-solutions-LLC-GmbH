@@ -89,6 +89,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: attackSprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: viewDistance
       value: 8
       objectReference: {fileID: 0}
@@ -112,6 +116,10 @@ PrefabInstance:
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 2050077445914033813, guid: 079018df9ffd9e84d912cbe01b19028b, type: 3}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: rangedShotVolume
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: stoppingDistance
       value: 0
@@ -352,6 +360,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6341329924126252766, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: 'ammoPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 138797573996228728, guid: 74f0a56784c88894582f956f78a24853, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2665817987603416390, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
@@ -360,13 +372,38 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       insertIndex: -1
       addedObject: {fileID: 910411904772543630}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3368558483572712597, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4515454129538529874}
   m_SourcePrefab: {fileID: 100100000, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
 --- !u!4 &4681553715321597533 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 572205789866688859, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
   m_PrefabInstance: {fileID: 5118581144866680582}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7617658971220904851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3368558483572712597, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+  m_PrefabInstance: {fileID: 5118581144866680582}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4515454129538529874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7617658971220904851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a3379a70950a14fb0ad75f75bdf324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoPrefabs:
+  - {fileID: 138797573996228728, guid: 74f0a56784c88894582f956f78a24853, type: 3}
+  minDistanceBetweenAmmo: 0.5
+  maxPlacementAttempts: 10
+  dropRadius: 1.5
 --- !u!1001 &5608731299422514491
 PrefabInstance:
   m_ObjectHideFlags: 0

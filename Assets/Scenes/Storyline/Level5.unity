@@ -372,6 +372,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 872157231}
     m_Modifications:
+    - target: {fileID: 2455543507845289598, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: 'ammoPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4417200160477959926, guid: c2ef1aaa3d730df4d8857a824f45e283, type: 3}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: projectileSpeed
       value: 40
@@ -3398,6 +3402,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 656702101268502990, guid: 5af4cdb688ec35549bc5895efd08f897, type: 3}
+      propertyPath: 'ammoPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 138797573996228728, guid: 9cc9ad99e7857e04eb399df4cd823cf5, type: 3}
     - target: {fileID: 3368558483572712597, guid: 5af4cdb688ec35549bc5895efd08f897, type: 3}
       propertyPath: m_Name
       value: BanditRose
@@ -3895,6 +3903,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 656702101268502990, guid: 5af4cdb688ec35549bc5895efd08f897, type: 3}
+      propertyPath: 'ammoPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 138797573996228728, guid: 9cc9ad99e7857e04eb399df4cd823cf5, type: 3}
     - target: {fileID: 3368558483572712597, guid: 5af4cdb688ec35549bc5895efd08f897, type: 3}
       propertyPath: m_Name
       value: BanditRose (1)
@@ -3972,6 +3984,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee
       objectReference: {fileID: 0}
+    - target: {fileID: 6341329924126252766, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: 'ammoPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 138797573996228728, guid: 4bb1fe02ba842424988f469348c9e8cf, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4709,6 +4725,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 872157231}
     m_Modifications:
+    - target: {fileID: 2455543507845289598, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: 'ammoPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4417200160477959926, guid: c2ef1aaa3d730df4d8857a824f45e283, type: 3}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: health
       value: 3
@@ -5114,6 +5134,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 872157231}
     m_Modifications:
+    - target: {fileID: 2455543507845289598, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: 'ammoPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4417200160477959926, guid: c2ef1aaa3d730df4d8857a824f45e283, type: 3}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: health
       value: 3
@@ -5204,6 +5228,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 872157231}
     m_Modifications:
+    - target: {fileID: 2455543507845289598, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: 'ammoPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4417200160477959926, guid: c2ef1aaa3d730df4d8857a824f45e283, type: 3}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: health
       value: 3
@@ -6152,7 +6180,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter2 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2236098346715705816, guid: f1c472e29370177499baac1a8b211069, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -12773,6 +12802,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 872157231}
     m_Modifications:
+    - target: {fileID: 2455543507845289598, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: 'ammoPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4417200160477959926, guid: c2ef1aaa3d730df4d8857a824f45e283, type: 3}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: health
       value: 3
@@ -13079,6 +13112,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 872157231}
     m_Modifications:
+    - target: {fileID: 2455543507845289598, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: 'ammoPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4417200160477959926, guid: c2ef1aaa3d730df4d8857a824f45e283, type: 3}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: health
       value: 3
@@ -13468,11 +13505,15 @@ PrefabInstance:
     - target: {fileID: -5382620598677276397, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
       propertyPath: shotSound
       value: 
-      objectReference: {fileID: 8300000, guid: 3909766ee96ad7d44aa782a89c823bce, type: 3}
+      objectReference: {fileID: 8300000, guid: cd6233fefc06e78469c4f6da36b0caf9, type: 3}
     - target: {fileID: -5382620598677276397, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
       propertyPath: ammoUIText
       value: 
       objectReference: {fileID: 1660544093}
+    - target: {fileID: -5382620598677276397, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
+      propertyPath: shotVolume
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: -5382620598677276397, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
       propertyPath: reloadSound
       value: 
@@ -13590,6 +13631,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 872157231}
     m_Modifications:
+    - target: {fileID: 2455543507845289598, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: 'ammoPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4417200160477959926, guid: c2ef1aaa3d730df4d8857a824f45e283, type: 3}
     - target: {fileID: 4679941127666725005, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: health
       value: 3
@@ -13864,6 +13909,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -206.82
       objectReference: {fileID: 0}
+    - target: {fileID: 6536918425577606639, guid: 9cefdc991af3f594f8e9ae5854ae1c87, type: 3}
+      propertyPath: 'ammoPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 138797573996228728, guid: 8811519ae383c78498264591e47e3e68, type: 3}
     - target: {fileID: 7690336584353415037, guid: 9cefdc991af3f594f8e9ae5854ae1c87, type: 3}
       propertyPath: m_Name
       value: BanditStick
@@ -14696,6 +14745,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -50.84
       objectReference: {fileID: 0}
+    - target: {fileID: 656702101268502990, guid: 5af4cdb688ec35549bc5895efd08f897, type: 3}
+      propertyPath: 'ammoPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 138797573996228728, guid: 9cc9ad99e7857e04eb399df4cd823cf5, type: 3}
     - target: {fileID: 3368558483572712597, guid: 5af4cdb688ec35549bc5895efd08f897, type: 3}
       propertyPath: m_Name
       value: BanditRose (2)

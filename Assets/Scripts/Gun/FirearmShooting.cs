@@ -20,6 +20,11 @@ public class FirearmShooting : MonoBehaviour
     [SerializeField] private AudioClip emptyMagSound;
     [SerializeField] private AudioClip reloadSound;
 
+    [Header("Volume Settings")]
+    [Range(0f, 1f)] public float shotVolume = 1f;
+    [Range(0f, 1f)] public float emptyMagVolume = 1f;
+    [Range(0f, 1f)] public float reloadVolume = 1f;
+
     [Header("Events")]
     public System.Action OnAmmoLoaded;
 
@@ -118,11 +123,11 @@ public class FirearmShooting : MonoBehaviour
         {
             Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation);
             currentBulletsInMag--;
-            PlaySound(shotSound);
+            PlaySound(shotSound, shotVolume);
         }
         else
         {
-            PlaySound(emptyMagSound);
+            PlaySound(emptyMagSound, emptyMagVolume);
         }
 
         UpdateUI();
@@ -152,11 +157,12 @@ public class FirearmShooting : MonoBehaviour
         }
     }
 
-    private void PlaySound(AudioClip clip)
+    private void PlaySound(AudioClip clip, float volume)
     {
         if (clip != null && soundSource != null)
-            soundSource.PlayOneShot(clip);
+            soundSource.PlayOneShot(clip, volume);
     }
+
 
     private void UpdateUI()
     {
@@ -183,7 +189,7 @@ public class FirearmShooting : MonoBehaviour
         if (currentBulletsInMag == 0)
         {
             currentBulletsInMag = bulletsPerMagazine;
-            PlaySound(reloadSound);
+            PlaySound(reloadSound, reloadVolume);
             UpdateUI();
 
             OnAmmoLoaded?.Invoke();
@@ -212,7 +218,7 @@ public class FirearmShooting : MonoBehaviour
         {
             reserveMagazineCount--;
             currentBulletsInMag = bulletsPerMagazine;
-            PlaySound(reloadSound);
+            PlaySound(reloadSound, reloadVolume);
             UpdateUI();
         }
     }
