@@ -133,7 +133,7 @@ TextureImporter:
         serializedVersion: 2
         x: 40
         y: 109
-        width: 13
+        width: 12
         height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -153,10 +153,10 @@ TextureImporter:
       name: UI_2
       rect:
         serializedVersion: 2
-        x: 2
-        y: 45
-        width: 62
-        height: 42
+        x: 6
+        y: 38
+        width: 49
+        height: 51
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

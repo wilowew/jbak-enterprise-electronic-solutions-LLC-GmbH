@@ -19826,6 +19826,9 @@ MonoBehaviour:
   shotSound: {fileID: 8300000, guid: 3909766ee96ad7d44aa782a89c823bce, type: 3}
   emptyMagSound: {fileID: 8300000, guid: 2300dd3e5aa683a419a953764171f831, type: 3}
   reloadSound: {fileID: 8300000, guid: 596b0d3534154024cb15e6a98dcf3723, type: 3}
+  shotVolume: 1
+  emptyMagVolume: 1
+  reloadVolume: 1
   currentBulletsInMag: 5
   reserveMagazineCount: 0
   weaponID: 1

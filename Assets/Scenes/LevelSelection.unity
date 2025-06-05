@@ -197,8 +197,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 10, y: -268}
-  m_SizeDelta: {x: 214.11, y: 0}
+  m_AnchoredPosition: {x: -0.25, y: -331.38}
+  m_SizeDelta: {x: 382.1, y: -17.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &200370823
 MonoBehaviour:
@@ -222,10 +222,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8bef44bda1e05a34c8c824bf452d2cbd, type: 3}
-    m_FontSize: 140
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 140
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -233,7 +233,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "4 \u0423\u0420\u041E\u0412\u0415\u041D\u042C"
+  m_Text: '4. DRUNK
+
+    BRAWL'
 --- !u!222 &200370824
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -344,6 +346,7 @@ MonoBehaviour:
   delayBeforeStart: 1
   fadeDuration: 3
   targetAlpha: 1
+  objectToToggle: {fileID: 0}
 --- !u!114 &468165071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,8 +690,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 10, y: -268}
-  m_SizeDelta: {x: 214.11, y: 0}
+  m_AnchoredPosition: {x: 10, y: -259.5}
+  m_SizeDelta: {x: 214.11, y: -166.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &639611038
 MonoBehaviour:
@@ -712,10 +715,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8bef44bda1e05a34c8c824bf452d2cbd, type: 3}
-    m_FontSize: 140
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 140
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -723,7 +726,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "5 \u0423\u0420\u041E\u0412\u0415\u041D\u042C"
+  m_Text: 5. RAID
 --- !u!222 &639611039
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1150,6 +1153,7 @@ MonoBehaviour:
   delayBeforeStart: 0.1
   fadeDuration: 2
   targetAlpha: 1
+  objectToToggle: {fileID: 0}
 --- !u!114 &835907724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1226,8 +1230,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 10, y: -268}
-  m_SizeDelta: {x: 214.11, y: 0}
+  m_AnchoredPosition: {x: 6.899994, y: -359.37}
+  m_SizeDelta: {x: 585.74, y: 15.48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &956881279
 MonoBehaviour:
@@ -1251,10 +1255,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8bef44bda1e05a34c8c824bf452d2cbd, type: 3}
-    m_FontSize: 140
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 140
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1262,7 +1266,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "3 \u0423\u0420\u041E\u0412\u0415\u041D\u042C"
+  m_Text: '3. MURDER
+
+    INVESTIGATION'
 --- !u!222 &956881280
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1780,8 +1786,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 10, y: -268}
-  m_SizeDelta: {x: 214.11, y: 0}
+  m_AnchoredPosition: {x: 19.160004, y: -336.02002}
+  m_SizeDelta: {x: 376.6, y: -335.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1446482342
 MonoBehaviour:
@@ -1805,10 +1811,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8bef44bda1e05a34c8c824bf452d2cbd, type: 3}
-    m_FontSize: 140
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 140
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1816,7 +1822,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "1 \u0423\u0420\u041E\u0412\u0415\u041D\u042C"
+  m_Text: 1. HANGOVER
 --- !u!222 &1446482343
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1859,8 +1865,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 10, y: -268}
-  m_SizeDelta: {x: 214.11, y: 0}
+  m_AnchoredPosition: {x: 6.2100067, y: -330.39}
+  m_SizeDelta: {x: 305.18, y: -11.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1467099687
 MonoBehaviour:
@@ -1884,10 +1890,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8bef44bda1e05a34c8c824bf452d2cbd, type: 3}
-    m_FontSize: 140
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 140
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1895,7 +1901,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "2 \u0423\u0420\u041E\u0412\u0415\u041D\u042C"
+  m_Text: '2. SMALL
+
+    BUSINESS'
 --- !u!222 &1467099688
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1942,7 +1950,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 960, y: 0}
-  m_SizeDelta: {x: 500, y: 340}
+  m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1529069619
 MonoBehaviour:
