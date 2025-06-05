@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\Enemy\YashkaLegs.cs" />
     <Compile Include="Assets\Scripts\GameManager\InteractiveItem.cs" />
     <Compile Include="Assets\Scripts\InputSystem\InputManager.cs" />
+    <Compile Include="Assets\Scripts\ForLevel\lvl6\FInal.cs" />
     <Compile Include="Assets\Scripts\Gun\FirearmShooting.cs" />
     <Compile Include="Assets\Scripts\Gun\AmmoMagazinePickup.cs" />
     <Compile Include="Assets\Scripts\ForLevel\lvl6\NPCDeath.cs" />

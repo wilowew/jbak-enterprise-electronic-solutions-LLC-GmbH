@@ -15,35 +15,42 @@ public class FadeInObject : MonoBehaviour
     [Range(0f, 1f)]
     public float targetAlpha = 1f;
 
+    [Header("Дополнительно")]
+    [Tooltip("Объект (например, кнопка), у которого нужно изменить состояние interactable")]
+    public Selectable objectToToggle;
+
     private SpriteRenderer spriteRenderer;
     private Image image;
     private Text text;
 
+    private bool initialInteractable;
+
     void Start()
     {
-        // Получаем компоненты только с текущего объекта
         spriteRenderer = GetComponent<SpriteRenderer>();
         image = GetComponent<Image>();
         text = GetComponent<Text>();
 
-        // Начинаем процесс появления
+        // Сохраняем изначальное состояние
+        if (objectToToggle != null)
+        {
+            initialInteractable = objectToToggle.interactable;
+        }
+
         StartCoroutine(FadeInCoroutine());
     }
 
     IEnumerator FadeInCoroutine()
     {
-        // Ждем указанную задержку перед началом
         if (delayBeforeStart > 0)
             yield return new WaitForSeconds(delayBeforeStart);
 
-        // Если время появления 0 - устанавливаем конечную прозрачность сразу
         if (fadeDuration <= 0)
         {
             SetAlpha(targetAlpha);
         }
         else
         {
-            // Плавное изменение прозрачности
             float timer = 0f;
             float startAlpha = GetCurrentAlpha();
 
@@ -57,14 +64,18 @@ public class FadeInObject : MonoBehaviour
                 yield return null;
             }
 
-            // Убедимся, что достигли конечного значения
             SetAlpha(targetAlpha);
+        }
+
+        // Инвертируем состояние interactable
+        if (objectToToggle != null)
+        {
+            objectToToggle.interactable = !initialInteractable;
         }
     }
 
     float GetCurrentAlpha()
     {
-        // Получаем текущую прозрачность в зависимости от типа компонента
         if (spriteRenderer != null) return spriteRenderer.color.a;
         if (image != null) return image.color.a;
         if (text != null) return text.color.a;
@@ -73,7 +84,6 @@ public class FadeInObject : MonoBehaviour
 
     void SetAlpha(float alpha)
     {
-        // Устанавливаем прозрачность для имеющегося компонента
         if (spriteRenderer != null)
         {
             Color color = spriteRenderer.color;
