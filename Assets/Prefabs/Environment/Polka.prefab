@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 528603686309182188}
   - component: {fileID: 822829228362905957}
   - component: {fileID: 8308683587820599276}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Polka
   m_TagString: Untagged
   m_Icon: {fileID: 0}

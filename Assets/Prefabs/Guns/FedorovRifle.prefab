@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 5.45866, y: 0.8753174, z: -0.005365344}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4487973101898488204}
@@ -154,7 +154,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.07264216}
+  m_Offset: {x: 0.0043828487, y: 0.008798659}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -164,7 +164,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 7.9375, y: 0.95796347}
+  m_Size: {x: 1.0685592, y: 0.29631376}
   m_EdgeRadius: 0
 --- !u!58 &8912540582402510490
 CircleCollider2D:
@@ -200,8 +200,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.000003973643, y: -0.10813991}
-  m_Radius: 5.590862
+  m_Offset: {x: 0.005021572, y: 0.022524953}
+  m_Radius: 0.8919054
 --- !u!114 &194831129526350965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,21 +231,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e5b7fd6db663e64ea19ab6128a4dd93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 2050077445914033813, guid: d1a1f33f3e88e444aba230003511d649, type: 3}
+  projectilePrefab: {fileID: 2050077445914033813, guid: 814725d02d1a8ba40874d03c39969b21, type: 3}
   shootPoint: {fileID: 4487973101898488204}
   shotsPerSecond: 5
   bulletsPerMagazine: 30
   maxReserveMagazines: 5
   ammoUIText: {fileID: 0}
   shotSound: {fileID: 8300000, guid: 3909766ee96ad7d44aa782a89c823bce, type: 3}
-  emptyMagSound: {fileID: 0}
-  reloadSound: {fileID: 0}
+  emptyMagSound: {fileID: 8300000, guid: 2300dd3e5aa683a419a953764171f831, type: 3}
+  reloadSound: {fileID: 8300000, guid: 596b0d3534154024cb15e6a98dcf3723, type: 3}
   shotVolume: 0.8
   emptyMagVolume: 1
   reloadVolume: 1
-  currentBulletsInMag: 0
+  currentBulletsInMag: 30
   reserveMagazineCount: 0
-  weaponID: 
+  weaponID: 1
 --- !u!1 &3435290469894494280
 GameObject:
   m_ObjectHideFlags: 0

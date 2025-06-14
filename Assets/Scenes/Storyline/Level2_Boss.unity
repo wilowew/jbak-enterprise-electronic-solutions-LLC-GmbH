@@ -2510,13 +2510,33 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: minTurnAngle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: wanderRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: baseWanderDelay
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: redPuddlePrefab
       value: 
       objectReference: {fileID: 3333745628535621099, guid: 0765565a0d8a13f4498c1e822d5a0903, type: 3}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: baseWanderRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: maxRandomWanderDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: wanderRadiusVariation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: obstacleLayerMask.m_Bits
       value: 256
@@ -8684,13 +8704,33 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: minTurnAngle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: wanderRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: baseWanderDelay
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: redPuddlePrefab
       value: 
       objectReference: {fileID: 3333745628535621099, guid: 0765565a0d8a13f4498c1e822d5a0903, type: 3}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: baseWanderRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: maxRandomWanderDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: wanderRadiusVariation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3368558483572712597, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_Name
       value: EnemyMelee (1)
@@ -9022,6 +9062,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1157469478}
     m_Modifications:
+    - target: {fileID: 2732889420111688354, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: ammoPrefabs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5260605074062620644, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
       propertyPath: m_Name
       value: YashkaKnife
@@ -9077,6 +9121,14 @@ PrefabInstance:
     - target: {fileID: 8154935375556097236, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
       propertyPath: dodgeSpeed
       value: 8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154935375556097236, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: rotationSpeed
+      value: 165
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154935375556097236, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: minAttackAngle
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5209757136095566269}
   - component: {fileID: 1236325230345459512}
   - component: {fileID: 850817310583079075}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LargeKochka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 65194173, guid: 55012166203266d48a183f4af89b3974, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

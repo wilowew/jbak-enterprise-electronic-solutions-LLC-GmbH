@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2832325766954183537}
   - component: {fileID: 4600062192792469111}
   - component: {fileID: 7388706296727288953}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sofa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -258154089, guid: f8ffbf57bda25924eb52f0fa5d4b5427, type: 3}
   m_Color: {r: 0.8037735, g: 0.8037735, b: 0.8037735, a: 1}
   m_FlipX: 0

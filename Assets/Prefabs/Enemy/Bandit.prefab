@@ -142,10 +142,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7617658971220904851, guid: c42a1d2f201d3c44c9e4e9235e63ca6f, type: 3}
       propertyPath: m_TagString
-      value: Boss
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8303063025568213688, guid: c42a1d2f201d3c44c9e4e9235e63ca6f, type: 3}
       propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303063025568213688, guid: c42a1d2f201d3c44c9e4e9235e63ca6f, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -182,9 +186,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   desiredDistance: 4
-  rotationSpeed: 5
+  rotationSpeed: 165
   distanceDeadZone: 0.5
   movementSmoothFactor: 5
+  rotationThreshold: 5
   lungeSpeed: 10
   attackCooldown: 2
   attackRadius: 2

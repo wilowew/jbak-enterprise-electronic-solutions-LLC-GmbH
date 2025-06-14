@@ -160,7 +160,20 @@ public class PlayerHealth : MonoBehaviour
             deathScreenGroup.alpha = 1f;
         }
 
-        yield return new WaitForSeconds(3f);
+        float skipTimer = 0f;
+        bool skipRequested = false;
+
+        while (skipTimer < 3f && !skipRequested)
+        {
+            if (Input.anyKeyDown)
+            {
+                skipRequested = true;
+                break;
+            }
+
+            skipTimer += Time.deltaTime;
+            yield return null;
+        }
 
         WeaponInventory inventory = GetComponent<WeaponInventory>();
         WeaponPickupBase[] weaponsToKeep = inventory.GetWeaponsCopy();
@@ -174,4 +187,5 @@ public class PlayerHealth : MonoBehaviour
                 .RestoreWeapons(weaponsToKeep);
         }
     }
+
 }

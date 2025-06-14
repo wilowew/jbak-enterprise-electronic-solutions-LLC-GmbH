@@ -522,13 +522,17 @@ MonoBehaviour:
   drawGizmos: 1
   isStatic: 0
   isHostile: 1
-  wanderRadius: 3
-  wanderDelay: 2
+  baseWanderRadius: 8
+  wanderRadiusVariation: 2
+  baseWanderDelay: 0.1
+  maxRandomWanderDelay: 0.6
+  rotationThreshold: 5
+  minTurnAngle: 60
   chaseSpeed: 5
   wanderSpeed: 3
-  rotationSpeed: 10
+  rotationSpeed: 165
   stoppingDistance: 1
-  avoidanceCheckRadius: 1
+  avoidanceCheckRadius: 2
   avoidanceForce: 1
   obstacleLayerMask:
     serializedVersion: 2

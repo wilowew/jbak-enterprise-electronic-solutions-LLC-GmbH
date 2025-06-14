@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Audio;
+using System.Collections.Generic;
 
 public class Yashka : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class Yashka : MonoBehaviour
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float desiredDistance = 4f;
     [SerializeField] private float rotationSpeed = 5f;
-    [SerializeField] private float distanceDeadZone = 0.5f; 
-    [SerializeField] private float movementSmoothFactor = 5f; 
+    [SerializeField] private float distanceDeadZone = 0.5f;
+    [SerializeField] private float movementSmoothFactor = 5f;
 
     [Header("Attack Settings")]
     [SerializeField] private float lungeSpeed = 10f;
@@ -59,7 +60,8 @@ public class Yashka : MonoBehaviour
     private Color originalColor;
 
     public bool IsAttacking => isAttacking;
-public bool IsDodging => isDodging;
+    public bool IsDodging => isDodging;
+    private HashSet<Bullet> ignoredBullets = new HashSet<Bullet>();
 
     private void Awake()
     {
@@ -276,16 +278,81 @@ public bool IsDodging => isDodging;
         }
     }
 
+    public void TryDodgeFromBullet(Bullet bullet)
+    {
+        if (isDodging || ignoredBullets.Contains(bullet))
+            return;
+
+        if (Random.value <= dodgeChance)
+        {
+            ignoredBullets.Add(bullet);
+            StartCoroutine(PerformDodge());
+        }
+    }
+
     private IEnumerator PerformDodge()
     {
         isDodging = true;
-        Vector2 dodgeDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
-        rb.linearVelocity = dodgeDirection * dodgeSpeed;
 
-        yield return new WaitForSeconds(dodgeDuration);
+        float elapsed = 0f;
+        float checkStep = 0.02f;
+        int maxAttempts = 10;
+
+        Vector2 currentDirection = GetRandomDirection();
+        Vector2 position = rb.position;
+
+        while (elapsed < dodgeDuration)
+        {
+            float remainingTime = dodgeDuration - elapsed;
+            float moveTime = Mathf.Min(checkStep, remainingTime);
+
+            Vector2 moveTarget = position + currentDirection * dodgeSpeed * moveTime;
+
+            // Проверка столкновения
+            RaycastHit2D hit = Physics2D.CircleCast(position, 0.2f, currentDirection, dodgeSpeed * moveTime, obstacleLayer);
+            if (hit.collider != null)
+            {
+                // Столкновение — пробуем новое направление
+                bool foundFreeDirection = false;
+
+                for (int attempt = 0; attempt < maxAttempts; attempt++)
+                {
+                    Vector2 newDirection = GetRandomDirection();
+                    Vector2 testTarget = position + newDirection * dodgeSpeed * moveTime;
+                    RaycastHit2D testHit = Physics2D.CircleCast(position, 0.2f, newDirection, dodgeSpeed * moveTime, obstacleLayer);
+
+                    if (testHit.collider == null)
+                    {
+                        currentDirection = newDirection;
+                        foundFreeDirection = true;
+                        break;
+                    }
+                }
+
+                // Если не нашли свободное направление — просто остаёмся на месте
+                if (!foundFreeDirection)
+                {
+                    elapsed += moveTime;
+                    yield return new WaitForSeconds(moveTime);
+                    continue;
+                }
+            }
+
+            // Двигаемся
+            rb.MovePosition(moveTarget);
+            position = moveTarget;
+            elapsed += moveTime;
+            yield return new WaitForSeconds(moveTime);
+        }
 
         rb.linearVelocity = Vector2.zero;
         isDodging = false;
+        ignoredBullets.Clear();
+    }
+
+    private Vector2 GetRandomDirection()
+    {
+        return new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
     }
 
     private bool HasLineOfSight()

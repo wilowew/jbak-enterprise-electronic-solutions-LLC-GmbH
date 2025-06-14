@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: health
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: isStatic
@@ -74,7 +74,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: attackRate
-      value: 2
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: missChance
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: shootPoint
@@ -86,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: attackRange
-      value: 7
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: attackSprite
@@ -97,17 +101,25 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: wanderRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: rotationSpeed
-      value: 3
+      value: 165
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: projectileSpeed
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: rangedShotSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3909766ee96ad7d44aa782a89c823bce, type: 3}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: redPuddlePrefab
       value: 
-      objectReference: {fileID: 3333745628535621099, guid: 5952881131784be43b544afb22192ad2, type: 3}
+      objectReference: {fileID: 3333745628535621099, guid: f3eacf0faa4511c46a53473c3a7273e0, type: 3}
     - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: weaponTransform
       value: 
@@ -361,9 +373,17 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6341329924126252766, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: ammoPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341329924126252766, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: 'ammoPrefabs.Array.data[0]'
       value: 
       objectReference: {fileID: 138797573996228728, guid: 74f0a56784c88894582f956f78a24853, type: 3}
+    - target: {fileID: 6341329924126252766, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: 'ammoPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3521970802853798318, guid: 7eeef04829ede824fbbd56653bc733ad, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2665817987603416390, guid: 10be818b0a596804c9c50d740bed6339, type: 3}

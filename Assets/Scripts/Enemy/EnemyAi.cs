@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private Transform shootPoint;
     [SerializeField] private float projectileSpeed = 10f;
     [SerializeField][Range(0f, 1f)] private float missChance = 0.3f;
+    private float idleTimer; // Таймер ожидания
 
     [Header("Combat Settings")]
     [SerializeField] private double health = 1;
@@ -28,13 +29,19 @@ public class EnemyAI : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private bool isStatic = false;
     [SerializeField] private bool isHostile = true;
-    [SerializeField] private float wanderRadius = 3f;
-    [SerializeField] private float wanderDelay = 2f;
+    [SerializeField] private float baseWanderRadius = 5f; // Базовый радиус блуждания
+    [SerializeField] private float wanderRadiusVariation = 2f; // Вариация радиуса (+- это значение)
+    [SerializeField] private float baseWanderDelay = 0.1f; // Базовая задержка между точками
+    [SerializeField] private float maxRandomWanderDelay = 1f; // Максимальная случайная добавка к задержке
+    [SerializeField] private float rotationThreshold = 5f; // Угол для завершения поворота
+    [SerializeField] private float minTurnAngle = 60f;
+
+    private float previousTargetAngle;
 
     [Header("Speed Settings")]
     public float chaseSpeed = 3f;
     public float wanderSpeed = 1f;
-    public float rotationSpeed = 10f;
+    public float rotationSpeed = 120f;
     public float stoppingDistance = 1f;
 
     [Header("Obstacle Avoidance")]
@@ -79,7 +86,11 @@ public class EnemyAI : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 initialPosition;
     private Vector2 currentWanderTarget;
+
     private float wanderTimer;
+    private float currentWanderRadius; // Индивидуальный радиус для этого NPC
+    private float currentWanderDelay; // Индивидуальная задержка для этого NPC
+    private bool isRotatingToTarget;
 
     private float nextAttackTime;
 
@@ -134,6 +145,7 @@ public class EnemyAI : MonoBehaviour
             playerHealth = player.GetComponent<PlayerHealth>();
         }
 
+        previousTargetAngle = transform.eulerAngles.z;
         nextAttackTime = Time.time;
 
         audioSource = GetComponent<AudioSource>();
@@ -146,6 +158,9 @@ public class EnemyAI : MonoBehaviour
         {
             defaultWeaponRotation = weaponTransform.localEulerAngles.z;
         }
+
+        currentWanderRadius = baseWanderRadius + Random.Range(-wanderRadiusVariation, wanderRadiusVariation);
+        currentWanderDelay = baseWanderDelay + Random.Range(0, maxRandomWanderDelay);
 
         chaseTimer = chaseDuration;
     }
@@ -395,6 +410,14 @@ public class EnemyAI : MonoBehaviour
         if (!PlayerVisible) return;
         if (playerHealth != null && playerHealth.IsDead) return;
 
+        // Проверка угла к игроку
+        Vector2 dirToPlayer = (Vector2)player.position - (Vector2)transform.position;
+        if (Vector2.Angle(transform.right, dirToPlayer) > 30f)
+        {
+            RotateTowards(dirToPlayer);
+            return; // Не атакуем, пока не повернулись
+        }
+
         switch (weaponType)
         {
             case WeaponType.Melee:
@@ -557,22 +580,77 @@ public class EnemyAI : MonoBehaviour
 
     private void WanderAround()
     {
-        wanderTimer -= Time.fixedDeltaTime;
+        // Если NPC ещё не повернулся к цели
+        Vector2 directionToTarget = (currentWanderTarget - (Vector2)transform.position).normalized;
+        float angleToTarget = Vector2.Angle(transform.right, directionToTarget);
 
-        if (Vector2.Distance(transform.position, currentWanderTarget) < 0.1f || wanderTimer <= 0)
+        if (angleToTarget > rotationThreshold)
         {
-            SetNewWanderTarget();
-            wanderTimer = wanderDelay;
+            RotateTowards(directionToTarget);
+            rb.linearVelocity = Vector2.zero;
+            return;
         }
 
-        Vector2 direction = (currentWanderTarget - (Vector2)transform.position).normalized;
-        RotateTowards(direction);
-        rb.linearVelocity = direction * wanderSpeed;
+        // Если NPC на месте или время ожидания истекло
+        if (Vector2.Distance(transform.position, currentWanderTarget) < 0.1f || wanderTimer <= 0)
+        {
+            if (idleTimer <= 0)
+            {
+                SetNewWanderTarget();
+                wanderTimer = currentWanderDelay;
+                idleTimer = currentWanderDelay;
+                rb.linearVelocity = Vector2.zero;
+            }
+            else
+            {
+                idleTimer -= Time.fixedDeltaTime;
+                rb.linearVelocity = Vector2.zero;
+            }
+            return;
+        }
+
+        // Движение к цели
+        rb.linearVelocity = directionToTarget * wanderSpeed;
+        wanderTimer -= Time.fixedDeltaTime;
     }
 
     private void SetNewWanderTarget()
     {
-        currentWanderTarget = initialPosition + Random.insideUnitCircle * wanderRadius;
+        int attempts = 0;
+        bool validTargetFound = false;
+        Vector2 newTarget = Vector2.zero;
+        float newAngle = 0f;
+
+        while (attempts < 5 && !validTargetFound)
+        {
+            // Генерируем новую точку
+            newTarget = initialPosition + Random.insideUnitCircle * currentWanderRadius;
+
+            // Вычисляем угол к новой точке
+            Vector2 direction = newTarget - (Vector2)transform.position;
+            newAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            // Проверяем угол поворота
+            float angleDifference = Mathf.Abs(Mathf.DeltaAngle(previousTargetAngle, newAngle));
+            if (angleDifference >= minTurnAngle)
+            {
+                validTargetFound = true;
+            }
+
+            attempts++;
+        }
+
+        if (validTargetFound)
+        {
+            currentWanderTarget = newTarget;
+            previousTargetAngle = newAngle;
+        }
+        else
+        {
+            // Если не нашли подходящую точку - берем любую
+            currentWanderTarget = initialPosition + Random.insideUnitCircle * currentWanderRadius;
+            previousTargetAngle = transform.eulerAngles.z;
+        }
     }
 
     private bool IsFacingPlayer(float tolerance = 30f)
@@ -585,15 +663,12 @@ public class EnemyAI : MonoBehaviour
 
     private void RotateTowards(Vector2 direction)
     {
-        if (direction.sqrMagnitude < 0.001f)
-            return;
+        if (direction.sqrMagnitude < 0.001f) return;
 
         float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         float currentAngle = transform.eulerAngles.z;
-        float delta = Mathf.DeltaAngle(currentAngle, targetAngle);
-
-        if (Mathf.Abs(delta) > 0.1f)
-            transform.rotation = Quaternion.Euler(0, 0, targetAngle);
+        float newAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, rotationSpeed * Time.fixedDeltaTime);
+        transform.rotation = Quaternion.Euler(0, 0, newAngle);
     }
 
     public void TakeDamage(double damage)

@@ -286,9 +286,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   desiredDistance: 4
-  rotationSpeed: 5
+  rotationSpeed: 165
   distanceDeadZone: 0.5
   movementSmoothFactor: 5
+  rotationThreshold: 5
   lungeSpeed: 10
   attackCooldown: 2
   attackRadius: 2

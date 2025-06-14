@@ -246,13 +246,17 @@ MonoBehaviour:
   drawGizmos: 1
   isStatic: 0
   isHostile: 1
-  wanderRadius: 3
-  wanderDelay: 2
+  baseWanderRadius: 8
+  wanderRadiusVariation: 2
+  baseWanderDelay: 0.1
+  maxRandomWanderDelay: 0.6
+  rotationThreshold: 5
+  minTurnAngle: 60
   chaseSpeed: 4
   wanderSpeed: 3
-  rotationSpeed: 10
+  rotationSpeed: 165
   stoppingDistance: 1
-  avoidanceCheckRadius: 1
+  avoidanceCheckRadius: 2
   avoidanceForce: 1
   obstacleLayerMask:
     serializedVersion: 2
@@ -261,6 +265,8 @@ MonoBehaviour:
   meleeAttackRadius: 1.5
   meleeSwingSound: {fileID: 8300000, guid: 0b2eb819295475b49a364d71a6bff2dd, type: 3}
   meleeHitSound: {fileID: 8300000, guid: d0a4a306729894b428699eb8818c93f9, type: 3}
+  meleeSwingSoundVolume: 1
+  meleeHitSoundVolume: 1
   weaponTransform: {fileID: 3385271099514752410}
   weaponSwingAngle: 20
   slowdownFactor: 0.7
@@ -268,6 +274,7 @@ MonoBehaviour:
   weaponAttackOffset: {x: 0.3, y: 0.3, z: 0}
   attackSprite: {fileID: -1600977119, guid: 8148f1284f895bf429e30ff1bda459b4, type: 3}
   rangedShotSound: {fileID: 0}
+  rangedShotVolume: 1
 --- !u!114 &6341329924126252766
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -39,12 +39,29 @@ public class Bullet : MonoBehaviour
                 scarecrow.PlayDestructionEffect();
             Destroy(gameObject);
         }
+
         else if (collision.collider.CompareTag("Enemy"))
         {
-            EnemyAI enemy = collision.collider.GetComponent<EnemyAI>();
-            if (enemy != null)
-                enemy.TakeDamage(damage);
-            Destroy(gameObject);
+            Yashka yashka = collision.collider.GetComponent<Yashka>();
+            if (yashka != null)
+            {
+                yashka.TryDodgeFromBullet(this);
+
+                if (!yashka.IsDodging)
+                {
+                    yashka.TakeDamage(damage);
+                    Destroy(gameObject);
+                }
+            }
+            else
+            {
+                EnemyAI enemy = collision.collider.GetComponent<EnemyAI>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(damage);
+                    Destroy(gameObject);
+                }
+            }
         }
     }
 }

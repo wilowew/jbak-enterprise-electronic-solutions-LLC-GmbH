@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1308012866910351685}
   - component: {fileID: 6565084400288382190}
   - component: {fileID: 3085153800841603535}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wardrobe1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 822796973, guid: ae7bbd621ad40f44ca9268cba1595d24, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -104,7 +104,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
