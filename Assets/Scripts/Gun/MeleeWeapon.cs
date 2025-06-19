@@ -65,6 +65,9 @@ public class MeleeWeapon : MonoBehaviour
 
     private void TryAttack()
     {
+        if (PauseManager.Instance != null && (PauseManager.Instance.IsPaused || DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive))
+            return;
+
         if (IsOwnerDead() || Time.time - lastAttackTime < attackCooldown) return;
 
         lastAttackTime = Time.time;
@@ -149,7 +152,7 @@ public class MeleeWeapon : MonoBehaviour
                 hitSuccess = true;
             }
 
-            if (hit.CompareTag("Boss") && hit.TryGetComponent<Yashka>(out var boss))
+            if (hit.CompareTag("Enemy") && hit.TryGetComponent<Yashka>(out var boss))
             {
                 boss.TakeDamage(damage);
                 hitSuccess = true;

@@ -63,6 +63,8 @@ public class Yashka : MonoBehaviour
     public bool IsDodging => isDodging;
     private HashSet<Bullet> ignoredBullets = new HashSet<Bullet>();
 
+    private DeathType lastDamageType = DeathType.Other;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -246,23 +248,24 @@ public class Yashka : MonoBehaviour
         return avoidance;
     }
 
-    public void TakeDamage(double damage)
+    public void TakeDamage(double damage, DeathType damageType = DeathType.Other)
     {
-        if (isDodging) return;
+        if (isDodging || isAttacking) return; 
 
-        if (Random.value <= dodgeChance)
+        lastDamageType = damageType;
+
+        float effectiveDodgeChance = (damageType == DeathType.Melee) ?
+            dodgeChance * 0.3f :
+            dodgeChance;
+
+        if (Random.value <= effectiveDodgeChance)
         {
             StartCoroutine(PerformDodge());
             return;
         }
 
         currentHealth -= damage;
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
-
+        if (currentHealth <= 0) Die();
         StartCoroutine(DamageFlash());
     }
 
@@ -275,18 +278,6 @@ public class Yashka : MonoBehaviour
             renderer.color = Color.red;
             yield return new WaitForSeconds(0.1f);
             renderer.color = original;
-        }
-    }
-
-    public void TryDodgeFromBullet(Bullet bullet)
-    {
-        if (isDodging || ignoredBullets.Contains(bullet))
-            return;
-
-        if (Random.value <= dodgeChance)
-        {
-            ignoredBullets.Add(bullet);
-            StartCoroutine(PerformDodge());
         }
     }
 
@@ -370,8 +361,19 @@ public class Yashka : MonoBehaviour
     {
         if (deathPrefab != null)
         {
-            Instantiate(deathPrefab, transform.position, Quaternion.identity);
+            GameObject deathEffect = Instantiate(
+                deathPrefab,
+                transform.position,
+                transform.rotation
+            );
+
+            DeathEffect effectScript = deathEffect.GetComponent<DeathEffect>();
+            if (effectScript != null)
+            {
+                effectScript.SetDeathType(lastDamageType);
+            }
         }
+
         FindObjectOfType<BackgroundMusic>()?.AddKillPoint();
         Destroy(gameObject);
     }
@@ -407,4 +409,5 @@ public class Yashka : MonoBehaviour
             }
         }
     }
+
 }

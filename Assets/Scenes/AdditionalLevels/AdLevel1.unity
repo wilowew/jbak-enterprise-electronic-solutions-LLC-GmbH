@@ -623,7 +623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1728296075413392659, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: maxHealth
-      value: 2
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1728296075413392659, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: cursorChanger
@@ -659,7 +659,7 @@ PrefabInstance:
       objectReference: {fileID: 1123626904}
     - target: {fileID: 4386541877673493124, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: startingWeapons.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4386541877673493124, guid: ca44722d417ac544cac707afb19fa5f1, type: 3}
       propertyPath: 'startingWeapons.Array.data[0]'
@@ -2549,6 +2549,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: f3eacf0faa4511c46a53473c3a7273e0, type: 3}
     - target: {fileID: 3368558483572712597, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_Name
       value: EnemyMelee (1)
@@ -25581,6 +25585,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 574956377892102027, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
+      propertyPath: redPuddlePrefab
+      value: 
+      objectReference: {fileID: 3333745628535621099, guid: f3eacf0faa4511c46a53473c3a7273e0, type: 3}
     - target: {fileID: 3368558483572712597, guid: 10be818b0a596804c9c50d740bed6339, type: 3}
       propertyPath: m_Name
       value: EnemyMelee
@@ -28379,6 +28387,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1919752011}
     m_Modifications:
+    - target: {fileID: 2455543507845289598, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: ammoPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455543507845289598, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: weaponPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455543507845289598, guid: 646a73c216e68384da875f22e425530a, type: 3}
+      propertyPath: 'weaponPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4417200160477959926, guid: 724f08dbc6ea0a64399d8496b4796264, type: 3}
     - target: {fileID: 4681553715321597533, guid: 646a73c216e68384da875f22e425530a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.8653545

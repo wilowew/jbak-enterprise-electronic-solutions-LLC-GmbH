@@ -41,6 +41,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 385933506477297365, guid: c42a1d2f201d3c44c9e4e9235e63ca6f, type: 3}
+      propertyPath: dropRadius
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 385933506477297365, guid: c42a1d2f201d3c44c9e4e9235e63ca6f, type: 3}
       propertyPath: 'ammoPrefabs.Array.data[1]'
       value: 
       objectReference: {fileID: 138797573996228728, guid: 43db6c2996ae275438351c30ad40a43f, type: 3}
@@ -189,7 +193,6 @@ MonoBehaviour:
   rotationSpeed: 165
   distanceDeadZone: 0.5
   movementSmoothFactor: 5
-  rotationThreshold: 5
   lungeSpeed: 10
   attackCooldown: 2
   attackRadius: 2

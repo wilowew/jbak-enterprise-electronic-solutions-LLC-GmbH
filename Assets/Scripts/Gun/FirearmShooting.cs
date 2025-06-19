@@ -14,6 +14,8 @@ public class FirearmShooting : MonoBehaviour
     [SerializeField] private int bulletsPerMagazine = 30;
     [SerializeField] private int maxReserveMagazines = 5;
     [SerializeField] private Text ammoUIText;
+    [SerializeField] private int initialMagazines = 1;
+    [SerializeField] private bool startWithLoaded = true;
 
     [Header("Audio")]
     [SerializeField] private AudioClip shotSound;
@@ -27,6 +29,10 @@ public class FirearmShooting : MonoBehaviour
 
     [Header("Events")]
     public System.Action OnAmmoLoaded;
+
+    [Header("Ammo UI Settings")]
+    [SerializeField] private bool autoFindAmmoUI = true;
+    [SerializeField] private string ammoUITag = "AmmoUI";
 
     // --- состояние ---
     public int currentBulletsInMag = 0;
@@ -84,7 +90,30 @@ public class FirearmShooting : MonoBehaviour
 
         if (ammoUIText != null)
             ammoUIText.text = "";
+
+        FindAmmoUIText();
     }
+
+    private void FindAmmoUIText()
+    {
+        if (autoFindAmmoUI)
+        {
+            GameObject uiObject = GameObject.FindGameObjectWithTag(ammoUITag);
+            if (uiObject != null)
+            {
+                ammoUIText = uiObject.GetComponent<Text>();
+                if (ammoUIText == null)
+                {
+                    Debug.LogWarning($"Найден объект с тегом {ammoUITag}, но у него нет компонента Text");
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"Не найден объект с тегом {ammoUITag} для отображения патронов");
+            }
+        }
+    }
+
 
     private void OnEnable()
     {

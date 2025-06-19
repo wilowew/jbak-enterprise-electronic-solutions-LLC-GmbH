@@ -419,11 +419,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a3379a70950a14fb0ad75f75bdf324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoPrefabs:
+  ammoPrefabs: []
+  weaponPrefabs:
   - {fileID: 138797573996228728, guid: 74f0a56784c88894582f956f78a24853, type: 3}
   minDistanceBetweenAmmo: 0.5
   maxPlacementAttempts: 10
-  dropRadius: 1.5
+  dropRadius: 0.7
 --- !u!1001 &5608731299422514491
 PrefabInstance:
   m_ObjectHideFlags: 0

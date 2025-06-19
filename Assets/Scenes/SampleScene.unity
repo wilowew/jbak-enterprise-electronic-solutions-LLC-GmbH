@@ -28773,8 +28773,12 @@ MonoBehaviour:
   drawGizmos: 1
   isStatic: 0
   isHostile: 1
-  wanderRadius: 3
-  wanderDelay: 2
+  baseWanderRadius: 5
+  wanderRadiusVariation: 2
+  baseWanderDelay: 0.1
+  maxRandomWanderDelay: 1
+  rotationThreshold: 5
+  minTurnAngle: 60
   chaseSpeed: 5
   wanderSpeed: 2
   rotationSpeed: 10
@@ -31539,6 +31543,83 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4343f9403973533409f43f8748d32f7a, type: 3}
+--- !u!1001 &2092763699
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5260605074062620644, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: m_Name
+      value: YashkaKnife
+      objectReference: {fileID: 0}
+    - target: {fileID: 5260605074062620644, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020283406607341263, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020283406607341263, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939493167566246442, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.58897
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939493167566246442, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.1078272
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939493167566246442, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.0624347
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939493167566246442, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70240164
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939493167566246442, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939493167566246442, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939493167566246442, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.71178085
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939493167566246442, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939493167566246442, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939493167566246442, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154935375556097236, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1626098282}
+    - target: {fileID: 8154935375556097236, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: dodgeChance
+      value: 0.1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
 --- !u!1 &2116990262
 GameObject:
   m_ObjectHideFlags: 0
@@ -34015,3 +34096,4 @@ SceneRoots:
   - {fileID: 1889333962}
   - {fileID: 2061669857}
   - {fileID: 167513803}
+  - {fileID: 2092763699}

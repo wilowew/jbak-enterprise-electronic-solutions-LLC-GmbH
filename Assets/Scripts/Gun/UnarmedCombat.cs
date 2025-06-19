@@ -154,7 +154,7 @@ public class UnarmedCombat : MonoBehaviour
                 hitSuccess = true;
             }
 
-            if (hit.CompareTag("Boss") && hit.TryGetComponent<Yashka>(out var boss))
+            if (hit.CompareTag("Enemy") && hit.TryGetComponent<Yashka>(out var boss))
             {
                 boss.TakeDamage(damage);
                 hitSuccess = true;

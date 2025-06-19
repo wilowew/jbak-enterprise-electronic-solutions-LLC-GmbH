@@ -9070,6 +9070,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: YashkaKnife
       objectReference: {fileID: 0}
+    - target: {fileID: 5260605074062620644, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6939493167566246442, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 30.9525
@@ -9121,6 +9125,10 @@ PrefabInstance:
     - target: {fileID: 8154935375556097236, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
       propertyPath: dodgeSpeed
       value: 8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154935375556097236, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
+      propertyPath: dodgeChance
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8154935375556097236, guid: 6e5e643748262ea4e8433aeef95ff6c2, type: 3}
       propertyPath: rotationSpeed

@@ -21,30 +21,27 @@ public class MeleeAttack : MonoBehaviour
 
     public void Attack()
     {
+        if (PauseManager.Instance != null && (PauseManager.Instance.IsPaused || DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive))
+            return;
+
         Vector2 attackPosition = (Vector2)transform.position + attackOffset;
-
-        // Получаем все коллайдеры в радиусе атаки
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(attackPosition, attackRange);
-
         bool hitDetected = false;
+
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(attackPosition, attackRange);
 
         foreach (Collider2D hitCollider in hitColliders)
         {
-            if (hitCollider.CompareTag("Boss") && hitCollider.TryGetComponent<Yashka>(out var yashka))
+            if (hitCollider.CompareTag("Enemy") && hitCollider.TryGetComponent<Yashka>(out var yashka))
             {
-                yashka.TakeDamage(attackDamage);
+                yashka.TakeDamage(attackDamage, DeathType.Melee);
                 hitDetected = true;
-                Debug.Log("Попал по Яшке!");
-                continue;
             }
-
-            if (hitCollider.CompareTag("Enemy") && hitCollider.TryGetComponent<EnemyAI>(out var enemy))
+            else if (hitCollider.CompareTag("Enemy") && hitCollider.TryGetComponent<EnemyAI>(out var enemy))
             {
-                enemy.TakeDamage(attackDamage);
+                enemy.TakeDamage(attackDamage, DeathType.Melee);
                 hitDetected = true;
-                continue;
             }
-            if (hitCollider.CompareTag("Scarecrow") && hitCollider.TryGetComponent<Scarecrow>(out var scarecrow))
+            else if (hitCollider.CompareTag("Scarecrow") && hitCollider.TryGetComponent<Scarecrow>(out var scarecrow))
             {
                 if (!scarecrow.IsDestroyed)
                 {

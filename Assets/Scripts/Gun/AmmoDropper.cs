@@ -6,6 +6,7 @@ public class AmmoDropper : MonoBehaviour
     [Header("Ammo Drop Settings")]
     [Tooltip("Prefabs of ammo to drop")]
     public GameObject[] ammoPrefabs;
+    public GameObject[] weaponPrefabs;
 
     [Tooltip("Minimum distance between dropped ammo items")]
     public float minDistanceBetweenAmmo = 0.5f;
@@ -14,7 +15,7 @@ public class AmmoDropper : MonoBehaviour
     public int maxPlacementAttempts = 10;
 
     [Tooltip("Radius around NPC where ammo can be dropped")]
-    public float dropRadius = 1.5f;
+    public float dropRadius = 0.7f;
 
     private bool isQuitting = false;
 
@@ -26,6 +27,7 @@ public class AmmoDropper : MonoBehaviour
     public void DropAmmo()
     {
         if (isQuitting) return;
+
         if (ammoPrefabs == null || ammoPrefabs.Length == 0) return;
 
         List<Vector3> placedPositions = new List<Vector3>();
@@ -39,6 +41,22 @@ public class AmmoDropper : MonoBehaviour
             {
                 Instantiate(ammoPrefab, validPosition.Value, Quaternion.identity);
                 placedPositions.Add(validPosition.Value);
+            }
+        }
+
+        if (weaponPrefabs != null && weaponPrefabs.Length > 0)
+        {
+            foreach (GameObject weaponPrefab in weaponPrefabs)
+            {
+                if (weaponPrefab == null) continue;
+
+                Vector3? validPosition = FindValidPosition(placedPositions);
+                if (validPosition.HasValue)
+                {
+                    GameObject weapon = Instantiate(weaponPrefab, validPosition.Value, Quaternion.identity);
+                    FirearmShooting firearm = weapon.GetComponent<FirearmShooting>();
+                    placedPositions.Add(validPosition.Value);
+                }
             }
         }
     }

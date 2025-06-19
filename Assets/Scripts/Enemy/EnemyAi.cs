@@ -671,9 +671,13 @@ public class EnemyAI : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, newAngle);
     }
 
-    public void TakeDamage(double damage)
+    private DeathType lastDamageType = DeathType.Other;
+
+    public void TakeDamage(double damage, DeathType damageType = DeathType.Other)
     {
         health -= damage;
+        lastDamageType = damageType;
+
         if (health <= 0)
         {
             Die();
@@ -735,7 +739,17 @@ public class EnemyAI : MonoBehaviour
         // Оригинальный код смерти
         if (redPuddlePrefab != null)
         {
-            Instantiate(redPuddlePrefab, transform.position, transform.rotation);
+            GameObject deathEffect = Instantiate(
+                redPuddlePrefab,
+                transform.position,
+                transform.rotation
+            );
+
+            DeathEffect effectScript = deathEffect.GetComponent<DeathEffect>();
+            if (effectScript != null)
+            {
+                effectScript.SetDeathType(lastDamageType);
+            }
         }
         FindAnyObjectByType<BackgroundMusic>()?.AddKillPoint();
         Destroy(gameObject);

@@ -45,23 +45,15 @@ public class Bullet : MonoBehaviour
             Yashka yashka = collision.collider.GetComponent<Yashka>();
             if (yashka != null)
             {
-                yashka.TryDodgeFromBullet(this);
-
-                if (!yashka.IsDodging)
-                {
-                    yashka.TakeDamage(damage);
-                    Destroy(gameObject);
-                }
+                yashka.TakeDamage(damage, DeathType.Ranged);
+                Destroy(gameObject);
             }
-            else
+            else if (collision.collider.TryGetComponent<EnemyAI>(out var enemy))
             {
-                EnemyAI enemy = collision.collider.GetComponent<EnemyAI>();
-                if (enemy != null)
-                {
-                    enemy.TakeDamage(damage);
-                    Destroy(gameObject);
-                }
+                enemy.TakeDamage(damage, DeathType.Ranged);
+                Destroy(gameObject);
             }
+
         }
     }
 }

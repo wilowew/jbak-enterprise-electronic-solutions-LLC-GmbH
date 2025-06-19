@@ -236,7 +236,7 @@ MonoBehaviour:
   shotsPerSecond: 5
   bulletsPerMagazine: 5
   maxReserveMagazines: 1
-  ammoUIText: {fileID: 0}
+  ammoUIText: {fileID: 1128993846482606358, guid: f315c2cfab5a196438d6742eb9f15b47, type: 3}
   shotSound: {fileID: 8300000, guid: cd6233fefc06e78469c4f6da36b0caf9, type: 3}
   emptyMagSound: {fileID: 8300000, guid: 2300dd3e5aa683a419a953764171f831, type: 3}
   reloadSound: {fileID: 8300000, guid: 596b0d3534154024cb15e6a98dcf3723, type: 3}
