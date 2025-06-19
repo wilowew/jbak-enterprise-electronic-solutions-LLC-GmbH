@@ -1004,7 +1004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c394060f4203203409da733e5c414383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 14.58
+  delayBeforeStart: 14.55
   fadeDuration: 0
   targetAlpha: 1
   objectToToggle: {fileID: 0}
